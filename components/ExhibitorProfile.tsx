@@ -34,46 +34,43 @@ const ExhibitorProfile: React.FC = () => {
   return (
     <section className="relative bg-white text-archive-charcoal py-10 md:py-14 overflow-hidden border-b border-archive-charcoal/10" id="exhibitors">
 
-      {/* Background Technical Grid - Pure Vertical Lines */}
-      <div className="absolute inset-0 opacity-[0.06] pointer-events-none">
+      {/* Technical 'Thousand Line' Background */}
+      <div className="absolute inset-0 opacity-[0.1] pointer-events-none overflow-hidden">
+        {/* Primary Dense Grid */}
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage: 'repeating-linear-gradient(90deg, #000, #000 1px, transparent 1px, transparent 120px)',
-            backgroundSize: '120px 100%'
+            backgroundImage: 'repeating-linear-gradient(90deg, #000, #000 1px, transparent 1px, transparent 3px)',
+            backgroundSize: '3px 100%',
+            WebkitMaskImage: 'radial-gradient(ellipse at center, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 85%)',
+            maskImage: 'radial-gradient(ellipse at center, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 85%)'
+          }}
+        ></div>
+        {/* Secondary Accent Grid */}
+        <div
+          className="absolute inset-0 opacity-20"
+          style={{
+            backgroundImage: 'repeating-linear-gradient(90deg, #d99578, #d99578 1px, transparent 1px, transparent 60px)',
+            backgroundSize: '60px 100%',
+            WebkitMaskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)',
+            maskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)'
           }}
         ></div>
       </div>
 
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 relative z-10">
 
-        {/* Section Header with Outline (Stroke) Reveal Effect */}
-        <div className="mb-10 md:mb-12 flex flex-col items-center">
-          <div className="relative w-full h-[20vh] md:h-[25vh] bg-white overflow-hidden flex items-center justify-center">
-            <video
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="absolute inset-0 w-full h-full object-cover brightness-125 contrast-125 "
-            >
-              <source src="https://cdn.pixabay.com/video/2022/02/22/108607-681143951_large.mp4" type="video/mp4" />
-            </video>
-
-            {/* Mask Layer: Text with Outline only */}
-            <div className="absolute inset-0 bg-white mix-blend-screen flex items-center justify-center pointer-events-none">
-              <motion.h2
-                initial={{ letterSpacing: "0.5em", opacity: 0 }}
-                whileInView={{ letterSpacing: "0.05em", opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 2, ease: [0.16, 1, 0.3, 1] }}
-                className="text-[3vw] md:text-[2.25vw] font-serif font-black leading-none text-transparent whitespace-nowrap text-center uppercase m-0 p-0 "
-                style={{ WebkitTextStroke: '1px #d99578' }}
-              >
-                UPCOMING EXHIBITIONS
-              </motion.h2>
-            </div>
-          </div>
+        {/* Simplified Section Header */}
+        <div className="mb-14 flex flex-col items-center pt-10">
+          <motion.h2
+            initial={{ letterSpacing: "0.4em", opacity: 0 }}
+            whileInView={{ letterSpacing: "0.1em", opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 2.5, ease: [0.16, 1, 0.3, 1] }}
+            className="text-2xl md:text-5xl font-serif font-black leading-none text-archive-charcoal text-center uppercase"
+          >
+            Upcoming Exhibitions
+          </motion.h2>
         </div>
 
         {/* Technical Registry Index Table */}
@@ -87,7 +84,7 @@ const ExhibitorProfile: React.FC = () => {
               viewport={{ once: true }}
               className="group grid grid-cols-1 lg:grid-cols-12 border-b last:border-b-0 border-archive-charcoal/10 relative overflow-hidden"
             >
-              <div className="lg:col-span-1 border-r border-archive-charcoal/10 p-6 flex flex-col justify-between items-center text-center bg-archive-cream/30">
+              <div className="lg:col-span-1 border-r border-archive-charcoal/10 p-6 flex flex-col justify-between items-center text-center bg-white">
 
                 <span className="text-4xl font-serif font-black  text-archive-charcoal/10 group-hover:text-archive-clay transition-colors duration-700">0{idx + 1}</span>
                 <div className="flex flex-col gap-1 items-center">
@@ -137,8 +134,8 @@ const ExhibitorProfile: React.FC = () => {
                     <Layers size={16} className="text-white/20 group-hover:text-archive-clay" />
                   </div>
                   <div className="space-y-4">
-                    <button className="w-full bg-white text-archive-charcoal py-3 text-[10px] font-black tracking-[0.6em] uppercase hover:bg-archive-clay hover:text-white transition-all flex items-center justify-center gap-4">
-                      REGISTER NOW <ArrowUpRight size={14} />
+                    <button className="w-full bg-white text-archive-charcoal py-3 text-[10px] font-black tracking-[0.22em] uppercase hover:bg-archive-clay hover:text-white transition-all flex items-center justify-center gap-4">
+                      VIEW DETAILS <ArrowUpRight size={14} />
                     </button>
                   </div>
                 </div>

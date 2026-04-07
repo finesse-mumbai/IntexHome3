@@ -170,6 +170,10 @@ const App: React.FC = () => {
           </section>
         </RevealWrapper>
 
+        <RevealWrapper text="METRICS." subtext="REG_ID // 06" type="center-split-h" amount={0.2}>
+          <Stats />
+        </RevealWrapper>
+
         <RevealWrapper text="EVENTS." subtext="REG_ID // 02" type="bands-v" amount={0.3}>
           <ExhibitorProfile />
         </RevealWrapper>
@@ -184,10 +188,6 @@ const App: React.FC = () => {
 
         <RevealWrapper text="GALLERY." subtext="REG_ID // 05" type="slide" direction="left" amount={0.3}>
           <Gallery />
-        </RevealWrapper>
-
-        <RevealWrapper text="METRICS." subtext="REG_ID // 06" type="center-split-h" amount={0.4}>
-          <Stats />
         </RevealWrapper>
 
         <RevealWrapper text="VOICES." subtext="REG_ID // 07" type="bands-v" amount={0.2}>

@@ -15,12 +15,12 @@ const Hero: React.FC = () => {
           className="absolute inset-0 w-full h-full object-cover brightness-[0.4]"
         >
           <source src="https://www.wofxworldexpo.com/assests/WOFX-Short-Video-2025.mp4" type="video/mp4" />
-          Your browser does not support the video tag why its not suppoert.
+          Your browser does not support the video tag why its not.
         </video>
         <div className="absolute inset-0 bg-gradient-to-b from-archive-charcoal/80 via-transparent to-archive-charcoal"></div>
       </div>
 
-      <div className="relative z-10 space-y-8 max-w-5xl">
+      <div className="relative z-10 space-y-8 max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -28,9 +28,37 @@ const Hero: React.FC = () => {
           className="space-y-4"
         >
           <span className="text-[10px] font-black tracking-[0.8em] uppercase text-archive-clay">The Past is Our Future</span>
-          <h1 className="text-[78px] md:text-[125px] font-serif font-black leading-[0.85] tracking-tighter text-white">
-            Intex South Asia
-          </h1>
+          <div className="relative w-full max-w-none flex items-center justify-center -mt-40">
+            <svg viewBox="0 0 6500 450" className="w-[85vw] h-auto overflow-visible select-none pointer-events-none">
+              <defs>
+                <clipPath id="heroTextClip">
+                  <motion.text
+                    x="50%"
+                    y="50%"
+                    textAnchor="middle"
+                    dominantBaseline="middle"
+                    initial={{ letterSpacing: "0.15em", opacity: 0 }}
+                    animate={{ letterSpacing: "0.01em", opacity: 1 }}
+                    transition={{ duration: 2.5, ease: [0.16, 1, 0.3, 1] }}
+                    className="font-serif font-black uppercase text-[450px]"
+                  >
+                    Intex South Asia
+                  </motion.text>
+                </clipPath>
+              </defs>
+              <foreignObject x="0" y="0" width="100%" height="100%" clipPath="url(#heroTextClip)" className="overflow-visible">
+                <video
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="w-full h-full object-cover contrast-[1.8] brightness-125 saturate-[1.3]"
+                >
+                  <source src="https://www.wofxworldexpo.com/assests/WOFX-Short-Video-2025.mp4" type="video/mp4" />
+                </video>
+              </foreignObject>
+            </svg>
+          </div>
           <p className="text-[10px] font-bold tracking-[0.3em] uppercase text-white opacity-60">
             The Premier International Textile Sourcing Shows of South Asia
           </p>

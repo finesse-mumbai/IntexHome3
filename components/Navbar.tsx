@@ -87,14 +87,14 @@ const Navbar: React.FC = () => {
 
   return (
     <>
-      <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-700 ${isScrolled ? 'bg-archive-cream/95 backdrop-blur-md border-b border-archive-charcoal/10 py-2' : 'bg-transparent py-5'}`}>
+      <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-700 ${isScrolled ? 'bg-white backdrop-blur-md border-b border-archive-charcoal/10 py-2' : 'bg-transparent py-5'}`}>
         <div className="max-w-[1440px] mx-auto px-12 flex justify-between items-center">
           <div className="flex items-center gap-20">
             <div className="flex items-center cursor-pointer group" onClick={() => window.location.hash = '#home'}>
               <img
-                src="https://bd.intexsouthasia.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo.ff36e4e2.png&w=384&q=75"
+                src={isScrolled ? "/assets/logo-dark.webp" : "/assets/logo-light.png"}
                 alt="Intex South Asia"
-                className="w-[130px] h-auto transition-all duration-500"
+                className="w-[130px] h-auto transition-all duration-500 group-hover:scale-105"
               />
             </div>
 
