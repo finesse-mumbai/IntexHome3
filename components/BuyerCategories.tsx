@@ -39,49 +39,53 @@ const BuyerCategories: React.FC = () => {
 
         {/* The Matrix Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8">
-          {BUYER_PROFILES.map((profile, index) => (
+          {BUYER_PROFILES.slice(0, 10).map((profile, index) => (
             <ArchiveCard key={profile.title} profile={profile} index={index} />
           ))}
 
-          {/* Custom CTA Box filling the remaining 3 columns on XL screens */}
+          {/* Full-Width CTA Portal Box */}
           <motion.div
             initial={{ opacity: 0, scale: 0.98 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="xl:col-span-3 lg:col-span-2 md:col-span-2 sm:col-span-2 col-span-1 h-[420px] bg-archive-charcoal p-12 flex flex-col justify-between relative group overflow-hidden"
+            className="col-span-full bg-archive-charcoal p-8 md:p-12 flex flex-col lg:flex-row justify-between items-center relative group overflow-hidden gap-12"
           >
             {/* Background Decoration */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-archive-clay/5 rotate-45 translate-x-32 -translate-y-32"></div>
-            <div className="absolute -bottom-8 -left-8 text-[12rem] font-serif font-black text-white/5 select-none pointer-events-none">
-              REG
+            <div className="absolute -bottom-8 -left-8 text-[8rem] md:text-[12rem] font-serif font-black text-white/5 select-none pointer-events-none uppercase">
+              PORTAL
             </div>
 
-            <div className="relative z-10 space-y-6">
+            <div className="relative z-10 space-y-6 max-w-2xl">
               <div className="flex items-center gap-3">
                 <div className="w-8 h-[1px] bg-archive-clay"></div>
                 <span className="text-[10px] font-black tracking-[0.5em] text-archive-clay uppercase">Direct Access Portal</span>
               </div>
               <h3 className="text-xl md:text-3xl font-serif font-black text-archive-cream uppercase leading-[0.9]">
-                JOIN THE <br /> <span className="text-archive-clay">TEXTILE NETWORK.</span>
+                JOIN THE <span className="text-archive-clay">TEXTILE NETWORK.</span>
               </h3>
-              <p className="text-xs font-bold tracking-widest text-archive-cream/40 uppercase max-w-sm">
+              <p className="text-xs font-bold tracking-widest text-archive-cream/40 uppercase">
                 Register as a buyer or enquire for exhibition space to secure your position in the 2025 South Asian matrix.
               </p>
             </div>
 
-            <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <button className="flex items-center justify-between px-6 py-5 bg-archive-clay text-archive-cream group/btn hover:bg-white hover:text-archive-charcoal transition-all duration-500">
+            <div className="relative z-10 grid grid-cols-1 sm:grid-cols-3 gap-4 w-full lg:w-auto">
+              <button className="flex items-center justify-between px-6 py-5 bg-archive-clay text-archive-cream group/btn hover:bg-white hover:text-archive-charcoal transition-all duration-500 min-w-[200px]">
                 <span className="text-[10px] font-black tracking-[0.3em] uppercase">Buyer Registration</span>
                 <UserPlus size={16} className="transition-transform group-hover/btn:translate-x-1" />
               </button>
-              <button className="flex items-center justify-between px-6 py-5 border border-white/20 text-white group/btn hover:border-archive-clay hover:text-archive-clay transition-all duration-500">
+              <button className="flex items-center justify-between px-6 py-5 border border-white/20 text-white group/btn hover:border-archive-clay hover:text-archive-clay transition-all duration-500 min-w-[200px]">
                 <span className="text-[10px] font-black tracking-[0.3em] uppercase">Exhibitor Enquiry</span>
                 <ClipboardList size={16} className="transition-transform group-hover/btn:translate-x-1" />
+              </button>
+              <button className="flex items-center justify-between px-6 py-5 border border-archive-clay/40 bg-white/5 text-archive-clay group/btn hover:bg-archive-clay hover:text-white transition-all duration-500 min-w-[200px]">
+                <span className="text-[10px] font-black tracking-[0.3em] uppercase">View All Profile</span>
+                <ArrowRight size={16} className="transition-transform group-hover/btn:translate-x-1" />
               </button>
             </div>
 
             {/* Technical Detail */}
-            <div className="absolute top-8 right-8 text-[8px] font-black tracking-widest text-white/20 uppercase">
+            <div className="absolute top-8 left-8 lg:left-auto lg:right-8 text-[8px] font-black tracking-widest text-white/20 uppercase">
               PORTAL_REF // INTEX_2025
             </div>
           </motion.div>

@@ -178,16 +178,16 @@ const App: React.FC = () => {
           <ExhibitorProfile />
         </RevealWrapper>
 
+        <RevealWrapper text="VISUAL ARCHIVE." subtext="REG_ID // 05" type="slide" direction="left" amount={0.3}>
+          <Gallery />
+        </RevealWrapper>
+
         <RevealWrapper text="TIMELINE." subtext="REG_ID // 03" type="center-split-v" delay={0.15}>
           <Schedule />
         </RevealWrapper>
 
         <RevealWrapper text="EXHIBITORS." subtext="REG_ID // 04" type="bands-h" amount={0.25}>
           <BuyerProfile />
-        </RevealWrapper>
-
-        <RevealWrapper text="GALLERY." subtext="REG_ID // 05" type="slide" direction="left" amount={0.3}>
-          <Gallery />
         </RevealWrapper>
 
         <RevealWrapper text="VOICES." subtext="REG_ID // 07" type="bands-v" amount={0.2}>
