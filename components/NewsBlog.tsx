@@ -8,7 +8,7 @@ const NewsBlog: React.FC = () => {
          <div className="max-w-[1440px] mx-auto px-12">
             <div className="text-center mb-24 space-y-4">
                <span className="text-[10px] font-black tracking-[0.5em] uppercase text-archive-clay">News Blog</span>
-               <h2 className="text-lg font-serif font-black tracking-tighter uppercase text-archive-charcoal">
+               <h2 className="text-lg font-black tracking-tighter uppercase text-archive-charcoal">
                   Latest From Our Blog
                </h2>
                <div className="w-12 h-[2px] bg-archive-clay mx-auto mt-4"></div>
@@ -22,7 +22,7 @@ const NewsBlog: React.FC = () => {
                   </div>
                   <div className="pt-8 space-y-4">
                      <span className="text-[9px] font-black tracking-widest uppercase text-archive-clay">Admin _ Press Release</span>
-                     <h3 className="text-lg font-serif font-black uppercase leading-tight text-archive-charcoal group-hover:text-archive-clay transition-colors">Celebrating Authentic Marathon at Our Museum</h3>
+                     <h3 className="text-lg font-black uppercase leading-tight text-archive-charcoal group-hover:text-archive-clay transition-colors">Celebrating Authentic Marathon at Our Museum</h3>
                      <p className="text-[10px] font-medium leading-relaxed uppercase tracking-widest text-archive-charcoal opacity-70">Explain to you how all this mistaken idea of denouncing pleasure...</p>
                      <div className="pt-4 flex justify-between items-center text-[9px] font-black tracking-widest border-t border-archive-charcoal/10">
                         <span className="text-archive-clay hover:underline cursor-pointer">READ MORE +</span>
@@ -34,8 +34,8 @@ const NewsBlog: React.FC = () => {
                {/* Card 2 - Center Quote Section */}
                <div className="md:col-span-4 bg-archive-cream flex flex-col">
                   <div className="flex-1 bg-archive-clay/5 p-12 flex flex-col justify-center items-center text-center relative group">
-                     <div className="text-4xl font-serif font-black text-archive-clay opacity-10 absolute top-4 left-4">“</div>
-                     <p className="text-lg font-serif font-black uppercase leading-tight mb-8 text-archive-charcoal group-hover:text-archive-clay transition-colors">
+                     <div className="text-4xl font-black text-archive-clay opacity-10 absolute top-4 left-4">“</div>
+                     <p className="text-lg font-black uppercase leading-tight mb-8 text-archive-charcoal group-hover:text-archive-clay transition-colors">
                         "While I stand & regard it, the indifference to myself shown by a work of art in itself is art"
                      </p>
                      <button className="text-[10px] font-black tracking-[0.4em] uppercase border-b border-archive-clay pb-2 text-archive-clay hover:opacity-60 transition-opacity">Read More +</button>
@@ -52,7 +52,7 @@ const NewsBlog: React.FC = () => {
                   </div>
                   <div className="pt-8 space-y-4">
                      <span className="text-[9px] font-black tracking-widest uppercase text-archive-clay">Admin _ Press Release</span>
-                     <h3 className="text-lg font-serif font-black uppercase leading-tight text-archive-charcoal group-hover:text-archive-clay transition-colors">The Impact of Material Innovation in Modern Art</h3>
+                     <h3 className="text-lg font-black uppercase leading-tight text-archive-charcoal group-hover:text-archive-clay transition-colors">The Impact of Material Innovation in Modern Art</h3>
                      <p className="text-[10px] font-medium leading-relaxed uppercase tracking-widest text-archive-charcoal opacity-70">Explain to you how all this mistaken idea of denouncing pleasure...</p>
                      <div className="pt-4 flex justify-between items-center text-[9px] font-black tracking-widest border-t border-archive-charcoal/10">
                         <span className="text-archive-clay hover:underline cursor-pointer">READ MORE +</span>

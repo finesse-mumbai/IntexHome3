@@ -25,7 +25,7 @@ const MemberSection: React.FC = () => {
         <div className="space-y-12">
           <div className="space-y-4">
             <span className="text-[10px] font-black tracking-[0.5em] uppercase text-archive-clay">Membership</span>
-            <h2 className="text-3xl font-serif font-black tracking-tighter leading-none uppercase text-archive-charcoal">
+            <h2 className="text-3xl font-black tracking-tighter leading-none uppercase text-archive-charcoal">
               Become a <br /> <span>Member of Intex</span>
             </h2>
           </div>

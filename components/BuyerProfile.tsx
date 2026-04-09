@@ -17,9 +17,9 @@ const BuyerProfile: React.FC = () => {
         <div className="flex flex-col md:flex-row justify-between items-end mb-32 gap-12">
           <div className="space-y-6">
 
-            <h2 className="text-xl md:text-4xl font-serif font-black tracking-tighter uppercase  text-black leading-[0.7]">
+            <h2 className="text-xl md:text-4xl font-black tracking-tighter uppercase  text-black leading-[0.7]">
               EXHIBITOR <br />
-              <span className="not- text-outline" style={{ WebkitTextStroke: '2px rgba(217, 149, 120, 1)' }}>PROFILE.</span>
+              <span className="text-archive-clay">PROFILE.</span>
             </h2>
           </div>
 
@@ -81,7 +81,7 @@ const ExhibitorUnit: React.FC<{ cat: CategoryItem; index: number }> = ({ cat, in
 
         <div className="space-y-4">
           <div className="space-y-2">
-            <h3 className="text-xl font-serif font-black uppercase  text-white leading-[0.85] group-hover:translate-x-2 transition-transform duration-500">
+            <h3 className="text-xl font-black uppercase  text-white leading-[0.85] group-hover:translate-x-2 transition-transform duration-500">
               {cat.title}
             </h3>
             <div className="h-0.5 w-0 bg-archive-clay group-hover:w-full transition-all duration-700"></div>

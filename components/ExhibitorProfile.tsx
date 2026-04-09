@@ -7,148 +7,124 @@ const EXHIBITIONS = [
   {
     id: 'ex-bg',
     title: 'INTEX BANGLADESH',
+    edition: '17th Edition',
     date: '18-19-20 June, 2026',
     location: 'ICCB, DHAKA',
-    code: 'BD_NODE_26',
-    imageUrl: 'https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&q=80&w=1200'
+    imageUrl: 'https://sl.intexsouthasia.com/assets/img/Gallery/2025/21.jpg',
+    category: 'FIBRES & YARNS'
   },
   {
     id: 'ex-sl',
     title: 'INTEX SRI LANKA',
+    edition: '17th Edition',
     date: '5-6-7 August 2026',
     location: 'BMICH, COLOMBO',
-    code: 'SL_NODE_26',
-    imageUrl: 'https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?auto=format&fit=crop&q=80&w=1200'
+    imageUrl: 'https://sl.intexsouthasia.com/assets/img/Gallery/2025/8.jpg',
+    category: 'FABRICS & ACCESSORIES'
   },
   {
     id: 'ex-in',
     title: 'INTEX INDIA',
+    edition: '17th Edition',
     date: 'ANNOUNCING SOON',
     location: 'NEW DELHI',
-    code: 'IN_NODE_26',
-    imageUrl: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&q=80&w=1200'
+    imageUrl: 'https://sl.intexsouthasia.com/assets/img/Gallery/2025/14.jpg',
+    category: 'DENIM & APPAREL'
   }
 ];
 
 const ExhibitorProfile: React.FC = () => {
   return (
-    <section className="relative bg-white text-archive-charcoal py-10 md:py-14 overflow-hidden border-b border-archive-charcoal/10" id="exhibitors">
+    <section className="relative bg-white py-24 md:py-32 overflow-hidden border-b border-archive-charcoal/10" id="exhibitions">
 
-      {/* Technical 'Thousand Line' Background */}
-      <div className="absolute inset-0 opacity-[0.1] pointer-events-none overflow-hidden">
-        {/* Primary Dense Grid */}
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: 'repeating-linear-gradient(90deg, #000, #000 1px, transparent 1px, transparent 3px)',
-            backgroundSize: '3px 100%',
-            WebkitMaskImage: 'radial-gradient(ellipse at center, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 85%)',
-            maskImage: 'radial-gradient(ellipse at center, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 85%)'
-          }}
-        ></div>
-        {/* Secondary Accent Grid */}
-        <div
-          className="absolute inset-0 opacity-20"
-          style={{
-            backgroundImage: 'repeating-linear-gradient(90deg, #d99578, #d99578 1px, transparent 1px, transparent 60px)',
-            backgroundSize: '60px 100%',
-            WebkitMaskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)',
-            maskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)'
-          }}
-        ></div>
+      {/* Background Micro-details */}
+      <div className="absolute top-0 right-0 p-12 opacity-20 pointer-events-none">
+        <span className="text-[10px] font-mono text-archive-charcoal uppercase tracking-[0.5em]">Upcoming_Nodes // 2026 Cycle</span>
       </div>
 
-      <div className="max-w-[1440px] mx-auto px-6 md:px-12 relative z-10">
+      <div className="max-w-[1440px] mx-auto px-12 relative z-10">
 
-        {/* Simplified Section Header */}
-        <div className="mb-14 flex flex-col items-center pt-10">
-          <motion.h2
-            initial={{ letterSpacing: "0.4em", opacity: 0 }}
-            whileInView={{ letterSpacing: "0.1em", opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 2.5, ease: [0.16, 1, 0.3, 1] }}
-            className="text-2xl md:text-5xl font-serif font-black leading-none text-archive-charcoal text-center uppercase"
-          >
-            Upcoming Exhibitions
-          </motion.h2>
+        {/* Section Title */}
+        <div className="mb-20 space-y-6">
+          <div className="flex items-center gap-4">
+            <div className="w-12 h-[1px] bg-archive-clay"></div>
+            <span className="text-[10px] font-black tracking-[0.5em] uppercase text-archive-clay">Sourcing Registry</span>
+          </div>
+          <h2 className="text-2xl md:text-4xl font-black tracking-tighter uppercase leading-[0.9] text-archive-charcoal">
+            Upcoming <br /><span className="text-archive-clay">Exhibitions.</span>
+          </h2>
         </div>
 
-        {/* Technical Registry Index Table */}
-        <div className="border border-archive-charcoal/10 bg-white mb-20">
-          {EXHIBITIONS.map((ex, idx) => (
-            <motion.div
-              key={ex.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: idx * 0.1 }}
-              viewport={{ once: true }}
-              className="group grid grid-cols-1 lg:grid-cols-12 border-b last:border-b-0 border-archive-charcoal/10 relative overflow-hidden"
-            >
-              <div className="lg:col-span-1 border-r border-archive-charcoal/10 p-6 flex flex-col justify-between items-center text-center bg-white">
-
-                <span className="text-4xl font-serif font-black  text-archive-charcoal/10 group-hover:text-archive-clay transition-colors duration-700">0{idx + 1}</span>
-                <div className="flex flex-col gap-1 items-center">
-                  <div className={`w-2 h-2 ${idx === 2 ? 'bg-orange-500' : 'bg-green-500'} group-hover:scale-125 transition-transform`}></div>
-                </div>
-              </div>
-
-              <div className="lg:col-span-5 border-r border-archive-charcoal/10 p-10 flex flex-col justify-center space-y-6">
-                <div className="space-y-4">
-                  <div className="flex items-center gap-4">
-                    <Database size={14} className="text-archive-clay" />
-                    <span className="text-[9px] font-mono font-bold text-archive-charcoal/80 uppercase tracking-[0.3em]">17<sup>th</sup> Edition</span>
-                  </div>
-                  <h3 className="text-2xl md:text-3xl font-serif font-black uppercase  text-archive-charcoal leading-[0.9] group-hover:translate-x-2 transition-transform duration-1000">
-                    {ex.title}
-                  </h3>
-                </div>
-              </div>
-
-              <div className="lg:col-span-3 border-r border-archive-charcoal/10 p-10 flex flex-col justify-center gap-8">
-                <div className="space-y-6">
-                  <div className="flex items-start gap-4">
-                    <Calendar size={16} className="text-archive-clay mt-1" />
-                    <div className="space-y-1">
-                      <span className="text-[8px] font-mono text-archive-charcoal/80 uppercase block tracking-tighter">Event Date</span>
-                      <span className="text-xs font-black uppercase tracking-widest">{ex.date}</span>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-4">
-                    <MapPin size={16} className="text-archive-clay mt-1" />
-                    <div className="space-y-1">
-                      <span className="text-[8px] font-mono text-archive-charcoal/80 uppercase block tracking-tighter">Event Vanue</span>
-                      <span className="text-xs font-black uppercase tracking-widest">{ex.location}</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="lg:col-span-3 relative group/img overflow-hidden min-h-[250px] lg:min-h-0">
+        {/* Cinematic Grid in Textured Orange Container */}
+        <div className="bg-archive-clay p-4 relative overflow-hidden">
+          <div
+            className="absolute inset-0 opacity-15 pointer-events-none mix-blend-overlay"
+            style={{ backgroundImage: `url('https://grainy-gradients.vercel.app/noise.svg')` }}
+          />
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-1 relative z-10">
+            {EXHIBITIONS.map((ex, idx) => (
+              <motion.div
+                key={ex.id}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1, delay: idx * 0.2 }}
+                className="group relative h-[600px] overflow-hidden bg-archive-charcoal"
+              >
+                {/* Image Layer */}
                 <img
                   src={ex.imageUrl}
-                  className="absolute inset-0 w-full h-full object-cover brightness-90 contrast-125 group-hover:scale-110 group-hover:brightness-50 transition-all duration-[2000ms]"
-                  alt={ex.title}
+                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-all duration-1000 opacity-80 group-hover:opacity-100"
                 />
-                <div className="absolute inset-0 p-6 flex flex-col justify-between z-10">
-                  <div className="flex justify-between items-start">
-                    <Layers size={16} className="text-white/20 group-hover:text-archive-clay" />
+                <div className="absolute inset-0 bg-gradient-to-t from-archive-charcoal via-transparent to-transparent opacity-80" />
+
+                {/* Technical Overlay */}
+                <div className="absolute inset-0 p-10 flex flex-col justify-between">
+                  <div className="flex items-start justify-between">
+                    <div className="space-y-4">
+                      <span className="block text-[40px] font-black text-white/10 leading-none tabular-nums">0{idx + 1}</span>
+                      <div className="inline-block px-3 py-1 bg-archive-clay border border-archive-clay">
+                        <span className="text-[9px] font-black text-white tracking-[0.2em] uppercase">{ex.edition}</span>
+                      </div>
+                    </div>
                   </div>
-                  <div className="space-y-4">
-                    <button className="w-full bg-white text-archive-charcoal py-3 text-[10px] font-black tracking-[0.22em] uppercase hover:bg-archive-clay hover:text-white transition-all flex items-center justify-center gap-4">
-                      VIEW DETAILS <ArrowUpRight size={14} />
+
+                  <div className="space-y-8">
+                    <div className="space-y-4">
+                      <h3 className="text-4xl font-black text-white leading-[0.9] uppercase group-hover:tracking-wider transition-all duration-700">
+                        {ex.title.split(' ')[0]} <br /> {ex.title.split(' ')[1]}
+                      </h3>
+
+                      <div className="space-y-3">
+                        <div className="flex flex-col">
+                          <span className="text-[8px] font-bold text-white/40 uppercase tracking-widest">Event Date</span>
+                          <span className="text-sm font-black text-white uppercase tracking-wider">{ex.date}</span>
+                        </div>
+                        <div className="flex flex-col">
+                          <span className="text-[8px] font-bold text-white/40 uppercase tracking-widest">Event Venue</span>
+                          <div className="flex items-center gap-2">
+                            <MapPin size={12} className="text-archive-clay" />
+                            <span className="text-xs font-black text-white uppercase tracking-wider">{ex.location}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <button className="w-full bg-white group/btn relative overflow-hidden py-4 px-6 flex items-center justify-between transition-all hover:bg-archive-clay">
+                      <span className="relative z-10 text-[9px] font-black text-archive-charcoal group-hover:text-white uppercase tracking-[0.4em] transition-colors">View Details</span>
+                      <ArrowUpRight size={16} className="relative z-10 text-archive-clay group-hover:text-white transition-colors" />
+                      <div className="absolute inset-0 bg-archive-clay translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
                     </button>
                   </div>
                 </div>
-                <motion.div
-                  initial={{ left: -10 }}
-                  animate={{ left: ['0%', '100%'] }}
-                  transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
-                  className="absolute top-0 w-px h-full bg-white/40 z-20 pointer-events-none opacity-0 group-hover/img:opacity-100"
-                />
-              </div>
-            </motion.div>
-          ))}
+
+                {/* Scanline Effect */}
+                <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[length:100%_2px,3px_100%] pointer-events-none opacity-20" />
+              </motion.div>
+            ))}
+          </div>
         </div>
+
       </div>
     </section>
   );

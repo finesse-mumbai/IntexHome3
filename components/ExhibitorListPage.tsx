@@ -44,15 +44,15 @@ const ExhibitorListPage: React.FC = () => {
               <div className="w-12 h-[1px] bg-archive-clay"></div>
               <span className="text-[10px] font-black tracking-[0.5em] uppercase text-archive-clay">Registry // Directory Index</span>
             </div>
-            <h1 className="text-2xl md:text-[4vw] font-serif font-black tracking-tighter uppercase leading-[0.85] text-archive-charcoal">
+            <h1 className="text-2xl md:text-[4vw] font-black tracking-tighter uppercase leading-[0.85] text-archive-charcoal">
               EXHIBITOR <br />
-              <span className="text-outline" style={{ WebkitTextStroke: '2px #2F2C2C' }}>LISTS.</span>
+              <span className="text-white">LISTS.</span>
             </h1>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
             <div className="lg:col-span-7">
-              <p className="text-xl md:text-2xl font-serif font-black uppercase text-archive-charcoal/80 leading-tight">
+              <p className="text-xl md:text-2xl font-black uppercase text-archive-charcoal/80 leading-tight">
                 Accessing the <span className="text-archive-clay">verified manifest</span> of participating manufacturers for the 2026 global cycle.
               </p>
             </div>
@@ -79,7 +79,7 @@ const ExhibitorListPage: React.FC = () => {
               className="group relative h-[600px] border border-archive-charcoal/10 bg-white p-12 flex flex-col justify-between overflow-hidden"
             >
               {/* Background ID Decoration */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[15rem] font-serif font-black text-archive-charcoal/[0.02] select-none pointer-events-none group-hover:text-archive-clay/[0.05] transition-colors duration-700">
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[15rem] font-black text-archive-charcoal/[0.02] select-none pointer-events-none group-hover:text-archive-clay/[0.05] transition-colors duration-700">
                 0{idx + 1}
               </div>
 
@@ -93,7 +93,7 @@ const ExhibitorListPage: React.FC = () => {
                 </div>
 
                 <div className="space-y-4">
-                  <h3 className="text-xl md:text-2xl font-serif font-black uppercase tracking-tighter leading-[0.9] text-archive-charcoal group-hover:text-archive-clay transition-colors duration-500">
+                  <h3 className="text-xl md:text-2xl font-black uppercase tracking-tighter leading-[0.9] text-archive-charcoal group-hover:text-archive-clay transition-colors duration-500">
                     {show.name}
                   </h3>
                   <div className="flex items-center gap-2 text-[10px] font-bold text-archive-charcoal/40 uppercase tracking-widest">
@@ -117,7 +117,7 @@ const ExhibitorListPage: React.FC = () => {
                     <motion.div
                       animate={{ opacity: [0.3, 1, 0.3] }}
                       transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-                      className="text-base md:text-lg font-serif font-black tracking-tighter text-archive-charcoal"
+                      className="text-base md:text-lg font-black tracking-tighter text-archive-charcoal"
                     >
                       {show.status}
                     </motion.div>

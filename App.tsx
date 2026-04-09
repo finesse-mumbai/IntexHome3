@@ -11,6 +11,7 @@ import Resources from './components/Resources';
 import Partners from './components/Partners';
 import BuyerCategories from './components/BuyerCategories';
 import Gallery from './components/Gallery';
+import VideoShowcase from './components/VideoShowcase';
 import Footer from './components/Footer';
 import RevealWrapper from './components/RevealWrapper';
 import ShowProfilePage from './components/ShowProfilePage';
@@ -139,12 +140,12 @@ const App: React.FC = () => {
               <div className="lg:col-span-5 space-y-10">
                 <div className="space-y-4">
                   <span className="text-[10px] font-black tracking-[0.5em] uppercase text-archive-clay">About Us</span>
-                  <h2 className="text-2xl md:text-4xl font-serif font-black tracking-tighter leading-[0.9] uppercase text-archive-charcoal">
+                  <h2 className="text-2xl md:text-4xl font-black tracking-tighter leading-[0.9] uppercase text-archive-charcoal">
                     Archive of <br /> South Asia.
                   </h2>
                 </div>
                 <div className="space-y-6">
-                  <h3 className="text-xl font-serif font-black leading-tight text-archive-charcoal">
+                  <h3 className="text-xl font-black leading-tight text-archive-charcoal">
                     The Premier International Textile Sourcing Shows of South Asia.
                   </h3>
                   <p className="text-archive-charcoal text-xs leading-relaxed max-w-lg uppercase tracking-widest font-medium opacity-80">
@@ -178,6 +179,7 @@ const App: React.FC = () => {
           <ExhibitorProfile />
         </RevealWrapper>
 
+
         <RevealWrapper text="VISUAL ARCHIVE." subtext="REG_ID // 05" type="slide" direction="left" amount={0.3}>
           <Gallery />
         </RevealWrapper>
@@ -186,17 +188,25 @@ const App: React.FC = () => {
           <Schedule />
         </RevealWrapper>
 
+        {/* 
         <RevealWrapper text="EXHIBITORS." subtext="REG_ID // 04" type="bands-h" amount={0.25}>
           <BuyerProfile />
         </RevealWrapper>
+        */}
 
         <RevealWrapper text="VOICES." subtext="REG_ID // 07" type="bands-v" amount={0.2}>
           <Testimonials />
         </RevealWrapper>
 
+        <RevealWrapper text="MOTION." subtext="REG_ID // 08" type="slide" direction="right" amount={0.3}>
+          <VideoShowcase />
+        </RevealWrapper>
+
+        {/* 
         <RevealWrapper text="BUYERS." subtext="REG_ID // 08" type="center-split-h" amount={0.2}>
           <BuyerCategories />
         </RevealWrapper>
+        */}
 
         <RevealWrapper text="PARTNERS." subtext="REG_ID // 09" type="bands-h" amount={0.4}>
           <Partners />
@@ -210,7 +220,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="bg-archive-cream text-archive-charcoal selection:bg-archive-clay selection:text-white min-h-screen relative font-sans">
+    <div className="bg-archive-cream text-archive-charcoal selection:bg-archive-clay selection:text-white min-h-screen relative">
       <motion.div
         initial={{ y: 0 }}
         animate={{ y: '-100%' }}
@@ -221,7 +231,7 @@ const App: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-white text-6xl md:text-9xl font-serif font-black uppercase tracking-tighter"
+          className="text-white text-6xl md:text-9xl font-black uppercase tracking-tighter"
         >
           INTEX<span className="text-archive-clay">.</span>
         </motion.div>

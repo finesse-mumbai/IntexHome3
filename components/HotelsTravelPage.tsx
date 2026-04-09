@@ -230,7 +230,7 @@ const HotelsTravelPage: React.FC = () => {
       <Star
         key={i}
         size={10}
-        fill={i < count ? "#d99578" : "none"}
+        fill={i < count ? "#EE7539" : "none"}
         className={i < count ? "text-archive-clay" : "text-archive-charcoal/10"}
       />
     ));
@@ -246,15 +246,15 @@ const HotelsTravelPage: React.FC = () => {
               <div className="w-12 h-[1px] bg-archive-clay"></div>
               <span className="text-[10px] font-black tracking-[0.5em] uppercase text-archive-clay">Logistics // Accomodation</span>
             </div>
-            <h1 className="text-2xl md:text-[4vw] font-serif font-black tracking-tighter uppercase leading-[0.85] text-archive-charcoal">
+            <h1 className="text-2xl md:text-[4vw] font-black tracking-tighter uppercase leading-[0.85] text-archive-charcoal">
               HOTELS & <br />
-              <span className="text-outline" style={{ WebkitTextStroke: '2px #2F2C2C' }}>TRAVEL.</span>
+              <span className="text-white">TRAVEL.</span>
             </h1>
           </div>
 
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-12">
             <div className="lg:col-span-7">
-              <p className="text-xl md:text-2xl font-serif font-black uppercase text-archive-charcoal/80 leading-tight">
+              <p className="text-xl md:text-2xl font-black uppercase text-archive-charcoal/80 leading-tight">
                 Exclusive <span className="text-archive-clay">discounted rates</span> for Intex delegates at premier hospitality partners.
               </p>
             </div>
@@ -306,7 +306,7 @@ const HotelsTravelPage: React.FC = () => {
                 <div className="p-10 flex flex-col justify-between flex-1 group-hover:text-white transition-colors duration-700">
                   <div className="space-y-6">
                     <div className="space-y-2">
-                      <h3 className="text-lg font-serif font-black uppercase tracking-tighter leading-tight group-hover:text-archive-clay transition-colors duration-500">
+                      <h3 className="text-lg font-black uppercase tracking-tighter leading-tight group-hover:text-archive-clay transition-colors duration-500">
                         {hotel.name}
                       </h3>
                       <div className="flex items-start gap-2 text-[9px] font-bold uppercase tracking-widest text-archive-charcoal/40 group-hover:text-white/40">
@@ -362,7 +362,7 @@ const HotelsTravelPage: React.FC = () => {
           <div className="space-y-6">
             <div className="flex items-center gap-4">
               <Info size={16} className="text-archive-clay" />
-              <h2 className="text-xl font-serif font-black uppercase tracking-tight text-archive-charcoal">Protocol // Information</h2>
+              <h2 className="text-xl font-black uppercase tracking-tight text-archive-charcoal">Protocol // Information</h2>
             </div>
             <div className="w-12 h-px bg-archive-clay"></div>
           </div>
@@ -393,7 +393,7 @@ const HotelsTravelPage: React.FC = () => {
           <div className="space-y-12">
             <div className="space-y-4">
               <span className="text-archive-clay text-[10px] font-black tracking-[0.5em] uppercase">Booking Registry</span>
-              <h3 className="text-xl font-serif font-black uppercase leading-[0.9]">For more info <br /> & hotel bookings.</h3>
+              <h3 className="text-xl font-black uppercase leading-[0.9]">For more info <br /> & hotel bookings.</h3>
             </div>
 
             <div className="space-y-8">

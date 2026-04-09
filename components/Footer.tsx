@@ -1,33 +1,57 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Mail, ArrowRight, Instagram, Facebook, Twitter, Linkedin } from 'lucide-react';
+import { GALLERY_ITEMS } from '../constants';
 
 const Footer: React.FC = () => {
   const brandName = "INTEX SOUTH ASIA";
+  const gridImages = Array.from({ length: 48 }, (_, i) => GALLERY_ITEMS[i % GALLERY_ITEMS.length].imageUrl);
 
   return (
     <>
-      <footer className="bg-archive-cream py-24 border-t border-archive-charcoal relative z-10">
-        <div className="max-w-[1440px] mx-auto px-12 text-center">
+      <footer className="relative py-32 overflow-hidden group" id="footer">
+        {/* Background Layer: Static Perspective Grid (Fully Clear in Middle) */}
+        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+          <div
+            className="flex flex-wrap justify-center gap-2 w-[120%] -ml-[10%] -mt-[5%]"
+            style={{
+              transform: 'rotate(-5deg) skewX(2deg)',
+            }}
+          >
+            {gridImages.map((src, i) => (
+              <div key={i} className="w-[10%] aspect-square overflow-hidden border border-archive-charcoal/5">
+                <img src={src} alt="" className="w-full h-full object-cover" />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* High-Contrast Viewfinder Mask: Clear Center Slot, Solid White Edges on all 4 sides */}
+        <div className="absolute inset-0 z-10 pointer-events-none bg-white/20" />
+        <div className="absolute inset-0 z-10 pointer-events-none bg-[radial-gradient(ellipse_at_center,_transparent_10%,_white_50%,_white_100%)]" />
+        {/* Reinforced Top/Bottom Masking */}
+        <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-white to-transparent z-10 opacity-100" />
+        <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-white to-transparent z-10 opacity-100" />
+
+        <div className="max-w-[1440px] mx-auto px-12 text-center relative z-20">
           <div className="mb-16">
-            <div className="w-20 h-20 bg-archive-charcoal text-archive-clay flex items-center justify-center mx-auto mb-6">
-              <span className="font-serif font-black text-4xl">IX</span>
+            <div className="flex items-center justify-center mx-auto mb-6">
+              <img src="/assets/logo-dark.webp" alt="Intex South Asia" className="h-16 w-auto" />
             </div>
-            <h2 className="text-lg font-serif font-black uppercase tracking-tighter text-archive-charcoal">INTEX SOUTH ASIA</h2>
+            <h2 className="text-lg font-black uppercase tracking-tighter text-archive-charcoal">INTEX SOUTH ASIA</h2>
           </div>
 
-          <div className="max-w-xl mx-auto mb-16 space-y-8">
-            <div className="flex border border-archive-charcoal p-2 bg-archive-cream">
-              <div className="w-14 flex items-center justify-center border-r border-archive-charcoal text-archive-clay">
+          <div className="max-w-xl mx-auto mb-16 space-y-8 text-left">
+            <div className="flex border-2 border-archive-clay rounded-full p-1.5 bg-white/10 backdrop-blur-sm shadow-xl shadow-archive-clay/5">
+              <div className="w-14 flex items-center justify-center text-archive-clay">
                 <Mail size={18} />
               </div>
               <input
                 type="email"
                 placeholder="Enter Email Address..."
-                className="flex-1 px-6 py-4 text-[10px] font-black tracking-widest uppercase bg-transparent outline-none text-archive-charcoal placeholder:text-archive-charcoal/40"
+                className="flex-1 px-4 py-4 text-[10px] font-black tracking-widest uppercase bg-transparent outline-none text-archive-charcoal placeholder:text-archive-charcoal/40"
               />
-              <button className="px-8 bg-archive-clay text-archive-cream hover:bg-archive-charcoal transition-all">
+              <button className="h-12 w-12 flex items-center justify-center bg-archive-clay text-archive-cream rounded-full hover:bg-archive-charcoal transition-all shrink-0 shadow-lg">
                 <ArrowRight size={20} />
               </button>
             </div>
@@ -70,7 +94,7 @@ const Footer: React.FC = () => {
             whileInView={{ letterSpacing: "0.1em", opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
-            className="text-[8vw] font-serif font-black leading-none text-white whitespace-nowrap text-center uppercase m-0 p-0"
+            className="text-[8vw] font-black leading-none text-white whitespace-nowrap text-center uppercase m-0 p-0"
           >
             {brandName}
           </motion.h1>

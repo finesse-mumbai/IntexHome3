@@ -25,25 +25,18 @@ const Partners: React.FC = () => {
   const extendedPartners = [...INDUSTRY_PARTNERS, ...INDUSTRY_PARTNERS, ...INDUSTRY_PARTNERS];
 
   return (
-    <section className="py-40 bg-white  relative overflow-hidden" id="partners">
+    <section className="py-32 bg-white  relative overflow-hidden" id="partners">
 
-
-      {/* Decorative Technical Streamer: Horizontal scan line */}
-      <motion.div
-        animate={{ y: ['0%', '100%'] }}
-        transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-        className="absolute left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-archive-clay/20 to-transparent z-10 pointer-events-none"
-      />
 
       <div className="max-w-[1440px] mx-auto px-12 mb-32 relative z-10">
         <div className="flex flex-col lg:flex-row justify-between items-end gap-12">
           <div className="space-y-6">
             <div className="flex items-center gap-4">
               <div className="w-12 h-[1px] bg-archive-clay"></div>
-              <span className="text-[10px] font-black tracking-[0.6em] uppercase text-archive-clay">Partnership Network</span>
+              <span className="text-[10px] font-black tracking-[0.5em] uppercase text-archive-clay">Partnership Network</span>
             </div>
-            <h2 className="text-sm md:text-4xl font-serif font-black tracking-tighter uppercase  text-archive-charcoal leading-[0.75]">
-              INDUSTRY <br /> <span className="text-outline" style={{ WebkitTextStroke: '1px #423e3e' }}>PARTNERS.</span>
+            <h2 className="text-2xl md:text-4xl font-black tracking-tighter uppercase text-archive-charcoal leading-[0.9]">
+              INDUSTRY <br /> <span className="text-archive-clay">PARTNERS.</span>
             </h2>
           </div>
 

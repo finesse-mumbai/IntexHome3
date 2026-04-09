@@ -117,15 +117,15 @@ const PressReleasePage: React.FC = () => {
               <div className="w-12 h-[1px] bg-archive-clay"></div>
               <span className="text-[10px] font-black tracking-[0.5em] uppercase text-archive-clay">Media Registry // News Manifest</span>
             </div>
-            <h1 className="text-2xl md:text-[4vw] font-serif font-black tracking-tighter uppercase leading-[0.85] text-archive-charcoal">
+            <h1 className="text-2xl md:text-[4vw] font-black tracking-tighter uppercase leading-[0.85] text-archive-charcoal">
               PRESS <br />
-              <span className="text-outline" style={{ WebkitTextStroke: '2px #2F2C2C' }}>RELEASES.</span>
+              <span className="text-white">RELEASES.</span>
             </h1>
           </div>
 
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-12">
             <div className="lg:col-span-7">
-              <p className="text-xl md:text-2xl font-serif font-black uppercase text-archive-charcoal/80 leading-tight">
+              <p className="text-xl md:text-2xl font-black uppercase text-archive-charcoal/80 leading-tight">
                 Official <span className="text-archive-clay">journalistic records</span> documenting the evolution and impact of Intex South Asia.
               </p>
             </div>
@@ -159,7 +159,7 @@ const PressReleasePage: React.FC = () => {
             {PRESS_DATA[activeShow].map((pr, idx) => (
               <div key={pr.id} className="bg-white p-12 md:p-24 relative group overflow-hidden">
                 {/* Background Decor */}
-                <div className="absolute top-1/2 right-12 -translate-y-1/2 text-[12rem] font-serif font-black text-archive-charcoal/[0.02] pointer-events-none select-none">
+                <div className="absolute top-1/2 right-12 -translate-y-1/2 text-[12rem] font-black text-archive-charcoal/[0.02] pointer-events-none select-none">
                   0{idx + 1}
                 </div>
 
@@ -177,7 +177,7 @@ const PressReleasePage: React.FC = () => {
                     </div>
 
                     <div className="space-y-4">
-                      <h2 className="text-sm md:text-base font-serif font-black uppercase tracking-tighter leading-[0.95] text-archive-charcoal">
+                      <h2 className="text-sm md:text-base font-black uppercase tracking-tighter leading-[0.95] text-archive-charcoal">
                         {pr.subtitle}
                       </h2>
                       <div className="flex items-center gap-2 text-[10px] font-bold text-archive-clay uppercase tracking-widest">
@@ -205,7 +205,7 @@ const PressReleasePage: React.FC = () => {
                         >
                           {pr.quote && (
                             <blockquote className="my-8 border-l-4 border-archive-clay pl-8 text-archive-charcoal bg-archive-cream/30 py-8 p-8 space-y-4">
-                              <p className="text-xl md:text-2xl font-serif font-black uppercase tracking-tight leading-tight">
+                              <p className="text-xl md:text-2xl font-black uppercase tracking-tight leading-tight">
                                 {pr.quote.text}
                               </p>
                               <footer className="text-[10px] font-black tracking-widest text-archive-clay uppercase text-right">
@@ -250,7 +250,7 @@ const PressReleasePage: React.FC = () => {
               <Newspaper size={20} />
               <span className="text-[11px] font-black tracking-[0.4em] uppercase">Media Protocol</span>
             </div>
-            <h3 className="text-xl font-serif font-black uppercase tracking-tight text-archive-charcoal leading-none">
+            <h3 className="text-xl font-black uppercase tracking-tight text-archive-charcoal leading-none">
               Official Inquiries <br /> & <span>Interview Requests.</span>
             </h3>
             <p className="text-[13px] font-bold uppercase tracking-widest leading-relaxed text-archive-charcoal/40">
@@ -267,7 +267,7 @@ const PressReleasePage: React.FC = () => {
             </div>
             <div className="space-y-4">
               <span className="text-archive-clay text-[10px] font-black tracking-[0.5em] uppercase">Archive Download</span>
-              <h4 className="text-xl font-serif font-black uppercase leading-none">Download <br /> Media Kits.</h4>
+              <h4 className="text-xl font-black uppercase leading-none">Download <br /> Media Kits.</h4>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {[

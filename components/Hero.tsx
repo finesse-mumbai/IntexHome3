@@ -40,7 +40,7 @@ const Hero: React.FC = () => {
                     initial={{ letterSpacing: "0.15em", opacity: 0 }}
                     animate={{ letterSpacing: "0.01em", opacity: 1 }}
                     transition={{ duration: 2.5, ease: [0.16, 1, 0.3, 1] }}
-                    className="font-serif font-black uppercase text-[450px]"
+                    className=" font-black uppercase text-[450px]"
                   >
                     Intex South Asia
                   </motion.text>

@@ -44,7 +44,7 @@ const InfoKitPage: React.FC = () => {
   };
 
   return (
-    <div className="bg-archive-cream min-h-screen pt-32 pb-24 overflow-hidden font-sans">
+    <div className="bg-archive-cream min-h-screen pt-32 pb-24 overflow-hidden">
       {/* Page Header */}
       <section className="px-6 md:px-12 max-w-[1440px] mx-auto mb-24">
         <div className="flex flex-col gap-12">
@@ -53,15 +53,15 @@ const InfoKitPage: React.FC = () => {
               <div className="w-12 h-[1px] bg-archive-clay"></div>
               <span className="text-[10px] font-black tracking-[0.5em] uppercase text-archive-clay">Technical Inventory // Asset Kit</span>
             </div>
-            <h1 className="text-2xl md:text-[4vw] font-serif font-black tracking-tighter uppercase leading-[0.85] text-archive-charcoal">
+            <h1 className="text-2xl md:text-[4vw] font-black tracking-tighter uppercase leading-[0.85] text-archive-charcoal">
               INFO <br />
-              <span className="text-outline" style={{ WebkitTextStroke: '2px #2F2C2C' }}>KITS.</span>
+              <span className="text-white">KITS.</span>
             </h1>
           </div>
 
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-12">
             <div className="lg:col-span-7">
-              <p className="text-xl md:text-2xl font-serif font-black uppercase text-archive-charcoal/80 leading-tight">
+              <p className="text-xl md:text-2xl font-black uppercase text-archive-charcoal/80 leading-tight">
                 Accessing the <span className="text-archive-clay">verified asset manifest</span> for upcoming global exhibition nodes.
               </p>
             </div>
@@ -101,7 +101,7 @@ const InfoKitPage: React.FC = () => {
                 className="bg-white group p-12 md:p-16 flex flex-col justify-between h-[550px] relative overflow-hidden hover:bg-archive-charcoal transition-all duration-700"
               >
                 {/* Background Decor */}
-                <div className="absolute -bottom-8 -right-8 text-[10rem] font-serif font-black text-archive-charcoal/[0.03] group-hover:text-white/[0.03] select-none pointer-events-none transition-colors duration-700">
+                <div className="absolute -bottom-8 -right-8 text-[10rem] font-black text-archive-charcoal/[0.03] group-hover:text-white/[0.03] select-none pointer-events-none transition-colors duration-700">
                   0{idx + 1}
                 </div>
 
@@ -132,7 +132,7 @@ const InfoKitPage: React.FC = () => {
 
                   <div className="space-y-4">
 
-                    <h3 className="text-xl font-serif font-black uppercase text-archive-charcoal tracking-tighter leading-none group-hover:text-white transition-colors duration-500">
+                    <h3 className="text-xl font-black uppercase text-archive-charcoal tracking-tighter leading-none group-hover:text-white transition-colors duration-500">
                       {asset.title}
                     </h3>
                     <div className="w-10 h-px bg-archive-clay/40 group-hover:w-full transition-all duration-700"></div>
@@ -168,7 +168,7 @@ const InfoKitPage: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
           <div className="space-y-12">
             <div className="space-y-6">
-              <h2 className="text-sm font-serif font-black uppercase text-archive-clay leading-none">Security & Distribution.</h2>
+              <h2 className="text-sm font-black uppercase text-archive-clay leading-none">Security & Distribution.</h2>
               <div className="w-20 h-px bg-archive-clay"></div>
             </div>
             <div className="space-y-8">
@@ -197,7 +197,7 @@ const InfoKitPage: React.FC = () => {
             </div>
             <div className="space-y-4 relative z-10">
               <span className="text-archive-clay text-[10px] font-black tracking-[0.5em] uppercase">Registration Desk</span>
-              <h3 className="text-xl font-serif font-black uppercase leading-none">Custom Info <br /> Requests.</h3>
+              <h3 className="text-xl font-black uppercase leading-none">Custom Info <br /> Requests.</h3>
             </div>
             <div className="space-y-8 relative z-10">
               <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-white/40 leading-relaxed">

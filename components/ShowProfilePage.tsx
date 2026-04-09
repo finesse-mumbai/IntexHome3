@@ -22,15 +22,15 @@ const ShowProfilePage: React.FC = () => {
               <div className="w-12 h-[1px] bg-archive-clay"></div>
               <span className="text-[10px] font-black tracking-[0.5em] uppercase text-archive-clay">Identity // Records</span>
             </div>
-            <h1 className="text-2xl md:text-[5vw] font-serif font-black tracking-tighter uppercase leading-[0.8] text-archive-charcoal">
-              SHOW <br /> <span className="text-outline" style={{ WebkitTextStroke: '2px #d99578' }}>PROFILE.</span>
+            <h1 className="text-2xl md:text-[5vw] font-black tracking-tighter uppercase leading-[0.8] text-archive-charcoal">
+              SHOW <br /> <span className="text-archive-clay">PROFILE.</span>
             </h1>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
             <div className="space-y-12">
               <div className="space-y-8">
-                <h2 className="text-xs font-serif font-black uppercase leading-none text-archive-charcoal">About the Show</h2>
+                <h2 className="text-xs font-black uppercase leading-none text-archive-charcoal">About the Show</h2>
                 <div className="w-12 h-[2px] bg-archive-clay"></div>
                 <div className="space-y-6 text-[13px] font-medium uppercase tracking-[0.1em] leading-relaxed text-archive-charcoal/80">
                   <p>
@@ -83,7 +83,7 @@ const ShowProfilePage: React.FC = () => {
         <div className="max-w-[1440px] mx-auto text-center space-y-20">
           <div className="space-y-6">
             <span className="text-[10px] font-black tracking-[0.2em] text-white/40 uppercase">Electronic Intelligence</span>
-            <h2 className="text-sm md:text-2xl font-serif font-black text-white uppercase tracking-tighter">THE MOTION ARCHIVE.</h2>
+            <h2 className="text-sm md:text-2xl font-black text-white uppercase tracking-tighter">THE MOTION ARCHIVE.</h2>
           </div>
 
           <div className="relative aspect-video max-w-5xl mx-auto border border-white/20 p-2 overflow-hidden">
@@ -113,7 +113,7 @@ const ShowProfilePage: React.FC = () => {
               viewport={{ once: true }}
               className="p-12 flex flex-col items-center justify-center text-center group hover:bg-archive-charcoal hover:text-archive-cream transition-all duration-700"
             >
-              <span className="text-3xl md:text-4xl font-serif font-black tracking-tighter leading-none mb-6 text-archive-charcoal group-hover:text-archive-cream">
+              <span className="text-3xl md:text-4xl font-black tracking-tighter leading-none mb-6 text-archive-charcoal group-hover:text-archive-cream">
                 {stat.value}
               </span>
               <div className="space-y-2">

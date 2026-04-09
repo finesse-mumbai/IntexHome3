@@ -160,7 +160,7 @@ const Navbar: React.FC = () => {
             >
               <div className="flex flex-col gap-1.5 w-6 overflow-hidden">
                 <motion.div
-                  animate={isMenuOpen ? { rotate: 45, y: 4.5, backgroundColor: '#d99578' } : { rotate: 0, y: 0, backgroundColor: isScrolled ? '#2F2C2C' : '#FFFFFF' }}
+                  animate={isMenuOpen ? { rotate: 45, y: 4.5, backgroundColor: '#EE7539' } : { rotate: 0, y: 0, backgroundColor: isScrolled ? '#2F2C2C' : '#FFFFFF' }}
                   className="w-full h-[2px] origin-center"
                 />
                 <motion.div
@@ -168,7 +168,7 @@ const Navbar: React.FC = () => {
                   className="w-full h-[2px]"
                 />
                 <motion.div
-                  animate={isMenuOpen ? { rotate: -45, y: -4.5, backgroundColor: '#d99578' } : { rotate: 0, y: 0, backgroundColor: isScrolled ? '#2F2C2C' : '#FFFFFF' }}
+                  animate={isMenuOpen ? { rotate: -45, y: -4.5, backgroundColor: '#EE7539' } : { rotate: 0, y: 0, backgroundColor: isScrolled ? '#2F2C2C' : '#FFFFFF' }}
                   className="w-full h-[2px] origin-center"
                 />
               </div>
@@ -197,7 +197,7 @@ const Navbar: React.FC = () => {
                   <a
                     href={item.link}
                     onClick={() => !item.children && setIsMenuOpen(false)}
-                    className="text-2xl md:text-4xl font-serif font-black text-archive-charcoal hover:text-archive-clay transition-all flex items-center gap-8"
+                    className="text-2xl md:text-4xl font-black text-archive-charcoal hover:text-archive-clay transition-all flex items-center gap-8"
                   >
                     <span className="text-[12px] font-mono opacity-20 font-black">0{idx + 1}</span>
                     {item.label}

@@ -42,19 +42,19 @@ const Testimonials: React.FC = () => {
     <section className="flex flex-col border-y border-archive-charcoal bg-archive-cream overflow-hidden" id="testimonials">
 
       {/* FULL WIDTH HEADER: TESTIMONIALS RECORDS */}
-      <div className="w-full border-b border-archive-charcoal bg-white pt-32 pb-10 px-12 overflow-hidden relative group">
+      <div className="w-full border-b border-archive-charcoal bg-white py-32 px-12 overflow-hidden relative group">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="relative z-10"
+          className="relative z-10 space-y-6"
         >
-          <div className="flex items-center gap-6 mb-4">
-            <Fingerprint size={20} className="text-archive-clay" />
-            <span className="text-[10px] font-black tracking-[0.2em] uppercase text-archive-charcoal/80">Exhibitor & Buyer Feedback </span>
+          <div className="flex items-center gap-4">
+            <div className="w-12 h-[1px] bg-archive-clay"></div>
+            <span className="text-[10px] font-black tracking-[0.5em] uppercase text-archive-clay">Exhibitor & Buyer Feedback</span>
           </div>
-          <h2 className="text-[1.2vw] md:text-4xl font-serif font-black uppercase leading-[0.8] tracking-tighter text-archive-charcoal">
-            TESTIMONIALS <span className="text-outline" style={{ WebkitTextStroke: '2px #2F2C2C' }}>RECORDS.</span>
+          <h2 className="text-2xl md:text-4xl font-black uppercase leading-[0.9] tracking-tighter text-archive-charcoal">
+            TESTIMONIALS <span className="text-archive-clay">RECORDS.</span>
           </h2>
         </motion.div>
 
@@ -73,7 +73,7 @@ const Testimonials: React.FC = () => {
               <Hash size={14} />
               <span className="text-[9px] font-black tracking-[0.5em] uppercase">Person Word </span>
             </div>
-            <span className="text-[8px] font-mono uppercase text-white tracking-[0.3em] border p-2 rounded bg-[#d99578] font-bold">{TESTIMONIALS[active].type}</span>
+            <span className="text-[8px] font-mono uppercase text-white tracking-[0.3em] border p-2 rounded bg-[#EE7539] font-bold">{TESTIMONIALS[active].type}</span>
           </div>
 
           <div className="flex-1 flex flex-col justify-center">
@@ -86,7 +86,7 @@ const Testimonials: React.FC = () => {
                 transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                 className="space-y-12"
               >
-                <blockquote className="text-lg md:text-xl font-serif font-black leading-[1.1] text-white tracking-tighter max-w-2xl">
+                <blockquote className="text-lg md:text-xl font-black leading-[1.1] text-white tracking-tighter max-w-2xl">
                   “{TESTIMONIALS[active].quote}”
                 </blockquote>
 
@@ -103,7 +103,7 @@ const Testimonials: React.FC = () => {
                   <div className="space-y-2">
                     <div className="flex items-center gap-3">
                       <CornerDownRight size={14} className="text-archive-clay" />
-                      <h4 className="text-lg font-serif font-black uppercase text-white tracking-tight">
+                      <h4 className="text-lg font-black uppercase text-white tracking-tight">
                         {TESTIMONIALS[active].author}
                       </h4>
                     </div>
@@ -149,8 +149,8 @@ const Testimonials: React.FC = () => {
           </div>
         </div>
 
-        {/* RIGHT PANEL: REGISTRY DIRECTORY (Light/Cream) - 50% */}
-        <div className="w-full lg:w-1/2 bg-archive-cream text-archive-charcoal flex flex-col">
+        {/* RIGHT PANEL: REGISTRY DIRECTORY (White Background) - 50% */}
+        <div className="w-full lg:w-1/2 bg-white text-archive-charcoal flex flex-col">
           {/* List Sub-Header */}
           <div className="p-8 border-b border-archive-charcoal flex justify-between items-center bg-white/50 backdrop-blur-sm sticky top-0 z-20">
             <div className="flex items-center gap-4">
@@ -163,7 +163,7 @@ const Testimonials: React.FC = () => {
           </div>
 
           {/* Directory List Area - Strictly 10 items */}
-          <div className="flex-1 relative overflow-hidden bg-[#FBFBFB]">
+          <div className="flex-1 relative overflow-hidden bg-white">
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentPage}
@@ -179,7 +179,7 @@ const Testimonials: React.FC = () => {
                     <button
                       key={t.id}
                       onClick={() => setActive(globalIndex)}
-                      className={`w-full text-left p-6 border-b border-archive-charcoal/5 transition-all flex items-center justify-between group h-[10%] ${active === globalIndex ? 'bg-white' : 'hover:bg-archive-charcoal hover:text-white'}`}
+                      className={`w-full text-left p-6 border-b border-archive-charcoal/5 transition-all flex items-center justify-between group h-[10%] ${active === globalIndex ? 'bg-gray-100' : 'hover:bg-archive-charcoal hover:text-white'}`}
                     >
                       <div className="flex items-center gap-8 overflow-hidden">
                         <span className={`text-[10px] font-mono font-black shrink-0 ${active === globalIndex ? 'text-archive-clay' : 'opacity-20'}`}>
@@ -246,7 +246,7 @@ const Testimonials: React.FC = () => {
         .custom-scroll::-webkit-scrollbar { width: 3px; }
         .custom-scroll::-webkit-scrollbar-track { background: transparent; }
         .custom-scroll::-webkit-scrollbar-thumb { background: #2F2C2C; }
-        .custom-scroll::-webkit-scrollbar-thumb:hover { background: #D99578; }
+        .custom-scroll::-webkit-scrollbar-thumb:hover { background: #EE7539; }
       `}</style>
     </section>
   );

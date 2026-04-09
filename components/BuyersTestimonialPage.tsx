@@ -177,9 +177,9 @@ const BuyersTestimonialPage: React.FC = () => {
               <div className="w-12 h-[1px] bg-archive-clay"></div>
               <span className="text-[10px] font-black tracking-[0.5em] uppercase text-archive-clay">Buyer Registry // Feedback</span>
             </div>
-            <h1 className="text-2xl md:text-[4vw] font-serif font-black tracking-tighter uppercase leading-[0.85] text-archive-charcoal">
+            <h1 className="text-2xl md:text-[4vw] font-black tracking-tighter uppercase leading-[0.85] text-archive-charcoal">
               BUYER <br />
-              <span className="text-outline" style={{ WebkitTextStroke: '2px #2F2C2C' }}>TESTIMONIALS.</span>
+              <span className="text-white">TESTIMONIALS.</span>
             </h1>
           </div>
 
@@ -252,7 +252,7 @@ const BuyersTestimonialPage: React.FC = () => {
 
                   <div className="space-y-6">
                     <div className="space-y-2">
-                      <h3 className="text-xl font-serif font-black uppercase text-archive-charcoal tracking-tight group-hover:text-archive-clay transition-colors">{item.name}</h3>
+                      <h3 className="text-xl font-black uppercase text-archive-charcoal tracking-tight group-hover:text-archive-clay transition-colors">{item.name}</h3>
                       <div className="flex flex-col gap-1">
                         <span className="text-[10px] font-black tracking-[0.2em] text-archive-clay uppercase">{item.designation}</span>
                         <span className="text-[10px] font-bold tracking-[0.1em] text-archive-charcoal/40 uppercase">{item.company}</span>
@@ -275,7 +275,7 @@ const BuyersTestimonialPage: React.FC = () => {
                       <Fingerprint size={12} className="text-archive-clay" />
                       <span className="text-[9px] font-black tracking-widest text-archive-charcoal uppercase block">Show Name</span>
                     </div>
-                    <h4 className="text-xl font-serif font-black uppercase tracking-tighter text-archive-charcoal leading-none">{item.showName}</h4>
+                    <h4 className="text-xl font-black uppercase tracking-tighter text-archive-charcoal leading-none">{item.showName}</h4>
                   </div>
 
                   <div className="flex gap-10">

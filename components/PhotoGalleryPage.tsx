@@ -73,7 +73,7 @@ const PhotoGalleryPage: React.FC = () => {
   }, [filterEvent, filterYear]);
 
   return (
-    <div className="bg-archive-cream min-h-screen pt-32 pb-24 overflow-hidden font-sans">
+    <div className="bg-archive-cream min-h-screen pt-32 pb-24 overflow-hidden">
       {/* Page Header */}
       <section className="px-6 md:px-12 max-w-[1440px] mx-auto mb-20">
         <div className="flex flex-col gap-12">
@@ -82,9 +82,9 @@ const PhotoGalleryPage: React.FC = () => {
               <div className="w-12 h-[1px] bg-archive-clay"></div>
               <span className="text-[10px] font-black tracking-[0.5em] uppercase text-archive-clay">Visual Archive // Light Manifest</span>
             </div>
-            <h1 className="text-2xl md:text-[4vw] font-serif font-black tracking-tighter uppercase leading-[0.85] text-archive-charcoal">
+            <h1 className="text-2xl md:text-[4vw] font-black tracking-tighter uppercase leading-[0.85] text-archive-charcoal">
               PHOTO <br />
-              <span className="text-outline" style={{ WebkitTextStroke: '2px #2F2C2C' }}>GALLERY.</span>
+              <span className="text-white">GALLERY.</span>
             </h1>
           </div>
 
@@ -164,7 +164,7 @@ const PhotoGalleryPage: React.FC = () => {
                       <div className="w-1.5 h-1.5 bg-archive-clay rounded-full shadow-[0_0_8px_rgba(180,140,110,0.8)]"></div>
                       <span className="text-[9px] font-black uppercase tracking-[0.2em] text-archive-clay">{asset.event}</span>
                     </div>
-                    <p className="text-[11px] font-serif font-black uppercase tracking-tighter">{asset.year} Visual Registry</p>
+                    <p className="text-[11px] font-black uppercase tracking-tighter">{asset.year} Visual Registry</p>
                   </div>
                 </div>
 
@@ -217,7 +217,7 @@ const PhotoGalleryPage: React.FC = () => {
                     <Camera size={14} className="text-archive-clay" />
                     <span className="text-archive-clay text-[10px] font-black tracking-[0.5em] uppercase">Archive Master Specimen // {selectedAsset.id}</span>
                   </div>
-                  <h2 className="text-sm md:text-base font-serif font-black uppercase text-white tracking-tighter leading-none">
+                  <h2 className="text-sm md:text-base font-black uppercase text-white tracking-tighter leading-none">
                     {selectedAsset.event} <span className="text-white/40">{selectedAsset.year} RECORD</span>
                   </h2>
                 </div>
@@ -242,7 +242,7 @@ const PhotoGalleryPage: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
           <div className="space-y-12">
             <div className="space-y-6">
-              <h2 className="text-sm font-serif font-black uppercase text-archive-clay leading-none">Static Heritage.</h2>
+              <h2 className="text-sm font-black uppercase text-archive-clay leading-none">Static Heritage.</h2>
               <div className="w-20 h-px bg-archive-clay"></div>
             </div>
             <div className="space-y-8">
@@ -271,7 +271,7 @@ const PhotoGalleryPage: React.FC = () => {
             </div>
             <div className="space-y-4 relative z-10">
               <span className="text-archive-clay text-[10px] font-black tracking-[0.5em] uppercase">Media Request Terminal</span>
-              <h3 className="text-xl font-serif font-black uppercase leading-none">Access the Full <br /> Visual Inventory.</h3>
+              <h3 className="text-xl font-black uppercase leading-none">Access the Full <br /> Visual Inventory.</h3>
             </div>
             <div className="space-y-8 relative z-10">
               <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-white/40 leading-relaxed">

@@ -50,15 +50,15 @@ const MediaPartnerPage: React.FC = () => {
               <div className="w-12 h-[1px] bg-archive-clay"></div>
               <span className="text-[10px] font-black tracking-[0.5em] uppercase text-archive-clay">Media Alliance // Registry</span>
             </div>
-            <h1 className="text-2xl md:text-[4vw] font-serif font-black tracking-tighter uppercase leading-[0.85] text-archive-charcoal">
+            <h1 className="text-2xl md:text-[4vw] font-black tracking-tighter uppercase leading-[0.85] text-archive-charcoal">
               MEDIA <br />
-              <span className="text-outline" style={{ WebkitTextStroke: '2px #2F2C2C' }}>PARTNERS.</span>
+              <span className="text-white">PARTNERS.</span>
             </h1>
           </div>
 
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-12">
             <div className="lg:col-span-7">
-              <p className="text-xl md:text-2xl font-serif font-black uppercase text-archive-charcoal/80 leading-tight">
+              <p className="text-xl md:text-2xl font-black uppercase text-archive-charcoal/80 leading-tight">
                 Accessing the <span className="text-archive-clay">verified network</span> of global trade journals and industry news portals.
               </p>
             </div>
@@ -117,7 +117,7 @@ const MediaPartnerPage: React.FC = () => {
                 <div className="h-1/2 p-10 flex flex-col justify-between bg-archive-cream/30 group-hover:text-white transition-colors duration-700">
                   <div className="space-y-4">
 
-                    <h3 className="text-lg font-serif font-black uppercase tracking-tighter leading-[1.1] group-hover:text-archive-clay transition-colors duration-500">
+                    <h3 className="text-lg font-black uppercase tracking-tighter leading-[1.1] group-hover:text-archive-clay transition-colors duration-500">
                       {partner.companyName}
                     </h3>
                   </div>
@@ -152,7 +152,7 @@ const MediaPartnerPage: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
           <div className="space-y-12">
             <div className="space-y-6">
-              <h2 className="text-sm font-serif font-black uppercase text-archive-clay leading-none">Global Circulation.</h2>
+              <h2 className="text-sm font-black uppercase text-archive-clay leading-none">Global Circulation.</h2>
               <div className="w-20 h-px bg-archive-clay"></div>
             </div>
             <div className="space-y-8">
@@ -181,7 +181,7 @@ const MediaPartnerPage: React.FC = () => {
             </div>
             <div className="space-y-4 relative z-10">
               <span className="text-archive-clay text-[10px] font-black tracking-[0.5em] uppercase">Partner Protocol</span>
-              <h3 className="text-xl font-serif font-black uppercase leading-none">Join the <br /> Media Alliance.</h3>
+              <h3 className="text-xl font-black uppercase leading-none">Join the <br /> Media Alliance.</h3>
             </div>
             <div className="space-y-8 relative z-10">
               <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-white/40 leading-relaxed">

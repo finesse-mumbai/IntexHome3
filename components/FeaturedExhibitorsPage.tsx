@@ -99,15 +99,15 @@ const FeaturedExhibitorsPage: React.FC = () => {
               <div className="w-12 h-[1px] bg-archive-clay"></div>
               <span className="text-[10px] font-black tracking-[0.5em] uppercase text-archive-clay">Elite Registry // Node Selection</span>
             </div>
-            <h1 className="text-2xl md:text-[4vw] font-serif font-black tracking-tighter uppercase leading-[0.85] text-archive-charcoal">
+            <h1 className="text-2xl md:text-[4vw] font-black tracking-tighter uppercase leading-[0.85] text-archive-charcoal">
               FEATURED <br />
-              <span className="text-outline" style={{ WebkitTextStroke: '2px #2F2C2C' }}>EXHIBITORS.</span>
+              <span className="text-white">EXHIBITORS.</span>
             </h1>
           </div>
 
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-12">
             <div className="lg:col-span-7">
-              <p className="text-xl md:text-2xl font-serif font-black uppercase text-archive-charcoal/80 leading-tight">
+              <p className="text-xl md:text-2xl font-black uppercase text-archive-charcoal/80 leading-tight">
                 Showcasing the <span className="text-archive-clay">strategic leaders</span> driving textile innovation across the South Asian matrix.
               </p>
             </div>
@@ -163,7 +163,7 @@ const FeaturedExhibitorsPage: React.FC = () => {
                 {/* Info Frame */}
                 <div className="h-[40%] flex flex-col  gap-3 bg-archive-cream/30 group-hover:text-white transition-colors duration-700">
                   <div>
-                    <h3 className="text-xl font-serif font-black py-4 pl-4 uppercase tracking-tighter leading-none group-hover:text-archive-clay transition-colors duration-500">
+                    <h3 className="text-xl font-black py-4 pl-4 uppercase tracking-tighter leading-none group-hover:text-archive-clay transition-colors duration-500">
                       {ex.name}
                     </h3>
                   </div>
@@ -194,8 +194,8 @@ const FeaturedExhibitorsPage: React.FC = () => {
                 <Database size={16} className="text-archive-clay" />
                 <span className="text-[10px] font-black tracking-[0.5em] uppercase text-archive-clay">Exhibition Management</span>
               </div>
-              <h2 className="text-xs md:text-sm font-serif font-black uppercase tracking-tighter leading-[0.9]">
-                Get your brand <br /> <span className="text-outline" style={{ WebkitTextStroke: '1px #d99578' }}>indexed as featured.</span>
+              <h2 className="text-xs md:text-sm font-black uppercase tracking-tighter leading-[0.9]">
+                Get your brand <br /> <span className="text-archive-clay">indexed as featured.</span>
               </h2>
               <p className="text-[12px] font-bold uppercase tracking-widest leading-relaxed text-white/40 max-w-xl">
                 Featured exhibitors receive priority placement across all digital directories, physical signage, and post-show media coverage.

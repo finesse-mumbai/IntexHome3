@@ -71,7 +71,7 @@ const FACTSHEET_DATA: FactsheetItem[] = [
 
 const FactsheetPage: React.FC = () => {
   return (
-    <div className="bg-archive-cream min-h-screen pt-32 pb-24 overflow-hidden font-sans">
+    <div className="bg-archive-cream min-h-screen pt-32 pb-24 overflow-hidden">
       {/* Page Header */}
       <section className="px-6 md:px-12 max-w-[1440px] mx-auto mb-20">
         <div className="flex flex-col gap-12">
@@ -80,15 +80,15 @@ const FactsheetPage: React.FC = () => {
               <div className="w-12 h-[1px] bg-archive-clay"></div>
               <span className="text-[10px] font-black tracking-[0.5em] uppercase text-archive-clay">Technical Manifest // Statistics</span>
             </div>
-            <h1 className="text-2xl md:text-[4vw] font-serif font-black tracking-tighter uppercase leading-[0.85] text-archive-charcoal">
+            <h1 className="text-2xl md:text-[4vw] font-black tracking-tighter uppercase leading-[0.85] text-archive-charcoal">
               FACT <br />
-              <span className="text-outline" style={{ WebkitTextStroke: '2px #2F2C2C' }}>SHEETS.</span>
+              <span className="text-white">SHEETS.</span>
             </h1>
           </div>
 
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-12">
             <div className="lg:col-span-8">
-              <p className="text-xl md:text-2xl font-serif font-black uppercase text-archive-charcoal/80 leading-tight">
+              <p className="text-xl md:text-2xl font-black uppercase text-archive-charcoal/80 leading-tight">
                 Detailed technical specifications and <span className="text-archive-clay">event intelligence</span> for the 2026 exhibition cycle.
               </p>
             </div>
@@ -144,7 +144,7 @@ const FactsheetPage: React.FC = () => {
                 <div className="lg:col-span-2 p-12 md:p-16 border-r border-archive-charcoal/5 space-y-12">
                   <div className="space-y-4">
                     <span className="text-archive-clay text-[11px] font-black tracking-[0.5em] uppercase">{item.edition}</span>
-                    <h2 className="text-xs md:text-sm font-serif font-black uppercase tracking-tighter text-archive-charcoal leading-none">
+                    <h2 className="text-xs md:text-sm font-black uppercase tracking-tighter text-archive-charcoal leading-none">
                       {item.name}
                     </h2>
                   </div>
@@ -230,7 +230,7 @@ const FactsheetPage: React.FC = () => {
               <Info size={24} />
               <span className="text-[12px] font-black tracking-[0.5em] uppercase">Security Protocol</span>
             </div>
-            <h3 className="text-3xl md:text-4xl font-serif font-black uppercase leading-none text-archive-charcoal">Verified Event <br /><span className="text-archive-clay">Documentation.</span></h3>
+            <h3 className="text-3xl md:text-4xl font-black uppercase leading-none text-archive-charcoal">Verified Event <br /><span className="text-archive-clay">Documentation.</span></h3>
             <p className="text-[14px] font-bold uppercase tracking-widest leading-relaxed text-archive-charcoal/50">
               All data points indexed in these factsheets are verified by the Worldex India audit registry. For customized technical requirements or specialized data queries, contact our information desk.
             </p>
@@ -242,7 +242,7 @@ const FactsheetPage: React.FC = () => {
             </div>
             <div className="space-y-2">
               <span className="text-archive-clay text-[10px] font-black tracking-[0.4em] uppercase">Master Archive</span>
-              <h4 className="text-2xl font-serif font-black uppercase text-archive-charcoal">Download Global Factsheet.</h4>
+              <h4 className="text-2xl font-black uppercase text-archive-charcoal">Download Global Factsheet.</h4>
             </div>
             <p className="text-[11px] font-medium uppercase tracking-widest text-archive-charcoal/40 leading-relaxed max-w-md">
               Get the combined technical specifications for all South Asian nodes in a single high-fidelity document.

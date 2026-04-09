@@ -65,7 +65,7 @@ const PromotionActivitiesPage: React.FC = () => {
               <div className="w-12 h-[1px] bg-archive-clay"></div>
               <span className="text-[10px] font-black tracking-[0.5em] uppercase text-archive-clay">Outreach // Protocols</span>
             </div>
-            <h1 className="text-2xl md:text-[4vw] font-serif font-black tracking-tighter uppercase leading-[0.85] text-archive-charcoal">
+            <h1 className="text-2xl md:text-[4vw] font-black tracking-tighter uppercase leading-[0.85] text-archive-charcoal">
               PROMOTION <br />
               <span>ACTIVITIES</span>
             </h1>
@@ -77,7 +77,7 @@ const PromotionActivitiesPage: React.FC = () => {
       <section className="px-6 md:px-12 max-w-[1440px] mx-auto mb-40">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
           <div className="lg:col-span-12 space-y-5">
-            <p className="text-xl md:text-3xl font-serif font-black uppercase text-archive-charcoal leading-tight">
+            <p className="text-xl md:text-3xl font-black uppercase text-archive-charcoal leading-tight">
               A multi-channel <span className="text-archive-clay">marketing matrix</span> designed for maximum trade impact.
             </p>
           </div>
@@ -104,7 +104,7 @@ const PromotionActivitiesPage: React.FC = () => {
                   </div>
                 </div>
                 <div className="space-y-4">
-                  <h3 className={`text-xl font-serif font-black uppercase tracking-tighter leading-none transition-colors ${[0, 2, 5, 7].includes(idx) ? 'text-white group-hover:text-white' : 'group-hover:text-archive-clay'}`}>{activity.title}</h3>
+                  <h3 className={`text-xl font-black uppercase tracking-tighter leading-none transition-colors ${[0, 2, 5, 7].includes(idx) ? 'text-white group-hover:text-white' : 'group-hover:text-archive-clay'}`}>{activity.title}</h3>
                   <div className={`transition-all duration-700 ${[0, 2, 5, 7].includes(idx) ? 'w-full bg-white/40 h-px' : 'w-10 h-px bg-archive-clay/40 group-hover:w-full'}`}></div>
                 </div>
               </div>
@@ -120,7 +120,7 @@ const PromotionActivitiesPage: React.FC = () => {
       {/* Closing Statement */}
       <section className="py-40 px-6 md:px-12 max-w-[1440px] mx-auto flex flex-col items-center text-center space-y-10">
         <div className="w-20 h-px bg-archive-clay"></div>
-        <h2 className="text-base md:text-2xl font-serif font-black uppercase tracking-tighter text-archive-charcoal">
+        <h2 className="text-base md:text-2xl font-black uppercase tracking-tighter text-archive-charcoal">
           DRIVE <span>ENGAGEMENT.</span> <br />
           <span >SECURE VOLUME.</span>
         </h2>

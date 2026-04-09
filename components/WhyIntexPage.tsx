@@ -58,9 +58,9 @@ const WhyIntexPage: React.FC = () => {
               <div className="w-12 h-[1px] bg-archive-clay"></div>
               <span className="text-[10px] font-black tracking-[0.5em] uppercase text-archive-clay">Strategic Reasoning // Matrix</span>
             </div>
-            <h1 className="text-2xl md:text-[4vw] font-serif font-black tracking-tighter uppercase leading-[0.85] text-archive-charcoal">
+            <h1 className="text-2xl md:text-[4vw] font-black tracking-tighter uppercase leading-[0.85] text-archive-charcoal">
               WHY <span>INTEX</span> <br />
-              <span className="text-outline" style={{ WebkitTextStroke: '2px #2F2C2C' }}>SOUTH ASIA.</span>
+              <span className="text-white">SOUTH ASIA.</span>
             </h1>
           </div>
         </div>
@@ -71,7 +71,7 @@ const WhyIntexPage: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
           <div className="lg:col-span-4 space-y-12">
             <div className="space-y-6">
-              <h2 className="text-sm font-serif font-black uppercase tracking-tighter text-archive-charcoal leading-none">
+              <h2 className="text-sm font-black uppercase tracking-tighter text-archive-charcoal leading-none">
                 A PAN-SOUTH ASIAN <br /> <span className="text-archive-clay">POWERHOUSE.</span>
               </h2>
               <div className="h-[2px] w-12 bg-archive-clay"></div>
@@ -105,7 +105,7 @@ const WhyIntexPage: React.FC = () => {
                 </div>
                 <div className="space-y-6">
                   <div className="space-y-2">
-                    <h3 className="text-2xl font-serif font-black uppercase tracking-tighter text-archive-charcoal leading-none">{region.country}</h3>
+                    <h3 className="text-2xl font-black uppercase tracking-tighter text-archive-charcoal leading-none">{region.country}</h3>
                     <p className="text-[10px] font-black tracking-widest text-archive-clay">{region.title}</p>
                   </div>
                 </div>
@@ -126,7 +126,7 @@ const WhyIntexPage: React.FC = () => {
       <section className="bg-archive-charcoal py-40 text-archive-cream border-y border-archive-clay/20">
         <div className="max-w-[1440px] mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
           <div className="space-y-12">
-            <h2 className="text-xs md:text-sm font-serif font-black uppercase leading-[0.9] text-white">
+            <h2 className="text-xs md:text-sm font-black uppercase leading-[0.9] text-white">
               The Epicenter of <br /> <span className="text-archive-clay">Textile Innovation.</span>
             </h2>
             <div className="space-y-6 text-sm font-bold uppercase tracking-[0.15em] leading-relaxed text-white/60">
@@ -173,7 +173,7 @@ const WhyIntexPage: React.FC = () => {
             >
               <adv.icon size={32} className="text-archive-clay" />
               <div className="space-y-4">
-                <h3 className="text-2xl font-serif font-black uppercase tracking-tight leading-none group-hover:text-archive-clay transition-colors">{adv.title}</h3>
+                <h3 className="text-2xl font-black uppercase tracking-tight leading-none group-hover:text-archive-clay transition-colors">{adv.title}</h3>
                 <p className="text-[11px] font-bold uppercase tracking-widest opacity-40 group-hover:opacity-100 transition-opacity leading-relaxed">
                   {adv.desc}
                 </p>
@@ -187,7 +187,7 @@ const WhyIntexPage: React.FC = () => {
       <section className="py-40 bg-white border-y border-archive-charcoal/10">
         <div className="max-w-[1440px] mx-auto px-6 md:px-12 flex flex-col items-center text-center space-y-12">
           <div className="w-20 h-[1px] bg-archive-clay"></div>
-          <h2 className="text-xs md:text-sm font-serif font-black uppercase tracking-tighter text-archive-charcoal">
+          <h2 className="text-xs md:text-sm font-black uppercase tracking-tighter text-archive-charcoal">
             READY TO SCALE IN <br /> <span>SOUTH ASIA?</span>
           </h2>
           <div className="flex flex-col sm:flex-row gap-6">

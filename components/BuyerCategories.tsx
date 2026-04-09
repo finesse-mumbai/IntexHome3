@@ -15,7 +15,7 @@ const BuyerCategories: React.FC = () => {
               <div className="w-12 h-[1px] bg-archive-clay"></div>
               <span className="text-[10px] font-black tracking-[0.5em] uppercase text-archive-clay">Technical Demographics</span>
             </div>
-            <h2 className="text-sm md:text-4xl font-serif font-black tracking-tighter uppercase  text-archive-charcoal leading-[0.8]">
+            <h2 className="text-sm md:text-4xl font-black tracking-tighter uppercase  text-archive-charcoal leading-[0.8]">
               BUYER <br /><span className="text-outline">PROFILE.</span>
             </h2>
           </div>
@@ -52,7 +52,7 @@ const BuyerCategories: React.FC = () => {
           >
             {/* Background Decoration */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-archive-clay/5 rotate-45 translate-x-32 -translate-y-32"></div>
-            <div className="absolute -bottom-8 -left-8 text-[8rem] md:text-[12rem] font-serif font-black text-white/5 select-none pointer-events-none uppercase">
+            <div className="absolute -bottom-8 -left-8 text-[8rem] md:text-[12rem] font-black text-white/5 select-none pointer-events-none uppercase">
               PORTAL
             </div>
 
@@ -61,7 +61,7 @@ const BuyerCategories: React.FC = () => {
                 <div className="w-8 h-[1px] bg-archive-clay"></div>
                 <span className="text-[10px] font-black tracking-[0.5em] text-archive-clay uppercase">Direct Access Portal</span>
               </div>
-              <h3 className="text-xl md:text-3xl font-serif font-black text-archive-cream uppercase leading-[0.9]">
+              <h3 className="text-xl md:text-3xl font-black text-archive-cream uppercase leading-[0.9]">
                 JOIN THE <span className="text-archive-clay">TEXTILE NETWORK.</span>
               </h3>
               <p className="text-xs font-bold tracking-widest text-archive-cream/40 uppercase">
@@ -108,7 +108,7 @@ const ArchiveCard: React.FC<{ profile: any; index: number }> = ({ profile, index
       className="group relative h-[380px] border border-dotted border-archive-charcoal/20 bg-white/40 backdrop-blur-sm overflow-hidden cursor-pointer flex flex-col p-8 transition-all duration-500 hover:border-archive-clay hover:bg-white"
     >
       {/* Background Serial Number Decor */}
-      <span className="absolute -bottom-4 -right-2 text-[10rem] font-serif font-black text-archive-charcoal/5 leading-none select-none pointer-events-none group-hover:text-archive-clay/10 transition-colors duration-500">
+      <span className="absolute -bottom-4 -right-2 text-[10rem] font-black text-archive-charcoal/5 leading-none select-none pointer-events-none group-hover:text-archive-clay/10 transition-colors duration-500">
         {serial}
       </span>
 
@@ -144,7 +144,7 @@ const ArchiveCard: React.FC<{ profile: any; index: number }> = ({ profile, index
       {/* Label Section */}
       <div className="relative z-10 mt-auto">
 
-        <h4 className="text-lg font-serif font-black uppercase leading-tight text-archive-charcoal group-hover:text-archive-clay transition-all line-clamp-2">
+        <h4 className="text-lg font-black uppercase leading-tight text-archive-charcoal group-hover:text-archive-clay transition-all line-clamp-2">
           {profile.title}
         </h4>
       </div>

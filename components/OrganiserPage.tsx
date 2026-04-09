@@ -50,7 +50,7 @@ const OrganiserPage: React.FC = () => {
                 <div className="w-12 h-[1px] bg-archive-clay"></div>
                 <span className="text-[10px] font-black tracking-[0.5em] uppercase text-archive-clay">Organiser Registry</span>
               </div>
-              <h1 className="text-2xl md:text-3xl font-serif font-black tracking-tighter uppercase leading-[0.9] text-archive-charcoal max-w-2xl">
+              <h1 className="text-2xl md:text-3xl font-black tracking-tighter uppercase leading-[0.9] text-archive-charcoal max-w-2xl">
                 WORLDEX INDIA EXHIBITION & <span >PROMOTION PVT. LTD.</span>
               </h1>
             </div>
@@ -62,16 +62,16 @@ const OrganiserPage: React.FC = () => {
       <section className="bg-archive-charcoal text-archive-cream py-32 border-y border-archive-clay/20">
         <div className="max-w-[1440px] mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-20 items-start">
           <div className="lg:col-span-4 space-y-8">
-            <h2 className="text-base font-serif font-black uppercase tracking-tighter text-white">
+            <h2 className="text-base font-black uppercase tracking-tighter text-white">
               ABOUT   <span className="text-archive-clay"> US.</span>
             </h2>
             <div className="grid grid-cols-2 gap-4">
               <div className="p-6 border border-white/10 text-center bg-white/5">
-                <div className="text-4xl font-serif font-black text-archive-clay">21+</div>
+                <div className="text-4xl font-black text-archive-clay">21+</div>
                 <div className="text-[8px] font-black tracking-widest uppercase opacity-40">Years Experience</div>
               </div>
               <div className="p-6 border border-white/10 text-center bg-white/5">
-                <div className="text-4xl font-serif font-black text-archive-clay">Global</div>
+                <div className="text-4xl font-black text-archive-clay">Global</div>
                 <div className="text-[8px] font-black tracking-widest uppercase opacity-40">Expertise</div>
               </div>
             </div>
@@ -102,7 +102,7 @@ const OrganiserPage: React.FC = () => {
             <div className="w-12 h-[1px] bg-archive-clay"></div>
             <span className="text-[10px] font-black tracking-[0.5em] uppercase text-archive-clay">Upcoming Events</span>
           </div>
-          <h2 className="text-base font-serif font-black tracking-tighter uppercase text-archive-charcoal">
+          <h2 className="text-base font-black tracking-tighter uppercase text-archive-charcoal">
             EXHIBITION <span>CALENDAR.</span>
           </h2>
         </div>
@@ -128,7 +128,7 @@ const OrganiserPage: React.FC = () => {
                 </div>
                 <div className="space-y-6">
                   <div className="space-y-2">
-                    <h3 className="text-3xl font-serif font-black uppercase leading-[0.9]">{ex.title}</h3>
+                    <h3 className="text-3xl font-black uppercase leading-[0.9]">{ex.title}</h3>
                     <p className="text-archive-clay text-[10px] font-black tracking-widest uppercase">{ex.location}</p>
                   </div>
                   <div className="h-px w-12 bg-white/20 group-hover:w-full transition-all duration-700"></div>
