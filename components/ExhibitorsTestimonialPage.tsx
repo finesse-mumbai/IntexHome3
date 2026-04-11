@@ -262,39 +262,39 @@ const ExhibitorsTestimonialPage: React.FC = () => {
           <div className="space-y-6">
             <div className="flex items-center gap-4">
               <div className="w-12 h-[1px] bg-archive-clay"></div>
-              <span className="text-[10px] font-black tracking-[0.5em] uppercase text-archive-clay">Exhibitor Voices // Database</span>
+              <span className="text-[10px] font-black tracking-[0.5em] text-archive-clay uppercase">Exhibitor Voices // Database</span>
             </div>
-            <h1 className="text-2xl md:text-[4vw] font-black tracking-tighter uppercase leading-[0.85] text-archive-charcoal">
-              EXHIBITOR <br />
-              <span className="text-white">TESTIMONIALS.</span>
+            <h1 className="text-4xl md:text-8xl font-black tracking-tighter leading-[0.85] text-archive-charcoal uppercase">
+              Exhibitor <br />
+              <span className="text-white">Testimonials.</span>
             </h1>
           </div>
 
           {/* Filters */}
           <div className="flex flex-col lg:flex-row gap-12 border-y border-archive-charcoal/10 py-12">
             <div className="space-y-4">
-              <span className="text-[10px] font-black tracking-widest uppercase opacity-40">Show Location</span>
+              <span className="text-[10px] font-black tracking-widest opacity-40">Show Location</span>
               <div className="flex flex-wrap gap-2">
                 {locations.map(loc => (
                   <button
                     key={loc}
                     onClick={() => setFilterLocation(loc)}
-                    className={`px-8 py-3 text-[10px] font-black tracking-widest uppercase border transition-all ${filterLocation === loc ? 'bg-archive-clay border-archive-clay text-white' : 'border-archive-charcoal/10 text-archive-charcoal/40 hover:text-archive-charcoal'}`}
+                    className={`px-8 py-3 text-[10px] font-black tracking-widest border transition-all ${filterLocation === loc ? 'bg-archive-clay border-archive-clay text-white' : 'border-archive-charcoal/10 text-archive-charcoal/40 hover:text-archive-charcoal'}`}
                   >
-                    {loc}
+                    {loc.toUpperCase()}
                   </button>
                 ))}
               </div>
             </div>
 
             <div className="space-y-4">
-              <span className="text-[10px] font-black tracking-widest uppercase opacity-40">Select Years</span>
+              <span className="text-[10px] font-black tracking-widest opacity-40">Select Years</span>
               <div className="flex gap-2">
                 {years.map(yr => (
                   <button
                     key={yr}
                     onClick={() => setFilterYear(yr)}
-                    className={`px-8 py-3 text-[10px] font-black tracking-widest uppercase border transition-all ${filterYear === yr ? 'bg-archive-charcoal border-archive-charcoal text-white' : 'border-archive-charcoal/10 text-archive-charcoal/40 hover:text-archive-charcoal'}`}
+                    className={`px-8 py-3 text-[10px] font-black tracking-widest border transition-all ${filterYear === yr ? 'bg-archive-charcoal border-archive-charcoal text-white' : 'border-archive-charcoal/10 text-archive-charcoal/40 hover:text-archive-charcoal'}`}
                   >
                     {yr}
                   </button>
@@ -331,7 +331,7 @@ const ExhibitorsTestimonialPage: React.FC = () => {
 
                   <div className="space-y-4">
                     <div className="space-y-1">
-                      <h3 className="text-lg font-black uppercase text-archive-charcoal tracking-tight group-hover:text-archive-clay transition-colors">{item.name}</h3>
+                      <h3 className="text-lg font-black text-archive-charcoal tracking-tight group-hover:text-archive-clay transition-colors uppercase">{item.name}</h3>
                       <div className="flex flex-col">
                         <span className="text-[9px] font-black tracking-widest text-archive-charcoal/40 uppercase">{item.designation}</span>
                         <span className="text-[9px] font-black tracking-widest text-archive-clay uppercase">{item.company}</span>
@@ -345,13 +345,13 @@ const ExhibitorsTestimonialPage: React.FC = () => {
                 </div>
 
                 <div className="mt-10 pt-6 border-t border-archive-charcoal/5 flex justify-between items-center">
-                  <div className="flex items-center gap-2 text-[9px] font-bold text-archive-charcoal/30 uppercase tracking-widest">
+                  <div className="flex items-center gap-2 text-[9px] font-bold text-archive-charcoal/30 tracking-widest">
                     <div className="w-1.5 h-1.5 bg-archive-clay rotate-45"></div>
-                    {item.showName} | {item.year}
+                    {item.showName.toUpperCase()} | {item.year}
                   </div>
-                  <div className="flex items-center gap-1 text-[8px] font-bold text-archive-charcoal/20 uppercase">
+                  <div className="flex items-center gap-1 text-[8px] font-bold text-archive-charcoal/20">
                     <Globe size={10} />
-                    {item.country}
+                    {item.country.toUpperCase()}
                   </div>
                 </div>
               </div>
@@ -360,12 +360,12 @@ const ExhibitorsTestimonialPage: React.FC = () => {
         ) : (
           <div className="h-[400px] flex flex-col items-center justify-center border border-dashed border-archive-charcoal/20 text-center bg-white/50">
             <Search size={40} className="text-archive-clay/20 mb-6" />
-            <span className="text-[10px] font-black tracking-[0.5em] uppercase text-archive-charcoal/30">Null record result for selected filters.</span>
+            <span className="text-[10px] font-black tracking-[0.5em] text-archive-charcoal/30 uppercase">Null record result for selected filters.</span>
             <button
               onClick={() => { setFilterLocation('ALL'); setFilterYear('ALL'); }}
-              className="mt-8 px-8 py-4 border border-archive-charcoal text-[10px] font-black tracking-widest uppercase hover:bg-archive-charcoal hover:text-white transition-all"
+              className="mt-8 px-8 py-4 border border-archive-charcoal text-[10px] font-black tracking-widest hover:bg-archive-charcoal hover:text-white transition-all"
             >
-              Reset Matrix Filters
+              RESET MATRIX FILTERS
             </button>
           </div>
         )}

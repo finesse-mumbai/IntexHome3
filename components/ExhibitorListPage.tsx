@@ -6,29 +6,29 @@ import { Database, AlertCircle, ArrowUpRight, Search, Lock } from 'lucide-react'
 const SHOWS = [
   {
     id: 'NODE_BD_26',
-    name: 'INTEX BANGLADESH',
-    location: 'ICCB, DHAKA',
-    status: 'UPCOMING',
+    name: 'Intex Bangladesh',
+    location: 'ICCB, Dhaka',
+    status: 'Upcoming',
     year: '2026',
-    date: '28-30 MAY',
+    date: '28-30 May',
     pdf: 'https://bd.intexsouthasia.com/assets/pdf/Exhibitor-List-Intex-Bangladesh-2025.pdf'
   },
   {
     id: 'NODE_SL_26',
-    name: 'INTEX SRI LANKA',
-    location: 'BMICH, COLOMBO',
-    status: 'UPCOMING',
+    name: 'Intex Sri Lanka',
+    location: 'BMICH, Colombo',
+    status: 'Upcoming',
     year: '2026',
-    date: '12-14 AUGUST',
+    date: '12-14 August',
     pdf: null
   },
   {
     id: 'NODE_IN_26',
-    name: 'INTEX INDIA',
-    location: 'NEW DELHI',
-    status: 'UPCOMING',
+    name: 'Intex India',
+    location: 'New Delhi',
+    status: 'Upcoming',
     year: '2026',
-    date: '03-05 DECEMBER',
+    date: '03-05 December',
     pdf: null
   }
 ];
@@ -42,17 +42,17 @@ const ExhibitorListPage: React.FC = () => {
           <div className="space-y-6">
             <div className="flex items-center gap-4">
               <div className="w-12 h-[1px] bg-archive-clay"></div>
-              <span className="text-[10px] font-black tracking-[0.5em] uppercase text-archive-clay">Registry // Directory Index</span>
+              <span className="text-[10px] font-black tracking-[0.5em] text-archive-clay uppercase">Registry // Directory Index</span>
             </div>
-            <h1 className="text-2xl md:text-[4vw] font-black tracking-tighter uppercase leading-[0.85] text-archive-charcoal">
-              EXHIBITOR <br />
-              <span className="text-white">LISTS.</span>
+            <h1 className="text-4xl md:text-8xl font-black tracking-tighter leading-[0.85] text-archive-charcoal uppercase">
+              Exhibitor <br />
+              <span className="text-white">Lists.</span>
             </h1>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
             <div className="lg:col-span-7">
-              <p className="text-xl md:text-2xl font-black uppercase text-archive-charcoal/80 leading-tight">
+              <p className="text-xl md:text-2xl font-black text-archive-charcoal/80 leading-tight">
                 Accessing the <span className="text-archive-clay">verified manifest</span> of participating manufacturers for the 2026 global cycle.
               </p>
             </div>
@@ -93,12 +93,12 @@ const ExhibitorListPage: React.FC = () => {
                 </div>
 
                 <div className="space-y-4">
-                  <h3 className="text-xl md:text-2xl font-black uppercase tracking-tighter leading-[0.9] text-archive-charcoal group-hover:text-archive-clay transition-colors duration-500">
+                  <h3 className="text-xl md:text-2xl font-black tracking-tighter leading-[0.9] text-archive-charcoal group-hover:text-archive-clay transition-colors duration-500">
                     {show.name}
                   </h3>
-                  <div className="flex items-center gap-2 text-[10px] font-bold text-archive-charcoal/40 uppercase tracking-widest">
+                  <div className="flex items-center gap-2 text-[10px] font-bold text-archive-charcoal/40 tracking-widest">
                     <Search size={10} />
-                    {show.location}
+                    {show.location.toUpperCase()}
                   </div>
                 </div>
               </div>
@@ -119,14 +119,14 @@ const ExhibitorListPage: React.FC = () => {
                       transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
                       className="text-base md:text-lg font-black tracking-tighter text-archive-charcoal"
                     >
-                      {show.status}
+                      {show.status.toUpperCase()}
                     </motion.div>
-                    <span className="mt-4 text-[9px] font-black tracking-[0.4em] uppercase text-archive-clay">Cycle // {show.year}</span>
+                    <span className="mt-4 text-[9px] font-black tracking-[0.4em] text-archive-clay">Cycle // {show.year}</span>
                   </div>
                 )}
 
                 <div className="pt-8 border-t border-archive-charcoal/5 flex justify-between items-center group-hover:border-archive-clay/20 transition-colors">
-                  <span className="text-[11px] font-black uppercase tracking-widest text-archive-charcoal/30">
+                  <span className="text-[11px] font-black tracking-widest text-archive-charcoal/30">
                     {show.pdf ? 'Download PDF' : 'Status'}
                   </span>
                   {show.pdf ? (
@@ -134,12 +134,12 @@ const ExhibitorListPage: React.FC = () => {
                       href={show.pdf}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-3 text-[10px] font-black uppercase tracking-[0.3em] text-archive-charcoal group-hover:text-archive-clay transition-all"
+                      className="flex items-center gap-3 text-[10px] font-black tracking-[0.3em] text-archive-charcoal group-hover:text-archive-clay transition-all"
                     >
-                      View List <ArrowUpRight size={14} />
+                      VIEW LIST <ArrowUpRight size={14} className="uppercase" />
                     </a>
                   ) : (
-                    <span className="text-[10px] font-black uppercase tracking-[0.3em] text-archive-charcoal/40">
+                    <span className="text-[10px] font-black tracking-[0.3em] text-archive-charcoal/40">
                       UPCOMING
                     </span>
                   )}
@@ -162,13 +162,13 @@ const ExhibitorListPage: React.FC = () => {
         <div className="max-w-3xl border-l border-archive-clay pl-12 space-y-8">
           <div className="flex items-center gap-4 text-archive-clay">
             <AlertCircle size={20} />
-            <span className="text-[11px] font-black tracking-[0.4em] uppercase">Security Protocol</span>
+             <span className="text-[11px] font-black tracking-[0.4em] uppercase">Security Protocol</span>
           </div>
-          <p className="text-[14px] font-bold uppercase tracking-widest leading-relaxed text-archive-charcoal/60">
+          <p className="text-[14px] font-bold tracking-widest leading-relaxed text-archive-charcoal/60">
             The 2026 exhibitor databases are currently undergoing verification and indexing. Access to the full manifest is restricted until the formal release protocol is initiated. Registered buyers will receive prioritized credentials for early access.
           </p>
-          <button className="px-10 py-5 bg-archive-charcoal text-white font-black text-[10px] tracking-[0.4em] uppercase hover:bg-archive-clay transition-all">
-            Request Early Access Credentials
+          <button className="px-10 py-5 bg-archive-charcoal text-white font-black text-[10px] tracking-[0.4em] hover:bg-archive-clay transition-all">
+            REQUEST EARLY ACCESS CREDENTIALS
           </button>
         </div>
       </section>

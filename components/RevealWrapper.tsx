@@ -12,6 +12,7 @@ interface RevealWrapperProps {
   type?: RevealType;
   direction?: 'up' | 'left' | 'right' | 'down';
   amount?: "some" | "all" | number;
+  textSize?: string;
 }
 
 const RevealWrapper: React.FC<RevealWrapperProps> = ({
@@ -21,7 +22,8 @@ const RevealWrapper: React.FC<RevealWrapperProps> = ({
   delay = 0.1,
   type = 'slide',
   direction = 'up',
-  amount = 0.2
+  amount = 0.2,
+  textSize = "text-2xl md:text-4xl"
 }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: amount });
@@ -41,7 +43,7 @@ const RevealWrapper: React.FC<RevealWrapperProps> = ({
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 0, y: -30, transition: { ...commonTransition, duration: 0.8 } } : { opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: delay + 0.2 }}
-            className="text-white text-2xl md:text-4xl font-black uppercase tracking-[0.1em] px-12 text-center"
+            className={`text-white ${textSize} font-black uppercase tracking-[0.1em] px-12 text-center`}
           >
             {text}
           </motion.div>

@@ -80,9 +80,9 @@ const PhotoGalleryPage: React.FC = () => {
           <div className="space-y-6">
             <div className="flex items-center gap-4">
               <div className="w-12 h-[1px] bg-archive-clay"></div>
-              <span className="text-[10px] font-black tracking-[0.5em] uppercase text-archive-clay">Visual Archive // Light Manifest</span>
+              <span className="text-[10px] font-black tracking-[0.5em] text-archive-clay uppercase">Visual Archive // Light Manifest</span>
             </div>
-            <h1 className="text-2xl md:text-[4vw] font-black tracking-tighter uppercase leading-[0.85] text-archive-charcoal">
+            <h1 className="text-4xl md:text-8xl font-black tracking-tighter leading-[0.85] text-archive-charcoal uppercase">
               PHOTO <br />
               <span className="text-white">GALLERY.</span>
             </h1>
@@ -90,13 +90,13 @@ const PhotoGalleryPage: React.FC = () => {
 
           <div className="flex flex-col lg:flex-row gap-12 border-y border-archive-charcoal/10 py-12">
             <div className="space-y-4">
-              <span className="text-[10px] font-black tracking-widest uppercase opacity-40">Regional Registry</span>
+              <span className="text-[10px] font-black tracking-widest opacity-40 uppercase">Regional Registry</span>
               <div className="flex flex-wrap gap-2">
                 {events.map(ev => (
                   <button
                     key={ev}
                     onClick={() => setFilterEvent(ev as any)}
-                    className={`px-8 py-3 text-[10px] font-black tracking-widest uppercase border transition-all ${filterEvent === ev ? 'bg-archive-charcoal text-white border-archive-charcoal' : 'border-archive-charcoal/10 text-archive-charcoal/40 hover:text-archive-charcoal'}`}
+                    className={`px-8 py-3 text-[10px] font-black tracking-widest border transition-all ${filterEvent === ev ? 'bg-archive-charcoal text-white border-archive-charcoal' : 'border-archive-charcoal/10 text-archive-charcoal/40 hover:text-archive-charcoal'}`}
                   >
                     {ev}
                   </button>
@@ -105,13 +105,13 @@ const PhotoGalleryPage: React.FC = () => {
             </div>
 
             <div className="space-y-4">
-              <span className="text-[10px] font-black tracking-widest uppercase opacity-40">Cycle Timeline</span>
+              <span className="text-[10px] font-black tracking-widest opacity-40 uppercase">Cycle Timeline</span>
               <div className="flex flex-wrap gap-2">
                 {years.map(yr => (
                   <button
                     key={yr}
                     onClick={() => setFilterYear(yr)}
-                    className={`px-8 py-3 text-[10px] font-black tracking-widest uppercase border transition-all ${filterYear === yr ? 'bg-archive-clay border-archive-clay text-white' : 'border-archive-charcoal/10 text-archive-charcoal/40 hover:text-archive-charcoal'}`}
+                    className={`px-8 py-3 text-[10px] font-black tracking-widest border transition-all ${filterYear === yr ? 'bg-archive-clay border-archive-clay text-white' : 'border-archive-charcoal/10 text-archive-charcoal/40 hover:text-archive-charcoal'}`}
                   >
                     {yr}
                   </button>
@@ -154,7 +154,7 @@ const PhotoGalleryPage: React.FC = () => {
                 {/* Refined Overlay */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-between p-5 text-white">
                   <div className="flex justify-between items-start translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
-                    <span className="text-[7px] font-black tracking-widest border border-white/30 px-2 py-1 bg-black/20 uppercase backdrop-blur-sm">Specimen_{asset.id.split('_').pop()}</span>
+                    <span className="text-[7px] font-black tracking-widest border border-white/30 px-2 py-1 bg-black/20 backdrop-blur-sm">Specimen_{asset.id.split('_').pop()}</span>
                     <div className="w-8 h-8 rounded-full bg-archive-clay/20 border border-archive-clay/40 flex items-center justify-center backdrop-blur-md">
                       <Maximize2 size={12} className="text-white" />
                     </div>
@@ -162,9 +162,9 @@ const PhotoGalleryPage: React.FC = () => {
                   <div className="space-y-1 translate-y-2 group-hover:translate-y-0 transition-transform duration-500 delay-75">
                     <div className="flex items-center gap-2">
                       <div className="w-1.5 h-1.5 bg-archive-clay rounded-full shadow-[0_0_8px_rgba(180,140,110,0.8)]"></div>
-                      <span className="text-[9px] font-black uppercase tracking-[0.2em] text-archive-clay">{asset.event}</span>
+                      <span className="text-[9px] font-black tracking-[0.2em] text-archive-clay uppercase">{asset.event}</span>
                     </div>
-                    <p className="text-[11px] font-black uppercase tracking-tighter">{asset.year} Visual Registry</p>
+                    <p className="text-[11px] font-black tracking-tighter uppercase">{asset.year.toUpperCase()} VISUAL REGISTRY</p>
                   </div>
                 </div>
 
@@ -178,7 +178,7 @@ const PhotoGalleryPage: React.FC = () => {
         {filteredAssets.length === 0 && (
           <div className="py-60 flex flex-col items-center justify-center border border-dashed border-archive-charcoal/20 text-center">
             <Search size={40} className="text-archive-clay/20 mb-6" />
-            <span className="text-[10px] font-black tracking-[0.5em] uppercase text-archive-charcoal/30">Registry null result for selected node.</span>
+            <span className="text-[10px] font-black tracking-[0.5em] text-archive-charcoal/30 uppercase">Registry null result for selected node.</span>
           </div>
         )}
       </section>
@@ -217,11 +217,11 @@ const PhotoGalleryPage: React.FC = () => {
                     <Camera size={14} className="text-archive-clay" />
                     <span className="text-archive-clay text-[10px] font-black tracking-[0.5em] uppercase">Archive Master Specimen // {selectedAsset.id}</span>
                   </div>
-                  <h2 className="text-sm md:text-base font-black uppercase text-white tracking-tighter leading-none">
-                    {selectedAsset.event} <span className="text-white/40">{selectedAsset.year} RECORD</span>
+                  <h2 className="text-sm md:text-base font-black text-white tracking-tighter leading-none">
+                    {selectedAsset.event} <span className="text-white/40 uppercase">{selectedAsset.year.toUpperCase()} RECORD</span>
                   </h2>
                 </div>
-                <div className="flex gap-10 text-white/40 text-[10px] font-black tracking-widest uppercase">
+                <div className="flex gap-10 text-white/40 text-[10px] font-black tracking-widest">
                   <div className="flex flex-col gap-1 items-end">
                     <span className="opacity-40">System_Sync</span>
                     <span className="text-green-500 font-mono">VERIFIED</span>
@@ -242,11 +242,11 @@ const PhotoGalleryPage: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
           <div className="space-y-12">
             <div className="space-y-6">
-              <h2 className="text-sm font-black uppercase text-archive-clay leading-none">Static Heritage.</h2>
+              <h2 className="text-sm font-black text-archive-clay leading-none uppercase">Static Heritage.</h2>
               <div className="w-20 h-px bg-archive-clay"></div>
             </div>
             <div className="space-y-8">
-              <p className="text-[12px] font-bold uppercase tracking-[0.15em] leading-relaxed text-archive-charcoal/60">
+              <p className="text-[12px] font-bold tracking-[0.15em] leading-relaxed text-archive-charcoal/60">
                 Our visual registry documents the tactile and architectural evolution of Intex South Asia. Spanning over a decade, these specimens represent the pinnacle of regional trade networking and material innovation.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
@@ -257,8 +257,8 @@ const PhotoGalleryPage: React.FC = () => {
                   { label: "System Sync", value: "Real-time Node Update" }
                 ].map((item, i) => (
                   <div key={i} className="space-y-2 border-l border-archive-charcoal/10 pl-6">
-                    <span className="text-[8px] font-black tracking-widest uppercase opacity-40 block">{item.label}</span>
-                    <span className="text-[11px] font-black uppercase text-archive-charcoal">{item.value}</span>
+                    <span className="text-[8px] font-black tracking-widest opacity-40 block">{item.label}</span>
+                    <span className="text-[11px] font-black text-archive-charcoal">{item.value}</span>
                   </div>
                 ))}
               </div>
@@ -270,19 +270,19 @@ const PhotoGalleryPage: React.FC = () => {
               <LayoutGrid size={200} />
             </div>
             <div className="space-y-4 relative z-10">
-              <span className="text-archive-clay text-[10px] font-black tracking-[0.5em] uppercase">Media Request Terminal</span>
-              <h3 className="text-xl font-black uppercase leading-none">Access the Full <br /> Visual Inventory.</h3>
+              <span className="text-archive-clay text-[10px] font-black tracking-[0.5em]">Media Request Terminal</span>
+              <h3 className="text-xl font-black leading-none uppercase">Access the Full <br /> Visual Inventory.</h3>
             </div>
             <div className="space-y-8 relative z-10">
-              <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-white/40 leading-relaxed">
+              <p className="text-[11px] font-bold tracking-[0.2em] text-white/40 leading-relaxed">
                 Require high-fidelity RAW files for publication or technical industry reports? Authenticated media partners may request terminal access to the full 10-year master visual registry.
               </p>
               <div className="flex flex-col sm:flex-row gap-6">
-                <button className="px-10 py-5 bg-archive-clay text-white font-black text-[10px] tracking-[0.4em] uppercase hover:bg-white hover:text-archive-charcoal transition-all">
-                  Request Terminal Access
+                <button className="px-10 py-5 bg-archive-clay text-white font-black text-[10px] tracking-[0.4em] hover:bg-white hover:text-archive-charcoal transition-all">
+                  REQUEST TERMINAL ACCESS
                 </button>
-                <button className="px-10 py-5 border border-white/20 text-white font-black text-[10px] tracking-[0.4em] uppercase hover:bg-white hover:text-archive-charcoal hover:border-white transition-all flex items-center gap-3">
-                  Sync Registry <Layers size={14} />
+                <button className="px-10 py-5 border border-white/20 text-white font-black text-[10px] tracking-[0.4em] hover:bg-white hover:text-archive-charcoal hover:border-white transition-all flex items-center gap-3">
+                  SYNC REGISTRY <Layers size={14} className="uppercase" />
                 </button>
               </div>
             </div>

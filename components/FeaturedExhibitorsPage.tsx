@@ -97,17 +97,17 @@ const FeaturedExhibitorsPage: React.FC = () => {
           <div className="space-y-6">
             <div className="flex items-center gap-4">
               <div className="w-12 h-[1px] bg-archive-clay"></div>
-              <span className="text-[10px] font-black tracking-[0.5em] uppercase text-archive-clay">Elite Registry // Node Selection</span>
+              <span className="text-[10px] font-black tracking-[0.5em] text-archive-clay uppercase">Elite Registry // Node Selection</span>
             </div>
-            <h1 className="text-2xl md:text-[4vw] font-black tracking-tighter uppercase leading-[0.85] text-archive-charcoal">
-              FEATURED <br />
-              <span className="text-white">EXHIBITORS.</span>
+            <h1 className="text-4xl md:text-8xl font-black tracking-tighter leading-[0.85] text-archive-charcoal uppercase">
+              Featured <br />
+              <span className="text-white">Exhibitors.</span>
             </h1>
           </div>
 
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-12">
             <div className="lg:col-span-7">
-              <p className="text-xl md:text-2xl font-black uppercase text-archive-charcoal/80 leading-tight">
+              <p className="text-xl md:text-2xl font-black text-archive-charcoal/80 leading-tight">
                 Showcasing the <span className="text-archive-clay">strategic leaders</span> driving textile innovation across the South Asian matrix.
               </p>
             </div>
@@ -118,7 +118,7 @@ const FeaturedExhibitorsPage: React.FC = () => {
                 <button
                   key={show}
                   onClick={() => setActiveShow(show)}
-                  className={`px-8 py-4 text-[10px] font-black tracking-widest uppercase transition-all ${activeShow === show ? 'bg-archive-charcoal text-white' : 'text-archive-charcoal/40 hover:text-archive-charcoal'}`}
+                   className={`px-8 py-4 text-[10px] font-black tracking-widest transition-all uppercase ${activeShow === show ? 'bg-archive-charcoal text-white' : 'text-archive-charcoal/40 hover:text-archive-charcoal'}`}
                 >
                   INTEX {show}
                 </button>
@@ -145,7 +145,6 @@ const FeaturedExhibitorsPage: React.FC = () => {
                 className="bg-white group relative overflow-hidden flex flex-col h-[340px] border-b border-r border-archive-charcoal/10 hover:bg-archive-charcoal transition-all duration-700"
               >
                 {/* Logo Frame */}
-                {/* Logo Frame */}
                 <div className="h-[60%] p-12 flex items-center justify-center relative bg-white group-hover:bg-white transition-colors duration-700">
                   <div className="w-full h-full flex items-center justify-center relative overflow-hidden">
                     <img
@@ -163,15 +162,15 @@ const FeaturedExhibitorsPage: React.FC = () => {
                 {/* Info Frame */}
                 <div className="h-[40%] flex flex-col  gap-3 bg-archive-cream/30 group-hover:text-white transition-colors duration-700">
                   <div>
-                    <h3 className="text-xl font-black py-4 pl-4 uppercase tracking-tighter leading-none group-hover:text-archive-clay transition-colors duration-500">
-                      {ex.name}
+                    <h3 className="text-xl font-black py-4 pl-4 tracking-tighter leading-none group-hover:text-archive-clay transition-colors duration-500">
+                      {ex.name.toUpperCase()}
                     </h3>
                   </div>
 
                   <div className="pt-4 pl-4 border-t border-archive-charcoal/5 group-hover:border-white/10 flex gap-4 w-full">
                     <div className="flex  gap-2">
                       <LayoutGrid size={12} className="text-archive-clay" />
-                      <span className="text-[9px] font-black uppercase tracking-widest">Visit Website</span>
+                       <span className="text-[9px] font-black tracking-widest uppercase">Visit Website</span>
                     </div>
                     <ArrowUpRight size={16} className="opacity-0 group-hover:opacity-100 transition-all text-archive-clay" />
                   </div>
@@ -192,19 +191,19 @@ const FeaturedExhibitorsPage: React.FC = () => {
             <div className="lg:col-span-8 space-y-8">
               <div className="flex items-center gap-4">
                 <Database size={16} className="text-archive-clay" />
-                <span className="text-[10px] font-black tracking-[0.5em] uppercase text-archive-clay">Exhibition Management</span>
+                <span className="text-[10px] font-black tracking-[0.5em] text-archive-clay uppercase">Exhibition Management</span>
               </div>
-              <h2 className="text-xs md:text-sm font-black uppercase tracking-tighter leading-[0.9]">
+              <h2 className="text-3xl md:text-4xl font-black tracking-tighter leading-[0.9] uppercase">
                 Get your brand <br /> <span className="text-archive-clay">indexed as featured.</span>
               </h2>
-              <p className="text-[12px] font-bold uppercase tracking-widest leading-relaxed text-white/40 max-w-xl">
+              <p className="text-[12px] font-bold tracking-widest leading-relaxed text-white/40 max-w-xl">
                 Featured exhibitors receive priority placement across all digital directories, physical signage, and post-show media coverage.
                 Enquire today to elevate your visibility in the 2026 Archive.
               </p>
             </div>
             <div className="lg:col-span-4 flex justify-end">
-              <button className="w-full lg:w-auto px-12 py-6 bg-archive-clay text-white font-black text-[10px] tracking-[0.4em] uppercase hover:bg-white hover:text-archive-charcoal transition-all">
-                Apply for Featured Status
+              <button className="w-full lg:w-auto px-12 py-6 bg-archive-clay text-white font-black text-[10px] tracking-[0.4em] hover:bg-white hover:text-archive-charcoal transition-all">
+                APPLY FOR FEATURED STATUS
               </button>
             </div>
           </div>

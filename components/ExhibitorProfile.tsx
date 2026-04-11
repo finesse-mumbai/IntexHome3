@@ -6,30 +6,30 @@ import { ArrowUpRight, MapPin, Calendar, Database, Layers } from 'lucide-react';
 const EXHIBITIONS = [
   {
     id: 'ex-bg',
-    title: 'INTEX BANGLADESH',
+    title: 'Intex Bangladesh',
     edition: '17th Edition',
     date: '18-19-20 June, 2026',
-    location: 'ICCB, DHAKA',
+    location: 'ICCB, Dhaka',
     imageUrl: 'https://sl.intexsouthasia.com/assets/img/Gallery/2025/21.jpg',
-    category: 'FIBRES & YARNS'
+    category: 'Fibres & Yarns'
   },
   {
     id: 'ex-sl',
-    title: 'INTEX SRI LANKA',
+    title: 'Intex Sri Lanka',
     edition: '17th Edition',
     date: '5-6-7 August 2026',
-    location: 'BMICH, COLOMBO',
+    location: 'BMICH, Colombo',
     imageUrl: 'https://sl.intexsouthasia.com/assets/img/Gallery/2025/8.jpg',
-    category: 'FABRICS & ACCESSORIES'
+    category: 'Fabrics & Accessories'
   },
   {
     id: 'ex-in',
-    title: 'INTEX INDIA',
+    title: 'Intex India',
     edition: '17th Edition',
-    date: 'ANNOUNCING SOON',
-    location: 'NEW DELHI',
+    date: 'Announcing Soon',
+    location: 'New Delhi',
     imageUrl: 'https://sl.intexsouthasia.com/assets/img/Gallery/2025/14.jpg',
-    category: 'DENIM & APPAREL'
+    category: 'Denim & Apparel'
   }
 ];
 
@@ -39,7 +39,7 @@ const ExhibitorProfile: React.FC = () => {
 
       {/* Background Micro-details */}
       <div className="absolute top-0 right-0 p-12 opacity-20 pointer-events-none">
-        <span className="text-[10px] font-mono text-archive-charcoal uppercase tracking-[0.5em]">Upcoming_Nodes // 2026 Cycle</span>
+        <span className="text-[10px] font-mono text-archive-charcoal tracking-[0.5em] uppercase">Upcoming_Nodes // 2026 Cycle</span>
       </div>
 
       <div className="max-w-[1440px] mx-auto px-12 relative z-10">
@@ -48,9 +48,9 @@ const ExhibitorProfile: React.FC = () => {
         <div className="mb-20 space-y-6">
           <div className="flex items-center gap-4">
             <div className="w-12 h-[1px] bg-archive-clay"></div>
-            <span className="text-[10px] font-black tracking-[0.5em] uppercase text-archive-clay">Sourcing Registry</span>
+            <span className="text-[10px] font-black tracking-[0.5em] text-archive-clay uppercase">Sourcing Registry</span>
           </div>
-          <h2 className="text-2xl md:text-4xl font-black tracking-tighter uppercase leading-[0.9] text-archive-charcoal">
+          <h2 className="text-2xl md:text-4xl font-black tracking-tighter leading-[0.9] text-archive-charcoal uppercase">
             Upcoming <br /><span className="text-archive-clay">Exhibitions.</span>
           </h2>
         </div>
@@ -91,27 +91,27 @@ const ExhibitorProfile: React.FC = () => {
 
                   <div className="space-y-8">
                     <div className="space-y-4">
-                      <h3 className="text-4xl font-black text-white leading-[0.9] uppercase group-hover:tracking-wider transition-all duration-700">
+                      <h3 className="text-4xl font-black text-white leading-[0.9] group-hover:tracking-wider transition-all duration-700">
                         {ex.title.split(' ')[0]} <br /> {ex.title.split(' ')[1]}
                       </h3>
 
                       <div className="space-y-3">
                         <div className="flex flex-col">
-                          <span className="text-[8px] font-bold text-white/40 uppercase tracking-widest">Event Date</span>
-                          <span className="text-sm font-black text-white uppercase tracking-wider">{ex.date}</span>
+                          <span className="text-[8px] font-bold text-white/40 tracking-widest uppercase">Event Date</span>
+                          <span className="text-sm font-black text-white tracking-wider uppercase">{ex.date}</span>
                         </div>
                         <div className="flex flex-col">
-                          <span className="text-[8px] font-bold text-white/40 uppercase tracking-widest">Event Venue</span>
+                          <span className="text-[8px] font-bold text-white/40 tracking-widest uppercase">Event Venue</span>
                           <div className="flex items-center gap-2">
                             <MapPin size={12} className="text-archive-clay" />
-                            <span className="text-xs font-black text-white uppercase tracking-wider">{ex.location}</span>
+                            <span className="text-xs font-black text-white tracking-wider uppercase">{ex.location}</span>
                           </div>
                         </div>
                       </div>
                     </div>
 
                     <button className="w-full bg-white group/btn relative overflow-hidden py-4 px-6 flex items-center justify-between transition-all hover:bg-archive-clay">
-                      <span className="relative z-10 text-[9px] font-black text-archive-charcoal group-hover:text-white uppercase tracking-[0.4em] transition-colors">View Details</span>
+                      <span className="relative z-10 text-[9px] font-black text-archive-charcoal group-hover:text-white tracking-[0.4em] transition-colors uppercase">VIEW DETAILS</span>
                       <ArrowUpRight size={16} className="relative z-10 text-archive-clay group-hover:text-white transition-colors" />
                       <div className="absolute inset-0 bg-archive-clay translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
                     </button>

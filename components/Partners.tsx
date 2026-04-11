@@ -75,15 +75,6 @@ const Partners: React.FC = () => {
           </motion.div>
         </div>
 
-        {/* Separator Streamer */}
-        <div className="py-3 bg-black/[0.02] flex justify-center items-center gap-24 overflow-hidden border-b border-black/[0.04]">
-          {[...Array(5)].map((_, i) => (
-            <div key={i} className="flex items-center gap-8 whitespace-nowrap">
-              <span className="text-[7px] font-mono font-black text-black/10 uppercase tracking-[1.5em]">DATA_PACKET_V01 // NODE_REF_{i + 100}</span>
-              <div className="w-1 h-1 bg-archive-clay rotate-45"></div>
-            </div>
-          ))}
-        </div>
 
         {/* Row 2: Right to Left */}
         <div className="flex overflow-hidden border-b border-black/[0.04] relative">

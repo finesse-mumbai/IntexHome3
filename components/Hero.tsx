@@ -27,7 +27,7 @@ const Hero: React.FC = () => {
           transition={{ duration: 1 }}
           className="space-y-4"
         >
-          <span className="text-[10px] font-black tracking-[0.8em] uppercase text-archive-clay">The Past is Our Future</span>
+          <span className="text-[10px] font-black tracking-[0.8em] text-archive-clay uppercase">The Past is Our Future</span>
           <div className="relative w-full max-w-none flex items-center justify-center -mt-40">
             <svg viewBox="0 0 6500 450" className="w-[85vw] h-auto overflow-visible select-none pointer-events-none">
               <defs>
@@ -40,9 +40,9 @@ const Hero: React.FC = () => {
                     initial={{ letterSpacing: "0.15em", opacity: 0 }}
                     animate={{ letterSpacing: "0.01em", opacity: 1 }}
                     transition={{ duration: 2.5, ease: [0.16, 1, 0.3, 1] }}
-                    className=" font-black uppercase text-[450px]"
+                    className=" font-black text-[450px]"
                   >
-                    Intex South Asia
+                    INTEX SOUTH ASIA
                   </motion.text>
                 </clipPath>
               </defs>
@@ -59,8 +59,8 @@ const Hero: React.FC = () => {
               </foreignObject>
             </svg>
           </div>
-          <p className="text-[10px] font-bold tracking-[0.3em] uppercase text-white opacity-60">
-            The Premier International Textile Sourcing Shows of South Asia
+          <p className="text-[10px] font-bold tracking-[0.3em] text-white opacity-60 uppercase">
+            THE PREMIER INTERNATIONAL TEXTILE SOURCING SHOWS OF SOUTH ASIA
           </p>
         </motion.div>
 
@@ -70,11 +70,11 @@ const Hero: React.FC = () => {
           transition={{ delay: 0.5 }}
           className="pt-12 flex flex-col sm:flex-row items-center justify-center gap-6"
         >
-          <button className="w-full sm:w-auto px-10 py-5 bg-archive-clay text-white font-black text-[10px] tracking-[0.4em] uppercase hover:bg-white hover:text-archive-charcoal border border-archive-clay transition-all">
-            Buyer Registration
+          <button className="w-full sm:w-auto px-10 py-5 bg-archive-clay text-white font-black text-[10px] tracking-[0.4em] hover:bg-white hover:text-archive-charcoal border border-archive-clay transition-all uppercase">
+            BUYER REGISTRATION
           </button>
-          <button className="w-full sm:w-auto px-10 py-5 bg-transparent text-white font-black text-[10px] tracking-[0.4em] uppercase hover:bg-white hover:text-archive-charcoal border border-white/30 hover:border-white transition-all">
-            Exhibitor Enquiry
+          <button className="w-full sm:w-auto px-10 py-5 bg-transparent text-white font-black text-[10px] tracking-[0.4em] hover:bg-white hover:text-archive-charcoal border border-white/30 hover:border-white transition-all uppercase">
+            EXHIBITOR ENQUIRY
           </button>
         </motion.div>
       </div>

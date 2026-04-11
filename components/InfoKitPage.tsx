@@ -51,9 +51,9 @@ const InfoKitPage: React.FC = () => {
           <div className="space-y-6">
             <div className="flex items-center gap-4">
               <div className="w-12 h-[1px] bg-archive-clay"></div>
-              <span className="text-[10px] font-black tracking-[0.5em] uppercase text-archive-clay">Technical Inventory // Asset Kit</span>
+              <span className="text-[10px] font-black tracking-[0.5em] text-archive-clay uppercase">Technical Inventory // Asset Kit</span>
             </div>
-            <h1 className="text-2xl md:text-[4vw] font-black tracking-tighter uppercase leading-[0.85] text-archive-charcoal">
+            <h1 className="text-4xl md:text-8xl font-black tracking-tighter leading-[0.85] text-archive-charcoal uppercase">
               INFO <br />
               <span className="text-white">KITS.</span>
             </h1>
@@ -61,8 +61,8 @@ const InfoKitPage: React.FC = () => {
 
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-12">
             <div className="lg:col-span-7">
-              <p className="text-xl md:text-2xl font-black uppercase text-archive-charcoal/80 leading-tight">
-                Accessing the <span className="text-archive-clay">verified asset manifest</span> for upcoming global exhibition nodes.
+              <p className="text-xl md:text-2xl font-black text-archive-charcoal/80 leading-tight">
+                ACCESSING THE <span className="text-archive-clay uppercase">VERIFIED ASSET MANIFEST</span> FOR UPCOMING GLOBAL EXHIBITION NODES.
               </p>
             </div>
 
@@ -71,9 +71,9 @@ const InfoKitPage: React.FC = () => {
                 <button
                   key={show}
                   onClick={() => setActiveShow(show)}
-                  className={`px-8 py-4 text-[10px] font-black tracking-widest uppercase transition-all ${activeShow === show ? 'bg-archive-charcoal text-white' : 'text-archive-charcoal/40 hover:text-archive-charcoal'}`}
+                  className={`px-8 py-4 text-[10px] font-black tracking-widest transition-all ${activeShow === show ? 'bg-archive-charcoal text-white' : 'text-archive-charcoal/40 hover:text-archive-charcoal'}`}
                 >
-                  {show}
+                  {show.toUpperCase()}
                 </button>
               ))}
             </div>
@@ -132,29 +132,29 @@ const InfoKitPage: React.FC = () => {
 
                   <div className="space-y-4">
 
-                    <h3 className="text-xl font-black uppercase text-archive-charcoal tracking-tighter leading-none group-hover:text-white transition-colors duration-500">
-                      {asset.title}
+                    <h3 className="text-xl font-black text-archive-charcoal tracking-tighter leading-none group-hover:text-white transition-colors duration-500 uppercase">
+                      {asset.title.toUpperCase()}
                     </h3>
                     <div className="w-10 h-px bg-archive-clay/40 group-hover:w-full transition-all duration-700"></div>
                   </div>
 
-                  <p className="text-[12px] font-medium uppercase tracking-[0.1em] leading-relaxed text-archive-charcoal/40 group-hover:text-white/60 transition-colors">
+                  <p className="text-[12px] font-medium tracking-[0.1em] leading-relaxed text-archive-charcoal/40 group-hover:text-white/60 transition-colors">
                     {asset.description}
                   </p>
                 </div>
 
                 <div className="relative z-10 pt-10 border-t border-archive-charcoal/5 group-hover:border-white/10 mt-auto flex justify-between items-end">
                   <div className="space-y-1">
-                    <span className="text-[8px] font-black tracking-widest text-archive-charcoal/30 group-hover:text-white/30 uppercase block">Size Protocol</span>
+                    <span className="text-[8px] font-black tracking-widest text-archive-charcoal/30 group-hover:text-white/30 block uppercase">Size Protocol</span>
                     <span className="text-[11px] font-black text-archive-charcoal group-hover:text-archive-clay transition-colors">{asset.fileSize}</span>
                   </div>
                   <a
                     href={asset.downloadUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-8 py-4 bg-archive-charcoal text-white group-hover:bg-archive-clay transition-all flex items-center gap-4 text-[9px] font-black tracking-[0.3em] uppercase"
+                    className="px-8 py-4 bg-archive-charcoal text-white group-hover:bg-archive-clay transition-all flex items-center gap-4 text-[9px] font-black tracking-[0.3em]"
                   >
-                    DOWNLOAD <Download size={14} />
+                    DOWNLOAD <Download size={14} className="uppercase" />
                   </a>
                 </div>
               </motion.div>
@@ -168,11 +168,11 @@ const InfoKitPage: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
           <div className="space-y-12">
             <div className="space-y-6">
-              <h2 className="text-sm font-black uppercase text-archive-clay leading-none">Security & Distribution.</h2>
+              <h2 className="text-sm font-black text-archive-clay leading-none uppercase">SECURITY & DISTRIBUTION.</h2>
               <div className="w-20 h-px bg-archive-clay"></div>
             </div>
             <div className="space-y-8">
-              <p className="text-[12px] font-bold uppercase tracking-[0.15em] leading-relaxed text-archive-charcoal/60">
+              <p className="text-[12px] font-bold tracking-[0.15em] leading-relaxed text-archive-charcoal/60">
                 The Intex digital asset registry ensures all marketing and technical materials are synchronized with the latest show specifications. Use only official assets for external trade communications.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
@@ -183,8 +183,8 @@ const InfoKitPage: React.FC = () => {
                   { label: "Document Status", value: "Current 2026 Manifest" }
                 ].map((item, i) => (
                   <div key={i} className="space-y-2 border-l border-archive-charcoal/10 pl-6">
-                    <span className="text-[8px] font-black tracking-widest uppercase opacity-40 block">{item.label}</span>
-                    <span className="text-[11px] font-black uppercase text-archive-charcoal">{item.value}</span>
+                    <span className="text-[8px] font-black tracking-widest opacity-40 block">{item.label}</span>
+                    <span className="text-[11px] font-black text-archive-charcoal">{item.value}</span>
                   </div>
                 ))}
               </div>
@@ -196,19 +196,19 @@ const InfoKitPage: React.FC = () => {
               <ShieldCheck size={200} />
             </div>
             <div className="space-y-4 relative z-10">
-              <span className="text-archive-clay text-[10px] font-black tracking-[0.5em] uppercase">Registration Desk</span>
-              <h3 className="text-xl font-black uppercase leading-none">Custom Info <br /> Requests.</h3>
+              <span className="text-archive-clay text-[10px] font-black tracking-[0.5em]">Registration Desk</span>
+              <h3 className="text-xl font-black leading-none uppercase">CUSTOM INFO <br /> REQUESTS.</h3>
             </div>
             <div className="space-y-8 relative z-10">
-              <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-white/40 leading-relaxed">
+              <p className="text-[11px] font-bold tracking-[0.2em] text-white/40 leading-relaxed">
                 Require specialized technical datasets, custom booth layouts, or specific material sourcing reports? Contact our registry management for authorized data access.
               </p>
               <div className="flex flex-col sm:flex-row gap-6">
-                <button className="px-10 py-5 bg-archive-clay text-white font-black text-[10px] tracking-[0.4em] uppercase hover:bg-white hover:text-archive-charcoal transition-all">
-                  Request Credentials
+                <button className="px-10 py-5 bg-archive-clay text-white font-black text-[10px] tracking-[0.4em] hover:bg-white hover:text-archive-charcoal transition-all">
+                  REQUEST CREDENTIALS
                 </button>
-                <button className="px-10 py-5 border border-white/20 text-white font-black text-[10px] tracking-[0.4em] uppercase hover:bg-white hover:text-archive-charcoal hover:border-white transition-all flex items-center gap-3">
-                  Registry Audit <FileCheck size={14} />
+                <button className="px-10 py-5 border border-white/20 text-white font-black text-[10px] tracking-[0.4em] hover:bg-white hover:text-archive-charcoal hover:border-white transition-all flex items-center gap-3">
+                   REGISTRY AUDIT <FileCheck size={14} className="uppercase" />
                 </button>
               </div>
             </div>

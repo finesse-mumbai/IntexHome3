@@ -18,7 +18,7 @@ interface PressRelease {
 }
 
 const PRESS_DATA: Record<string, PressRelease[]> = {
-  'SRI LANKA': [
+  'Sri Lanka': [
     {
       id: 'PR_SL_25_01',
       type: 'PRE-EVENT',
@@ -57,7 +57,7 @@ const PRESS_DATA: Record<string, PressRelease[]> = {
       ]
     }
   ],
-  'BANGLADESH': [
+  'Bangladesh': [
     {
       id: 'PR_BD_25_01',
       type: 'PRE-EVENT',
@@ -95,7 +95,7 @@ const PRESS_DATA: Record<string, PressRelease[]> = {
 };
 
 const PressReleasePage: React.FC = () => {
-  const [activeShow, setActiveShow] = useState('SRI LANKA');
+  const [activeShow, setActiveShow] = useState('Sri Lanka');
   const [expandedIds, setExpandedIds] = useState<Set<string>>(new Set());
 
   const toggleExpand = (id: string) => {
@@ -115,9 +115,9 @@ const PressReleasePage: React.FC = () => {
           <div className="space-y-6">
             <div className="flex items-center gap-4">
               <div className="w-12 h-[1px] bg-archive-clay"></div>
-              <span className="text-[10px] font-black tracking-[0.5em] uppercase text-archive-clay">Media Registry // News Manifest</span>
+              <span className="text-[10px] font-black tracking-[0.5em] text-archive-clay uppercase">Media Registry // News Manifest</span>
             </div>
-            <h1 className="text-2xl md:text-[4vw] font-black tracking-tighter uppercase leading-[0.85] text-archive-charcoal">
+            <h1 className="text-4xl md:text-8xl font-black tracking-tighter leading-[0.85] text-archive-charcoal uppercase">
               PRESS <br />
               <span className="text-white">RELEASES.</span>
             </h1>
@@ -125,8 +125,8 @@ const PressReleasePage: React.FC = () => {
 
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-12">
             <div className="lg:col-span-7">
-              <p className="text-xl md:text-2xl font-black uppercase text-archive-charcoal/80 leading-tight">
-                Official <span className="text-archive-clay">journalistic records</span> documenting the evolution and impact of Intex South Asia.
+              <p className="text-xl md:text-2xl font-black text-archive-charcoal/80 leading-tight">
+                OFFICIAL <span className="text-archive-clay uppercase">JOURNALISTIC RECORDS</span> DOCUMENTING THE EVOLUTION AND IMPACT OF INTEX SOUTH ASIA.
               </p>
             </div>
 
@@ -135,9 +135,9 @@ const PressReleasePage: React.FC = () => {
                 <button
                   key={show}
                   onClick={() => { setActiveShow(show); setExpandedIds(new Set()); }}
-                  className={`px-8 py-4 text-[10px] font-black tracking-widest uppercase transition-all ${activeShow === show ? 'bg-archive-charcoal text-white' : 'text-archive-charcoal/40 hover:text-archive-charcoal'}`}
+                  className={`px-8 py-4 text-[10px] font-black tracking-widest transition-all ${activeShow === show ? 'bg-archive-charcoal text-white' : 'text-archive-charcoal/40 hover:text-archive-charcoal'}`}
                 >
-                  {show}
+                  {show === 'Sri Lanka' ? 'SRI LANKA' : 'BANGLADESH'}
                 </button>
               ))}
             </div>
@@ -166,30 +166,30 @@ const PressReleasePage: React.FC = () => {
                 <div className="max-w-4xl relative z-10 space-y-12">
                   <div className="space-y-6">
                     <div className="flex items-center gap-4">
-                      <span className={`px-4 py-1 text-[9px] font-black tracking-widest uppercase ${pr.type === 'PRE-EVENT' ? 'bg-archive-clay text-white' : 'bg-archive-charcoal text-white'}`}>
-                        {pr.type}
+                      <span className={`px-4 py-1 text-[9px] font-black tracking-widest ${pr.type === 'PRE-EVENT' ? 'bg-archive-clay text-white' : 'bg-archive-charcoal text-white'}`}>
+                        {pr.type === 'PRE-EVENT' ? 'PRE-EVENT' : 'POST-EVENT'}
                       </span>
                       <div className="w-8 h-px bg-archive-charcoal/10"></div>
-                      <div className="flex items-center gap-2 text-[9px] font-mono font-black text-archive-charcoal/40 uppercase">
+                      <div className="flex items-center gap-2 text-[9px] font-mono font-black text-archive-charcoal/40">
                         <Clock size={12} className="text-archive-clay" />
-                        ARCHIVE_LOG // {pr.id}
+                        Archive Log // {pr.id}
                       </div>
                     </div>
 
                     <div className="space-y-4">
-                      <h2 className="text-sm md:text-base font-black uppercase tracking-tighter leading-[0.95] text-archive-charcoal">
-                        {pr.subtitle}
+                      <h2 className="text-sm md:text-base font-black tracking-tighter leading-[0.95] text-archive-charcoal">
+                        {pr.subtitle.toUpperCase()}
                       </h2>
-                      <div className="flex items-center gap-2 text-[10px] font-bold text-archive-clay uppercase tracking-widest">
+                      <div className="flex items-center gap-2 text-[10px] font-bold text-archive-clay tracking-widest">
                         <MapPinIcon size={12} />
-                        {pr.location}
+                        {pr.location.toUpperCase()}
                       </div>
                     </div>
                   </div>
 
                   <div className="prose prose-lg max-w-none space-y-6">
                     {pr.content.map((p, i) => (
-                      <p key={i} className="text-[15px] font-medium leading-relaxed text-archive-charcoal/80 uppercase tracking-widest">
+                      <p key={i} className="text-[15px] font-medium leading-relaxed text-archive-charcoal/80 tracking-widest">
                         {p}
                       </p>
                     ))}
@@ -205,16 +205,16 @@ const PressReleasePage: React.FC = () => {
                         >
                           {pr.quote && (
                             <blockquote className="my-8 border-l-4 border-archive-clay pl-8 text-archive-charcoal bg-archive-cream/30 py-8 p-8 space-y-4">
-                              <p className="text-xl md:text-2xl font-black uppercase tracking-tight leading-tight">
+                              <p className="text-xl md:text-2xl font-black tracking-tight leading-tight">
                                 {pr.quote.text}
                               </p>
-                              <footer className="text-[10px] font-black tracking-widest text-archive-clay uppercase text-right">
+                              <footer className="text-[10px] font-black tracking-widest text-archive-clay text-right">
                                 {pr.quote.author}
                               </footer>
                             </blockquote>
                           )}
                           {pr.expandedContent.map((p, i) => (
-                            <p key={i} className="text-[15px] font-medium leading-relaxed text-archive-charcoal/80 uppercase tracking-widest">
+                            <p key={i} className="text-[15px] font-medium leading-relaxed text-archive-charcoal/80 tracking-widest">
                               {p}
                             </p>
                           ))}
@@ -226,7 +226,7 @@ const PressReleasePage: React.FC = () => {
                   <div className="pt-8 border-t border-archive-charcoal/5">
                     <button
                       onClick={() => toggleExpand(pr.id)}
-                      className="flex items-center gap-3 text-[10px] font-black uppercase tracking-[0.4em] text-archive-clay hover:text-archive-charcoal transition-all group/btn"
+                      className="flex items-center gap-3 text-[10px] font-black tracking-[0.4em] text-archive-clay hover:text-archive-charcoal transition-all group/btn"
                     >
                       {expandedIds.has(pr.id) ? (
                         <>READ LESS <ChevronUp size={14} className="group-hover/btn:-translate-y-0.5 transition-transform" /></>
@@ -248,16 +248,16 @@ const PressReleasePage: React.FC = () => {
           <div className="space-y-8">
             <div className="flex items-center gap-4 text-archive-clay">
               <Newspaper size={20} />
-              <span className="text-[11px] font-black tracking-[0.4em] uppercase">Media Protocol</span>
+              <span className="text-[11px] font-black tracking-[0.4em]">Media Protocol</span>
             </div>
-            <h3 className="text-xl font-black uppercase tracking-tight text-archive-charcoal leading-none">
-              Official Inquiries <br /> & <span>Interview Requests.</span>
+            <h3 className="text-xl font-black tracking-tight text-archive-charcoal leading-none uppercase">
+              OFFICIAL INQUIRIES <br /> & <span>INTERVIEW REQUESTS.</span>
             </h3>
-            <p className="text-[13px] font-bold uppercase tracking-widest leading-relaxed text-archive-charcoal/40">
+            <p className="text-[13px] font-bold tracking-widest leading-relaxed text-archive-charcoal/40">
               Credentialed media representatives may request high-fidelity image assets, video manifests, and exclusive executive interviews for the 2026 Archive cycle.
             </p>
-            <button className="px-10 py-5 bg-archive-charcoal text-white font-black text-[10px] tracking-[0.4em] uppercase hover:bg-archive-clay transition-all">
-              Contact Media Desk
+            <button className="px-10 py-5 bg-archive-charcoal text-white font-black text-[10px] tracking-[0.4em] hover:bg-archive-clay transition-all">
+              CONTACT MEDIA DESK
             </button>
           </div>
 
@@ -266,8 +266,8 @@ const PressReleasePage: React.FC = () => {
               <Database size={100} />
             </div>
             <div className="space-y-4">
-              <span className="text-archive-clay text-[10px] font-black tracking-[0.5em] uppercase">Archive Download</span>
-              <h4 className="text-xl font-black uppercase leading-none">Download <br /> Media Kits.</h4>
+              <span className="text-archive-clay text-[10px] font-black tracking-[0.5em]">Archive Download</span>
+              <h4 className="text-xl font-black leading-none uppercase">DOWNLOAD <br /> MEDIA KITS.</h4>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {[
@@ -277,7 +277,7 @@ const PressReleasePage: React.FC = () => {
                 { label: "Brand Guidelines", icon: ShieldCheck }
               ].map((item, i) => (
                 <div key={i} className="p-6 border border-white/10 flex items-center justify-between hover:bg-white/5 cursor-pointer transition-all group">
-                  <span className="text-[9px] font-black uppercase tracking-widest">{item.label}</span>
+                  <span className="text-[9px] font-black tracking-widest uppercase">{item.label}</span>
                   <ArrowRight size={14} className="text-archive-clay group-hover:translate-x-1 transition-transform" />
                 </div>
               ))}

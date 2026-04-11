@@ -139,20 +139,20 @@ const App: React.FC = () => {
             <div className="max-w-[1440px] mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
               <div className="lg:col-span-5 space-y-10">
                 <div className="space-y-4">
-                  <span className="text-[10px] font-black tracking-[0.5em] uppercase text-archive-clay">About Us</span>
-                  <h2 className="text-2xl md:text-4xl font-black tracking-tighter leading-[0.9] uppercase text-archive-charcoal">
+                  <span className="text-[10px] font-black tracking-[0.5em] text-archive-clay uppercase">About Us</span>
+                  <h2 className="text-2xl md:text-4xl font-black tracking-tighter leading-[0.9] text-archive-charcoal uppercase">
                     Archive of <br /> South Asia.
                   </h2>
                 </div>
                 <div className="space-y-6">
                   <h3 className="text-xl font-black leading-tight text-archive-charcoal">
-                    The Premier International Textile Sourcing Shows of South Asia.
+                    THE PREMIER INTERNATIONAL TEXTILE SOURCING SHOWS OF SOUTH ASIA.
                   </h3>
-                  <p className="text-archive-charcoal text-xs leading-relaxed max-w-lg uppercase tracking-widest font-medium opacity-80">
+                  <p className="text-archive-charcoal text-xs leading-relaxed max-w-lg tracking-widest font-medium opacity-80">
                     Since its launch in 2015, Intex has evolved into the region's most influential and largest international textile sourcing show in South Asia, with a strong presence across Sri Lanka, Bangladesh, and India.
                   </p>
-                  <button className="px-10 py-5 border border-archive-clay text-archive-clay font-black text-[10px] tracking-[0.4em] uppercase hover:bg-archive-clay hover:text-archive-cream transition-all">
-                    View Highlights
+                  <button className="px-10 py-5 border border-archive-clay text-archive-clay font-black text-[10px] tracking-[0.4em] hover:bg-archive-clay hover:text-archive-cream transition-all uppercase">
+                    VIEW HIGHLIGHTS
                   </button>
                 </div>
               </div>
@@ -180,7 +180,7 @@ const App: React.FC = () => {
         </RevealWrapper>
 
 
-        <RevealWrapper text="VISUAL ARCHIVE." subtext="REG_ID // 05" type="slide" direction="left" amount={0.3}>
+        <RevealWrapper text="VISUAL ARCHIVE." subtext="REG_ID // 05" type="slide" direction="left" amount={0.3} textSize="text-4xl md:text-8xl">
           <Gallery />
         </RevealWrapper>
 
@@ -231,9 +231,9 @@ const App: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-white text-6xl md:text-9xl font-black uppercase tracking-tighter"
+          className="text-white text-6xl md:text-9xl font-black tracking-tighter"
         >
-          INTEX<span className="text-archive-clay">.</span>
+          Intex<span className="text-archive-clay">.</span>
         </motion.div>
       </motion.div>
 

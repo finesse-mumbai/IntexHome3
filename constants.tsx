@@ -4,49 +4,49 @@ import { CategoryItem, ResourceItem, TestimonialItem, BuyerImageProfile, Gallery
 export const CATEGORIES: CategoryItem[] = [
   {
     id: 'fibres',
-    title: 'FIBRES',
+    title: 'Fibres',
     description: 'Natural Fibres, Man-Made Fibres, Silk, Wool, Synthetic Fibres, Organic, Polyester, Acrylic and many more...',
     imageUrl: 'https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?auto=format&fit=crop&q=80&w=1200'
   },
   {
     id: 'yarns',
-    title: 'YARNS',
+    title: 'Yarns',
     description: 'Acrylic, Blended, Brushed, Cabled, Carded, Coated, Combed, Cotton, Dyed, Elastic, Core, Fancy, Lace, Linen, Nylon, Organic, Polyester, Ring, Spun, Silk, Synthetic, Textured, Twisted, Wool and Many More...',
     imageUrl: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=1200'
   },
   {
     id: 'fabrics',
-    title: 'APPAREL FABRICS',
+    title: 'Apparel Fabrics',
     description: 'Acrylic, Art Silk, Batik, Blended, Chiffon, Corduroy, Cotton, Denim, Dyed, Embroidery, Fancy, Interlock, Jacquard, Jersey, Knitted, Linen, Netting, Nylon, Organza, Polyester, Printed, Silk and Many More...',
     imageUrl: 'https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&q=80&w=1200'
   },
   {
     id: 'denims',
-    title: 'DENIMS',
+    title: 'Denims',
     description: 'Cotton Denim, Cross-hatch Denim, Denim Yarns, Dry Denim, Denim Accessories, Fashion Denim, Floc Coated Denim, Linen Denim, Raw Denim, Open End Denim, Poly Denim and Many More...',
     imageUrl: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&q=80&w=1200'
   },
   {
     id: 'trims',
-    title: 'TRIMS & ACCESSORIES',
+    title: 'Trims & Accessories',
     description: 'Buttonhole, Buttons, Cord, Elastic, Embroidery, Interlining, Labels, Motifs, Piping, Pocketing Fabric, Ribbons, Rivet, Rosettes, Sequins, Tapes, Threads, Toggles, Trimmings, Velcro, Zippers and Many More...',
     imageUrl: 'https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?auto=format&fit=crop&q=80&w=1200'
   },
   {
     id: 'dyes',
-    title: 'DYES & CHEMICALS',
+    title: 'Dyes & Chemicals',
     description: 'Dyestuff and Pigment, Basic Dye, Direct Dye, Reactive Dye, Sulphur Dye, Indigo Blue, Sulfurated Black, Organic Pigment, Printing Plasm, Color Dyestuff, Dye Intermediates, and Many More...',
     imageUrl: 'https://images.unsplash.com/photo-1614850523296-d8c1af93d400?auto=format&fit=crop&q=80&w=1200'
   },
   {
     id: 'software',
-    title: 'SOFTWARE & ERP',
+    title: 'Software & ERP',
     description: 'Software, AI Technology, Supply Chain, 3D Design, CAD-CAM, Pattern Design, Cloud Solutions, and many more...',
     imageUrl: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1200'
   },
   {
     id: 'allied',
-    title: 'OTHER ALLIED SERVICES',
+    title: 'Other Allied Services',
     description: 'Testing Equipments, Laboratory Tools, Design Studios, Trends Forecasters, Textile & Fashion Institutes, Trade Associations, and Many More...',
     imageUrl: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1200'
   },
@@ -78,12 +78,12 @@ export const BUYER_PROFILES: BuyerImageProfile[] = [
 ];
 
 export const BUYER_IMAGE_PROFILES: BuyerImageProfile[] = [
-  { title: 'MANUFACTURERS', imageUrl: 'https://images.unsplash.com/photo-1565514020179-026b92b84bb6?auto=format&fit=crop&q=80&w=800' },
-  { title: 'INTERNATIONAL BRANDS', imageUrl: 'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&q=80&w=800' },
-  { title: 'SOURCING OFFICES', imageUrl: 'https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=800' },
-  { title: 'BUYING AGENTS', imageUrl: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&q=80&w=800' },
-  { title: 'BUYING HOUSES', imageUrl: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=800' },
-  { title: 'TRADE ASSOCIATIONS', imageUrl: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=800' }
+  { title: 'Manufacturers', imageUrl: 'https://images.unsplash.com/photo-1565514020179-026b92b84bb6?auto=format&fit=crop&q=80&w=800' },
+  { title: 'International Brands', imageUrl: 'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&q=80&w=800' },
+  { title: 'Sourcing Offices', imageUrl: 'https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=800' },
+  { title: 'Buying Agents', imageUrl: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&q=80&w=800' },
+  { title: 'Buying Houses', imageUrl: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=800' },
+  { title: 'Trade Associations', imageUrl: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=800' }
 ];
 
 export const RESOURCES: ResourceItem[] = [
@@ -280,8 +280,8 @@ export const TESTIMONIALS: TestimonialItem[] = [
 ];
 
 export const GALLERY_ITEMS: GalleryItem[] = [
-  { id: 'g1', title: 'INTEX SRI LANKA 2024', imageUrl: 'https://sl.intexsouthasia.com/assets/img/Gallery/2025/21.jpg', category: 'FIBRES', rating: 4.9, year: '2024' },
-  { id: 'g2', title: 'INTEX BANGLADESH  2024', imageUrl: 'https://sl.intexsouthasia.com/assets/img/Gallery/2025/8.jpg', category: 'FABRICS', rating: 4.8, year: '2024' },
-  { id: 'g3', title: 'INTEX INDIA  2024', imageUrl: 'https://sl.intexsouthasia.com/assets/img/Gallery/2025/14.jpg', category: 'DENIM', rating: 5.0, year: '2024' },
-  { id: 'g4', title: 'INMAC WORLDEXPO', imageUrl: 'https://sl.intexsouthasia.com/assets/img/Gallery/2025/32.jpg', category: 'YARNS', rating: 4.7, year: '2023' }
+  { id: 'g1', title: 'Intex Sri Lanka 2024', imageUrl: 'https://sl.intexsouthasia.com/assets/img/Gallery/2025/21.jpg', category: 'Fibres', rating: 4.9, year: '2024' },
+  { id: 'g2', title: 'Intex Bangladesh 2024', imageUrl: 'https://sl.intexsouthasia.com/assets/img/Gallery/2025/8.jpg', category: 'Fabrics', rating: 4.8, year: '2024' },
+  { id: 'g3', title: 'Intex India 2024', imageUrl: 'https://sl.intexsouthasia.com/assets/img/Gallery/2025/14.jpg', category: 'Denim', rating: 5.0, year: '2024' },
+  { id: 'g4', title: 'InMac WorldExpo', imageUrl: 'https://sl.intexsouthasia.com/assets/img/Gallery/2025/32.jpg', category: 'Yarns', rating: 4.7, year: '2023' }
 ];

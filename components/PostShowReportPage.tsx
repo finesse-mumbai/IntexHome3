@@ -52,9 +52,9 @@ const PostShowReportPage: React.FC = () => {
           <div className="space-y-6">
             <div className="flex items-center gap-4">
               <div className="w-12 h-[1px] bg-archive-clay"></div>
-              <span className="text-[10px] font-black tracking-[0.5em] uppercase text-archive-clay">Historical Analysis // Audit Log</span>
+              <span className="text-[10px] font-black tracking-[0.5em] text-archive-clay uppercase">Historical Analysis // Audit Log</span>
             </div>
-            <h1 className="text-2xl md:text-[4vw] font-black tracking-tighter uppercase leading-[0.85] text-archive-charcoal">
+            <h1 className="text-4xl md:text-8xl font-black tracking-tighter leading-[0.85] text-archive-charcoal uppercase">
               POST SHOW <br />
               <span className="text-white">REPORTS.</span>
             </h1>
@@ -62,7 +62,7 @@ const PostShowReportPage: React.FC = () => {
 
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-12">
             <div className="lg:col-span-7">
-              <p className="text-xl md:text-2xl font-black uppercase text-archive-charcoal/80 leading-tight">
+              <p className="text-xl md:text-2xl font-black text-archive-charcoal/80 leading-tight">
                 Accessing the <span className="text-archive-clay">verified performance data</span> and analytical records of past exhibition nodes.
               </p>
             </div>
@@ -72,7 +72,7 @@ const PostShowReportPage: React.FC = () => {
                 <button
                   key={yr}
                   onClick={() => setFilterYear(yr)}
-                  className={`px-6 py-3 text-[9px] font-black tracking-widest uppercase transition-all ${filterYear === yr ? 'bg-archive-charcoal text-white' : 'text-archive-charcoal/40 hover:text-archive-charcoal'}`}
+                  className={`px-6 py-3 text-[9px] font-black tracking-widest transition-all ${filterYear === yr ? 'bg-archive-charcoal text-white' : 'text-archive-charcoal/40 hover:text-archive-charcoal'}`}
                 >
                   {yr}
                 </button>
@@ -126,8 +126,8 @@ const PostShowReportPage: React.FC = () => {
                 <div className="h-[25%] p-6 flex flex-col justify-between group-hover:text-white transition-colors duration-700">
                   <div className="space-y-2">
 
-                    <h3 className="text-lg font-black uppercase tracking-tighter leading-tight group-hover:text-archive-clay transition-colors duration-500 line-clamp-2">
-                      {report.text}
+                    <h3 className="text-lg font-black tracking-tighter leading-tight group-hover:text-archive-clay transition-colors duration-500 line-clamp-2 uppercase">
+                      {report.text.toUpperCase()}
                     </h3>
                   </div>
 
@@ -136,9 +136,9 @@ const PostShowReportPage: React.FC = () => {
                       href={report.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-3 text-[9px] font-black uppercase tracking-[0.3em] text-archive-charcoal group-hover:text-white transition-colors group/btn"
+                      className="flex items-center gap-3 text-[9px] font-black tracking-[0.3em] text-archive-charcoal group-hover:text-white transition-colors group/btn"
                     >
-                      READ REPORT <ArrowUpRight size={14} className="group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
+                      READ REPORT <ArrowUpRight size={14} className="group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform uppercase" />
                     </a>
                     <BarChart3 size={14} className="text-archive-charcoal/10 group-hover:text-archive-clay" />
                   </div>
@@ -151,7 +151,7 @@ const PostShowReportPage: React.FC = () => {
         {filteredReports.length === 0 && (
           <div className="py-60 flex flex-col items-center justify-center border border-dashed border-archive-charcoal/20 text-center">
             <Search size={40} className="text-archive-clay/20 mb-6" />
-            <span className="text-[10px] font-black tracking-[0.5em] uppercase text-archive-charcoal/30">No archive records found for selected node.</span>
+            <span className="text-[10px] font-black tracking-[0.5em] text-archive-charcoal/30 uppercase">No archive records found for selected node.</span>
           </div>
         )}
       </section>
@@ -161,11 +161,11 @@ const PostShowReportPage: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
           <div className="space-y-12">
             <div className="space-y-6">
-              <h2 className="text-sm font-black uppercase text-archive-clay leading-none">Analytics & Growth.</h2>
+              <h2 className="text-sm font-black text-archive-clay leading-none uppercase">Analytics & Growth.</h2>
               <div className="w-20 h-px bg-archive-clay"></div>
             </div>
             <div className="space-y-8">
-              <p className="text-[12px] font-bold uppercase tracking-[0.15em] leading-relaxed text-archive-charcoal/60">
+              <p className="text-[12px] font-bold tracking-[0.15em] leading-relaxed text-archive-charcoal/60">
                 The Post Show Reports provide a granular analysis of trade visitor demographics, exhibitor satisfaction indices, and regional market penetration. This archive documents 10+ years of steady growth in the South Asian textile ecosystem.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
@@ -176,8 +176,8 @@ const PostShowReportPage: React.FC = () => {
                   { label: "Historical Depth", value: "Archive From 2015" }
                 ].map((item, i) => (
                   <div key={i} className="space-y-2 border-l border-archive-charcoal/10 pl-6">
-                    <span className="text-[8px] font-black tracking-widest uppercase opacity-40 block">{item.label}</span>
-                    <span className="text-[11px] font-black uppercase text-archive-charcoal">{item.value}</span>
+                    <span className="text-[8px] font-black tracking-widest opacity-40 block">{item.label}</span>
+                    <span className="text-[11px] font-black text-archive-charcoal">{item.value}</span>
                   </div>
                 ))}
               </div>
@@ -189,19 +189,19 @@ const PostShowReportPage: React.FC = () => {
               <History size={200} />
             </div>
             <div className="space-y-4 relative z-10">
-              <span className="text-archive-clay text-[10px] font-black tracking-[0.5em] uppercase">Insight Protocol</span>
-              <h3 className="text-xl font-black uppercase leading-none">Request Custom <br /> Impact Data.</h3>
+              <span className="text-archive-clay text-[10px] font-black tracking-[0.5em]">Insight Protocol</span>
+              <h3 className="text-xl font-black leading-none uppercase">Request Custom <br /> Impact Data.</h3>
             </div>
             <div className="space-y-8 relative z-10">
-              <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-white/40 leading-relaxed">
+              <p className="text-[11px] font-bold tracking-[0.2em] text-white/40 leading-relaxed">
                 Require specialized year-on-year growth analysis or regional trade flows data? Our research department facilitates high-tier technical data requests for verified industry partners.
               </p>
               <div className="flex flex-col sm:flex-row gap-6">
-                <button className="px-10 py-5 bg-archive-clay text-white font-black text-[10px] tracking-[0.4em] uppercase hover:bg-white hover:text-archive-charcoal transition-all">
-                  Request Dataset
+                <button className="px-10 py-5 bg-archive-clay text-white font-black text-[10px] tracking-[0.4em] hover:bg-white hover:text-archive-charcoal transition-all">
+                  REQUEST DATASET
                 </button>
-                <button className="px-10 py-5 border border-white/20 text-white font-black text-[10px] tracking-[0.4em] uppercase hover:bg-white hover:text-archive-charcoal hover:border-white transition-all flex items-center gap-3">
-                  Registry Sync <ShieldCheck size={14} />
+                <button className="px-10 py-5 border border-white/20 text-white font-black text-[10px] tracking-[0.4em] hover:bg-white hover:text-archive-charcoal hover:border-white transition-all flex items-center gap-3">
+                  REGISTRY SYNC <ShieldCheck size={14} className="uppercase" />
                 </button>
               </div>
             </div>

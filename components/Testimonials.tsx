@@ -42,7 +42,7 @@ const Testimonials: React.FC = () => {
     <section className="flex flex-col border-y border-archive-charcoal bg-archive-cream overflow-hidden" id="testimonials">
 
       {/* FULL WIDTH HEADER: TESTIMONIALS RECORDS */}
-      <div className="w-full border-b border-archive-charcoal bg-white py-32 px-12 overflow-hidden relative group">
+      <div className="w-full border-b border-archive-charcoal bg-white py-16 px-12 overflow-hidden relative group">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -130,18 +130,16 @@ const Testimonials: React.FC = () => {
               <div className="w-10 h-10 border border-white/10 flex items-center justify-center group-hover/nav-btn:bg-archive-clay group-hover/nav-btn:border-archive-clay group-hover/nav-btn:text-white transition-all">
                 <ArrowLeft size={14} />
               </div>
-              <span>Prev Record</span>
+              <span>PREV RECORD</span>
             </button>
 
-            <div className="text-[8px] font-mono text-archive-clay font-black tracking-widest opacity-20 hidden md:block">
-              SPECIMEN_NODE_{String(active + 101).padStart(3, '0')}
-            </div>
+
 
             <button
               onClick={handleNextSpecimen}
               className="flex items-center gap-4 group/nav-btn text-[10px] font-black tracking-[0.4em] uppercase text-white/40 hover:text-archive-clay transition-all"
             >
-              <span>Next Record</span>
+              <span>NEXT RECORD</span>
               <div className="w-10 h-10 border border-white/10 flex items-center justify-center group-hover/nav-btn:bg-archive-clay group-hover/nav-btn:border-archive-clay group-hover/nav-btn:text-white transition-all">
                 <ArrowRight size={14} />
               </div>
@@ -226,7 +224,7 @@ const Testimonials: React.FC = () => {
               </div>
               <div className="flex flex-col gap-1">
                 <span className="text-[9px] font-black tracking-[0.4em] uppercase text-archive-charcoal/40">
-                  Click here to view more
+                  CLICK HERE TO VIEW MORE
                 </span>
                 <div className="flex gap-2">
                   {pages.map((_, i) => (

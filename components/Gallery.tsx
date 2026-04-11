@@ -73,19 +73,26 @@ const Gallery: React.FC = () => {
             <div className="w-12 h-[1px] bg-archive-clay"></div>
             <span className="text-[10px] font-black tracking-[0.5em] uppercase text-archive-clay">Spotlight Archive</span>
           </div>
-          <h2 className="text-2xl md:text-4xl font-black tracking-tighter uppercase leading-none text-white">
+          <h2 className="text-4xl md:text-8xl font-black tracking-tighter uppercase leading-none text-white">
             VISUAL <span className="text-white">ARCHIVE.</span>
           </h2>
         </div>
 
-        {/* Action Button */}
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="bg-archive-clay text-white px-12 py-5 rounded-full text-xs font-black tracking-[0.3em] uppercase shadow-[0_20px_40px_-10px_rgba(238,117,57,0.5)] hover:bg-white hover:text-archive-clay transition-all duration-500 border-[3px] border-white"
-        >
-          VIEW FULL EVENT GALLERY
-        </motion.button>
+        <div className="p-1 border border-archive-clay/5 rounded-full">
+          <div className="p-1 border border-archive-clay/10 rounded-full">
+            <div className="p-1 border border-archive-clay/15 rounded-full">
+              <div className="p-1 border border-archive-clay/20 rounded-full">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="relative block min-w-[320px] text-center py-5 px-16 bg-archive-clay text-white font-black text-xl tracking-tighter hover:bg-white hover:text-archive-clay transition-all duration-500 shadow-2xl rounded-full"
+                >
+                  VIEW FULL EVENT GALLERY
+                </motion.button>
+              </div>
+            </div>
+          </div>
+        </div>
 
         {/* Slider & Navigation (Temporarily Disabled - Commented Out) */}
         {/* 

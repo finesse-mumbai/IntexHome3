@@ -175,39 +175,39 @@ const BuyersTestimonialPage: React.FC = () => {
           <div className="space-y-6">
             <div className="flex items-center gap-4">
               <div className="w-12 h-[1px] bg-archive-clay"></div>
-              <span className="text-[10px] font-black tracking-[0.5em] uppercase text-archive-clay">Buyer Registry // Feedback</span>
+              <span className="text-[10px] font-black tracking-[0.5em] text-archive-clay uppercase">Buyer Registry // Feedback</span>
             </div>
-            <h1 className="text-2xl md:text-[4vw] font-black tracking-tighter uppercase leading-[0.85] text-archive-charcoal">
-              BUYER <br />
-              <span className="text-white">TESTIMONIALS.</span>
+            <h1 className="text-4xl md:text-8xl font-black tracking-tighter leading-[0.85] text-archive-charcoal uppercase">
+              Buyer <br />
+              <span className="text-white">Testimonials.</span>
             </h1>
           </div>
 
           {/* Logic Filters */}
           <div className="flex flex-col lg:flex-row gap-12 border-y border-archive-charcoal/10 py-12">
             <div className="space-y-4">
-              <span className="text-[10px] font-black tracking-widest uppercase opacity-40">Sourcing Node</span>
+              <span className="text-[10px] font-black tracking-widest opacity-40">Sourcing Node</span>
               <div className="flex flex-wrap gap-2">
                 {locations.map(loc => (
                   <button
                     key={loc}
                     onClick={() => setFilterLocation(loc)}
-                    className={`px-8 py-3 text-[10px] font-black tracking-widest uppercase border transition-all ${filterLocation === loc ? 'bg-archive-charcoal text-white border-archive-charcoal' : 'border-archive-charcoal/10 text-archive-charcoal/40 hover:text-archive-charcoal'}`}
+                    className={`px-8 py-3 text-[10px] font-black tracking-widest border transition-all ${filterLocation === loc ? 'bg-archive-charcoal text-white border-archive-charcoal' : 'border-archive-charcoal/10 text-archive-charcoal/40 hover:text-archive-charcoal'}`}
                   >
-                    {loc}
+                    {loc.toUpperCase()}
                   </button>
                 ))}
               </div>
             </div>
 
             <div className="space-y-4">
-              <span className="text-[10px] font-black tracking-widest uppercase opacity-40">Archive Cycle</span>
+              <span className="text-[10px] font-black tracking-widest opacity-40">Archive Cycle</span>
               <div className="flex gap-2">
                 {years.map(yr => (
                   <button
                     key={yr}
                     onClick={() => setFilterYear(yr)}
-                    className={`px-8 py-3 text-[10px] font-black tracking-widest uppercase border transition-all ${filterYear === yr ? 'bg-archive-clay border-archive-clay text-white' : 'border-archive-charcoal/10 text-archive-charcoal/40 hover:text-archive-charcoal'}`}
+                    className={`px-8 py-3 text-[10px] font-black tracking-widest border transition-all ${filterYear === yr ? 'bg-archive-clay border-archive-clay text-white' : 'border-archive-charcoal/10 text-archive-charcoal/40 hover:text-archive-charcoal'}`}
                   >
                     {yr}
                   </button>
@@ -252,14 +252,14 @@ const BuyersTestimonialPage: React.FC = () => {
 
                   <div className="space-y-6">
                     <div className="space-y-2">
-                      <h3 className="text-xl font-black uppercase text-archive-charcoal tracking-tight group-hover:text-archive-clay transition-colors">{item.name}</h3>
+                      <h3 className="text-xl font-black text-archive-charcoal tracking-tight group-hover:text-archive-clay transition-colors uppercase">{item.name}</h3>
                       <div className="flex flex-col gap-1">
                         <span className="text-[10px] font-black tracking-[0.2em] text-archive-clay uppercase">{item.designation}</span>
                         <span className="text-[10px] font-bold tracking-[0.1em] text-archive-charcoal/40 uppercase">{item.company}</span>
                       </div>
-                      <div className="flex items-center gap-2 text-[9px] font-bold text-archive-charcoal/30 uppercase tracking-widest pt-2">
+                      <div className="flex items-center gap-2 text-[9px] font-bold text-archive-charcoal/30 tracking-widest pt-2">
                         <MapPin size={10} className="text-archive-clay/40" />
-                        {item.country}
+                        {item.country.toUpperCase()}
                       </div>
                     </div>
 
@@ -273,21 +273,21 @@ const BuyersTestimonialPage: React.FC = () => {
                   <div className="space-y-2">
                     <div className="flex items-center gap-2">
                       <Fingerprint size={12} className="text-archive-clay" />
-                      <span className="text-[9px] font-black tracking-widest text-archive-charcoal uppercase block">Show Name</span>
+                      <span className="text-[9px] font-black tracking-widest text-archive-charcoal block uppercase">Show Name</span>
                     </div>
-                    <h4 className="text-xl font-black uppercase tracking-tighter text-archive-charcoal leading-none">{item.showName}</h4>
+                    <h4 className="text-xl font-black tracking-tighter text-archive-charcoal leading-none uppercase">{item.showName}</h4>
                   </div>
 
                   <div className="flex gap-10">
                     <div className="space-y-1 text-right">
-                      <span className="text-[8px] font-black tracking-widest opacity-30 uppercase block">Dates</span>
+                      <span className="text-[8px] font-black tracking-widest opacity-30 block uppercase">Dates</span>
                       <div className="flex items-center justify-end gap-2 text-[10px] font-bold text-archive-charcoal/80">
                         <Calendar size={10} className="text-archive-clay" />
                         {item.dates}
                       </div>
                     </div>
                     <div className="space-y-1 text-right">
-                      <span className="text-[8px] font-black tracking-widest opacity-30 uppercase block">Exhibition Year</span>
+                      <span className="text-[8px] font-black tracking-widest opacity-30 block uppercase">Exhibition Year</span>
                       <div className="text-[11px] font-black text-archive-charcoal font-mono px-2">
                         {item.year}
                       </div>
@@ -302,12 +302,12 @@ const BuyersTestimonialPage: React.FC = () => {
         {filteredData.length === 0 && (
           <div className="py-60 flex flex-col items-center justify-center border border-dashed border-archive-charcoal/20 text-center">
             <Search size={40} className="text-archive-clay/20 mb-6" />
-            <span className="text-[10px] font-black tracking-[0.5em] uppercase text-archive-charcoal/30">No matching buyer records found.</span>
+            <span className="text-[10px] font-black tracking-[0.5em] text-archive-charcoal/30 uppercase">No matching buyer records found.</span>
             <button
               onClick={() => { setFilterLocation('ALL'); setFilterYear('ALL'); }}
-              className="mt-8 px-8 py-4 border border-archive-charcoal text-[10px] font-black tracking-widest uppercase hover:bg-archive-charcoal hover:text-white transition-all"
+              className="mt-8 px-8 py-4 border border-archive-charcoal text-[10px] font-black tracking-widest hover:bg-archive-charcoal hover:text-white transition-all"
             >
-              Reset Filters
+              RESET FILTERS
             </button>
           </div>
         )}

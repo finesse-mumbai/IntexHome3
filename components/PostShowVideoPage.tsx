@@ -12,18 +12,18 @@ interface VideoRecord {
 }
 
 const VIDEO_ARCHIVE: VideoRecord[] = [
-  // SRI LANKA Node
-  { id: 'VID_SL_24', year: "2024", url: "https://www.youtube.com/embed/nwWELI2tK0c", event: "SRI LANKA", title: "Intex Sri Lanka 2024 Highlights" },
-  { id: 'VID_SL_23', year: "2023", url: "https://www.youtube.com/embed/ow0PVSukAao", event: "SRI LANKA", title: "Intex Sri Lanka 2023 Highlights" },
-  { id: 'VID_SL_22', year: "2022", url: "https://www.youtube.com/embed/zSL06CywXLQ", event: "SRI LANKA", title: "Intex Sri Lanka 2022 Highlights" },
-  { id: 'VID_SL_19', year: "2019", url: "https://www.youtube.com/embed/RiLCNrYHLtE", event: "SRI LANKA", title: "Intex Sri Lanka 2019 Highlights" },
+   // SRI LANKA Node
+  { id: 'VID_SL_24', year: "2024", url: "https://www.youtube.com/embed/nwWELI2tK0c", event: "Sri Lanka", title: "Intex Sri Lanka 2024 Highlights" },
+  { id: 'VID_SL_23', year: "2023", url: "https://www.youtube.com/embed/ow0PVSukAao", event: "Sri Lanka", title: "Intex Sri Lanka 2023 Highlights" },
+  { id: 'VID_SL_22', year: "2022", url: "https://www.youtube.com/embed/zSL06CywXLQ", event: "Sri Lanka", title: "Intex Sri Lanka 2022 Highlights" },
+  { id: 'VID_SL_19', year: "2019", url: "https://www.youtube.com/embed/RiLCNrYHLtE", event: "Sri Lanka", title: "Intex Sri Lanka 2019 Highlights" },
 
   // BANGLADESH Node
-  { id: 'VID_BD_24', year: "2024", url: "https://www.youtube.com/embed/id-aZ_cv-10", event: "BANGLADESH", title: "Intex Bangladesh 2024 Highlights" },
-  { id: 'VID_BD_23', year: "2023", url: "https://www.youtube.com/embed/xLKhuLPzti8", event: "BANGLADESH", title: "Intex Bangladesh 2023 Highlights" },
-  { id: 'VID_BD_18', year: "2018", url: "https://www.youtube.com/embed/lN_1aeyFBXs", event: "BANGLADESH", title: "Intex Bangladesh 2018 Highlights" },
-  { id: 'VID_BD_17', year: "2017", url: "https://www.youtube.com/embed/jwMWUkB8-D4", event: "BANGLADESH", title: "Intex Bangladesh 2017 Highlights" },
-  { id: 'VID_BD_16', year: "2016", url: "https://www.youtube.com/embed/MBDlirZWSqU", event: "BANGLADESH", title: "Intex Bangladesh 2016 Highlights" },
+  { id: 'VID_BD_24', year: "2024", url: "https://www.youtube.com/embed/id-aZ_cv-10", event: "Bangladesh", title: "Intex Bangladesh 2024 Highlights" },
+  { id: 'VID_BD_23', year: "2023", url: "https://www.youtube.com/embed/xLKhuLPzti8", event: "Bangladesh", title: "Intex Bangladesh 2023 Highlights" },
+  { id: 'VID_BD_18', year: "2018", url: "https://www.youtube.com/embed/lN_1aeyFBXs", event: "Bangladesh", title: "Intex Bangladesh 2018 Highlights" },
+  { id: 'VID_BD_17', year: "2017", url: "https://www.youtube.com/embed/jwMWUkB8-D4", event: "Bangladesh", title: "Intex Bangladesh 2017 Highlights" },
+  { id: 'VID_BD_16', year: "2016", url: "https://www.youtube.com/embed/MBDlirZWSqU", event: "Bangladesh", title: "Intex Bangladesh 2016 Highlights" },
 ];
 
 const PostShowVideoPage: React.FC = () => {
@@ -53,9 +53,9 @@ const PostShowVideoPage: React.FC = () => {
           <div className="space-y-6">
             <div className="flex items-center gap-4">
               <div className="w-12 h-[1px] bg-archive-clay"></div>
-              <span className="text-[10px] font-black tracking-[0.5em] uppercase text-archive-clay">Motion Archive // Post Show Highlights</span>
+              <span className="text-[10px] font-black tracking-[0.5em] text-archive-clay uppercase">Motion Archive // Post Show Highlights</span>
             </div>
-            <h1 className="text-2xl md:text-[4vw] font-black tracking-tighter uppercase leading-[0.85] text-archive-charcoal">
+            <h1 className="text-4xl md:text-8xl font-black tracking-tighter leading-[0.85] text-archive-charcoal uppercase">
               POST SHOW <br />
               <span className="text-white">VIDEOS.</span>
             </h1>
@@ -63,13 +63,13 @@ const PostShowVideoPage: React.FC = () => {
 
           <div className="flex flex-col lg:flex-row gap-12 border-y border-archive-charcoal/10 py-12">
             <div className="space-y-4">
-              <span className="text-[10px] font-black tracking-widest uppercase opacity-40">Regional Node</span>
+              <span className="text-[10px] font-black tracking-widest opacity-40">Regional Node</span>
               <div className="flex flex-wrap gap-2">
                 {events.map(ev => (
                   <button
                     key={ev}
                     onClick={() => setActiveEvent(ev)}
-                    className={`px-8 py-3 text-[10px] font-black tracking-widest uppercase border transition-all ${activeEvent === ev ? 'bg-archive-charcoal text-white border-archive-charcoal' : 'border-archive-charcoal/10 text-archive-charcoal/40 hover:text-archive-charcoal'}`}
+                    className={`px-8 py-3 text-[10px] font-black tracking-widest border transition-all ${activeEvent === ev ? 'bg-archive-charcoal text-white border-archive-charcoal' : 'border-archive-charcoal/10 text-archive-charcoal/40 hover:text-archive-charcoal'}`}
                   >
                     {ev}
                   </button>
@@ -78,13 +78,13 @@ const PostShowVideoPage: React.FC = () => {
             </div>
 
             <div className="space-y-4">
-              <span className="text-[10px] font-black tracking-widest uppercase opacity-40">Cycle Year</span>
+              <span className="text-[10px] font-black tracking-widest opacity-40">Cycle Year</span>
               <div className="flex flex-wrap gap-2">
                 {years.map(yr => (
                   <button
                     key={yr}
                     onClick={() => setActiveYear(yr)}
-                    className={`px-8 py-3 text-[10px] font-black tracking-widest uppercase border transition-all ${activeYear === yr ? 'bg-archive-clay border-archive-clay text-white' : 'border-archive-charcoal/10 text-archive-charcoal/40 hover:text-archive-charcoal'}`}
+                    className={`px-8 py-3 text-[10px] font-black tracking-widest border transition-all ${activeYear === yr ? 'bg-archive-clay border-archive-clay text-white' : 'border-archive-charcoal/10 text-archive-charcoal/40 hover:text-archive-charcoal'}`}
                   >
                     {yr}
                   </button>
@@ -131,8 +131,8 @@ const PostShowVideoPage: React.FC = () => {
                 <div className="h-1/3 pt-10 flex flex-col justify-between group-hover:text-white transition-colors duration-700">
                   <div className="space-y-4">
 
-                    <h3 className="text-xl font-black uppercase tracking-tighter leading-none group-hover:text-archive-clay transition-colors duration-500 line-clamp-2">
-                      {video.title}
+                    <h3 className="text-xl font-black tracking-tighter leading-none group-hover:text-archive-clay transition-colors duration-500 line-clamp-2">
+                      {video.title.toUpperCase()}
                     </h3>
                   </div>
 
@@ -140,15 +140,15 @@ const PostShowVideoPage: React.FC = () => {
                     <div className="flex gap-8">
                       <div className="flex items-center gap-2">
                         <MapPin size={12} className="text-archive-clay" />
-                        <span className="text-[9px] font-black uppercase tracking-widest">{video.event}</span>
+                        <span className="text-[9px] font-black tracking-widest">{video.event}</span>
                       </div>
                       <div className="flex items-center gap-2">
                         <Calendar size={12} className="text-archive-clay" />
-                        <span className="text-[9px] font-black uppercase tracking-widest">{video.year}</span>
+                        <span className="text-[9px] font-black tracking-widest">{video.year}</span>
                       </div>
                     </div>
-                    <div className="flex items-center gap-2 text-[9px] font-black uppercase tracking-widest text-archive-clay opacity-0 group-hover:opacity-100 transition-all">
-                      WATCH <ArrowUpRight size={14} />
+                    <div className="flex items-center gap-2 text-[9px] font-black tracking-widest text-archive-clay opacity-0 group-hover:opacity-100 transition-all">
+                      WATCH <ArrowUpRight size={14} className="uppercase" />
                     </div>
                   </div>
                 </div>
@@ -160,7 +160,7 @@ const PostShowVideoPage: React.FC = () => {
         {filteredVideos.length === 0 && (
           <div className="py-60 flex flex-col items-center justify-center border border-dashed border-archive-charcoal/20 text-center">
             <Search size={40} className="text-archive-clay/20 mb-6" />
-            <span className="text-[10px] font-black tracking-[0.5em] uppercase text-archive-charcoal/30">No matching highlight tapes found.</span>
+            <span className="text-[10px] font-black tracking-[0.5em] text-archive-charcoal/30 uppercase">No matching highlight tapes found.</span>
           </div>
         )}
       </section>
@@ -194,12 +194,12 @@ const PostShowVideoPage: React.FC = () => {
               <div className="absolute -bottom-24 left-0 w-full flex justify-between items-end">
                 <div className="space-y-4">
                   <span className="text-archive-clay text-[10px] font-black tracking-[0.5em] uppercase">Archive Master Record // {focusedVideo.year}</span>
-                  <h2 className="text-sm md:text-base font-black uppercase text-white tracking-tighter">{focusedVideo.title}</h2>
+                  <h2 className="text-sm md:text-base font-black text-white tracking-tighter uppercase">{focusedVideo.title}</h2>
                 </div>
-                <div className="flex gap-12 text-white/40 text-[10px] font-black tracking-widest uppercase">
+                <div className="flex gap-12 text-white/40 text-[10px] font-black tracking-widest">
                   <div className="flex flex-col gap-1 items-end">
                     <span className="opacity-40">System_Status</span>
-                    <span className="text-green-500">LIVE_STREAMING</span>
+                    <span className="text-green-500">Live Streaming</span>
                   </div>
                   <div className="flex flex-col gap-1 items-end">
                     <span className="opacity-40">Source_Node</span>
@@ -217,11 +217,11 @@ const PostShowVideoPage: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
           <div className="space-y-12">
             <div className="space-y-6">
-              <h2 className="text-sm font-black uppercase text-archive-clay leading-none">Visual Heritage.</h2>
+              <h2 className="text-sm font-black text-archive-clay leading-none uppercase">Visual Heritage.</h2>
               <div className="w-20 h-px bg-archive-clay"></div>
             </div>
             <div className="space-y-8">
-              <p className="text-[12px] font-bold uppercase tracking-[0.15em] leading-relaxed text-archive-charcoal/60">
+              <p className="text-[12px] font-bold tracking-[0.15em] leading-relaxed text-archive-charcoal/60">
                 The Intex motion archive documents a decade of trade growth, technological innovation, and industry networking across the Indian subcontinent. These high-fidelity recordings serve as the definitive visual source of truth for the region's textile evolution.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
@@ -232,8 +232,8 @@ const PostShowVideoPage: React.FC = () => {
                   { label: "System Uptime", value: "24/7 Global Sync" }
                 ].map((item, i) => (
                   <div key={i} className="space-y-2 border-l border-archive-charcoal/10 pl-6">
-                    <span className="text-[8px] font-black tracking-widest uppercase opacity-40 block">{item.label}</span>
-                    <span className="text-[11px] font-black uppercase text-archive-charcoal">{item.value}</span>
+                    <span className="text-[8px] font-black tracking-widest opacity-40 block">{item.label}</span>
+                    <span className="text-[11px] font-black text-archive-charcoal">{item.value}</span>
                   </div>
                 ))}
               </div>
@@ -245,19 +245,19 @@ const PostShowVideoPage: React.FC = () => {
               <Youtube size={200} />
             </div>
             <div className="space-y-4 relative z-10">
-              <span className="text-archive-clay text-[10px] font-black tracking-[0.5em] uppercase">Broadcast Terminal</span>
-              <h3 className="text-xl font-black uppercase leading-none">Access the Full <br /> Visual Log.</h3>
+              <span className="text-archive-clay text-[10px] font-black tracking-[0.5em]">Broadcast Terminal</span>
+              <h3 className="text-xl font-black leading-none uppercase">Access the Full <br /> Visual Log.</h3>
             </div>
             <div className="space-y-8 relative z-10">
-              <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-white/40 leading-relaxed">
+              <p className="text-[11px] font-bold tracking-[0.2em] text-white/40 leading-relaxed">
                 Require unedited B-roll footage, full executive interview manifests, or raw seminar recordings for media publication? Contact our archive management terminal for authorized dataset access.
               </p>
               <div className="flex flex-col sm:flex-row gap-6">
-                <button className="px-10 py-5 bg-archive-clay text-white font-black text-[10px] tracking-[0.4em] uppercase hover:bg-white hover:text-archive-charcoal transition-all">
-                  Request B-Roll Access
+                <button className="px-10 py-5 bg-archive-clay text-white font-black text-[10px] tracking-[0.4em] hover:bg-white hover:text-archive-charcoal transition-all">
+                  REQUEST B-ROLL ACCESS
                 </button>
-                <button className="px-10 py-5 border border-white/20 text-white font-black text-[10px] tracking-[0.4em] uppercase hover:bg-white hover:text-archive-charcoal hover:border-white transition-all flex items-center gap-3">
-                  YouTube Registry <ArrowUpRight size={14} />
+                <button className="px-10 py-5 border border-white/20 text-white font-black text-[10px] tracking-[0.4em] hover:bg-white hover:text-archive-charcoal hover:border-white transition-all flex items-center gap-3">
+                  YOUTUBE REGISTRY <ArrowUpRight size={14} className="uppercase" />
                 </button>
               </div>
             </div>

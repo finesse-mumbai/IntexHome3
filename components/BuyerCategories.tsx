@@ -13,25 +13,25 @@ const BuyerCategories: React.FC = () => {
           <div className="space-y-6">
             <div className="flex items-center gap-4">
               <div className="w-12 h-[1px] bg-archive-clay"></div>
-              <span className="text-[10px] font-black tracking-[0.5em] uppercase text-archive-clay">Technical Demographics</span>
+              <span className="text-[10px] font-black tracking-[0.5em] text-archive-clay uppercase">Technical Demographics</span>
             </div>
-            <h2 className="text-sm md:text-4xl font-black tracking-tighter uppercase  text-archive-charcoal leading-[0.8]">
+            <h2 className="text-sm md:text-4xl font-black tracking-tighter text-archive-charcoal leading-[0.8] uppercase">
               BUYER <br /><span className="text-outline">PROFILE.</span>
             </h2>
           </div>
           <div className="max-w-md space-y-6">
-            <p className="text-sm font-bold tracking-widest text-archive-bronze uppercase opacity-60">
+            <p className="text-sm font-bold tracking-widest text-archive-bronze opacity-60 uppercase">
               A sophisticated matrix of global sourcing entities, from high-street fashion labels to industrial textile exporters.
             </p>
             <div className="flex items-center gap-8 text-[9px] font-black tracking-widest text-archive-charcoal">
               <span className="flex items-center gap-2">
                 <div className="w-2 h-2 border border-archive-clay bg-archive-clay"></div>
-                VERIFIED
+                Verified
               </span>
               <span className="opacity-30">|</span>
               <span className="flex items-center gap-2">
                 <div className="w-2 h-2 border border-archive-clay"></div>
-                GLOBAL ACCESS
+                Global Access
               </span>
             </div>
           </div>
@@ -61,8 +61,8 @@ const BuyerCategories: React.FC = () => {
                 <div className="w-8 h-[1px] bg-archive-clay"></div>
                 <span className="text-[10px] font-black tracking-[0.5em] text-archive-clay uppercase">Direct Access Portal</span>
               </div>
-              <h3 className="text-xl md:text-3xl font-black text-archive-cream uppercase leading-[0.9]">
-                JOIN THE <span className="text-archive-clay">TEXTILE NETWORK.</span>
+              <h3 className="text-xl md:text-3xl font-black text-archive-cream leading-[0.9] uppercase">
+                Join the <span className="text-archive-clay">Textile Network.</span>
               </h3>
               <p className="text-xs font-bold tracking-widest text-archive-cream/40 uppercase">
                 Register as a buyer or enquire for exhibition space to secure your position in the 2025 South Asian matrix.
@@ -85,8 +85,8 @@ const BuyerCategories: React.FC = () => {
             </div>
 
             {/* Technical Detail */}
-            <div className="absolute top-8 left-8 lg:left-auto lg:right-8 text-[8px] font-black tracking-widest text-white/20 uppercase">
-              PORTAL_REF // INTEX_2025
+            <div className="absolute top-8 left-8 lg:left-auto lg:right-8 text-[8px] font-black tracking-widest text-white/20">
+              Portal Ref // INTEX 2025
             </div>
           </motion.div>
         </div>
@@ -115,7 +115,7 @@ const ArchiveCard: React.FC<{ profile: any; index: number }> = ({ profile, index
       {/* Top Meta */}
       <div className="flex justify-between items-start relative z-10 shrink-0">
         <div className="space-y-1">
-          <span className="text-[9px] font-black text-archive-clay tracking-[0.4em] uppercase block">{serial}</span>
+          <span className="text-[9px] font-black text-archive-clay tracking-[0.4em] block uppercase">{serial}</span>
           <div className="w-6 h-[1px] bg-archive-clay"></div>
         </div>
         <div className="flex flex-col items-end gap-1 opacity-20 group-hover:opacity-100 transition-opacity">
@@ -144,7 +144,7 @@ const ArchiveCard: React.FC<{ profile: any; index: number }> = ({ profile, index
       {/* Label Section */}
       <div className="relative z-10 mt-auto">
 
-        <h4 className="text-lg font-black uppercase leading-tight text-archive-charcoal group-hover:text-archive-clay transition-all line-clamp-2">
+        <h4 className="text-lg font-black leading-tight text-archive-charcoal group-hover:text-archive-clay transition-all line-clamp-2 uppercase">
           {profile.title}
         </h4>
       </div>

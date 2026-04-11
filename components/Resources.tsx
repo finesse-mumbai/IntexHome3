@@ -39,7 +39,7 @@ const Resources: React.FC = () => {
         </div>
 
         {/* Premium Modular Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0 border border-archive-charcoal/10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {RESOURCES.map((resource, index) => (
             <ResourceModule key={resource.id} resource={resource} index={index} />
           ))}
@@ -59,7 +59,7 @@ const ResourceModule: React.FC<{ resource: any; index: number }> = ({ resource, 
       whileInView={{ opacity: 1 }}
       transition={{ delay: index * 0.1 }}
       viewport={{ once: true }}
-      className={`group relative min-h-[450px] border-r last:border-r-0 border-archive-charcoal/10 p-12 flex flex-col justify-between overflow-hidden cursor-pointer transition-all duration-700 ${isOrange ? 'bg-archive-clay text-white' : 'bg-white text-archive-charcoal hover:bg-archive-cream'}`}
+      className={`group relative min-h-[450px] p-12 flex flex-col justify-between rounded-3xl border border-archive-charcoal/10 overflow-hidden cursor-pointer transition-all duration-700 ${isOrange ? 'bg-archive-clay text-white' : 'bg-white text-archive-charcoal hover:bg-archive-cream'}`}
     >
       {/* Background Gradient */}
       <div className={`absolute inset-0 bg-gradient-to-t ${isOrange ? 'from-black/10' : 'from-archive-clay/5'} to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700`}></div>
@@ -84,17 +84,15 @@ const ResourceModule: React.FC<{ resource: any; index: number }> = ({ resource, 
         </div>
       </div>
 
-      {/* Action Footer */}
-      <div className={`relative z-10 pt-8 flex items-center justify-between border-t ${isOrange ? 'border-white/20' : 'border-archive-charcoal/10'} mt-12 overflow-hidden`}>
-        <div className="flex items-center gap-4">
-          <Download size={14} className={isOrange ? 'text-white/60 group-hover:text-white' : 'text-archive-clay opacity-60 group-hover:opacity-100'} />
-          <span className={`text-[9px] font-black tracking-[0.3em] uppercase transition-colors ${isOrange ? 'text-white/60 group-hover:text-white' : 'text-archive-charcoal/60 group-hover:text-archive-charcoal'}`}>GET_DOCUMENT</span>
+      <div className="relative z-10 pt-8 mt-12">
+        <div className={`flex w-full items-center justify-center gap-4 py-3 px-8 rounded-full transition-all duration-500 ${isOrange ? 'bg-white/10 text-white hover:bg-white hover:text-archive-clay' : 'bg-gray-100 text-archive-charcoal hover:bg-archive-clay hover:text-white'}`}>
+          <span className="text-[9px] font-black tracking-[0.2em] uppercase">VIEW DETAILS</span>
+          <ArrowUpRight size={14} strokeWidth={2.5} />
         </div>
-        <ArrowUpRight size={18} className={`translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 ${isOrange ? 'text-white' : 'text-archive-clay'}`} />
       </div>
 
       {/* Subtle Border Glow on Hover */}
-      <div className={`absolute inset-0 border-[3px] ${isOrange ? 'border-white/40' : 'border-archive-clay'} opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none`}></div>
+      <div className={`absolute inset-0 border-[3px] ${isOrange ? 'border-white/40' : 'border-archive-clay'} rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none`}></div>
     </motion.div>
   );
 };

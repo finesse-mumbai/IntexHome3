@@ -17,9 +17,9 @@ const BuyerProfile: React.FC = () => {
         <div className="flex flex-col md:flex-row justify-between items-end mb-32 gap-12">
           <div className="space-y-6">
 
-            <h2 className="text-xl md:text-4xl font-black tracking-tighter uppercase  text-black leading-[0.7]">
-              EXHIBITOR <br />
-              <span className="text-archive-clay">PROFILE.</span>
+            <h2 className="text-xl md:text-4xl font-black tracking-tighter text-black leading-[0.7] uppercase">
+              Exhibitor <br />
+              <span className="text-archive-clay">Profile.</span>
             </h2>
           </div>
 
@@ -28,7 +28,7 @@ const BuyerProfile: React.FC = () => {
               <Cpu size={12} />
               <span className="text-[9px] font-black tracking-widest uppercase">List of Exhibitor Profile</span>
             </div>
-            <p className="text-[10px] font-bold uppercase tracking-widest leading-relaxed text-black/50">
+            <p className="text-[10px] font-bold tracking-widest leading-relaxed text-black/50">
               High-fidelity material datasets verified for global apparel manufacturing.
             </p>
           </div>
@@ -74,27 +74,27 @@ const ExhibitorUnit: React.FC<{ cat: CategoryItem; index: number }> = ({ cat, in
       <div className="absolute inset-0 z-10 p-10 flex flex-col justify-between">
         <div className="flex justify-between items-start">
           <div className="space-y-1">
-            <span className="text-[10px] font-mono text-white font-black bg-white/10 px-2 py-0.5">UNIT_{index + 1}</span>
+            <span className="text-[10px] font-mono text-white font-black bg-white/10 px-2 py-0.5 uppercase">Unit {index + 1}</span>
           </div>
           <Layers className="text-white/40 group-hover:text-white transition-all" size={20} />
         </div>
 
         <div className="space-y-4">
           <div className="space-y-2">
-            <h3 className="text-xl font-black uppercase  text-white leading-[0.85] group-hover:translate-x-2 transition-transform duration-500">
+            <h3 className="text-xl font-black text-white leading-[0.85] group-hover:translate-x-2 transition-transform duration-500 uppercase">
               {cat.title}
             </h3>
             <div className="h-0.5 w-0 bg-archive-clay group-hover:w-full transition-all duration-700"></div>
           </div>
 
           <div className="relative overflow-hidden">
-            <p className="text-[10px] font-bold uppercase tracking-widest text-black leading-relaxed translate-y-full group-hover:translate-y-0 transition-transform duration-500 bg-white p-3">
+            <p className="text-[10px] font-bold tracking-widest text-black leading-relaxed translate-y-full group-hover:translate-y-0 transition-transform duration-500 bg-white p-3">
               {cat.description}
             </p>
           </div>
 
           <div className="flex justify-between items-end pt-2 opacity-0 group-hover:opacity-100 transition-all duration-700 delay-100">
-            <button className="flex items-center gap-3 bg-white text-black px-4 py-2 text-[9px] font-black uppercase tracking-widest hover:bg-archive-clay hover:text-white transition-all">
+            <button className="flex items-center gap-3 bg-white text-black px-4 py-2 text-[9px] font-black tracking-widest hover:bg-archive-clay hover:text-white transition-all uppercase">
               Access Data
               <Plus size={10} />
             </button>

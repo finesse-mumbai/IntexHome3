@@ -18,7 +18,7 @@ interface FactsheetItem {
 const FACTSHEET_DATA: FactsheetItem[] = [
   {
     id: 'FS_BD_18',
-    name: 'INTEX BANGLADESH',
+    name: 'Intex Bangladesh',
     edition: '18th Edition',
     logo: 'https://sl.intexsouthasia.com/_next/image?url=%2Fassets%2Fimg%2Forgb.png&w=384&q=75',
     highlights: [
@@ -38,7 +38,7 @@ const FACTSHEET_DATA: FactsheetItem[] = [
   },
   {
     id: 'FS_SL_19',
-    name: 'INTEX SRI LANKA',
+    name: 'Intex Sri Lanka',
     edition: '19th Edition',
     logo: 'https://sl.intexsouthasia.com/_next/image?url=%2Fassets%2Fimg%2Forgi.png&w=384&q=75',
     highlights: [
@@ -59,7 +59,7 @@ const FACTSHEET_DATA: FactsheetItem[] = [
   },
   {
     id: 'FS_INMAC_04',
-    name: 'INMAC SRI LANKA',
+    name: 'InMac Sri Lanka',
     edition: '4th Edition',
     logo: 'https://sl.intexsouthasia.com/_next/image?url=%2Fassets%2Fimg%2FinMac.png&w=384&q=75',
     profile: 'InMac is an international exhibition showcasing cutting-edge advanced machinery and new technology to support the textile & garment industry in Bangladesh, Sri Lanka and the region. Held concurrently with Intex – The Premier International Textile Sourcing Show, InMac will offer domestic and overseas companies direct opportunity to launch their latest innovative products and solutions, connect with key decision makers and buyers, generate sales leads & enquiries & network with industry peers across the supply-chain & production value-chain of South Asia.',
@@ -78,9 +78,9 @@ const FactsheetPage: React.FC = () => {
           <div className="space-y-6">
             <div className="flex items-center gap-4">
               <div className="w-12 h-[1px] bg-archive-clay"></div>
-              <span className="text-[10px] font-black tracking-[0.5em] uppercase text-archive-clay">Technical Manifest // Statistics</span>
+              <span className="text-[10px] font-black tracking-[0.5em] text-archive-clay uppercase">Technical Manifest // Statistics</span>
             </div>
-            <h1 className="text-2xl md:text-[4vw] font-black tracking-tighter uppercase leading-[0.85] text-archive-charcoal">
+            <h1 className="text-4xl md:text-8xl font-black tracking-tighter leading-[0.85] text-archive-charcoal uppercase">
               FACT <br />
               <span className="text-white">SHEETS.</span>
             </h1>
@@ -88,7 +88,7 @@ const FactsheetPage: React.FC = () => {
 
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-12">
             <div className="lg:col-span-8">
-              <p className="text-xl md:text-2xl font-black uppercase text-archive-charcoal/80 leading-tight">
+              <p className="text-xl md:text-2xl font-black text-archive-charcoal/80 leading-tight">
                 Detailed technical specifications and <span className="text-archive-clay">event intelligence</span> for the 2026 exhibition cycle.
               </p>
             </div>
@@ -130,7 +130,7 @@ const FactsheetPage: React.FC = () => {
                   </div>
                 </div>
                 <div className="pt-8">
-                  <div className="text-[9px] font-black tracking-[0.4em] text-archive-clay uppercase mb-1">Status Protocol</div>
+                   <div className="text-[9px] font-black tracking-[0.4em] text-archive-clay mb-1 uppercase">Status Protocol</div>
                   <div className="flex items-center gap-2">
                     <div className="w-2 h-2 bg-green-500"></div>
                     <span className="text-[10px] font-black uppercase">Active // Open</span>
@@ -144,22 +144,22 @@ const FactsheetPage: React.FC = () => {
                 <div className="lg:col-span-2 p-12 md:p-16 border-r border-archive-charcoal/5 space-y-12">
                   <div className="space-y-4">
                     <span className="text-archive-clay text-[11px] font-black tracking-[0.5em] uppercase">{item.edition}</span>
-                    <h2 className="text-xs md:text-sm font-black uppercase tracking-tighter text-archive-charcoal leading-none">
-                      {item.name}
-                    </h2>
+                       <h2 className="text-sm md:text-2xl font-black tracking-tighter text-archive-charcoal leading-none uppercase">
+                        {item.name}
+                      </h2>
                   </div>
 
                   {item.highlights && (
                     <div className="space-y-6">
                       <div className="flex items-center gap-3">
                         <div className="w-10 h-px bg-archive-clay"></div>
-                        <span className="text-[10px] font-black tracking-widest uppercase opacity-40">Show Highlights</span>
+                        <span className="text-[10px] font-black tracking-widest opacity-40 uppercase">Show Highlights</span>
                       </div>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-y-3 gap-x-8">
                         {item.highlights.map((h, i) => (
                           <div key={i} className="flex items-start gap-3">
                             <div className="w-1 h-1 bg-archive-clay rotate-45 mt-1.5 shrink-0"></div>
-                            <span className="text-[10px] font-bold uppercase tracking-widest text-archive-charcoal/70 leading-tight">{h}</span>
+                            <span className="text-[10px] font-bold tracking-widest text-archive-charcoal/70 leading-tight uppercase">{h}</span>
                           </div>
                         ))}
                       </div>
@@ -170,9 +170,9 @@ const FactsheetPage: React.FC = () => {
                     <div className="space-y-6">
                       <div className="flex items-center gap-3">
                         <div className="w-10 h-px bg-archive-clay"></div>
-                        <span className="text-[10px] font-black tracking-widest uppercase opacity-40">Show Profile</span>
+                        <span className="text-[10px] font-black tracking-widest opacity-40 uppercase">Show Profile</span>
                       </div>
-                      <p className="text-[13px] font-medium uppercase tracking-[0.1em] leading-relaxed text-archive-charcoal/60">
+                      <p className="text-[13px] font-medium tracking-[0.1em] leading-relaxed text-archive-charcoal/60">
                         {item.profile}
                       </p>
                     </div>
@@ -186,33 +186,33 @@ const FactsheetPage: React.FC = () => {
                       <div className="flex items-center gap-4 border-b border-white/10 pb-6">
                         <Calendar size={18} className="text-archive-clay" />
                         <div className="space-y-1">
-                          <span className="text-[8px] font-black uppercase tracking-widest opacity-40 block">Event Date</span>
-                          <span className="text-xs font-bold uppercase tracking-widest">{item.date}</span>
+                          <span className="text-[8px] font-black tracking-widest opacity-40 block uppercase">Event Date</span>
+                          <span className="text-xs font-bold tracking-widest">{item.date}</span>
                         </div>
                       </div>
                       <div className="flex items-center gap-4 border-b border-white/10 pb-6">
                         <Clock size={18} className="text-archive-clay" />
                         <div className="space-y-1">
-                          <span className="text-[8px] font-black uppercase tracking-widest opacity-40 block">Event Time</span>
-                          <span className="text-xs font-bold uppercase tracking-widest">{item.time}</span>
+                          <span className="text-[8px] font-black tracking-widest opacity-40 block uppercase">Event Time</span>
+                          <span className="text-xs font-bold tracking-widest">{item.time}</span>
                         </div>
                       </div>
                       <div className="flex items-center gap-4">
                         <MapPin size={18} className="text-archive-clay" />
                         <div className="space-y-1">
-                          <span className="text-[8px] font-black uppercase tracking-widest opacity-40 block">Event Venue</span>
-                          <span className="text-xs font-bold uppercase tracking-widest leading-snug">{item.venue}</span>
+                          <span className="text-[8px] font-black tracking-widest opacity-40 block uppercase">Event Venue</span>
+                          <span className="text-xs font-bold tracking-widest leading-snug">{item.venue}</span>
                         </div>
                       </div>
                     </div>
                   </div>
 
                   <div className="pt-12 space-y-4">
-                    <button className="w-full bg-archive-clay text-white py-5 px-8 text-[9px] font-black tracking-[0.4em] uppercase hover:bg-white hover:text-archive-charcoal transition-all flex items-center justify-between group/btn">
-                      DOWNLOAD PDF <Download size={14} className="group-hover/btn:translate-y-0.5 transition-transform" />
+                    <button className="w-full bg-archive-clay text-white py-5 px-8 text-[9px] font-black tracking-[0.4em] hover:bg-white hover:text-archive-charcoal transition-all flex items-center justify-between group/btn">
+                      DOWNLOAD PDF <Download size={14} className="group-hover/btn:translate-y-0.5 transition-transform uppercase" />
                     </button>
-                    <button className="w-full border border-white/20 text-white py-5 px-8 text-[9px] font-black tracking-[0.4em] uppercase hover:bg-white/5 transition-all flex items-center justify-between group/btn">
-                      VIEW DETAILS <ArrowUpRight size={14} className="group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
+                    <button className="w-full border border-white/20 text-white py-5 px-8 text-[9px] font-black tracking-[0.4em] hover:bg-white/5 transition-all flex items-center justify-between group/btn">
+                      VIEW DETAILS <ArrowUpRight size={14} className="group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform uppercase" />
                     </button>
                   </div>
                 </div>
@@ -230,8 +230,8 @@ const FactsheetPage: React.FC = () => {
               <Info size={24} />
               <span className="text-[12px] font-black tracking-[0.5em] uppercase">Security Protocol</span>
             </div>
-            <h3 className="text-3xl md:text-4xl font-black uppercase leading-none text-archive-charcoal">Verified Event <br /><span className="text-archive-clay">Documentation.</span></h3>
-            <p className="text-[14px] font-bold uppercase tracking-widest leading-relaxed text-archive-charcoal/50">
+            <h3 className="text-3xl md:text-4xl font-black leading-none text-archive-charcoal uppercase">VERIFIED EVENT <br /><span className="text-archive-clay">DOCUMENTATION.</span></h3>
+            <p className="text-[14px] font-bold tracking-widest leading-relaxed text-archive-charcoal/50">
               All data points indexed in these factsheets are verified by the Worldex India audit registry. For customized technical requirements or specialized data queries, contact our information desk.
             </p>
           </div>
@@ -242,13 +242,13 @@ const FactsheetPage: React.FC = () => {
             </div>
             <div className="space-y-2">
               <span className="text-archive-clay text-[10px] font-black tracking-[0.4em] uppercase">Master Archive</span>
-              <h4 className="text-2xl font-black uppercase text-archive-charcoal">Download Global Factsheet.</h4>
+              <h4 className="text-2xl font-black text-archive-charcoal uppercase">DOWNLOAD GLOBAL FACTSHEET.</h4>
             </div>
-            <p className="text-[11px] font-medium uppercase tracking-widest text-archive-charcoal/40 leading-relaxed max-w-md">
+            <p className="text-[11px] font-medium tracking-widest text-archive-charcoal/40 leading-relaxed max-w-md">
               Get the combined technical specifications for all South Asian nodes in a single high-fidelity document.
             </p>
-            <button className="flex items-center gap-4 text-[10px] font-black tracking-[0.5em] uppercase text-archive-charcoal hover:text-archive-clay transition-colors group">
-              GET MASTER RECORD <Download size={14} className="group-hover:translate-y-0.5 transition-transform" />
+            <button className="flex items-center gap-4 text-[10px] font-black tracking-[0.5em] text-archive-charcoal hover:text-archive-clay transition-colors group">
+              GET MASTER RECORD <Download size={14} className="group-hover:translate-y-0.5 transition-transform uppercase" />
             </button>
           </div>
         </div>

@@ -98,7 +98,7 @@ const Navbar: React.FC = () => {
               />
             </div>
 
-            <div className={`hidden lg:flex gap-14 text-[13px] font-black tracking-[0.25em] transition-colors ${isScrolled ? 'text-archive-charcoal' : 'text-white'}`}>
+            <div className={`hidden lg:flex gap-14 text-[13px] font-black tracking-[0.2em] transition-colors text-archive-clay`}>
               {NAV_ITEMS.map((item) => (
                 <div
                   key={item.label}
@@ -108,11 +108,11 @@ const Navbar: React.FC = () => {
                 >
                   <a
                     href={item.link}
-                    className="hover:text-archive-clay transition-all flex items-center gap-2 py-4 relative group"
+                    className={`transition-all flex items-center gap-2 py-4 relative group ${isScrolled ? 'hover:text-archive-charcoal' : 'hover:text-white'}`}
                   >
                     {item.label}
                     {item.children && <ChevronDown size={10} className="opacity-40 group-hover:rotate-180 transition-transform duration-500" />}
-                    <span className="absolute bottom-2 left-0 w-0 h-[2px] bg-archive-clay transition-all duration-500 group-hover:w-full"></span>
+                    <span className={`absolute bottom-2 left-0 w-0 h-[2px] transition-all duration-500 group-hover:w-full ${isScrolled ? 'bg-archive-charcoal' : 'bg-white'}`}></span>
                   </a>
 
                   <AnimatePresence>
@@ -148,10 +148,9 @@ const Navbar: React.FC = () => {
             <a
               href="https://portal.intexfair.com/login.php"
               target="_blank"
-              className="hidden sm:flex flex-col items-end gap-1 opacity-60 hover:opacity-100 transition-opacity cursor-pointer group hover:text-archive-clay"
+              className={`hidden sm:flex px-8 py-3 rounded-full text-[10px] font-black tracking-widest transition-all duration-500 bg-archive-clay text-white hover:bg-archive-charcoal`}
             >
-              <span className="text-[10px] font-black tracking-widest">Login</span>
-              <div className="w-12 h-px bg-current transition-colors"></div>
+              LOGIN
             </a>
 
             <button

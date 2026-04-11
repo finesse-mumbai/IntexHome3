@@ -13,17 +13,17 @@ const BuyerProfilePage: React.FC = () => {
           <div className="space-y-6">
             <div className="flex items-center gap-4">
               <div className="w-12 h-[1px] bg-archive-clay"></div>
-              <span className="text-[10px] font-black tracking-[0.5em] uppercase text-archive-clay">Sourcing Matrix // 2025</span>
+              <span className="text-[10px] font-black tracking-[0.5em] text-archive-clay uppercase">Sourcing Matrix // 2025</span>
             </div>
-            <h1 className="text-2xl md:text-[4vw] font-black tracking-tighter uppercase leading-[0.85] text-archive-charcoal">
-              BUYER <br />
-              <span className="text-white">PROFILES.</span>
+            <h1 className="text-4xl md:text-8xl font-black tracking-tighter leading-[0.85] text-archive-charcoal uppercase">
+              Buyer <br />
+              <span className="text-white">Profiles.</span>
             </h1>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
             <div className="lg:col-span-7">
-              <p className="text-xl md:text-2xl font-black uppercase text-archive-charcoal/80 leading-tight">
+              <p className="text-xl md:text-2xl font-black text-archive-charcoal/80 leading-tight">
                 A comprehensive directory of <span className="text-archive-clay">global procurement leaders</span> representing the industry's most influential sourcing nodes.
               </p>
             </div>
@@ -31,11 +31,11 @@ const BuyerProfilePage: React.FC = () => {
               <div className="flex items-center gap-8 border border-archive-charcoal/10 p-6 bg-white/50 backdrop-blur-sm">
                 <div className="text-center px-4 border-r border-archive-charcoal/10">
                   <div className="text-3xl font-black text-archive-clay">22</div>
-                  <div className="text-[8px] font-black tracking-widest uppercase opacity-40">Profile Types</div>
+                  <div className="text-[8px] font-black tracking-widest opacity-40 uppercase">Profile Types</div>
                 </div>
                 <div className="text-center px-4">
                   <div className="text-3xl font-black text-archive-clay">70K+</div>
-                  <div className="text-[8px] font-black tracking-widest uppercase opacity-40">Trade Visitors</div>
+                  <div className="text-[8px] font-black tracking-widest opacity-40 uppercase">Trade Visitors</div>
                 </div>
               </div>
             </div>
@@ -71,14 +71,14 @@ const BuyerProfilePage: React.FC = () => {
               <div className="h-1/2 p-8 flex flex-col justify-between group-hover:text-white transition-colors duration-700">
                 <div className="space-y-4">
 
-                  <h3 className="text-xl font-black uppercase tracking-tighter leading-[0.9] group-hover:text-archive-clay transition-colors duration-500">
+                  <h3 className="text-xl font-black tracking-tighter leading-[0.9] group-hover:text-archive-clay transition-colors duration-500">
                     {profile.title}
                   </h3>
                 </div>
 
                 <div className="pt-6 flex justify-between items-center border-t border-archive-charcoal/5 group-hover:border-white/10">
-                  <button className="flex items-center gap-2 text-[9px] font-black uppercase tracking-[0.3em] text-archive-charcoal group-hover:text-white transition-colors group/btn">
-                    View Dataset <ArrowUpRight size={12} className="group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />
+                  <button className="flex items-center gap-2 text-[9px] font-black tracking-[0.3em] text-archive-charcoal group-hover:text-white transition-colors group/btn">
+                    VIEW DATASET <ArrowUpRight size={12} className="group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform uppercase" />
                   </button>
                   <Fingerprint size={14} className="text-archive-charcoal/10 group-hover:text-archive-clay" />
                 </div>
@@ -93,11 +93,11 @@ const BuyerProfilePage: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
           <div className="space-y-12">
             <div className="space-y-6">
-              <h2 className="text-sm font-black uppercase text-archive-clay leading-none">Global Demographics.</h2>
+              <h2 className="text-sm font-black text-archive-clay leading-none uppercase">Global Demographics.</h2>
               <div className="w-20 h-px bg-archive-clay"></div>
             </div>
             <div className="space-y-8">
-              <p className="text-[12px] font-bold uppercase tracking-[0.15em] leading-relaxed text-archive-charcoal/60">
+              <p className="text-[12px] font-bold tracking-[0.15em] leading-relaxed text-archive-charcoal/60">
                 The Intex buyer registry consists of pre-vetted industry professionals with high purchasing power. Our database is verified through a rigorous protocol to ensure exhibitors connect with genuine decision-makers from over 40 countries.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
@@ -108,8 +108,8 @@ const BuyerProfilePage: React.FC = () => {
                   { label: "Audit Standard", value: "Verified Registry" }
                 ].map((item, i) => (
                   <div key={i} className="space-y-2 border-l border-archive-charcoal/10 pl-6">
-                    <span className="text-[8px] font-black tracking-widest uppercase opacity-40 block">{item.label}</span>
-                    <span className="text-[11px] font-black uppercase text-archive-charcoal">{item.value}</span>
+                    <span className="text-[8px] font-black tracking-widest opacity-40 block uppercase">{item.label}</span>
+                    <span className="text-[11px] font-black text-archive-charcoal uppercase">{item.value}</span>
                   </div>
                 ))}
               </div>
@@ -122,18 +122,18 @@ const BuyerProfilePage: React.FC = () => {
             </div>
             <div className="space-y-4 relative z-10">
               <span className="text-archive-clay text-[10px] font-black tracking-[0.5em] uppercase">Visitor Registry</span>
-              <h3 className="text-xl font-black uppercase leading-none">Register as a <br /> High-Value Buyer.</h3>
+              <h3 className="text-xl font-black leading-none uppercase">Register as a <br /> High-Value Buyer.</h3>
             </div>
             <div className="space-y-8 relative z-10">
-              <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-white/40 leading-relaxed">
+              <p className="text-[11px] font-bold tracking-[0.2em] text-white/40 leading-relaxed">
                 Gain exclusive access to the 2026 Intex Archive. Network with verified manufacturers and access proprietary trend data ahead of the global market.
               </p>
               <div className="flex flex-col sm:flex-row gap-6">
-                <button className="px-10 py-5 bg-archive-clay text-white font-black text-[10px] tracking-[0.4em] uppercase hover:bg-white hover:text-archive-charcoal transition-all">
-                  Register Now
+                <button className="px-10 py-5 bg-archive-clay text-white font-black text-[10px] tracking-[0.4em] hover:bg-white hover:text-archive-charcoal transition-all">
+                  REGISTER NOW
                 </button>
-                <button className="px-10 py-5 border border-white/20 text-white font-black text-[10px] tracking-[0.4em] uppercase hover:bg-white hover:text-archive-charcoal hover:border-white transition-all">
-                  View Directory
+                <button className="px-10 py-5 border border-white/20 text-white font-black text-[10px] tracking-[0.4em] hover:bg-white hover:text-archive-charcoal hover:border-white transition-all">
+                  VIEW DIRECTORY
                 </button>
               </div>
             </div>

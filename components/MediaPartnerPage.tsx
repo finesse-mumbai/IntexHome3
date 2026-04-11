@@ -11,7 +11,7 @@ interface MediaPartner {
 }
 
 const PARTNERS_DATA: Record<string, MediaPartner[]> = {
-  'SRI LANKA': [
+  'Sri Lanka': [
     { id: 'MP_SL_01', img: 'https://sl.intexsouthasia.com/assets/img/mediaPartner/textilevaluechain.png', companyName: "Textile Value Chain India", link: "https://textilevaluechain.in/" },
     { id: 'MP_SL_02', img: 'https://sl.intexsouthasia.com/assets/img/mediaPartner/FVC.png', companyName: "Fashion Value Chain", link: "https://fashionvaluechain.com/" },
     { id: 'MP_SL_03', img: 'https://sl.intexsouthasia.com/assets/img/mediaPartner/the-apparel-times.png', companyName: "The Apparel Times India", link: "https://timesinternational.in/the-apparel-times/" },
@@ -21,7 +21,7 @@ const PARTNERS_DATA: Record<string, MediaPartner[]> = {
     { id: 'MP_SL_07', img: 'https://sl.intexsouthasia.com/assets/img/mediaPartner/textileinsights.png', companyName: "Textile Insights", link: "https://textileinsights.in/" },
     { id: 'MP_SL_08', img: 'https://sl.intexsouthasia.com/assets/img/mediaPartner/Globy.png', companyName: "Globy", link: "https://globy.com/" }
   ],
-  'BANGLADESH': [
+  'Bangladesh': [
     { id: 'MP_BD_01', img: 'https://bd.intexsouthasia.com/assets/img/mediaPartner/TextileFocus.png', companyName: "Textile Focus Bangladesh", link: "https://textilefocus.com/" },
     { id: 'MP_BD_02', img: 'https://bd.intexsouthasia.com/assets/img/mediaPartner/BTJ.png', companyName: "Bangladesh Textile Journal Bangladesh", link: "https://bangladeshtextilejournal.com/" },
     { id: 'MP_BD_03', img: 'https://bd.intexsouthasia.com/assets/img/mediaPartner/textile-network.png', companyName: "Textile Network", link: "https://textile-network.com/" },
@@ -38,7 +38,7 @@ const PARTNERS_DATA: Record<string, MediaPartner[]> = {
 
 const MediaPartnerPage: React.FC = () => {
   const [activeShow, setActiveShow] = useState('SRI LANKA');
-  const shows = Object.keys(PARTNERS_DATA);
+  const shows = ['SRI LANKA', 'BANGLADESH'];
 
   return (
     <div className="bg-archive-cream min-h-screen pt-32 pb-24 overflow-hidden">
@@ -48,9 +48,9 @@ const MediaPartnerPage: React.FC = () => {
           <div className="space-y-6">
             <div className="flex items-center gap-4">
               <div className="w-12 h-[1px] bg-archive-clay"></div>
-              <span className="text-[10px] font-black tracking-[0.5em] uppercase text-archive-clay">Media Alliance // Registry</span>
+              <span className="text-[10px] font-black tracking-[0.5em] text-archive-clay uppercase">Media Alliance // Registry</span>
             </div>
-            <h1 className="text-2xl md:text-[4vw] font-black tracking-tighter uppercase leading-[0.85] text-archive-charcoal">
+            <h1 className="text-4xl md:text-8xl font-black tracking-tighter leading-[0.85] text-archive-charcoal uppercase">
               MEDIA <br />
               <span className="text-white">PARTNERS.</span>
             </h1>
@@ -58,7 +58,7 @@ const MediaPartnerPage: React.FC = () => {
 
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-12">
             <div className="lg:col-span-7">
-              <p className="text-xl md:text-2xl font-black uppercase text-archive-charcoal/80 leading-tight">
+              <p className="text-xl md:text-2xl font-black text-archive-charcoal/80 leading-tight">
                 Accessing the <span className="text-archive-clay">verified network</span> of global trade journals and industry news portals.
               </p>
             </div>
@@ -69,7 +69,7 @@ const MediaPartnerPage: React.FC = () => {
                 <button
                   key={show}
                   onClick={() => setActiveShow(show)}
-                  className={`px-8 py-4 text-[10px] font-black tracking-widest uppercase transition-all ${activeShow === show ? 'bg-archive-charcoal text-white' : 'text-archive-charcoal/40 hover:text-archive-charcoal'}`}
+                  className={`px-8 py-4 text-[10px] font-black tracking-widest transition-all ${activeShow === show ? 'bg-archive-charcoal text-white' : 'text-archive-charcoal/40 hover:text-archive-charcoal'}`}
                 >
                   {show}
                 </button>
@@ -90,7 +90,7 @@ const MediaPartnerPage: React.FC = () => {
             transition={{ duration: 0.5 }}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-px bg-archive-charcoal/10 border border-archive-charcoal/10"
           >
-            {PARTNERS_DATA[activeShow].map((partner, idx) => (
+            {PARTNERS_DATA[activeShow === 'SRI LANKA' ? 'Sri Lanka' : 'Bangladesh'].map((partner, idx) => (
               <motion.div
                 key={partner.id}
                 initial={{ opacity: 0, y: 100 }}
@@ -117,8 +117,8 @@ const MediaPartnerPage: React.FC = () => {
                 <div className="h-1/2 p-10 flex flex-col justify-between bg-archive-cream/30 group-hover:text-white transition-colors duration-700">
                   <div className="space-y-4">
 
-                    <h3 className="text-lg font-black uppercase tracking-tighter leading-[1.1] group-hover:text-archive-clay transition-colors duration-500">
-                      {partner.companyName}
+                    <h3 className="text-lg font-black tracking-tighter leading-[1.1] group-hover:text-archive-clay transition-colors duration-500">
+                      {partner.companyName.toUpperCase()}
                     </h3>
                   </div>
 
@@ -127,9 +127,9 @@ const MediaPartnerPage: React.FC = () => {
                       href={partner.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-3 text-[9px] font-black uppercase tracking-[0.3em] text-archive-charcoal group-hover:text-white transition-colors group/btn"
+                      className="flex items-center gap-3 text-[9px] font-black tracking-[0.3em] text-archive-charcoal group-hover:text-white transition-colors group/btn"
                     >
-                      Visit Website <ExternalLink size={12} className="group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />
+                      VISIT WEBSITE <ExternalLink size={12} className="group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform uppercase" />
                     </a>
                     <Globe size={14} className="text-archive-charcoal/10 group-hover:text-archive-clay" />
                   </div>
@@ -142,7 +142,7 @@ const MediaPartnerPage: React.FC = () => {
         {(!PARTNERS_DATA[activeShow] || PARTNERS_DATA[activeShow].length === 0) && (
           <div className="py-60 flex flex-col items-center justify-center border border-dashed border-archive-charcoal/20 text-center">
             <Search size={40} className="text-archive-clay/20 mb-6" />
-            <span className="text-[10px] font-black tracking-[0.5em] uppercase text-archive-charcoal/30">No partner records found for selected node.</span>
+            <span className="text-[10px] font-black tracking-[0.5em] text-archive-charcoal/30 uppercase">NO PARTNER RECORDS FOUND FOR SELECTED NODE.</span>
           </div>
         )}
       </section>
@@ -152,11 +152,11 @@ const MediaPartnerPage: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
           <div className="space-y-12">
             <div className="space-y-6">
-              <h2 className="text-sm font-black uppercase text-archive-clay leading-none">Global Circulation.</h2>
+              <h2 className="text-sm font-black text-archive-clay leading-none uppercase">GLOBAL CIRCULATION.</h2>
               <div className="w-20 h-px bg-archive-clay"></div>
             </div>
             <div className="space-y-8">
-              <p className="text-[12px] font-bold uppercase tracking-[0.15em] leading-relaxed text-archive-charcoal/60">
+              <p className="text-[12px] font-bold tracking-[0.15em] leading-relaxed text-archive-charcoal/60">
                 Our media alliance network covers over 50+ international trade publications, digital newsletters, and technical journals. This ecosystem ensures that Intex South Asia updates reach the target demographic across Europe, South Asia, and the ASEAN region.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
@@ -167,8 +167,8 @@ const MediaPartnerPage: React.FC = () => {
                   { label: "Audit Integrity", value: "Verified Publications" }
                 ].map((item, i) => (
                   <div key={i} className="space-y-2 border-l border-archive-charcoal/10 pl-6">
-                    <span className="text-[8px] font-black tracking-widest uppercase opacity-40 block">{item.label}</span>
-                    <span className="text-[11px] font-black uppercase text-archive-charcoal">{item.value}</span>
+                    <span className="text-[8px] font-black tracking-widest opacity-40 block">{item.label}</span>
+                    <span className="text-[11px] font-black text-archive-charcoal">{item.value}</span>
                   </div>
                 ))}
               </div>
@@ -180,19 +180,19 @@ const MediaPartnerPage: React.FC = () => {
               <Newspaper size={200} />
             </div>
             <div className="space-y-4 relative z-10">
-              <span className="text-archive-clay text-[10px] font-black tracking-[0.5em] uppercase">Partner Protocol</span>
-              <h3 className="text-xl font-black uppercase leading-none">Join the <br /> Media Alliance.</h3>
+              <span className="text-archive-clay text-[10px] font-black tracking-[0.5em]">Partner Protocol</span>
+              <h3 className="text-xl font-black leading-none uppercase">JOIN THE <br /> MEDIA ALLIANCE.</h3>
             </div>
             <div className="space-y-8 relative z-10">
-              <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-white/40 leading-relaxed">
+              <p className="text-[11px] font-bold tracking-[0.2em] text-white/40 leading-relaxed">
                 Trade publications and industry digital portals interested in partnering for the 2026 Archive cycle may request official accreditation and media kit credentials.
               </p>
               <div className="flex flex-col sm:flex-row gap-6">
-                <button className="px-10 py-5 bg-archive-clay text-white font-black text-[10px] tracking-[0.4em] uppercase hover:bg-white hover:text-archive-charcoal transition-all">
-                  Apply for Partnership
+                <button className="px-10 py-5 bg-archive-clay text-white font-black text-[10px] tracking-[0.4em] hover:bg-white hover:text-archive-charcoal transition-all">
+                  APPLY FOR PARTNERSHIP
                 </button>
-                <button className="px-10 py-5 border border-white/20 text-white font-black text-[10px] tracking-[0.4em] uppercase hover:bg-white hover:text-archive-charcoal hover:border-white transition-all flex items-center gap-3">
-                  Registry Data <ShieldCheck size={14} />
+                <button className="px-10 py-5 border border-white/20 text-white font-black text-[10px] tracking-[0.4em] hover:bg-white hover:text-archive-charcoal hover:border-white transition-all flex items-center gap-3">
+                  REGISTRY DATA <ShieldCheck size={14} className="uppercase" />
                 </button>
               </div>
             </div>

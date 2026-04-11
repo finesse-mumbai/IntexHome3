@@ -4,10 +4,10 @@ import { motion } from 'framer-motion';
 import { Play, Activity, Cpu, MonitorPlay } from 'lucide-react';
 
 const VIDEOS = [
-    { id: 'v1', title: 'Dhaka Seminar Highlights', role: 'Strategic Forum', url: 'https://www.wofxworldexpo.com/assests/WOFX-Short-Video-2025.mp4' },
-    { id: 'v2', title: 'Sri Lanka Networking Night', role: 'Industry Mixer', url: 'https://www.wofxworldexpo.com/assests/WOFX-Short-Video-2025.mp4' },
-    { id: 'v3', title: 'India 2024 Retrospective', role: 'Show Highlights', url: 'https://www.wofxworldexpo.com/assests/WOFX-Short-Video-2025.mp4' },
-    { id: 'v4', title: 'Technological Innovation 2030', role: 'Keynote Session', url: 'https://www.wofxworldexpo.com/assests/WOFX-Short-Video-2025.mp4' },
+    { id: 'v1', title: 'Strategic Forum Highlights', role: 'Intex Sourcing', url: 'https://www.youtube.com/embed/VCDUdLZfZeY?si=FfhkVBLTd9dFvNsD' },
+    { id: 'v2', title: 'Global Industry Summit', role: 'Industry Mixer', url: 'https://www.youtube.com/embed/KmkzgC3-KAQ?si=xZbyR14qqO03uglI' },
+    { id: 'v3', title: 'Archival Highlight Record', role: 'Show Highlights', url: 'https://www.youtube.com/embed/nwWELI2tK0c?si=Ms9iHQ7pI_Kycqlc' },
+    { id: 'v4', title: 'Textile Innovation Log', role: 'Keynote Session', url: 'https://www.youtube.com/embed/nwWELI2tK0c?si=Ms9iHQ7pI_Kycqlc' },
 ];
 
 const VideoShowcase: React.FC = () => {
@@ -48,7 +48,7 @@ const VideoShowcase: React.FC = () => {
                         className="flex gap-8 px-4"
                         animate={{ x: [0, "-33.333%"] }}
                         transition={{
-                            duration: 40,
+                            duration: 50,
                             repeat: Infinity,
                             ease: "linear"
                         }}
@@ -60,23 +60,28 @@ const VideoShowcase: React.FC = () => {
                             >
                                 {/* Video Container with 3px permanent orange border */}
                                 <div className="aspect-video bg-archive-charcoal rounded-[24px] overflow-hidden relative shadow-[0_30px_60px_-15px_rgba(0,0,0,0.2)] group-hover:shadow-[0_50px_100px_-20px_rgba(238,117,57,0.3)] transition-all duration-700 border-[3px] border-archive-clay">
-                                    <video
-                                        muted
-                                        loop
-                                        playsInline
-                                        onMouseEnter={(e) => (e.target as HTMLVideoElement).play()}
-                                        onMouseLeave={(e) => (e.target as HTMLVideoElement).pause()}
-                                        className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-all duration-1000 scale-[1.01] group-hover:scale-110"
-                                    >
-                                        <source src={video.url} type="video/mp4" />
-                                    </video>
+                                    <iframe
+                                        src={video.url}
+                                        title={video.title}
+                                        className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-all duration-1000 scale-[1.01] group-hover:scale-105"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                        allowFullScreen
+                                    />
 
-                                    {/* Play Overlay */}
+                                    {/* Play Overlay (Still useful as a visual indicator, though iframe handles play) */}
                                     <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                                        <div className="p-4 bg-archive-clay/80 backdrop-blur-md rounded-full text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 shadow-lg">
+                                        <div className="p-4 bg-archive-clay/40 backdrop-blur-sm rounded-full text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 shadow-lg">
                                             <Play size={20} fill="white" />
                                         </div>
                                     </div>
+                                </div>
+
+                                <div className="mt-6 space-y-1">
+                                    <div className="flex items-center gap-2">
+                                        <Activity size={10} className="text-archive-clay" />
+                                        <h4 className="text-[11px] font-black uppercase tracking-widest text-archive-charcoal">{video.title}</h4>
+                                    </div>
+                                    <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-archive-charcoal/40 pl-5">{video.role}</span>
                                 </div>
                             </div>
                         ))}

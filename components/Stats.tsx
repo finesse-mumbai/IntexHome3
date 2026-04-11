@@ -1,13 +1,12 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Archive, Users, Award, Grid } from 'lucide-react';
 
 const statsData = [
-  { icon: Archive, value: '38', label: 'EXHIBITIONS', desc: 'Has Been Held' },
-  { icon: Users, value: '14k', label: 'VISITORS', desc: 'In Last Year' },
-  { icon: Award, value: '16', label: 'AWARDS', desc: 'Have Received' },
-  { icon: Grid, value: '2k', label: 'COLLECTIONS', desc: 'Of Art & Designs' },
+  { icon: Archive, value: '38', label: 'EXHIBITIONS', desc: 'HAS BEEN HELD' },
+  { icon: Users, value: '14k', label: 'VISITORS', desc: 'IN LAST YEAR' },
+  { icon: Award, value: '16', label: 'AWARDS', desc: 'HAVE RECEIVED' },
+  { icon: Grid, value: '2k', label: 'COLLECTIONS', desc: 'OF ART & DESIGNS' },
 ];
 
 const Stats: React.FC = () => {

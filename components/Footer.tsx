@@ -38,7 +38,7 @@ const Footer: React.FC = () => {
             <div className="flex items-center justify-center mx-auto mb-6">
               <img src="/assets/logo-dark.webp" alt="Intex South Asia" className="h-16 w-auto" />
             </div>
-            <h2 className="text-lg font-black uppercase tracking-tighter text-archive-charcoal">INTEX SOUTH ASIA</h2>
+            <h2 className="text-lg font-black tracking-tighter text-archive-charcoal uppercase">INTEX SOUTH ASIA</h2>
           </div>
 
           <div className="max-w-xl mx-auto mb-16 space-y-8 text-left">
@@ -48,8 +48,8 @@ const Footer: React.FC = () => {
               </div>
               <input
                 type="email"
-                placeholder="Enter Email Address..."
-                className="flex-1 px-4 py-4 text-[10px] font-black tracking-widest uppercase bg-transparent outline-none text-archive-charcoal placeholder:text-archive-charcoal/40"
+                placeholder="ENTER EMAIL ADDRESS..."
+                className="flex-1 px-4 py-4 text-[10px] font-black tracking-widest bg-transparent outline-none text-archive-charcoal placeholder:text-archive-charcoal/40 uppercase"
               />
               <button className="h-12 w-12 flex items-center justify-center bg-archive-clay text-archive-cream rounded-full hover:bg-archive-charcoal transition-all shrink-0 shadow-lg">
                 <ArrowRight size={20} />
@@ -63,11 +63,11 @@ const Footer: React.FC = () => {
             </div>
           </div>
 
-          <div className="pt-12 border-t border-archive-charcoal/10 flex flex-col md:flex-row justify-between items-center gap-6 text-[9px] font-black tracking-[0.4em] uppercase text-archive-charcoal opacity-60">
-            <span>Copyright © 2025 Intex South Asia. All Rights Reserved.</span>
+          <div className="pt-12 border-t border-archive-charcoal/10 flex flex-col md:flex-row justify-between items-center gap-6 text-[9px] font-black tracking-[0.4em] text-archive-charcoal opacity-60">
+            <span>COPYRIGHT © 2025 INTEX SOUTH ASIA. ALL RIGHTS RESERVED.</span>
             <div className="flex gap-10">
-              <a href="#" className="hover:text-archive-clay transition-colors">Privacy Policy</a>
-              <a href="#" className="hover:text-archive-clay transition-colors">Terms of Service</a>
+              <a href="#" className="hover:text-archive-clay transition-colors uppercase">PRIVACY POLICY</a>
+              <a href="#" className="hover:text-archive-clay transition-colors uppercase">TERMS OF SERVICE</a>
             </div>
           </div>
         </div>
@@ -94,7 +94,7 @@ const Footer: React.FC = () => {
             whileInView={{ letterSpacing: "0.1em", opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
-            className="text-[8vw] font-black leading-none text-white whitespace-nowrap text-center uppercase m-0 p-0"
+            className="text-[8vw] font-black leading-none text-white whitespace-nowrap text-center m-0 p-0"
           >
             {brandName}
           </motion.h1>

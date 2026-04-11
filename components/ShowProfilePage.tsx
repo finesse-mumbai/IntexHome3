@@ -5,11 +5,11 @@ import { ArrowRight, Database } from 'lucide-react';
 
 const ShowProfilePage: React.FC = () => {
   const stats = [
-    { value: '17', label: 'EDITIONS', desc: 'Successfully Completed' },
-    { value: '3,000+', label: 'EXHIBITORS', desc: 'Global Manufacturers' },
-    { value: '20+', label: 'EXHIBITING COUNTRIES', desc: 'International Presence' },
-    { value: '70,000+', label: 'BUYERS', desc: 'Qualified Trade Visitors' },
-    { value: '40+', label: 'BUYING COUNTRIES', desc: 'Sourcing Worldwide' },
+    { value: '17', label: 'Editions', desc: 'Successfully Completed' },
+    { value: '3,000+', label: 'Exhibitors', desc: 'Global Manufacturers' },
+    { value: '20+', label: 'Exhibiting Countries', desc: 'International Presence' },
+    { value: '70,000+', label: 'Buyers', desc: 'Qualified Trade Visitors' },
+    { value: '40+', label: 'Buying Countries', desc: 'Sourcing Worldwide' },
   ];
 
   return (
@@ -20,19 +20,19 @@ const ShowProfilePage: React.FC = () => {
           <div className="space-y-6">
             <div className="flex items-center gap-4">
               <div className="w-12 h-[1px] bg-archive-clay"></div>
-              <span className="text-[10px] font-black tracking-[0.5em] uppercase text-archive-clay">Identity // Records</span>
+              <span className="text-[10px] font-black tracking-[0.5em] text-archive-clay uppercase">Identity // Records</span>
             </div>
-            <h1 className="text-2xl md:text-[5vw] font-black tracking-tighter uppercase leading-[0.8] text-archive-charcoal">
-              SHOW <br /> <span className="text-archive-clay">PROFILE.</span>
+            <h1 className="text-4xl md:text-8xl font-black tracking-tighter leading-[0.8] text-archive-charcoal uppercase">
+              Show <br /> <span className="text-archive-clay">Profile.</span>
             </h1>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
             <div className="space-y-12">
               <div className="space-y-8">
-                <h2 className="text-xs font-black uppercase leading-none text-archive-charcoal">About the Show</h2>
+                <h2 className="text-xs font-black leading-none text-archive-charcoal uppercase">About The Show</h2>
                 <div className="w-12 h-[2px] bg-archive-clay"></div>
-                <div className="space-y-6 text-[13px] font-medium uppercase tracking-[0.1em] leading-relaxed text-archive-charcoal/80">
+                <div className="space-y-6 text-[13px] font-medium tracking-[0.1em] leading-relaxed text-archive-charcoal/80">
                   <p>
                     Since its launch in 2015, Intex has evolved into the region’s most influential and largest international textile sourcing show in South Asia, with a strong presence across Sri Lanka, Bangladesh, and India. Over the course of 17 successful editions, the platform has consistently brought together the global textile community at the heart of South Asia’s manufacturing ecosystem.
                   </p>
@@ -46,11 +46,11 @@ const ShowProfilePage: React.FC = () => {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-6 pt-8">
-                <button className="flex-1 px-10 py-6 bg-archive-clay text-white font-black text-[10px] tracking-[0.4em] uppercase hover:bg-archive-charcoal transition-all flex items-center justify-center gap-4">
-                  Buyer Registration <ArrowRight size={14} />
+                <button className="flex-1 px-10 py-6 bg-archive-clay text-white font-black text-[10px] tracking-[0.4em] hover:bg-archive-charcoal transition-all flex items-center justify-center gap-4">
+                  BUYER REGISTRATION <ArrowRight size={14} className="uppercase" />
                 </button>
-                <button className="flex-1 px-10 py-6 border border-archive-charcoal text-archive-charcoal font-black text-[10px] tracking-[0.4em] uppercase hover:bg-archive-charcoal hover:text-white transition-all">
-                  Exhibitor Enquiry
+                <button className="flex-1 px-10 py-6 border border-archive-charcoal text-archive-charcoal font-black text-[10px] tracking-[0.4em] hover:bg-archive-charcoal hover:text-white transition-all">
+                  EXHIBITOR ENQUIRY
                 </button>
               </div>
             </div>
@@ -71,7 +71,7 @@ const ShowProfilePage: React.FC = () => {
                 </div>
               </div>
               <div className="absolute -bottom-10 -left-10 w-48 h-48 border border-archive-charcoal bg-archive-cream flex items-center justify-center p-8 z-10 hidden xl:flex">
-                <span className="text-[10px] font-black tracking-widest uppercase text-center text-archive-charcoal/40">Specimen_Ref: IX_PRFL_017</span>
+                <span className="text-[10px] font-black tracking-widest text-center text-archive-charcoal/40 uppercase">Specimen_Ref: IX_PRFL_017</span>
               </div>
             </div>
           </div>
@@ -83,7 +83,7 @@ const ShowProfilePage: React.FC = () => {
         <div className="max-w-[1440px] mx-auto text-center space-y-20">
           <div className="space-y-6">
             <span className="text-[10px] font-black tracking-[0.2em] text-white/40 uppercase">Electronic Intelligence</span>
-            <h2 className="text-sm md:text-2xl font-black text-white uppercase tracking-tighter">THE MOTION ARCHIVE.</h2>
+            <h2 className="text-sm md:text-2xl font-black text-white tracking-tighter uppercase">The Motion Archive.</h2>
           </div>
 
           <div className="relative aspect-video max-w-5xl mx-auto border border-white/20 p-2 overflow-hidden">
@@ -117,11 +117,11 @@ const ShowProfilePage: React.FC = () => {
                 {stat.value}
               </span>
               <div className="space-y-2">
-                <h4 className="text-[11px] font-black tracking-[0.4em] uppercase text-archive-clay">
-                  {stat.label}
+                <h4 className="text-[11px] font-black tracking-[0.4em] text-archive-clay">
+                   {stat.label.toUpperCase()}
                 </h4>
-                <p className="text-[8px] font-mono uppercase opacity-40 group-hover:opacity-100 transition-opacity">
-                  {stat.desc}
+                <p className="text-[8px] font-mono opacity-40 group-hover:opacity-100 transition-opacity">
+                  {stat.desc.toUpperCase()}
                 </p>
               </div>
             </motion.div>

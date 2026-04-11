@@ -20,7 +20,7 @@ interface Hotel {
 }
 
 const HOTELS_DATA: Record<string, Hotel[]> = {
-  'SRI LANKA': [
+  'Sri Lanka': [
     {
       name: "Sheraton Colombo",
       address: "265 Galle Road, Kollupitiya, Colombo, Western 3000",
@@ -127,7 +127,7 @@ const HOTELS_DATA: Record<string, Hotel[]> = {
       remarks: "Based on minimum of 15 rooms per night",
     }
   ],
-  'BANGLADESH': [
+  'Bangladesh': [
     {
       name: "Radisson Blu Water Garden",
       address: "Airport Road, Dhaka Cantonment, Dhaka 1206",
@@ -189,7 +189,7 @@ const HOTELS_DATA: Record<string, Hotel[]> = {
       remarks: "Walking distance to major corporate nodes",
     }
   ],
-  'INDIA': [
+  'India': [
     {
       name: "Yashobhoomi Dwarka Hotel",
       address: "Sector 25, Dwarka, New Delhi 110061",
@@ -244,17 +244,17 @@ const HotelsTravelPage: React.FC = () => {
           <div className="space-y-6">
             <div className="flex items-center gap-4">
               <div className="w-12 h-[1px] bg-archive-clay"></div>
-              <span className="text-[10px] font-black tracking-[0.5em] uppercase text-archive-clay">Logistics // Accomodation</span>
+              <span className="text-[10px] font-black tracking-[0.5em] text-archive-clay uppercase">Logistics // Accomodation</span>
             </div>
-            <h1 className="text-2xl md:text-[4vw] font-black tracking-tighter uppercase leading-[0.85] text-archive-charcoal">
-              HOTELS & <br />
-              <span className="text-white">TRAVEL.</span>
+            <h1 className="text-4xl md:text-8xl font-black tracking-tighter leading-[0.85] text-archive-charcoal uppercase">
+              Hotels & <br />
+              <span className="text-white">Travel.</span>
             </h1>
           </div>
 
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-12">
             <div className="lg:col-span-7">
-              <p className="text-xl md:text-2xl font-black uppercase text-archive-charcoal/80 leading-tight">
+              <p className="text-xl md:text-2xl font-black text-archive-charcoal/80 leading-tight">
                 Exclusive <span className="text-archive-clay">discounted rates</span> for Intex delegates at premier hospitality partners.
               </p>
             </div>
@@ -264,9 +264,9 @@ const HotelsTravelPage: React.FC = () => {
                 <button
                   key={show}
                   onClick={() => setActiveShow(show)}
-                  className={`px-8 py-4 text-[10px] font-black tracking-widest uppercase transition-all ${activeShow === show ? 'bg-archive-charcoal text-white' : 'text-archive-charcoal/40 hover:text-archive-charcoal'}`}
+                  className={`px-8 py-4 text-[10px] font-black tracking-widest transition-all ${activeShow === show ? 'bg-archive-charcoal text-white' : 'text-archive-charcoal/40 hover:text-archive-charcoal'}`}
                 >
-                  {show}
+                  {show.toUpperCase()}
                 </button>
               ))}
             </div>
@@ -306,27 +306,27 @@ const HotelsTravelPage: React.FC = () => {
                 <div className="p-10 flex flex-col justify-between flex-1 group-hover:text-white transition-colors duration-700">
                   <div className="space-y-6">
                     <div className="space-y-2">
-                      <h3 className="text-lg font-black uppercase tracking-tighter leading-tight group-hover:text-archive-clay transition-colors duration-500">
-                        {hotel.name}
+                      <h3 className="text-lg font-black tracking-tighter leading-tight group-hover:text-archive-clay transition-colors duration-500">
+                        {hotel.name.toUpperCase()}
                       </h3>
-                      <div className="flex items-start gap-2 text-[9px] font-bold uppercase tracking-widest text-archive-charcoal/40 group-hover:text-white/40">
+                      <div className="flex items-start gap-2 text-[9px] font-bold tracking-widest text-archive-charcoal/40 group-hover:text-white/40">
                         <MapPin size={10} className="text-archive-clay mt-0.5" />
-                        <span className="line-clamp-2">{hotel.address}</span>
+                        <span className="line-clamp-2 uppercase">{hotel.address}</span>
                       </div>
                     </div>
 
                     <div className="space-y-4 pt-4 border-t border-archive-charcoal/5 group-hover:border-white/10">
                       <div className="flex justify-between items-center">
-                        <span className="text-[10px] font-black uppercase tracking-widest opacity-40 group-hover:opacity-100">Room Type</span>
-                        <span className="text-[10px] font-bold uppercase">{hotel.roomType}</span>
+                        <span className="text-[10px] font-black tracking-widest opacity-40 group-hover:opacity-100 uppercase">Room Type</span>
+                        <span className="text-[10px] font-bold">{hotel.roomType}</span>
                       </div>
                       <div className="grid grid-cols-2 gap-4">
                         <div className="space-y-1">
-                          <span className="text-[8px] font-black uppercase tracking-widest opacity-20 group-hover:opacity-60">Single</span>
+                          <span className="text-[8px] font-black tracking-widest opacity-20 group-hover:opacity-60 uppercase">Single</span>
                           <p className="text-[11px] font-bold">{hotel.rates.single}</p>
                         </div>
                         <div className="space-y-1 text-right">
-                          <span className="text-[8px] font-black uppercase tracking-widest opacity-20 group-hover:opacity-60">Double</span>
+                          <span className="text-[8px] font-black tracking-widest opacity-20 group-hover:opacity-60 uppercase">Double</span>
                           <p className="text-[11px] font-bold">{hotel.rates.double}</p>
                         </div>
                       </div>
@@ -334,7 +334,7 @@ const HotelsTravelPage: React.FC = () => {
                   </div>
 
                   <div className="pt-8 space-y-4">
-                    <div className="flex items-center gap-3 text-[10px] font-bold uppercase tracking-widest">
+                    <div className="flex items-center gap-3 text-[10px] font-bold tracking-widest">
                       <Clock size={12} className="text-archive-clay" />
                       <span className="opacity-40 group-hover:opacity-100">{hotel.distance}</span>
                     </div>
@@ -342,9 +342,9 @@ const HotelsTravelPage: React.FC = () => {
                       href={hotel.website}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-[9px] font-black uppercase tracking-[0.3em] text-archive-clay border-b border-transparent hover:border-archive-clay transition-all"
+                      className="inline-flex items-center gap-2 text-[9px] font-black tracking-[0.3em] text-archive-clay border-b border-transparent hover:border-archive-clay transition-all"
                     >
-                      Visit Website <Globe size={12} />
+                      VISIT WEBSITE <Globe size={12} className="uppercase" />
                     </a>
                   </div>
                 </div>
@@ -362,7 +362,7 @@ const HotelsTravelPage: React.FC = () => {
           <div className="space-y-6">
             <div className="flex items-center gap-4">
               <Info size={16} className="text-archive-clay" />
-              <h2 className="text-xl font-black uppercase tracking-tight text-archive-charcoal">Protocol // Information</h2>
+              <h2 className="text-xl font-black tracking-tight text-archive-charcoal uppercase">Protocol // Information</h2>
             </div>
             <div className="w-12 h-px bg-archive-clay"></div>
           </div>
@@ -376,9 +376,9 @@ const HotelsTravelPage: React.FC = () => {
               "Rooms are subject to availability at the time of booking.",
               "Airport & Venue transfers can be arranged on request at an additional cost."
             ].map((item, i) => (
-              <li key={i} className="flex items-start gap-4 text-[11px] font-bold uppercase tracking-widest leading-relaxed text-archive-charcoal/60">
+              <li key={i} className="flex items-start gap-4 text-[11px] font-bold tracking-widest leading-relaxed text-archive-charcoal/60">
                 <div className="w-1.5 h-1.5 bg-archive-clay rotate-45 mt-1 shrink-0"></div>
-                {item}
+                {item.toUpperCase()}
               </li>
             ))}
           </ul>
@@ -393,7 +393,7 @@ const HotelsTravelPage: React.FC = () => {
           <div className="space-y-12">
             <div className="space-y-4">
               <span className="text-archive-clay text-[10px] font-black tracking-[0.5em] uppercase">Booking Registry</span>
-              <h3 className="text-xl font-black uppercase leading-[0.9]">For more info <br /> & hotel bookings.</h3>
+              <h3 className="text-xl font-black leading-[0.9] uppercase">For more info <br /> & hotel bookings.</h3>
             </div>
 
             <div className="space-y-8">
@@ -404,7 +404,7 @@ const HotelsTravelPage: React.FC = () => {
                 <div key={i} className="space-y-4 p-8 border border-white/10 group hover:border-archive-clay transition-all">
                   <div className="flex items-center gap-3">
                     <UserCheck size={14} className="text-archive-clay" />
-                    <span className="text-[12px] font-black uppercase tracking-widest">{contact.name}</span>
+                    <span className="text-[12px] font-black tracking-widest uppercase">{contact.name}</span>
                   </div>
                   <div className="space-y-2">
                     <a href={`tel:${contact.tel}`} className="flex items-center gap-3 text-[10px] font-bold text-white/40 hover:text-white transition-colors">
@@ -420,8 +420,8 @@ const HotelsTravelPage: React.FC = () => {
           </div>
 
           <div className="pt-12">
-            <button className="w-full p-6 border border-white/20 text-white font-black text-[10px] tracking-[0.4em] uppercase hover:bg-archive-clay hover:border-archive-clay transition-all flex items-center justify-center gap-4 group">
-              Download Booking Form <Download size={16} className="group-hover:translate-y-1 transition-transform" />
+            <button className="w-full p-6 border border-white/20 text-white font-black text-[10px] tracking-[0.4em] hover:bg-archive-clay hover:border-archive-clay transition-all flex items-center justify-center gap-4 group">
+              DOWNLOAD BOOKING FORM <Download size={16} className="group-hover:translate-y-1 transition-transform uppercase" />
             </button>
           </div>
         </div>
