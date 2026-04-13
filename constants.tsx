@@ -102,7 +102,8 @@ export const TESTIMONIALS: TestimonialItem[] = [
     role: "Export Manager",
     company: "Ummi Textile, Pakistan",
     imageUrl: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=200&h=200",
-    type: 'EXHIBITOR'
+    type: 'EXHIBITOR',
+    videoUrl: 'https://www.youtube.com/embed/VCDUdLZfZeY'
   },
   {
     id: 'exh-2',
@@ -111,7 +112,8 @@ export const TESTIMONIALS: TestimonialItem[] = [
     role: "Management",
     company: "Own Way Textile, Taiwan",
     imageUrl: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=200&h=200",
-    type: 'EXHIBITOR'
+    type: 'EXHIBITOR',
+    videoUrl: 'https://www.youtube.com/embed/KmkzgC3-KAQ'
   },
   {
     id: 'exh-3',
@@ -120,7 +122,8 @@ export const TESTIMONIALS: TestimonialItem[] = [
     role: "Management",
     company: "Modecrea, Korea",
     imageUrl: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=200&h=200",
-    type: 'EXHIBITOR'
+    type: 'EXHIBITOR',
+    videoUrl: 'https://www.youtube.com/embed/nwWELI2tK0c'
   },
   {
     id: 'exh-4',
@@ -129,7 +132,8 @@ export const TESTIMONIALS: TestimonialItem[] = [
     role: "Representative",
     company: "Li Jun (HK) Industrial Co. Ltd",
     imageUrl: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=200&h=200",
-    type: 'EXHIBITOR'
+    type: 'EXHIBITOR',
+    videoUrl: 'https://www.youtube.com/embed/VCDUdLZfZeY'
   },
   {
     id: 'exh-5',
@@ -194,7 +198,8 @@ export const TESTIMONIALS: TestimonialItem[] = [
     role: "Sourcing & Technical Dept",
     company: "Norlanka, Sri Lanka",
     imageUrl: "https://images.unsplash.com/photo-1531384441138-2736e62e0919?auto=format&fit=crop&q=80&w=200&h=200",
-    type: 'BUYER'
+    type: 'BUYER',
+    videoUrl: 'https://www.youtube.com/embed/KmkzgC3-KAQ'
   },
   {
     id: 'buy-2',
@@ -203,7 +208,8 @@ export const TESTIMONIALS: TestimonialItem[] = [
     role: "Country Manager",
     company: "Mayoral, Bangladesh",
     imageUrl: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=200&h=200",
-    type: 'BUYER'
+    type: 'BUYER',
+    videoUrl: 'https://www.youtube.com/embed/nwWELI2tK0c'
   },
   {
     id: 'buy-3',
@@ -212,7 +218,8 @@ export const TESTIMONIALS: TestimonialItem[] = [
     role: "General Manager",
     company: "Bernatali Sourcing Studios Pvt Ltd",
     imageUrl: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=200&h=200",
-    type: 'BUYER'
+    type: 'BUYER',
+    videoUrl: 'https://www.youtube.com/embed/VCDUdLZfZeY'
   },
   {
     id: 'buy-4',
@@ -221,7 +228,8 @@ export const TESTIMONIALS: TestimonialItem[] = [
     role: "Development Director",
     company: "Russian Association of Fashion",
     imageUrl: "https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?auto=format&fit=crop&q=80&w=200&h=200",
-    type: 'BUYER'
+    type: 'BUYER',
+    videoUrl: 'https://www.youtube.com/embed/KmkzgC3-KAQ'
   },
   {
     id: 'buy-5',

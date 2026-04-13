@@ -1,250 +1,252 @@
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useCallback, memo } from 'react';
+
 import { motion, AnimatePresence } from 'framer-motion';
 import { TESTIMONIALS } from '../constants';
-import { Hash, CornerDownRight, ChevronLeft, ChevronRight, Binary, Fingerprint, ArrowLeft, ArrowRight } from 'lucide-react';
+import { Hash, Binary, ArrowLeft, ArrowRight, Play } from 'lucide-react';
 
-const ITEMS_PER_PAGE = 10;
+
+interface SpecimenPanelProps {
+  testimonial: any;
+  onNext: () => void;
+  onPrev: () => void;
+  label: string;
+  index: number;
+  onPlayVideo: (testimonial: any) => void;
+  isDark?: boolean;
+}
+
+
+const SpecimenPanel = memo(({ 
+  testimonial, 
+  onNext, 
+  onPrev, 
+  label, 
+  index,
+  onPlayVideo,
+  isDark = true 
+}) => (
+  <div className={`w-full lg:w-1/2 flex flex-col justify-between relative border-archive-charcoal p-12 md:p-16 xl:p-24 min-h-[650px] transition-colors duration-700 overflow-hidden ${isDark ? 'bg-archive-charcoal text-archive-cream border-r' : 'bg-archive-cream text-archive-charcoal'}`}>
+    
+    {/* BACKGROUND DECORATIVE ELEMENTS */}
+    <div className="absolute bottom-1/4 -left-12 opacity-[0.03] pointer-events-none rotate-90">
+       <span className="text-9xl font-black tracking-tighter uppercase whitespace-nowrap">{label}_ARCHIVE</span>
+    </div>
+
+    {/* HEADER METADATA */}
+    <div className={`flex justify-between items-start mb-16 relative z-10`}>
+      <div className="space-y-1">
+        <div className="flex items-center gap-3">
+          <Hash size={14} className="text-archive-clay" />
+          <span className={`text-[9px] font-black tracking-[0.5em] uppercase ${isDark ? 'text-white/40' : 'text-archive-charcoal/60'}`}>{label} INF_STREAM </span>
+        </div>
+      </div>
+      <div className="flex flex-col items-end gap-2">
+        <span className={`text-[8px] font-mono uppercase tracking-[0.3em] border p-2 rounded-none font-bold transition-all duration-500 ${isDark ? 'bg-[#EE7539] text-white border-transparent shadow-[0_0_15px_rgba(238,117,57,0.3)]' : 'bg-archive-charcoal text-white border-archive-charcoal'}`}>
+          {testimonial.type}
+        </span>
+        {testimonial.videoUrl && (
+            <div 
+              className="flex items-center gap-2 px-3 py-1.5 bg-archive-clay text-white text-[9px] font-black tracking-widest uppercase cursor-pointer hover:bg-archive-charcoal hover:scale-105 transition-all shadow-lg"
+              onClick={() => onPlayVideo(testimonial)}
+            >
+              <Play size={10} fill="currentColor" strokeWidth={0} />
+              WATCH VIDEO
+            </div>
+        )}
+      </div>
+    </div>
+
+    {/* MAIN CONTENT AREA */}
+    <div className="flex-1 flex flex-col justify-start relative z-10">
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={testimonial.id}
+          initial={{ opacity: 0, y: 30, scale: 0.98 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          exit={{ opacity: 0, y: -20, scale: 1.02 }}
+          transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
+          className="space-y-12"
+        >
+          {/* PREMIUM IDENTITY BLOCK */}
+          <div className="flex items-start gap-10 group/img-block">
+            <div className="relative">
+              <div className={`w-[120px] h-[120px] overflow-hidden flex-shrink-0 border-2 relative z-10 transition-transform duration-500 group-hover/img-block:scale-105 ${isDark ? 'bg-archive-charcoal border-white/20' : 'bg-archive-cream border-archive-charcoal/20'}`}>
+                {/* SCANLINE EFFECT */}
+                <div className="absolute inset-0 z-20 pointer-events-none opacity-20 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[length:100%_2px,3px_100%]"></div>
+                
+                <img
+                  src={testimonial.imageUrl}
+                  alt={testimonial.author}
+                  className="w-full h-full object-cover filter grayscale group-hover/img-block:grayscale-0 transition-all duration-700"
+                />
+                <div className="absolute inset-0 bg-archive-clay/10 mix-blend-overlay"></div>
+                
+                {/* PLAY OVERLAY - NOW VISIBLE BY DEFAULT */}
+                {testimonial.videoUrl && (
+                  <div 
+                    className="absolute inset-0 flex items-center justify-center bg-black/10 transition-all cursor-pointer z-20"
+                  onClick={() => onPlayVideo(testimonial)}
+                  >
+                    <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-archive-clay shadow-2xl transform scale-75 group-hover/img-block:scale-100 transition-all duration-500">
+                      <Play size={22} fill="currentColor" strokeWidth={0} />
+                    </div>
+                  </div>
+                )}
+              </div>
+              {/* DECORATIVE OFFSET RECT */}
+              <div className="absolute -bottom-2 -right-2 w-full h-full bg-[#EE7539] z-0"></div>
+            </div>
+
+            <div className="space-y-4 pt-2">
+              <h4 className={`text-2xl md:text-3xl font-black uppercase tracking-tight leading-[0.85] ${isDark ? 'text-white' : 'text-archive-charcoal'}`}>
+                {testimonial.author}
+              </h4>
+              <div className="flex flex-col gap-3">
+                <span className="text-[12px] md:text-sm font-black tracking-[0.4em] uppercase text-archive-clay">
+                  {testimonial.role}
+                </span>
+                <span className={`text-[11px] md:text-[12px] font-bold tracking-[0.25em] uppercase leading-relaxed max-w-[200px] ${isDark ? 'text-white/40' : 'text-archive-charcoal/50'}`}>
+                  {testimonial.company}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* REFINED QUOTE BLOCK */}
+          <div className={`relative pt-12 mt-4`}>
+              {/* DECORATIVE CORNER MARKERS */}
+              <div className="absolute top-0 left-0 w-4 h-4 border-t border-l border-archive-clay/30"></div>
+              <div className="absolute top-0 right-1/4 w-4 h-[1px] bg-archive-clay/30"></div>
+
+            <blockquote className={`text-base md:text-lg font-medium leading-[1.8] tracking-[0.1em] max-w-2xl italic relative ${isDark ? 'text-white/70' : 'text-archive-charcoal/80'}`}>
+              <span className="absolute -left-8 -top-4 text-6xl text-archive-clay/10 font-black">“</span>
+              {testimonial.quote}
+              <span className="absolute -right-4 bottom-0 text-6xl text-archive-clay/10 font-black rotate-180">“</span>
+            </blockquote>
+          </div>
+        </motion.div>
+      </AnimatePresence>
+    </div>
+
+    {/* FOOTER NAVIGATION */}
+    <div className={`flex justify-between items-center border-t pt-10 mt-16 relative z-10 ${isDark ? 'border-white/5' : 'border-archive-charcoal/10'}`}>
+      <div className="flex items-center gap-6">
+          <button
+          onClick={onPrev}
+          className={`group/nav-btn w-12 h-12 border flex items-center justify-center transition-all duration-500 hover:bg-archive-clay border-archive-clay/20 shadow-lg hover:shadow-archive-clay/20 ${isDark ? 'bg-white/5 text-white' : 'bg-archive-charcoal text-white'}`}
+          >
+          <ArrowLeft size={16} className="group-hover/nav-btn:-translate-x-1 transition-transform" />
+          </button>
+      </div>
+
+      <button
+        onClick={onNext}
+        className={`group/nav-btn w-12 h-12 border flex items-center justify-center transition-all duration-500 hover:bg-archive-clay border-archive-clay/20 shadow-lg hover:shadow-archive-clay/20 ${isDark ? 'bg-white/5 text-white' : 'bg-archive-charcoal text-white'}`}
+      >
+        <ArrowRight size={16} className="group-hover/nav-btn:translate-x-1 transition-transform" />
+      </button>
+    </div>
+  </div>
+));
+
+SpecimenPanel.displayName = 'SpecimenPanel';
 
 const Testimonials: React.FC = () => {
-  const [active, setActive] = useState(0);
-  const [currentPage, setCurrentPage] = useState(0);
+  // Separate testimonials by type
+  const exhibitors = useMemo(() => TESTIMONIALS.filter(t => t.type === 'EXHIBITOR'), []);
+  const buyers = useMemo(() => TESTIMONIALS.filter(t => t.type === 'BUYER'), []);
 
-  // Divide testimonials into packets of 10
-  const pages = useMemo(() => {
-    const p = [];
-    for (let i = 0; i < TESTIMONIALS.length; i += ITEMS_PER_PAGE) {
-      p.push(TESTIMONIALS.slice(i, i + ITEMS_PER_PAGE));
-    }
-    return p;
+  const [exhibitorActive, setExhibitorActive] = useState(0);
+  const [buyerActive, setBuyerActive] = useState(0);
+
+  const handleNextExhibitor = useCallback(() => setExhibitorActive((prev) => (prev + 1) % exhibitors.length), [exhibitors.length]);
+  const handlePrevExhibitor = useCallback(() => setExhibitorActive((prev) => (prev - 1 + exhibitors.length) % exhibitors.length), [exhibitors.length]);
+
+  const handleNextBuyer = useCallback(() => setBuyerActive((prev) => (prev + 1) % buyers.length), [buyers.length]);
+  const handlePrevBuyer = useCallback(() => setBuyerActive((prev) => (prev - 1 + buyers.length) % buyers.length), [buyers.length]);
+  
+  const handlePlayVideo = useCallback((testimonial: any) => {
+    sessionStorage.setItem('testimonial_video', JSON.stringify({
+      videoUrl: testimonial.videoUrl,
+      author: testimonial.author,
+      role: testimonial.role,
+      company: testimonial.company,
+      type: testimonial.type,
+      imageUrl: testimonial.imageUrl,
+    }));
+    window.location.hash = '#testimonial-playback';
+    window.scrollTo(0, 0);
   }, []);
-
-  const handleNextPage = () => setCurrentPage((prev) => (prev + 1) % pages.length);
-  const handlePrevPage = () => setCurrentPage((prev) => (prev - 1 + pages.length) % pages.length);
-
-  const handleNextSpecimen = () => {
-    const nextIdx = (active + 1) % TESTIMONIALS.length;
-    setActive(nextIdx);
-    // Sync current page if needed
-    const newPage = Math.floor(nextIdx / ITEMS_PER_PAGE);
-    if (newPage !== currentPage) setCurrentPage(newPage);
-  };
-
-  const handlePrevSpecimen = () => {
-    const prevIdx = (active - 1 + TESTIMONIALS.length) % TESTIMONIALS.length;
-    setActive(prevIdx);
-    // Sync current page if needed
-    const newPage = Math.floor(prevIdx / ITEMS_PER_PAGE);
-    if (newPage !== currentPage) setCurrentPage(newPage);
-  };
 
   return (
     <section className="flex flex-col border-y border-archive-charcoal bg-archive-cream overflow-hidden" id="testimonials">
-
-      {/* FULL WIDTH HEADER: TESTIMONIALS RECORDS */}
-      <div className="w-full border-b border-archive-charcoal bg-white py-16 px-12 overflow-hidden relative group">
+      {/* HEADER */}
+      <div className="w-full border-b border-archive-charcoal bg-white py-20 px-6 md:px-12 overflow-hidden relative group">
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            className="absolute top-0 left-0 w-full h-[2px] bg-archive-clay origin-left"
+        />
+        
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           className="relative z-10 space-y-6"
         >
-          <div className="flex items-center gap-4">
-            <div className="w-12 h-[1px] bg-archive-clay"></div>
-            <span className="text-[10px] font-black tracking-[0.5em] uppercase text-archive-clay">Exhibitor & Buyer Feedback</span>
+          <div className="flex items-center gap-6">
+            <div className="w-16 h-[1px] bg-archive-clay"></div>
+            <div className="flex flex-col">
+                <span className="text-[10px] font-black tracking-[0.6em] uppercase text-archive-clay">Archive // Intelligence // Feedback</span>
+                <span className="text-[8px] font-mono opacity-30 uppercase tracking-widest pt-1">Sys_Ver: 2.0.25 (Testimonials_Segment)</span>
+            </div>
           </div>
-          <h2 className="text-2xl md:text-4xl font-black uppercase leading-[0.9] tracking-tighter text-archive-charcoal">
-            TESTIMONIALS <span className="text-archive-clay">RECORDS.</span>
+          <h2 className="text-4xl md:text-6xl font-black uppercase leading-[0.8] tracking-tighter text-archive-charcoal">
+            TESTIMONIALS<br /><span className="text-archive-clay">RECORDS.</span>
           </h2>
         </motion.div>
 
-        {/* Background Decorative Matrix */}
-        <div className="absolute top-0 right-0 w-1/3 h-full border-l border-archive-charcoal/5 flex items-center justify-center pointer-events-none opacity-20">
-          <Binary size={120} strokeWidth={0.5} className="text-archive-charcoal rotate-12" />
+        {/* Decorative elements */}
+        <div className="absolute top-1/2 right-12 -translate-y-1/2 flex items-center gap-12 pointer-events-none opacity-20">
+            <Binary size={100} strokeWidth={0.5} className="text-archive-charcoal rotate-12" />
         </div>
       </div>
 
-      <div className="flex flex-col lg:flex-row min-h-[700px]">
+      <div className="flex flex-col lg:flex-row divide-y lg:divide-y-0 lg:divide-x divide-archive-charcoal">
+        {/* LEFT PANEL: EXHIBITORS */}
+        <SpecimenPanel 
+          key="exhibitor-panel"
+          testimonial={exhibitors[exhibitorActive]} 
+          onNext={handleNextExhibitor} 
+          onPrev={handlePrevExhibitor} 
+          label="EXHIBITOR"
+          index={exhibitorActive}
+          onPlayVideo={handlePlayVideo}
+          isDark={true}
+        />
 
-        {/* LEFT PANEL: ACTIVE SPECIMEN (Dark/Charcoal) - 50% */}
-        <div className="w-full lg:w-1/2 bg-archive-charcoal text-archive-cream p-12 md:p-24 flex flex-col justify-between relative border-r border-archive-charcoal">
-          <div className="flex justify-between items-center opacity-40 mb-12">
-            <div className="flex items-center gap-3">
-              <Hash size={14} />
-              <span className="text-[9px] font-black tracking-[0.5em] uppercase">Person Word </span>
-            </div>
-            <span className="text-[8px] font-mono uppercase text-white tracking-[0.3em] border p-2 rounded bg-[#EE7539] font-bold">{TESTIMONIALS[active].type}</span>
-          </div>
-
-          <div className="flex-1 flex flex-col justify-center">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={active}
-                initial={{ opacity: 0, x: -30 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: 30 }}
-                transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                className="space-y-12"
-              >
-                <blockquote className="text-lg md:text-xl font-black leading-[1.1] text-white tracking-tighter max-w-2xl">
-                  “{TESTIMONIALS[active].quote}”
-                </blockquote>
-
-                <div className="flex items-start gap-8 pt-12 border-t border-white/10">
-                  {/* Requested 60px * 60px Image */}
-                  <div className="w-[60px] h-[60px] bg-archive-clay overflow-hidden flex-shrink-0 border border-white/20">
-                    <img
-                      src={TESTIMONIALS[active].imageUrl}
-                      alt={TESTIMONIALS[active].author}
-                      className="w-full h-full object-cover brightness-75 contrast-125 transition-transform duration-700 hover:scale-110"
-                    />
-                  </div>
-
-                  <div className="space-y-2">
-                    <div className="flex items-center gap-3">
-                      <CornerDownRight size={14} className="text-archive-clay" />
-                      <h4 className="text-lg font-black uppercase text-white tracking-tight">
-                        {TESTIMONIALS[active].author}
-                      </h4>
-                    </div>
-                    <div className="flex flex-col">
-                      <span className="text-[10px] font-black tracking-[0.3em] uppercase text-archive-clay">
-                        {TESTIMONIALS[active].role}
-                      </span>
-                      <span className="text-[9px] font-bold tracking-[0.2em] uppercase text-white/30">
-                        {TESTIMONIALS[active].company}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            </AnimatePresence>
-          </div>
-
-          {/* Navigation Buttons Replacement */}
-          <div className="flex justify-between items-center border-t border-white/10 pt-10">
-            <button
-              onClick={handlePrevSpecimen}
-              className="flex items-center gap-4 group/nav-btn text-[10px] font-black tracking-[0.4em] uppercase text-white/40 hover:text-archive-clay transition-all"
-            >
-              <div className="w-10 h-10 border border-white/10 flex items-center justify-center group-hover/nav-btn:bg-archive-clay group-hover/nav-btn:border-archive-clay group-hover/nav-btn:text-white transition-all">
-                <ArrowLeft size={14} />
-              </div>
-              <span>PREV RECORD</span>
-            </button>
-
-
-
-            <button
-              onClick={handleNextSpecimen}
-              className="flex items-center gap-4 group/nav-btn text-[10px] font-black tracking-[0.4em] uppercase text-white/40 hover:text-archive-clay transition-all"
-            >
-              <span>NEXT RECORD</span>
-              <div className="w-10 h-10 border border-white/10 flex items-center justify-center group-hover/nav-btn:bg-archive-clay group-hover/nav-btn:border-archive-clay group-hover/nav-btn:text-white transition-all">
-                <ArrowRight size={14} />
-              </div>
-            </button>
-          </div>
-        </div>
-
-        {/* RIGHT PANEL: REGISTRY DIRECTORY (White Background) - 50% */}
-        <div className="w-full lg:w-1/2 bg-white text-archive-charcoal flex flex-col">
-          {/* List Sub-Header */}
-          <div className="p-8 border-b border-archive-charcoal flex justify-between items-center bg-white/50 backdrop-blur-sm sticky top-0 z-20">
-            <div className="flex items-center gap-4">
-              <div className="w-3 h-3 bg-archive-charcoal rotate-45"></div>
-              <span className="text-[11px] font-black tracking-[0.6em] uppercase">Testimonial Cards List</span>
-            </div>
-            <div className="text-[9px] font-black uppercase tracking-widest px-4 py-2 bg-archive-charcoal text-white">
-              Card List 0{currentPage + 1} // 0{pages.length}
-            </div>
-          </div>
-
-          {/* Directory List Area - Strictly 10 items */}
-          <div className="flex-1 relative overflow-hidden bg-white">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={currentPage}
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20 }}
-                transition={{ duration: 0.4, ease: "easeInOut" }}
-                className="absolute inset-0 flex flex-col"
-              >
-                {pages[currentPage].map((t) => {
-                  const globalIndex = TESTIMONIALS.findIndex(item => item.id === t.id);
-                  return (
-                    <button
-                      key={t.id}
-                      onClick={() => setActive(globalIndex)}
-                      className={`w-full text-left p-6 border-b border-archive-charcoal/5 transition-all flex items-center justify-between group h-[10%] ${active === globalIndex ? 'bg-gray-100' : 'hover:bg-archive-charcoal hover:text-white'}`}
-                    >
-                      <div className="flex items-center gap-8 overflow-hidden">
-                        <span className={`text-[10px] font-mono font-black shrink-0 ${active === globalIndex ? 'text-archive-clay' : 'opacity-20'}`}>
-                          {String(globalIndex + 1).padStart(3, '0')}
-                        </span>
-                        <div className="truncate">
-                          <span className="text-[13px] font-black tracking-widest uppercase block truncate">{t.author}</span>
-                          <span className={`text-[8px] font-bold uppercase tracking-widest truncate block ${active === globalIndex ? 'text-archive-clay' : 'opacity-40'}`}>
-                            {t.company}
-                          </span>
-                        </div>
-                      </div>
-                      <div className="flex items-center gap-4">
-                        {active === globalIndex && (
-                          <motion.div layoutId="dir-active-rect" className="w-1.5 h-1.5 bg-archive-clay rotate-45" />
-                        )}
-                        <span className={`text-[8px] font-mono uppercase opacity-0 group-hover:opacity-100 transition-opacity ${active === globalIndex ? 'text-archive-clay' : ''}`}>
-                          [ View_Record ]
-                        </span>
-                      </div>
-                    </button>
-                  );
-                })}
-              </motion.div>
-            </AnimatePresence>
-          </div>
-
-          {/* Horizontal Slider Controls for the Directory (Packet Navigation) */}
-          <div className="p-8 border-t border-archive-charcoal bg-white flex justify-between items-center">
-            <div className="flex items-center gap-8">
-              <div className="flex border border-archive-charcoal">
-                <button
-                  onClick={handlePrevPage}
-                  className="p-5 hover:bg-archive-charcoal hover:text-white transition-all border-r border-archive-charcoal"
-                >
-                  <ChevronLeft size={18} />
-                </button>
-                <button
-                  onClick={handleNextPage}
-                  className="p-5 hover:bg-archive-charcoal hover:text-white transition-all"
-                >
-                  <ChevronRight size={18} />
-                </button>
-              </div>
-              <div className="flex flex-col gap-1">
-                <span className="text-[9px] font-black tracking-[0.4em] uppercase text-archive-charcoal/40">
-                  CLICK HERE TO VIEW MORE
-                </span>
-                <div className="flex gap-2">
-                  {pages.map((_, i) => (
-                    <div
-                      key={i}
-                      className={`w-4 h-1 transition-all duration-500 ${currentPage === i ? 'bg-archive-clay' : 'bg-archive-charcoal/10'}`}
-                    />
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        {/* RIGHT PANEL: BUYERS */}
+        <SpecimenPanel 
+          key="buyer-panel"
+          testimonial={buyers[buyerActive]} 
+          onNext={handleNextBuyer} 
+          onPrev={handlePrevBuyer} 
+          label="BUYER"
+          index={buyerActive}
+          onPlayVideo={handlePlayVideo}
+          isDark={false} 
+        />
       </div>
+
+      {/* (Video modal removed — now navigates to dedicated playback page) */}
 
       <style>{`
-        .custom-scroll::-webkit-scrollbar { width: 3px; }
-        .custom-scroll::-webkit-scrollbar-track { background: transparent; }
-        .custom-scroll::-webkit-scrollbar-thumb { background: #2F2C2C; }
-        .custom-scroll::-webkit-scrollbar-thumb:hover { background: #EE7539; }
+        .measuring-tape {
+          background-image: repeating-linear-gradient(90deg, #2F2C2C 0, #2F2C2C 1px, transparent 1px, transparent 10px);
+          background-size: 40px 100%;
+        }
       `}</style>
     </section>
   );

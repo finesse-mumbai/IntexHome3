@@ -37,6 +37,8 @@ import PostShowReportPage from './components/PostShowReportPage';
 import PostShowVideoPage from './components/PostShowVideoPage';
 import PhotoGalleryPage from './components/PhotoGalleryPage';
 import IntexTimesPage from './components/IntexTimesPage';
+import TestimonialPlaybackPage from './components/TestimonialPlaybackPage';
+
 import { motion, useScroll, useSpring, AnimatePresence } from 'framer-motion';
 
 const App: React.FC = () => {
@@ -126,6 +128,9 @@ const App: React.FC = () => {
     }
     if (currentPath === '#intex-times') {
       return <IntexTimesPage />;
+    }
+    if (currentPath === '#testimonial-playback') {
+      return <TestimonialPlaybackPage />;
     }
 
     return (

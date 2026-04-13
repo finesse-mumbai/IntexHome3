@@ -25,10 +25,10 @@ const Partners: React.FC = () => {
   const extendedPartners = [...INDUSTRY_PARTNERS, ...INDUSTRY_PARTNERS, ...INDUSTRY_PARTNERS];
 
   return (
-    <section className="py-32 bg-white  relative overflow-hidden" id="partners">
+    <section className="py-16 bg-white relative overflow-hidden" id="partners">
 
 
-      <div className="max-w-[1440px] mx-auto px-12 mb-32 relative z-10">
+      <div className="max-w-[1440px] mx-auto px-12 mb-16 relative z-10">
         <div className="flex flex-col lg:flex-row justify-between items-end gap-12">
           <div className="space-y-6">
             <div className="flex items-center gap-4">
@@ -55,13 +55,13 @@ const Partners: React.FC = () => {
       {/* The Premium Marquee Slider Area */}
       <div className="relative">
         {/* Row 1: Left to Right */}
-        <div className="flex overflow-hidden border-y border-black/[0.04] relative">
+        <div className="flex overflow-hidden relative">
           {/* Side Masks for Seamless Fade */}
           <div className="absolute inset-y-0 left-0 w-48 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
           <div className="absolute inset-y-0 right-0 w-48 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
 
           <motion.div
-            className="flex py-12"
+            className="flex py-6"
             animate={{ x: [0, "-33.333%"] }}
             transition={{
               duration: 45,
@@ -74,28 +74,8 @@ const Partners: React.FC = () => {
             ))}
           </motion.div>
         </div>
-
-
-        {/* Row 2: Right to Left */}
-        <div className="flex overflow-hidden border-b border-black/[0.04] relative">
-          <div className="absolute inset-y-0 left-0 w-48 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
-          <div className="absolute inset-y-0 right-0 w-48 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
-
-          <motion.div
-            className="flex py-12"
-            animate={{ x: ["-33.333%", 0] }}
-            transition={{
-              duration: 55,
-              repeat: Infinity,
-              ease: "linear"
-            }}
-          >
-            {[...extendedPartners].reverse().map((partner, i) => (
-              <PartnerSpecimen key={`row2-${i}`} partner={partner} />
-            ))}
-          </motion.div>
-        </div>
       </div>
+
 
     </section>
   );

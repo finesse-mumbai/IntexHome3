@@ -26,6 +26,7 @@ export interface TestimonialItem {
   role: string;
   imageUrl: string;
   type: 'BUYER' | 'EXHIBITOR';
+  videoUrl?: string;
 }
 
 export interface GalleryItem {
