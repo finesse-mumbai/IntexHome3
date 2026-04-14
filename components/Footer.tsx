@@ -9,9 +9,9 @@ const Footer: React.FC = () => {
 
   return (
     <>
-      <footer className="relative py-32 overflow-hidden group" id="footer">
+      <footer className="relative  overflow-hidden group" id="footer">
         {/* Background Layer: Static Perspective Grid (Fully Clear in Middle) */}
-        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+        {/* <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
           <div
             className="flex flex-wrap justify-center gap-2 w-[120%] -ml-[10%] -mt-[5%]"
             style={{
@@ -24,16 +24,16 @@ const Footer: React.FC = () => {
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
 
         {/* High-Contrast Viewfinder Mask: Clear Center Slot, Solid White Edges on all 4 sides */}
-        <div className="absolute inset-0 z-10 pointer-events-none bg-white/20" />
+        {/* <div className="absolute inset-0 z-10 pointer-events-none bg-white/20" />
         <div className="absolute inset-0 z-10 pointer-events-none bg-[radial-gradient(ellipse_at_center,_transparent_10%,_white_50%,_white_100%)]" />
-        {/* Reinforced Top/Bottom Masking */}
+ 
         <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-white to-transparent z-10 opacity-100" />
-        <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-white to-transparent z-10 opacity-100" />
+        <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-white to-transparent z-10 opacity-100" /> */}
 
-        <div className="max-w-[1440px] mx-auto px-12 text-center relative z-20">
+        {/* <div className="max-w-[1440px] mx-auto px-12 text-center relative z-20">
           <div className="mb-16">
             <div className="flex items-center justify-center mx-auto mb-6">
               <img src="/assets/logo-dark.webp" alt="Intex South Asia" className="h-16 w-auto" />
@@ -70,7 +70,7 @@ const Footer: React.FC = () => {
               <a href="#" className="hover:text-archive-clay transition-colors uppercase">TERMS OF SERVICE</a>
             </div>
           </div>
-        </div>
+        </div> */}
       </footer>
 
       {/* 

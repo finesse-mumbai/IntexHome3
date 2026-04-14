@@ -180,31 +180,23 @@ const Testimonials: React.FC = () => {
   }, []);
 
   return (
-    <section className="flex flex-col border-y border-archive-charcoal bg-archive-cream overflow-hidden" id="testimonials">
+    <section className="flex flex-col border-b border-archive-charcoal bg-archive-cream overflow-hidden" id="testimonials">
       {/* HEADER */}
-      <div className="w-full border-b border-archive-charcoal bg-white py-20 px-6 md:px-12 overflow-hidden relative group">
-        <motion.div
-            initial={{ scaleX: 0 }}
-            whileInView={{ scaleX: 1 }}
-            viewport={{ once: true }}
-            className="absolute top-0 left-0 w-full h-[2px] bg-archive-clay origin-left"
-        />
-        
+      <div className="w-full border-b border-archive-charcoal bg-white py-10 px-6 md:px-12 overflow-hidden relative group">
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          className="relative z-10 space-y-6"
+          className="relative z-10 space-y-4"
         >
           <div className="flex items-center gap-6">
             <div className="w-16 h-[1px] bg-archive-clay"></div>
             <div className="flex flex-col">
                 <span className="text-[10px] font-black tracking-[0.6em] uppercase text-archive-clay">Archive // Intelligence // Feedback</span>
-                <span className="text-[8px] font-mono opacity-30 uppercase tracking-widest pt-1">Sys_Ver: 2.0.25 (Testimonials_Segment)</span>
             </div>
           </div>
-          <h2 className="text-4xl md:text-6xl font-black uppercase leading-[0.8] tracking-tighter text-archive-charcoal">
-            TESTIMONIALS<br /><span className="text-archive-clay">RECORDS.</span>
+          <h2 className="text-2xl md:text-4xl font-black uppercase leading-[0.9] text-archive-charcoal">
+            TESTIMONIALS <span className="text-archive-clay">RECORDS.</span>
           </h2>
         </motion.div>
 

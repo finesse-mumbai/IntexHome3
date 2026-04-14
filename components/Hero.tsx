@@ -79,12 +79,7 @@ const Hero: React.FC = () => {
         </motion.div>
       </div>
 
-      {/* Slider Indicators */}
-      <div className="absolute bottom-24 flex gap-4">
-        {[0, 1, 2].map((i) => (
-          <div key={i} className={`w-2 h-2 border border-white ${i === 0 ? 'bg-archive-clay border-archive-clay' : 'bg-transparent'}`}></div>
-        ))}
-      </div>
+
 
       {/* Decorative lines */}
       <div className="absolute top-1/2 left-12 -translate-y-1/2 w-10 h-[1px] bg-archive-clay/40"></div>

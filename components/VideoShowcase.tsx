@@ -124,7 +124,7 @@ const VideoShowcase: React.FC = () => {
                             <div className="w-12 h-[1px] bg-archive-clay"></div>
                             <span className="text-[10px] font-black tracking-[0.5em] uppercase text-archive-clay">Motion Registry</span>
                         </div>
-                        <h2 className="text-3xl md:text-5xl font-black tracking-tighter uppercase leading-[0.85] text-archive-charcoal">
+                        <h2 className="text-2xl md:text-4xl font-black uppercase text-archive-charcoal leading-[0.9]">
                             Show <br /> <span className="text-archive-clay">Highlights.</span>
                         </h2>
                     </div>

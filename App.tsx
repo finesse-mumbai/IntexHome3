@@ -9,6 +9,7 @@ import BuyerProfile from './components/BuyerProfile';
 import Testimonials from './components/Testimonials';
 import Resources from './components/Resources';
 import Partners from './components/Partners';
+import SocialFeed from './components/SocialFeed';
 import BuyerCategories from './components/BuyerCategories';
 import Gallery from './components/Gallery';
 import VideoShowcase from './components/VideoShowcase';
@@ -217,7 +218,11 @@ const App: React.FC = () => {
           <Partners />
         </RevealWrapper>
 
-        <RevealWrapper text="RESOURCES." subtext="REG_ID // 10" type="slide" direction="down" amount={0.4}>
+        <RevealWrapper text="SOCIAL INTELLIGENCE." subtext="REG_ID // 10" type="slide" direction="up" amount={0.3}>
+          <SocialFeed />
+        </RevealWrapper>
+
+        <RevealWrapper text="RESOURCES." subtext="REG_ID // 11" type="slide" direction="down" amount={0.4}>
           <Resources />
         </RevealWrapper>
       </>
