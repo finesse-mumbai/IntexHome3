@@ -1,6 +1,5 @@
-
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUpRight, MapPin, Calendar, Database, Layers } from 'lucide-react';
 
 const EXHIBITIONS = [
@@ -35,7 +34,7 @@ const EXHIBITIONS = [
 
 const ExhibitorProfile: React.FC = () => {
   return (
-    <section className="relative bg-white py-24 md:py-32 overflow-hidden border-b border-archive-charcoal/10" id="exhibitions">
+    <section className="relative bg-white py-24 md:py-32 overflow-hidden border-b border-archive-charcoal/10 group" id="exhibitions">
 
       {/* Background Micro-details */}
       <div className="absolute top-0 right-0 p-12 opacity-20 pointer-events-none">
@@ -55,21 +54,36 @@ const ExhibitorProfile: React.FC = () => {
           </h2>
         </div>
 
-        {/* Cinematic Grid in Textured Orange Container */}
-        <div className="bg-archive-clay p-4 relative overflow-hidden">
-          <div
-            className="absolute inset-0 opacity-15 pointer-events-none mix-blend-overlay"
-            style={{ backgroundImage: `url('https://grainy-gradients.vercel.app/noise.svg')` }}
-          />
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-1 relative z-10">
+        {/* Multi-Layered Stacked Plate Background */}
+        <div className="relative group/plates">
+          {/* Layer 1: Bottom Gray Plate */}
+          <div className="absolute inset-0 bg-archive-charcoal rounded-[64px] -rotate-3 -skew-y-3 opacity-10 transition-transform duration-1000 group-hover/plates:-rotate-4" />
+          
+          {/* Layer 2: Middle Orange Plate */}
+          <div className="absolute inset-0 bg-archive-clay rounded-[56px] -rotate-2 -skew-y-2 shadow-2xl transition-transform duration-1000 group-hover/plates:-rotate-3 overflow-hidden">
+             <div
+                className="absolute inset-0 opacity-20 pointer-events-none mix-blend-overlay"
+                style={{ backgroundImage: `url('https://grainy-gradients.vercel.app/noise.svg')` }}
+             />
+          </div>
+
+          {/* Layer 3: Top Accent Plate (Subtle Shadow/Tint) */}
+          <div className="absolute inset-x-[-10px] inset-y-[-10px] bg-white/5 backdrop-blur-[2px] rounded-[48px] -rotate-1 -skew-y-1 border border-white/10 pointer-events-none transition-transform duration-1000 group-hover/plates:-rotate-2" />
+
+          {/* Main Content Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 relative z-10 rotate-2 skew-y-2 p-6 md:p-12">
             {EXHIBITIONS.map((ex, idx) => (
               <motion.div
                 key={ex.id}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 1, delay: idx * 0.2 }}
-                className="group relative h-[600px] overflow-hidden bg-archive-charcoal"
+                initial={{ opacity: 0, y: 50, rotateX: 15, scale: 0.9 }}
+                whileInView={{ opacity: 1, y: 0, rotateX: 0, scale: 1 }}
+                viewport={{ once: true, margin: "-10%" }}
+                transition={{ 
+                  duration: 0.8, 
+                  delay: idx * 0.15,
+                  ease: [0.215, 0.61, 0.355, 1] 
+                }}
+                className="group relative h-[600px] overflow-hidden bg-archive-charcoal rounded-3xl shadow-2xl"
               >
                 {/* Image Layer */}
                 <img

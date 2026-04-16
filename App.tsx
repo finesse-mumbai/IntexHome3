@@ -39,6 +39,7 @@ import PostShowVideoPage from './components/PostShowVideoPage';
 import PhotoGalleryPage from './components/PhotoGalleryPage';
 import IntexTimesPage from './components/IntexTimesPage';
 import TestimonialPlaybackPage from './components/TestimonialPlaybackPage';
+import IBFDetailsPage from './components/IBFDetailsPage';
 
 import { motion, useScroll, useSpring, AnimatePresence } from 'framer-motion';
 
@@ -132,6 +133,9 @@ const App: React.FC = () => {
     }
     if (currentPath === '#testimonial-playback') {
       return <TestimonialPlaybackPage />;
+    }
+    if (currentPath === '#ibf-details') {
+      return <IBFDetailsPage />;
     }
 
     return (
