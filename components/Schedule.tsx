@@ -31,7 +31,7 @@ const UPCOMING_EVENTS = [
 ];
 
 const PAST_EVENTS = [
-   { id: 'p25-bg-1', date: '26', month: 'Jun', day: '2025', time: '4.00 pm to 5.00 pm', title: 'IBF: AI & Adaptability of Technology', location: 'Hall 4 ICCB Dhaka', image: IMG_BANGLADESH },
+  { id: 'p25-bg-1', date: '26', month: 'Jun', day: '2025', time: '4.00 pm to 5.00 pm', title: 'IBF: AI & Adaptability of Technology', location: 'Hall 4 ICCB Dhaka', image: IMG_BANGLADESH },
   { id: 'p25-bg-2', date: '27', month: 'Jun', day: '2025', time: '4.00 pm to 5.00 pm', title: 'IBF: Tariffs & Industry Outlook', location: 'Hall 4 ICCB Dhaka', image: IMG_PANEL },
   { id: 'p25-sl-1', date: '06', month: 'Aug', day: '2025', time: '2.00 pm to 4.00 pm', title: 'Panel: Apparel 2030', location: 'Mihilaka Medura', image: IMG_PANEL },
   { id: 'p25-sl-2', date: '07', month: 'Aug', day: '2025', time: '2.00 pm to 4.00 pm', title: 'Panel: Trust Over Trends', location: 'Mihilaka Medura', image: IMG_PANEL },
@@ -71,9 +71,9 @@ const Schedule: React.FC = () => {
                     transition={{ duration: 0.8, ease: "easeOut" }}
                     className="w-full h-full"
                   >
-                    <img 
-                      src={hoveredEvent?.image} 
-                      alt="Event Preview" 
+                    <img
+                      src={hoveredEvent?.image}
+                      alt="Event Preview"
                       className="w-full h-full object-cover opacity-60 transition-all duration-700"
                     />
                   </motion.div>
@@ -125,7 +125,7 @@ const Schedule: React.FC = () => {
             </div>
 
             {/* RIGHT SIDE: LIST (Cream Background) */}
-            <div className="p-8 md:p-12 flex flex-col justify-center space-y-8 bg-archive-cream relative overflow-hidden border-l border-archive-charcoal/10 border-r border-archive-charcoal/10">
+            <div className="p-4 md:p-6 flex flex-col justify-center space-y-8 bg-archive-cream relative overflow-hidden border-l border-archive-charcoal/10 border-r border-archive-charcoal/10">
               {/* Decorative background texture */}
               <div className="absolute inset-0 opacity-10 pointer-events-none mix-blend-multiply" style={{ backgroundImage: 'url("https://grainy-gradients.vercel.app/noise.svg")' }} />
 
@@ -151,68 +151,63 @@ const Schedule: React.FC = () => {
                         key={event.id}
                         onMouseEnter={() => setHoveredEventId(event.id)}
                         onMouseLeave={() => setHoveredEventId(null)}
-                        className="group relative flex flex-col lg:flex-row items-stretch bg-white/80 backdrop-blur-sm rounded-[32px] overflow-hidden border border-archive-charcoal/10 hover:border-archive-clay/40 transition-all duration-700 shadow-sm hover:shadow-2xl"
+                        className="group relative bg-white/80 backdrop-blur-sm rounded-[32px] overflow-hidden border border-archive-charcoal/10 hover:border-archive-clay/40 transition-all duration-700 shadow-sm hover:shadow-2xl"
                       >
-                        {/* COLUMN 1: BRANDING LEAD */}
-                        <div className="w-full lg:w-48 bg-white p-10 flex items-center justify-center relative border-b lg:border-b-0 lg:border-r border-archive-charcoal/5 group-hover:bg-archive-clay transition-all duration-700">
-                          <motion.div 
-                            whileHover={{ scale: 1.15 }}
-                            className="relative w-32 h-20 flex items-center justify-center py-4"
-                          >
-                            <img 
-                              src="https://bd.intexsouthasia.com/assets/img/output-onlinepngtools.png" 
-                              alt="Event Logo" 
-                              className="w-full h-full object-contain group-hover:scale-110 transition-all duration-700" 
-                            />
-                          </motion.div>
-                          
-                          {/* Ticket Notch Logic */}
-                          <div className="hidden lg:block absolute -right-3 top-0 bottom-0 py-12 flex flex-col justify-between items-center pointer-events-none z-10">
-                             <div className="w-6 h-6 rounded-full bg-archive-cream border border-archive-charcoal/10 -mt-6" />
-                             <div className="flex-1 w-px border-r-2 border-dashed border-archive-charcoal/10" />
-                             <div className="w-6 h-6 rounded-full bg-archive-cream border border-archive-charcoal/10 -mb-6" />
-                          </div>
-                        </div>
 
-                        {/* COLUMN 2: DATE TRACK */}
-                        <div className="p-10 lg:w-32 flex flex-col justify-center items-center text-center bg-archive-charcoal/[0.02] border-r border-archive-charcoal/5 relative">
-                          <div className="text-5xl font-black text-archive-charcoal leading-none group-hover:text-archive-clay transition-colors">{event.date}</div>
-                          <div className="text-[10px] font-black tracking-widest text-archive-charcoal/40 leading-none uppercase mt-3">
-                            {event.month} <br /> {event.day}
-                          </div>
-                        </div>
-
-                        {/* COLUMN 3: CONTENT & ACTIONS */}
-                        <div className="flex-1 p-10 space-y-8 flex flex-col justify-center">
-                          <div className="space-y-3">
-                            <div className="flex items-center gap-3 text-[9px] font-mono text-archive-charcoal/40">
-                              <MapPin size={10} className="text-archive-clay" />
-                              <span className="uppercase font-black tracking-widest">{event.location}</span>
+                        <div className="relative z-10 flex flex-col divide-y divide-archive-charcoal/5">
+                          {/* ROW 1: Date & Location */}
+                          <div className="py-3 px-8 flex flex-col md:flex-row md:items-center justify-between gap-6 bg-white/40">
+                            <div className="flex items-center gap-6">
+                              <div className="flex items-center gap-3">
+                                <Calendar size={14} className="text-archive-clay" />
+                                <div className="flex items-baseline gap-2">
+                                  <span className="text-[10px] font-black text-archive-charcoal leading-none group-hover:text-archive-clay transition-colors">{event.date}</span>
+                                  <span className="text-[10px] font-black tracking-widest text-archive-charcoal/40 uppercase">
+                                    {event.month} {event.day}
+                                  </span>
+                                </div>
+                              </div>
                             </div>
-                            <h3 className="text-lg md:text-xl font-black leading-tight text-archive-charcoal group-hover:text-archive-clay transition-colors uppercase tracking-tight max-w-lg">
+                            <div className="flex items-center gap-3">
+                              <MapPin size={14} className="text-archive-clay" />
+                              <span className="text-[10px] font-black tracking-widest text-archive-charcoal/40 uppercase">{event.location}</span>
+                            </div>
+                          </div>
+
+                          {/* ROW 2: Logo & Branding */}
+                          <div className="p-2 grid grid-cols-2 items-center gap-10">
+                            <div className="w-full h-26 flex items-center justify-center">
+                              <img
+                                src="https://bd.intexsouthasia.com/assets/img/output-onlinepngtools.png"
+                                alt="Event Logo"
+                                className="h-full w-auto  transition-all duration-700 object-contain"
+                              />
+                            </div>
+                            <h3 className="text-[13px] md:text-lg font-black leading-tight text-archive-charcoal group-hover:text-archive-clay transition-colors uppercase tracking-tight">
                               {event.title}
                             </h3>
                           </div>
 
-                          <div className="flex flex-col md:flex-row md:items-center justify-between gap-8 pt-6 border-t border-archive-charcoal/5 w-full">
+                          {/* ROW 3: Action Buttons */}
+                          <div className="p-3 px-8 flex flex-col md:flex-row items-center justify-between gap-4">
                             {activeTab === 'Upcoming' && (
                               <>
-                                <a 
+                                <a
                                   href="#ibf-details"
-                                  className="text-[9px] font-black tracking-[0.2em] text-archive-charcoal/40 hover:text-archive-clay transition-all duration-500 uppercase underline underline-offset-8"
+                                  className="group/btn relative w-fit overflow-hidden py-2 px-5 border border-archive-charcoal/10 rounded-full flex items-center gap-4 transition-all hover:bg-archive-clay hover:border-archive-clay"
                                 >
-                                  View Detail
+                                  <span className="relative z-10 text-[9px] font-black tracking-[0.3em] text-archive-charcoal group-hover/btn:text-white transition-colors uppercase">View Detail</span>
+                                  <ArrowUpRight size={14} className="relative z-10 text-archive-clay group-hover/btn:text-white transition-colors" />
+                                  <div className="absolute inset-0 bg-archive-clay translate-y-full group-hover/btn:translate-y-0 transition-transform duration-500" />
                                 </a>
-                                <button className="flex items-center gap-4 group/btn whitespace-nowrap bg-archive-charcoal text-white px-6 py-2 rounded-full hover:bg-archive-clay transition-all duration-500 shadow-xl hover:shadow-archive-clay/20">
-                                  <span className="text-[9px] font-black tracking-[0.2em] uppercase">Register Now</span>
+                                <button className="group/btn relative w-fit overflow-hidden py-2 px-5 bg-archive-charcoal rounded-full flex items-center justify-center transition-all hover:bg-archive-clay">
+                                  <span className="relative z-10 text-[9px] font-black tracking-[0.3em] text-white transition-colors uppercase">Register Now</span>
+                                  <div className="absolute inset-0 bg-archive-clay translate-y-full group-hover/btn:translate-y-0 transition-transform duration-500" />
                                 </button>
                               </>
                             )}
                           </div>
                         </div>
-
-                        {/* Hover Accent Bar */}
-                        <div className="absolute top-0 bottom-0 left-0 w-1 bg-archive-clay scale-y-0 group-hover:scale-y-100 transition-transform origin-center duration-500 opacity-0 group-hover:opacity-100"></div>
                       </div>
                     ))}
                   </motion.div>
@@ -224,7 +219,7 @@ const Schedule: React.FC = () => {
                 <div className="p-8 bg-archive-charcoal relative overflow-hidden rounded-[24px] shadow-2xl">
                   {/* Decorative Glow */}
                   <div className="absolute -top-24 -right-24 w-48 h-48 bg-archive-clay/20 blur-[100px]" />
-                  
+
                   <div className="relative z-10 flex flex-col md:flex-row justify-between items-center gap-8">
                     <div className="space-y-2 text-center md:text-left">
                       <h4 className="text-[10px] font-black tracking-[0.3em] text-white uppercase">Branding Opportunities</h4>

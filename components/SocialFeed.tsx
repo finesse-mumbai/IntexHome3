@@ -19,10 +19,10 @@ const SocialFeed: React.FC = () => {
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
           {/* Main Skewed Light Plate */}
           <motion.div 
-              initial={{ rotate: -5, scale: 1.2 }}
-              whileInView={{ rotate: -3, scale: 1.1 }}
+              initial={{ rotate: 0, scale: 1 }}
+              whileInView={{ rotate: 0, scale: 1 }}
               transition={{ duration: 1.5, ease: "easeOut" }}
-              className="absolute -top-1/2 -left-1/2 w-[200%] h-[200%] bg-archive-cream shadow-[0_0_100px_rgba(0,0,0,0.03)] origin-center overflow-hidden"
+              className="absolute inset-0 bg-archive-cream shadow-[0_0_100px_rgba(0,0,0,0.03)] origin-center overflow-hidden"
           >
               <div 
                   className="absolute inset-0 grid" 

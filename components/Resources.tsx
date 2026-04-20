@@ -13,7 +13,7 @@ const iconMap: Record<string, any> = {
 
 const Resources: React.FC = () => {
   return (
-    <section className="py-32 bg-white text-archive-charcoal border-t border-archive-charcoal/5 relative overflow-hidden" id="resources">
+    <section className="py-32 bg-archive-cream text-archive-charcoal border-t border-archive-charcoal/5 relative overflow-hidden" id="resources">
       {/* Large background decorative text */}
       <div className="absolute top-0 right-0 h-full flex items-center pointer-events-none select-none">
         <span className="text-[12vw] font-black text-archive-charcoal opacity-[0.02] rotate-90 leading-none uppercase tracking-tighter">RESOURCE</span>
@@ -51,10 +51,10 @@ const Resources: React.FC = () => {
 const ResourceModule: React.FC<{ resource: any; index: number }> = ({ resource, index }) => {
   const IconComponent = iconMap[resource.icon];
   
-  const bgs = ['bg-archive-cream', 'bg-[#2f2c2c]'];
-  const bgClass = bgs[index % bgs.length];
+  // 1st and 3rd are white, 2nd and 4th are charcoal
+  const bgClass = (index === 0 || index === 2) ? 'bg-white' : 'bg-archive-charcoal';
 
-  const isDarkBg = bgClass === 'bg-[#2f2c2c]';
+  const isDarkBg = bgClass === 'bg-archive-charcoal';
   const isTitleOrange = true;
 
 
@@ -64,7 +64,7 @@ const ResourceModule: React.FC<{ resource: any; index: number }> = ({ resource, 
       whileInView={{ opacity: 1 }}
       transition={{ delay: index * 0.1 }}
       viewport={{ once: true }}
-      className={`group relative min-h-[450px] p-12 flex flex-col justify-between rounded-3xl border border-archive-charcoal/10 overflow-hidden cursor-pointer transition-all duration-700 ${bgClass} ${isDarkBg ? 'text-white' : 'text-archive-charcoal hover:brightness-95'}`}
+      className={`group relative min-h-[450px] p-12 flex flex-col justify-between rounded-3xl border border-archive-charcoal/10 overflow-hidden cursor-pointer transition-all duration-700 ${bgClass} ${isDarkBg ? 'text-white' : 'text-archive-charcoal hover:brightness-95 shadow-sm'}`}
     >
       {/* Background Gradient */}
       <div className={`absolute inset-0 bg-gradient-to-t ${isDarkBg ? 'from-black/40' : 'from-archive-charcoal/5'} to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700`}></div>

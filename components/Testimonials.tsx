@@ -26,7 +26,7 @@ const SpecimenPanel = memo(({
   onPlayVideo,
   isDark = true 
 }) => (
-  <div className={`w-full lg:w-1/2 flex flex-col justify-between relative border-archive-charcoal p-12 md:p-16 xl:p-24 min-h-[650px] transition-colors duration-700 overflow-hidden ${isDark ? 'bg-archive-charcoal text-archive-cream border-r' : 'bg-archive-cream text-archive-charcoal'}`}>
+  <div className={`w-full lg:w-1/2 flex flex-col justify-between relative p-12 md:p-16 xl:p-24 min-h-[650px] transition-colors duration-700 overflow-hidden ${isDark ? 'bg-archive-charcoal text-archive-cream border-t border-b border-archive-charcoal lg:border-r' : 'bg-archive-cream text-archive-charcoal border-archive-charcoal/5'}`}>
     
     {/* BACKGROUND DECORATIVE ELEMENTS */}
     <div className="absolute bottom-1/4 -left-12 opacity-[0.03] pointer-events-none rotate-90">
@@ -134,7 +134,7 @@ const SpecimenPanel = memo(({
       <div className="flex items-center gap-6">
           <button
           onClick={onPrev}
-          className={`group/nav-btn w-12 h-12 border flex items-center justify-center transition-all duration-500 hover:bg-archive-clay border-archive-clay/20 shadow-lg hover:shadow-archive-clay/20 ${isDark ? 'bg-white/5 text-white' : 'bg-archive-charcoal text-white'}`}
+          className={`group/nav-btn w-12 h-12 border flex items-center justify-center transition-all duration-500 bg-archive-clay hover:bg-archive-charcoal text-white border-archive-clay/20 shadow-lg hover:shadow-archive-charcoal/20`}
           >
           <ArrowLeft size={16} className="group-hover/nav-btn:-translate-x-1 transition-transform" />
           </button>
@@ -142,7 +142,7 @@ const SpecimenPanel = memo(({
 
       <button
         onClick={onNext}
-        className={`group/nav-btn w-12 h-12 border flex items-center justify-center transition-all duration-500 hover:bg-archive-clay border-archive-clay/20 shadow-lg hover:shadow-archive-clay/20 ${isDark ? 'bg-white/5 text-white' : 'bg-archive-charcoal text-white'}`}
+        className={`group/nav-btn w-12 h-12 border flex items-center justify-center transition-all duration-500 bg-archive-clay hover:bg-archive-charcoal text-white border-archive-clay/20 shadow-lg hover:shadow-archive-charcoal/20`}
       >
         <ArrowRight size={16} className="group-hover/nav-btn:translate-x-1 transition-transform" />
       </button>
@@ -180,9 +180,9 @@ const Testimonials: React.FC = () => {
   }, []);
 
   return (
-    <section className="flex flex-col border-b border-archive-charcoal bg-archive-cream overflow-hidden" id="testimonials">
+    <section className="flex flex-col border-b border-archive-charcoal/5 bg-archive-cream overflow-hidden" id="testimonials">
       {/* HEADER */}
-      <div className="w-full border-b border-archive-charcoal bg-white py-10 px-6 md:px-12 overflow-hidden relative group">
+      <div className="w-full border-b border-archive-charcoal/5 bg-white py-10 px-6 md:px-12 overflow-hidden relative group">
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -206,7 +206,7 @@ const Testimonials: React.FC = () => {
         </div>
       </div>
 
-      <div className="flex flex-col lg:flex-row divide-y lg:divide-y-0 lg:divide-x divide-archive-charcoal">
+      <div className="flex flex-col lg:flex-row divide-y lg:divide-y-0 lg:divide-x divide-archive-charcoal/5">
         {/* LEFT PANEL: EXHIBITORS */}
         <SpecimenPanel 
           key="exhibitor-panel"

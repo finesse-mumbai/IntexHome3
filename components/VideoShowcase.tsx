@@ -158,7 +158,7 @@ const VideoShowcase: React.FC = () => {
                             onClick={() => setActiveVideoIndex(index)}
                         >
                             {/* Video Card Container */}
-                            <div className="aspect-video bg-archive-charcoal rounded-[24px] overflow-hidden relative shadow-[0_30px_60px_-15px_rgba(0,0,0,0.15)] transition-all duration-700 border-[2px] border-transparent group-hover:border-archive-clay group-hover:shadow-[0_40px_80px_-20px_rgba(238,117,57,0.25)]">
+                            <div className="aspect-video bg-archive-charcoal rounded-[24px] overflow-hidden relative shadow-[0_30px_60px_-15px_rgba(0,0,0,0.15)] transition-all duration-700 group-hover:shadow-[0_40px_80px_-20px_rgba(238,117,57,0.25)]">
                                 {/* YouTube Thumbnail */}
                                 <img 
                                     src={`https://img.youtube.com/vi/${video.youtubeId}/maxresdefault.jpg`}
@@ -186,9 +186,6 @@ const VideoShowcase: React.FC = () => {
                 <h4 className="text-[12px] md:text-[13px] font-black uppercase tracking-[0.2em] text-archive-charcoal group-hover:text-archive-clay transition-colors">
                     {video.title}
                 </h4>
-                <span className="text-[9px] font-bold uppercase tracking-[0.3em] text-archive-charcoal/30 block">
-                    {video.role}
-                </span>
             </div>
                         </motion.div>
                     ))}

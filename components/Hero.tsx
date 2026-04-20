@@ -29,39 +29,34 @@ const Hero: React.FC = () => {
         >
           <span className="text-[10px] font-black tracking-[0.8em] text-archive-clay uppercase">The Past is Our Future</span>
           <div className="relative w-full max-w-none flex items-center justify-center -mt-40">
-            <svg viewBox="0 0 6500 450" className="w-[85vw] h-auto overflow-visible select-none pointer-events-none">
-              <defs>
-                <clipPath id="heroTextClip">
-                  <motion.text
-                    x="50%"
-                    y="50%"
-                    textAnchor="middle"
-                    dominantBaseline="middle"
-                    initial={{ letterSpacing: "0.15em", opacity: 0 }}
-                    animate={{ letterSpacing: "0.01em", opacity: 1 }}
-                    transition={{ duration: 2.5, ease: [0.16, 1, 0.3, 1] }}
-                    className=" font-black text-[450px]"
-                  >
-                    INTEX SOUTH ASIA
-                  </motion.text>
-                </clipPath>
-              </defs>
-              <foreignObject x="0" y="0" width="100%" height="100%" clipPath="url(#heroTextClip)" className="overflow-visible">
-                <video
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  className="w-full h-full object-cover contrast-[1.8] brightness-125 saturate-[1.3]"
-                >
-                  <source src="https://www.wofxworldexpo.com/assests/WOFX-Short-Video-2025.mp4" type="video/mp4" />
-                </video>
-              </foreignObject>
+            <svg viewBox="0 0 8500 450" className="w-[85vw] h-auto overflow-visible select-none pointer-events-none">
+              <motion.text
+                x="50%"
+                y="50%"
+                textAnchor="middle"
+                dominantBaseline="middle"
+                initial={{ letterSpacing: "0.15em", opacity: 0 }}
+                animate={{ letterSpacing: "0.01em", opacity: 1 }}
+                transition={{ duration: 2.5, ease: [0.16, 1, 0.3, 1] }}
+                className="font-black text-[400px] fill-white"
+              >
+                INTEX SERIES OF EXHIBITION
+              </motion.text>
             </svg>
           </div>
-          <p className="text-[10px] font-bold tracking-[0.3em] text-white opacity-60 uppercase">
+          <p className="text-[14px] font-bold tracking-[0.2em] text-white opacity-60 uppercase">
             THE PREMIER INTERNATIONAL TEXTILE SOURCING SHOWS OF SOUTH ASIA
           </p>
+          <div className="flex flex-wrap items-center justify-center gap-x-16 gap-y-6 pt-10">
+            {['Bangladesh', 'Sri Lanka', 'India'].map((country) => (
+              <div key={country} className="flex flex-col items-center gap-3 group">
+                <span className="text-[12px] font-black tracking-[0.4em] text-white uppercase transition-colors group-hover:text-archive-clay">
+                  {country}
+                </span>
+                <div className="w-8 h-[1px] bg-archive-clay/40 group-hover:w-full group-hover:bg-archive-clay transition-all duration-500"></div>
+              </div>
+            ))}
+          </div>
         </motion.div>
 
         <motion.div
