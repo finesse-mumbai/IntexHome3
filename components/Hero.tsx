@@ -76,9 +76,6 @@ const Hero: React.FC = () => {
 
 
 
-      {/* Decorative lines */}
-      <div className="absolute top-1/2 left-12 -translate-y-1/2 w-10 h-[1px] bg-archive-clay/40"></div>
-      <div className="absolute top-1/2 right-12 -translate-y-1/2 w-10 h-[1px] bg-archive-clay/40"></div>
     </section>
   );
 };
