@@ -20,7 +20,7 @@ const Hero: React.FC = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-archive-charcoal/80 via-transparent to-archive-charcoal"></div>
       </div>
 
-      <div className="relative z-10 space-y-8 max-w-7xl">
+      <div className="relative z-10 space-y-8 max-w-7xl mt-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
