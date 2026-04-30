@@ -170,10 +170,10 @@ const App: React.FC = () => {
               <div className="lg:col-span-7 relative flex justify-end">
                 <div className="relative w-full max-w-[600px] flex justify-end">
                   <div className="w-[80%] aspect-[3/4] border border-archive-charcoal overflow-hidden bg-archive-charcoal/5">
-                    <img src="https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&q=80&w=1200" className="w-full h-full object-cover mix-blend-multiply" />
+                    <img src="/assets/intex collage.jpg.jpeg" className="w-full h-full object-cover mix-blend-multiply" />
                   </div>
                   <div className="absolute top-1/4 -left-12 w-[60%] aspect-square border border-archive-charcoal bg-archive-cream overflow-hidden z-10 p-2">
-                    <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=1200" className="w-full h-full object-cover mix-blend-multiply" />
+                    <img src="/assets/squareImage.jpg.jpeg" className="w-full h-full object-cover mix-blend-multiply" />
                   </div>
                 </div>
               </div>

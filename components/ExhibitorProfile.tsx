@@ -9,7 +9,7 @@ const EXHIBITIONS = [
     edition: '17th Edition',
     date: '18-19-20 June, 2026',
     location: 'ICCB, Dhaka',
-    imageUrl: 'https://sl.intexsouthasia.com/assets/img/Gallery/2025/21.jpg',
+    imageUrl: '/assets/bangladesh.png',
     category: 'Fibres & Yarns'
   },
   {
@@ -18,7 +18,7 @@ const EXHIBITIONS = [
     edition: '17th Edition',
     date: '5-6-7 August 2026',
     location: 'BMICH, Colombo',
-    imageUrl: 'https://sl.intexsouthasia.com/assets/img/Gallery/2025/8.jpg',
+    imageUrl: '/assets/sri lanka.jpg.jpeg',
     category: 'Fabrics & Accessories'
   },
   {
@@ -27,7 +27,7 @@ const EXHIBITIONS = [
     edition: '17th Edition',
     date: 'Announcing Soon',
     location: 'New Delhi',
-    imageUrl: 'https://sl.intexsouthasia.com/assets/img/Gallery/2025/14.jpg',
+    imageUrl: '/assets/india.jpg.jpeg',
     category: 'Denim & Apparel'
   }
 ];

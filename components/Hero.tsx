@@ -14,8 +14,8 @@ const Hero: React.FC = () => {
           playsInline
           className="absolute inset-0 w-full h-full object-cover brightness-[0.4]"
         >
-          <source src="https://www.wofxworldexpo.com/assests/WOFX-Short-Video-2025.mp4" type="video/mp4" />
-          Your browser does not support the video tag why its not.
+          <source src="/assets/website video intex  Copy 03.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
         </video>
         <div className="absolute inset-0 bg-gradient-to-b from-archive-charcoal/80 via-transparent to-archive-charcoal"></div>
       </div>
