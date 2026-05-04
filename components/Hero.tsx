@@ -27,7 +27,7 @@ const Hero: React.FC = () => {
           transition={{ duration: 1 }}
           className="space-y-4"
         >
-          <span className="text-[10px] font-black tracking-[0.8em] text-archive-clay uppercase mt-6">The Past is Our Future</span>
+
           <div className="relative w-full max-w-none flex items-center justify-center -mt-40">
             <svg viewBox="0 0 8500 450" className="w-[85vw] h-auto overflow-visible select-none pointer-events-none">
               <motion.text

@@ -45,6 +45,7 @@ import { motion, useScroll, useSpring, AnimatePresence } from 'framer-motion';
 
 const App: React.FC = () => {
   const [currentPath, setCurrentPath] = useState(window.location.hash || '#home');
+  const [isAboutExpanded, setIsAboutExpanded] = useState(false);
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -158,10 +159,36 @@ const App: React.FC = () => {
                   <h3 className="text-xl font-black leading-tight text-archive-charcoal">
                     THE PREMIER INTERNATIONAL TEXTILE SOURCING SHOWS OF SOUTH ASIA.
                   </h3>
-                  <p className="text-archive-charcoal text-xs leading-relaxed max-w-lg tracking-widest font-medium opacity-80">
-                    Since its launch in 2015, Intex has evolved into the region's most influential and largest international textile sourcing show in South Asia, with a strong presence across Sri Lanka, Bangladesh, and India.
-                  </p>
-                  <button className="px-10 py-5 border border-archive-clay text-archive-clay font-black text-[10px] tracking-[0.4em] hover:bg-archive-clay hover:text-archive-cream transition-all uppercase">
+                  <div className="space-y-4">
+                    <p className="text-archive-charcoal text-xs leading-relaxed max-w-lg tracking-widest font-medium opacity-80">
+                      Since its inception in 2015, Intex has grown into South Asia’s most influential international B2B textile and apparel sourcing platform, with a strong footprint across Sri Lanka, Bangladesh, and India. Designed to connect global suppliers with serious buyers, Intex has consistently enabled high-value sourcing, strategic partnerships, and seamless cross-border trade across the region. Recognized as a trusted industry platform, Intex brings together textile manufacturers, garment producers, sourcing heads, retailers, and global brands under one roof. The show presents a comprehensive showcase of the textile value chain—from yarns, fabrics, denim, trims, and accessories to emerging segments such as MMF (man-made fibres), performance textiles, sportswear, knitwear, and sustainable materials, reflecting the evolving demands of the global market.
+                    </p>
+                    <AnimatePresence>
+                      {isAboutExpanded && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: 'auto', opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.5, ease: "easeInOut" }}
+                          className="overflow-hidden space-y-4"
+                        >
+                          <p className="text-archive-charcoal text-xs leading-relaxed max-w-lg tracking-widest font-medium opacity-80">
+                            Over the years, Intex has facilitated thousands of successful B2B engagements, strengthening regional supply chains and supporting the consistent growth of the apparel and textile industry. With a focused approach to quality exhibitors, verified buyers, and meaningful networking, it has established itself as a preferred destination for sourcing, collaboration, and market intelligence.
+                          </p>
+                          <p className="text-archive-charcoal text-xs leading-relaxed max-w-lg tracking-widest font-medium opacity-80">
+                            As South Asia continues to play a pivotal role in global textile manufacturing, Intex stands at the forefront—bridging markets, building trust, and shaping the future of textile and apparel sourcing.
+                          </p>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                    <button 
+                      onClick={() => setIsAboutExpanded(!isAboutExpanded)}
+                      className="text-[10px] font-black tracking-[0.2em] text-archive-clay uppercase hover:underline block"
+                    >
+                      {isAboutExpanded ? 'Read Less' : 'Read Full'}
+                    </button>
+                  </div>
+                  <button className="px-10 py-5 bg-archive-clay text-archive-cream font-black text-[10px] tracking-[0.4em] hover:bg-archive-charcoal hover:text-archive-cream transition-all uppercase">
                     VIEW HIGHLIGHTS
                   </button>
                 </div>

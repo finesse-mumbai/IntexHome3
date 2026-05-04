@@ -25,7 +25,7 @@ export interface TestimonialItem {
   company: string;
   role: string;
   imageUrl: string;
-  type: 'BUYER' | 'EXHIBITOR';
+  type: string;
   videoUrl?: string;
 }
 

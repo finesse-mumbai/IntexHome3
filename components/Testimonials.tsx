@@ -1,21 +1,20 @@
-
 import React, { useState, useMemo, useCallback, memo } from 'react';
-
 import { motion, AnimatePresence } from 'framer-motion';
 import { TESTIMONIALS } from '../constants';
+import { exhibitorstestBD, exhibitorstestSL } from '../constants/Exhibitortestimonial';
+import { buyertestBD, buyertestSL } from '../constants/Buyertestimonial';
 import { Hash, Binary, ArrowLeft, ArrowRight, Play } from 'lucide-react';
-
+import { TestimonialItem } from '../types';
 
 interface SpecimenPanelProps {
-  testimonial: any;
+  testimonial: TestimonialItem;
   onNext: () => void;
   onPrev: () => void;
   label: string;
   index: number;
-  onPlayVideo: (testimonial: any) => void;
+  onPlayVideo: (testimonial: TestimonialItem) => void;
   isDark?: boolean;
 }
-
 
 const SpecimenPanel = memo(({ 
   testimonial, 
@@ -25,7 +24,7 @@ const SpecimenPanel = memo(({
   index,
   onPlayVideo,
   isDark = true 
-}) => (
+}: SpecimenPanelProps) => (
   <div className={`w-full lg:w-1/2 flex flex-col justify-between relative p-12 md:p-16 xl:p-24 min-h-[650px] transition-colors duration-700 overflow-hidden ${isDark ? 'bg-archive-charcoal text-archive-cream border-t border-b border-archive-charcoal lg:border-r' : 'bg-archive-cream text-archive-charcoal border-archive-charcoal/5'}`}>
     
     {/* BACKGROUND DECORATIVE ELEMENTS */}
@@ -38,11 +37,11 @@ const SpecimenPanel = memo(({
       <div className="space-y-1">
         <div className="flex items-center gap-3">
           <Hash size={14} className="text-archive-clay" />
-          <span className={`text-[9px] font-black tracking-[0.5em] uppercase ${isDark ? 'text-white/40' : 'text-archive-charcoal/60'}`}>{label} INF_STREAM </span>
+          <span className={`text-[9px] font-black tracking-[0.5em] uppercase ${isDark ? 'text-white/40' : 'text-archive-charcoal/60'}`}>{label} </span>
         </div>
       </div>
       <div className="flex flex-col items-end gap-2">
-        <span className={`text-[8px] font-mono uppercase tracking-[0.3em] border p-2 rounded-none font-bold transition-all duration-500 ${isDark ? 'bg-[#EE7539] text-white border-transparent shadow-[0_0_15px_rgba(238,117,57,0.3)]' : 'bg-archive-charcoal text-white border-archive-charcoal'}`}>
+        <span className={`text-[10px] font-mono uppercase tracking-[0.3em] border px-4 py-2.5 rounded-none font-bold transition-all duration-500 ${isDark ? 'bg-[#EE7539] text-white border-transparent shadow-[0_0_15px_rgba(238,117,57,0.3)]' : 'bg-archive-charcoal text-white border-archive-charcoal'}`}>
           {testimonial.type}
         </span>
         {testimonial.videoUrl && (
@@ -72,17 +71,13 @@ const SpecimenPanel = memo(({
           <div className="flex items-start gap-10 group/img-block">
             <div className="relative">
               <div className={`w-[120px] h-[120px] overflow-hidden flex-shrink-0 border-2 relative z-10 transition-transform duration-500 group-hover/img-block:scale-105 ${isDark ? 'bg-archive-charcoal border-white/20' : 'bg-archive-cream border-archive-charcoal/20'}`}>
-                {/* SCANLINE EFFECT */}
-                <div className="absolute inset-0 z-20 pointer-events-none opacity-20 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[length:100%_2px,3px_100%]"></div>
-                
                 <img
                   src={testimonial.imageUrl}
                   alt={testimonial.author}
-                  className="w-full h-full object-cover filter grayscale group-hover/img-block:grayscale-0 transition-all duration-700"
+                  className="w-full h-full object-cover transition-all duration-700"
                 />
-                <div className="absolute inset-0 bg-archive-clay/10 mix-blend-overlay"></div>
                 
-                {/* PLAY OVERLAY - NOW VISIBLE BY DEFAULT */}
+                {/* PLAY OVERLAY */}
                 {testimonial.videoUrl && (
                   <div 
                     className="absolute inset-0 flex items-center justify-center bg-black/10 transition-all cursor-pointer z-20"
@@ -115,10 +110,6 @@ const SpecimenPanel = memo(({
 
           {/* REFINED QUOTE BLOCK */}
           <div className={`relative pt-12 mt-4`}>
-              {/* DECORATIVE CORNER MARKERS */}
-              <div className="absolute top-0 left-0 w-4 h-4 border-t border-l border-archive-clay/30"></div>
-              <div className="absolute top-0 right-1/4 w-4 h-[1px] bg-archive-clay/30"></div>
-
             <blockquote className={`text-base md:text-lg font-medium leading-[1.8] tracking-[0.1em] max-w-2xl italic relative ${isDark ? 'text-white/70' : 'text-archive-charcoal/80'}`}>
               <span className="absolute -left-8 -top-4 text-6xl text-archive-clay/10 font-black">“</span>
               {testimonial.quote}
@@ -153,9 +144,104 @@ const SpecimenPanel = memo(({
 SpecimenPanel.displayName = 'SpecimenPanel';
 
 const Testimonials: React.FC = () => {
-  // Separate testimonials by type
-  const exhibitors = useMemo(() => TESTIMONIALS.filter(t => t.type === 'EXHIBITOR'), []);
-  const buyers = useMemo(() => TESTIMONIALS.filter(t => t.type === 'BUYER'), []);
+  // Function to convert youtu.be or youtube.com links to embed format
+  const getEmbedUrl = (url: string) => {
+    if (!url) return undefined;
+    if (url.includes('embed')) return url;
+    let videoId = '';
+    if (url.includes('youtu.be/')) {
+      videoId = url.split('youtu.be/')[1].split('?')[0];
+    } else if (url.includes('v=')) {
+      videoId = url.split('v=')[1].split('&')[0];
+    }
+    return videoId ? `https://www.youtube.com/embed/${videoId}` : url;
+  };
+
+  // Normalize BD and SL exhibitors
+  const exhibitors = useMemo(() => {
+    const bdItems = Object.entries(exhibitorstestBD).flatMap(([year, list]) => {
+      return (list as any[]).map((item, i) => ({
+        id: `exh-bd-${year}-${i}`,
+        author: item.compnay || 'Exhibitor',
+        role: item.designation || 'Representative',
+        company: `Intex Bangladesh ${year}`,
+        quote: item.para,
+        imageUrl: item.Img,
+        type: `Bangladesh ${year}`,
+        videoUrl: getEmbedUrl(item.video)
+      }));
+    });
+
+    const slItems = Object.entries(exhibitorstestSL).flatMap(([year, list]) => {
+      return (list as any[]).map((item, i) => {
+        const parts = (item.designation || "").split(',');
+        return {
+          id: `exh-sl-${year}-${i}`,
+          author: parts[0]?.trim() || item.compnay || 'Exhibitor',
+          role: parts[1]?.trim() || "Representative",
+          company: item.compnay || "Intex Sri Lanka",
+          quote: item.para,
+          imageUrl: item.Img,
+          type: `Sri Lanka ${year}`,
+          videoUrl: getEmbedUrl(item.video)
+        };
+      });
+    });
+
+    return [...slItems, ...bdItems].sort((a, b) => {
+      const yearA = a.id.includes('2025') ? 2025 : 2024;
+      const yearB = b.id.includes('2025') ? 2025 : 2024;
+      if (yearA !== yearB) return yearB - yearA;
+      if (a.videoUrl && !b.videoUrl) return -1;
+      if (!a.videoUrl && b.videoUrl) return 1;
+      return 0;
+    });
+  }, []);
+
+  // Normalize BD and SL buyers
+  const buyers = useMemo(() => {
+    const bd = Object.entries(buyertestBD).flatMap(([year, list]) => {
+      return (list as any[]).map((item, i) => {
+        const parts = (item.designation || "").split(',');
+        return {
+          id: `buy-bd-${year}-${i}`,
+          author: parts[0]?.trim() || item.compnay || 'Buyer',
+          role: parts[1]?.trim() || "Industry Leader",
+          company: item.compnay,
+          quote: item.para,
+          imageUrl: item.Img,
+          type: `Bangladesh ${year}`,
+          videoUrl: getEmbedUrl(item.video)
+        };
+      });
+    });
+
+    const sl = Object.entries(buyertestSL).flatMap(([year, list]) => {
+      return (list as any[]).map((item, i) => {
+        const parts = (item.designation || "").split(',');
+        return {
+          id: `buy-sl-${year}-${i}`,
+          author: parts[0]?.trim() || item.compnay || 'Buyer',
+          role: parts[1]?.trim() || "Industry Leader",
+          company: item.compnay,
+          quote: item.para,
+          imageUrl: item.Img,
+          type: `Sri Lanka ${year}`,
+          videoUrl: getEmbedUrl(item.video)
+        };
+      });
+    });
+
+    return [...sl, ...bd].sort((a, b) => {
+      const yearA = a.id.includes('2025') ? 2025 : 2024;
+      const yearB = b.id.includes('2025') ? 2025 : 2024;
+      if (yearA !== yearB) return yearB - yearA;
+      if (a.videoUrl && !b.videoUrl) return -1;
+      if (!a.videoUrl && b.videoUrl) return 1;
+      return 0;
+    });
+  }, []);
+
 
   const [exhibitorActive, setExhibitorActive] = useState(0);
   const [buyerActive, setBuyerActive] = useState(0);
@@ -166,7 +252,7 @@ const Testimonials: React.FC = () => {
   const handleNextBuyer = useCallback(() => setBuyerActive((prev) => (prev + 1) % buyers.length), [buyers.length]);
   const handlePrevBuyer = useCallback(() => setBuyerActive((prev) => (prev - 1 + buyers.length) % buyers.length), [buyers.length]);
   
-  const handlePlayVideo = useCallback((testimonial: any) => {
+  const handlePlayVideo = useCallback((testimonial: TestimonialItem) => {
     sessionStorage.setItem('testimonial_video', JSON.stringify({
       videoUrl: testimonial.videoUrl,
       author: testimonial.author,
@@ -196,7 +282,7 @@ const Testimonials: React.FC = () => {
             </div>
           </div>
           <h2 className="text-2xl md:text-4xl font-black uppercase leading-[0.9] text-archive-charcoal">
-            TESTIMONIALS <span className="text-archive-clay">RECORDS.</span>
+            Industry <span className="text-archive-clay">Voice.</span>
           </h2>
         </motion.div>
 
@@ -208,31 +294,33 @@ const Testimonials: React.FC = () => {
 
       <div className="flex flex-col lg:flex-row divide-y lg:divide-y-0 lg:divide-x divide-archive-charcoal/5">
         {/* LEFT PANEL: EXHIBITORS */}
-        <SpecimenPanel 
-          key="exhibitor-panel"
-          testimonial={exhibitors[exhibitorActive]} 
-          onNext={handleNextExhibitor} 
-          onPrev={handlePrevExhibitor} 
-          label="EXHIBITOR"
-          index={exhibitorActive}
-          onPlayVideo={handlePlayVideo}
-          isDark={true}
-        />
+        {exhibitors.length > 0 && (
+          <SpecimenPanel 
+            key={`exh-${exhibitorActive}`}
+            testimonial={exhibitors[exhibitorActive]} 
+            onNext={handleNextExhibitor} 
+            onPrev={handlePrevExhibitor} 
+            label="EXHIBITOR"
+            index={exhibitorActive}
+            onPlayVideo={handlePlayVideo}
+            isDark={true}
+          />
+        )}
 
         {/* RIGHT PANEL: BUYERS */}
-        <SpecimenPanel 
-          key="buyer-panel"
-          testimonial={buyers[buyerActive]} 
-          onNext={handleNextBuyer} 
-          onPrev={handlePrevBuyer} 
-          label="BUYER"
-          index={buyerActive}
-          onPlayVideo={handlePlayVideo}
-          isDark={false} 
-        />
+        {buyers.length > 0 && (
+          <SpecimenPanel 
+            key={`buy-${buyerActive}`}
+            testimonial={buyers[buyerActive]} 
+            onNext={handleNextBuyer} 
+            onPrev={handlePrevBuyer} 
+            label="BUYER"
+            index={buyerActive}
+            onPlayVideo={handlePlayVideo}
+            isDark={false} 
+          />
+        )}
       </div>
-
-      {/* (Video modal removed — now navigates to dedicated playback page) */}
 
       <style>{`
         .measuring-tape {
