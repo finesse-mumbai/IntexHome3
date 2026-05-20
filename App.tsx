@@ -260,6 +260,34 @@ const App: React.FC = () => {
     );
   };
 
+  const isInsidePage = [
+    '#show-profile',
+    '#organiser',
+    '#why-intex',
+    '#promotion-activities',
+    '#exhibitor-profile',
+    '#featured-exhibitors',
+    '#exhibitors-testimonial',
+    '#hotels-travel',
+    '#buyers-profile',
+    '#buyers-testimonial',
+    '#exhibitor-list',
+    '#newsletters',
+    '#press-release',
+    '#media-coverage',
+    '#media-partners',
+    '#info-kit',
+    '#factsheet',
+    '#branding-opportunities',
+    '#media-coverage-report',
+    '#post-show-reports',
+    '#post-show-video',
+    '#photo-gallery',
+    '#intex-times',
+    '#testimonial-playback',
+    '#ibf-details'
+  ].includes(currentPath);
+
   return (
     <div className="bg-archive-cream text-archive-charcoal selection:bg-archive-clay selection:text-white min-h-screen relative">
       <motion.div
@@ -285,7 +313,7 @@ const App: React.FC = () => {
 
       <Navbar />
 
-      <main className="flex flex-col relative z-10">
+      <main className={`flex flex-col relative z-10 ${isInsidePage ? 'mt-28' : ''}`}>
         <AnimatePresence mode="wait">
           <motion.div
             key={currentPath}

@@ -2,7 +2,7 @@
 const cotton = "/assets/img/buyertestinomial/BD/cotton.png";
 const synargia = "/assets/img/buyertestinomial/BD/synargia.png";
 const zz = "/assets/img/buyertestinomial/BD/zz.png";
-const DownloadLogo = "/assets/img/Download-Logo.png";
+const DownloadLogo = "https://sl.intexsouthasia.com/assets/img/Download-Logo.png";
 
 // Sri Lanka Images (External fallbacks as used in Buyer Registry)
 const mayoral = "https://bd.intexsouthasia.com/assets/img/testimonials/buyer-testimonials/2025/mayoral.png";

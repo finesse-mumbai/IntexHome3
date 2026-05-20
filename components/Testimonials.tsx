@@ -75,6 +75,9 @@ const SpecimenPanel = memo(({
                   src={testimonial.imageUrl}
                   alt={testimonial.author}
                   className="w-full h-full object-cover transition-all duration-700"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${testimonial.author || testimonial.company}&background=F3EBE8&color=2F2C2C&bold=true`;
+                  }}
                 />
                 
                 {/* PLAY OVERLAY */}

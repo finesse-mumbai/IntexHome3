@@ -71,7 +71,7 @@ const WhyIntexPage: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
           <div className="lg:col-span-4 space-y-12">
             <div className="space-y-6">
-              <h2 className="text-sm font-black tracking-tighter text-archive-charcoal leading-none">
+              <h2 className="text-xl md:text-3xl font-black tracking-tighter text-archive-charcoal leading-none">
                 A Pan-South Asian <br /> <span className="text-archive-clay">Powerhouse.</span>
               </h2>
               <div className="h-[2px] w-12 bg-archive-clay"></div>
@@ -126,7 +126,7 @@ const WhyIntexPage: React.FC = () => {
       <section className="bg-archive-charcoal py-40 text-archive-cream border-y border-archive-clay/20">
         <div className="max-w-[1440px] mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
           <div className="space-y-12">
-            <h2 className="text-xs md:text-sm font-black leading-[0.9] text-white uppercase">
+            <h2 className="text-2xl md:text-3xl font-black leading-[0.9] text-white uppercase">
               The Epicenter of <br /> <span className="text-archive-clay">Textile Innovation.</span>
             </h2>
             <div className="space-y-6 text-sm font-bold tracking-[0.15em] leading-relaxed text-white/60">
@@ -144,16 +144,16 @@ const WhyIntexPage: React.FC = () => {
             </div>
           </div>
 
-          <div className="relative aspect-square border border-white/10 p-6 group">
+          <div className="relative aspect-[6/7] border border-white/10 p-3 group">
             <div className="w-full h-full border border-white/5 overflow-hidden">
               <img
-                src="https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?auto=format&fit=crop&q=80&w=1200"
+                src="/assets/intex collage.jpg.jpeg"
                 className="w-full h-full object-cover brightness-50 group-hover:scale-110 transition-transform duration-[3000ms]"
                 alt="Textile Manufacturing"
               />
             </div>
-            <div className="absolute -top-10 -right-10 w-40 h-40 bg-archive-clay border border-archive-charcoal flex items-center justify-center p-8 hidden xl:flex">
-              <span className="text-[10px] font-black tracking-widest text-white text-center uppercase">Gateway_ Access_ Portal</span>
+            <div className="absolute -top-10 -right-10 w-40 h-40 border border-archive-charcoal bg-archive-cream overflow-hidden z-10 hidden xl:flex p-2">
+              <img src="/assets/squareImage.jpg.jpeg" className="w-full h-full object-cover mix-blend-multiply" />
             </div>
           </div>
         </div>

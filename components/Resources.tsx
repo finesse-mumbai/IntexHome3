@@ -96,8 +96,7 @@ const ResourceModule: React.FC<{ resource: any; index: number }> = ({ resource, 
         </div>
       </div>
 
-      {/* Subtle Border Glow on Hover */}
-      <div className={`absolute inset-0 border-[3px] ${isDarkBg ? 'border-white/40' : 'border-archive-charcoal/20'} rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none`}></div>
+
     </motion.div>
   );
 };
