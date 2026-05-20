@@ -28,14 +28,10 @@ const BuyerProfilePage: React.FC = () => {
               </p>
             </div>
             <div className="lg:col-span-5 flex justify-end">
-              <div className="flex items-center gap-8 border border-archive-charcoal/10 p-6 bg-white/50 backdrop-blur-sm">
-                <div className="text-center px-4 border-r border-archive-charcoal/10">
+              <div className="flex items-center justify-center gap-8 border border-archive-charcoal/10 p-6 bg-white/50 backdrop-blur-sm">
+                <div className="text-center px-4">
                   <div className="text-3xl font-black text-archive-clay">22</div>
                   <div className="text-[8px] font-black tracking-widest opacity-40 uppercase">Profile Types</div>
-                </div>
-                <div className="text-center px-4">
-                  <div className="text-3xl font-black text-archive-clay">70K+</div>
-                  <div className="text-[8px] font-black tracking-widest opacity-40 uppercase">Trade Visitors</div>
                 </div>
               </div>
             </div>
@@ -45,7 +41,7 @@ const BuyerProfilePage: React.FC = () => {
 
       {/* Categories Grid */}
       <section className="px-6 md:px-12 max-w-[1440px] mx-auto">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-px bg-archive-charcoal/10 border border-archive-charcoal/10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
           {BUYER_PROFILES.map((profile, idx) => (
             <motion.div
               key={profile.title}
@@ -53,35 +49,23 @@ const BuyerProfilePage: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.02 }}
               viewport={{ once: true }}
-              className="bg-white group relative aspect-[3/4] overflow-hidden flex flex-col hover:bg-archive-charcoal transition-all duration-700"
+              className="bg-white group relative aspect-[3/4] overflow-hidden flex flex-col border border-archive-charcoal/10 shadow-sm hover:shadow-md hover:bg-archive-charcoal transition-all duration-700"
             >
               {/* Image Frame */}
-              <div className="h-1/2 relative overflow-hidden bg-archive-cream/30">
+              <div className="h-2/3 relative overflow-hidden bg-archive-cream/30">
                 <img
                   src={profile.imageUrl}
                   alt={profile.title}
                   className="w-full h-full object-cover brightness-90 group-hover:scale-110 group-hover:brightness-50 transition-all duration-[2000ms]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-archive-charcoal/40 to-transparent"></div>
-
-
               </div>
 
               {/* Content Frame */}
-              <div className="h-1/2 p-8 flex flex-col justify-between group-hover:text-white transition-colors duration-700">
-                <div className="space-y-4">
-
-                  <h3 className="text-xl font-black tracking-tighter leading-[0.9] group-hover:text-archive-clay transition-colors duration-500">
-                    {profile.title}
-                  </h3>
-                </div>
-
-                <div className="pt-6 flex justify-between items-center border-t border-archive-charcoal/5 group-hover:border-white/10">
-                  <button className="flex items-center gap-2 text-[9px] font-black tracking-[0.3em] text-archive-charcoal group-hover:text-white transition-colors group/btn">
-                    VIEW DATASET <ArrowUpRight size={12} className="group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform uppercase" />
-                  </button>
-                  <Fingerprint size={14} className="text-archive-charcoal/10 group-hover:text-archive-clay" />
-                </div>
+              <div className="flex-1 px-6 py-5 flex items-center group-hover:text-white transition-colors duration-700">
+                <h3 className="text-base font-black tracking-tighter leading-tight group-hover:text-archive-clay transition-colors duration-500">
+                  {profile.title}
+                </h3>
               </div>
             </motion.div>
           ))}
@@ -93,7 +77,7 @@ const BuyerProfilePage: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
           <div className="space-y-12">
             <div className="space-y-6">
-              <h2 className="text-sm font-black text-archive-clay leading-none uppercase">Global Demographics.</h2>
+              <h2 className="text-lg font-black text-archive-clay leading-none uppercase">Global Demographics.</h2>
               <div className="w-20 h-px bg-archive-clay"></div>
             </div>
             <div className="space-y-8">
@@ -129,11 +113,8 @@ const BuyerProfilePage: React.FC = () => {
                 Gain exclusive access to the 2026 Intex Archive. Network with verified manufacturers and access proprietary trend data ahead of the global market.
               </p>
               <div className="flex flex-col sm:flex-row gap-6">
-                <button className="px-10 py-5 bg-archive-clay text-white font-black text-[10px] tracking-[0.4em] hover:bg-white hover:text-archive-charcoal transition-all">
+                <button className="px-16 py-6 w-full sm:w-auto bg-archive-clay text-white font-black text-sm tracking-[0.3em] hover:bg-white hover:text-archive-charcoal transition-all">
                   REGISTER NOW
-                </button>
-                <button className="px-10 py-5 border border-white/20 text-white font-black text-[10px] tracking-[0.4em] hover:bg-white hover:text-archive-charcoal hover:border-white transition-all">
-                  VIEW DIRECTORY
                 </button>
               </div>
             </div>

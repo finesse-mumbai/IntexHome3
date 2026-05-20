@@ -9,21 +9,21 @@ const EXHIBITIONS = [
     title: 'Intex Bangladesh',
     date: '18-19-20 June, 2026',
     location: 'ICCB, Dhaka',
-    imageUrl: 'https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&q=80&w=800'
+    imageUrl: '/assets/bangladesh.png'
   },
   {
     id: 'ex-sl',
     title: 'Intex Sri Lanka',
     date: '5-6-7 August 2026',
     location: 'BMICH, Colombo',
-    imageUrl: 'https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?auto=format&fit=crop&q=80&w=800'
+    imageUrl: '/assets/sri%20lanka.jpg.jpeg'
   },
   {
     id: 'ex-in',
     title: 'Intex India',
     date: 'Announcing Soon',
     location: 'New Delhi',
-    imageUrl: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&q=80&w=800'
+    imageUrl: '/assets/india.jpg.jpeg'
   }
 ];
 
@@ -80,7 +80,7 @@ const OrganiserPage: React.FC = () => {
             <p className="text-[14px] md:text-[18px] font-medium tracking-widest leading-relaxed text-white/80">
               Incorporated in 2004, Worldex India Exhibition & Promotion Pvt. Ltd., is headquartered in Mumbai with a supporting branch office in New Delhi. With over 21 years of global experience, we specialise in bridging the gap between manufacturers and buyers, creating direct connections between quality suppliers from around the world with home-grown entrepreneurs.
             </p>
-            <p className="text-[12px] font-bold tracking-widest leading-relaxed text-white/40">
+            <p className="text-[14px] md:text-[18px] font-medium tracking-widest leading-relaxed text-white/80">
               We provide premium standards of service and solutions as show organisers and trade promoters. We successfully organise and represent international trade promotions in India, Southeast Asia and European markets, through our close industry connects and support from leading Government Agencies, Chambers of Commerce, Federations and Trade Associations. We have been closely working and representing international trade bodies for more than 10 years in our region such as Hong Kong Trade Development Council (HKTDC), Taiwan Textile Federation (TTF) and China Council for Promotion of International Trade (CCPIT).
             </p>
             <div className="pt-12 flex flex-col sm:flex-row gap-6">

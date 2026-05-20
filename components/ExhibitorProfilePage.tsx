@@ -29,13 +29,9 @@ const ExhibitorProfilePage: React.FC = () => {
             </div>
             <div className="lg:col-span-5 flex justify-end">
               <div className="flex items-center gap-8 border border-archive-charcoal/10 p-6 bg-white/50 backdrop-blur-sm">
-                <div className="text-center px-4 border-r border-archive-charcoal/10">
+                <div className="text-center px-4">
                   <div className="text-3xl font-black text-archive-clay">08</div>
                   <div className="text-[8px] font-black tracking-widest opacity-40 uppercase">Categories</div>
-                </div>
-                <div className="text-center px-4">
-                  <div className="text-3xl font-black text-archive-clay">3K+</div>
-                  <div className="text-[8px] font-black tracking-widest opacity-40 uppercase">Exhibitors</div>
                 </div>
               </div>
             </div>
@@ -45,7 +41,7 @@ const ExhibitorProfilePage: React.FC = () => {
 
       {/* Categories Grid - Detailed Expansion of Home Style */}
       <section className="px-6 md:px-12 max-w-[1440px] mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1px bg-archive-charcoal/10 border border-archive-charcoal/10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {CATEGORIES.map((cat, idx) => (
             <motion.div
               key={cat.id}
@@ -53,10 +49,10 @@ const ExhibitorProfilePage: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.05 }}
               viewport={{ once: true }}
-              className="bg-white group relative aspect-[4/5] overflow-hidden flex flex-col"
+              className="bg-white group relative overflow-hidden flex flex-col h-full border border-archive-charcoal/10"
             >
               {/* Image Layer */}
-              <div className="h-2/3 relative overflow-hidden bg-black">
+              <div className="aspect-[4/3] w-full relative overflow-hidden bg-black shrink-0">
                 <img
                   src={cat.imageUrl}
                   alt={cat.title}
@@ -73,24 +69,17 @@ const ExhibitorProfilePage: React.FC = () => {
                 </div>
 
                 <div className="absolute bottom-6 left-6 right-6">
-                  <h3 className="text-3xl font-black text-white tracking-tighter leading-none group-hover:text-archive-clay transition-colors">
+                  <h3 className="text-2xl font-semibold text-white tracking-tight leading-none group-hover:text-archive-clay transition-colors">
                     {cat.title}
                   </h3>
                 </div>
               </div>
 
               {/* Content Layer */}
-              <div className="h-1/3 p-8 flex flex-col justify-between bg-white group-hover:bg-archive-charcoal transition-all duration-500">
-                <p className="text-[10px] font-bold tracking-widest leading-relaxed text-archive-charcoal/50 group-hover:text-white/60 line-clamp-3">
+              <div className="p-8 bg-white group-hover:bg-archive-charcoal transition-all duration-500 flex-1">
+                <p className="text-xs font-medium leading-relaxed text-archive-charcoal/70 group-hover:text-white/80 line-clamp-4">
                   {cat.description}
                 </p>
-
-                <div className="pt-6 flex justify-between items-center border-t border-archive-charcoal/5 group-hover:border-white/10">
-                  <button className="flex items-center gap-3 text-[9px] font-black tracking-[0.3em] text-archive-clay hover:text-white transition-colors group/btn">
-                    DOWNLOAD BROCHURE <ArrowUpRight size={12} className="group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform uppercase" />
-                  </button>
-                  <Layers size={14} className="text-archive-charcoal/20 group-hover:text-archive-clay" />
-                </div>
               </div>
             </motion.div>
           ))}
@@ -138,11 +127,8 @@ const ExhibitorProfilePage: React.FC = () => {
                 Join the most influential sourcing show in South Asia. Limited premium booth spaces are now available for our upcoming editions in Dhaka, Colombo, and New Delhi.
               </p>
               <div className="flex flex-col sm:flex-row gap-6">
-                <button className="px-10 py-5 bg-archive-clay text-white font-black text-[10px] tracking-[0.4em] hover:bg-white hover:text-archive-charcoal transition-all">
+                <button className="px-16 py-6 w-full sm:w-auto bg-archive-clay text-white font-black text-sm tracking-[0.3em] hover:bg-white hover:text-archive-charcoal transition-all">
                   ENQUIRE NOW
-                </button>
-                <button className="px-10 py-5 border border-white/20 text-white font-black text-[10px] tracking-[0.4em] hover:bg-white hover:text-archive-charcoal hover:border-white transition-all">
-                  DOWNLOAD KIT
                 </button>
               </div>
             </div>

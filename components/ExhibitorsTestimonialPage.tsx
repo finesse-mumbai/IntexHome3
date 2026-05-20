@@ -308,15 +308,15 @@ const ExhibitorsTestimonialPage: React.FC = () => {
       {/* Testimonials Grid */}
       <section className="px-6 md:px-12 max-w-[1440px] mx-auto min-h-[500px]">
         {filteredData.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-archive-charcoal/10 border border-archive-charcoal/10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredData.map((item) => (
               <div
                 key={item.id}
-                className="bg-white p-10 md:p-12 group flex flex-col min-h-[300px]"
+                className="bg-white p-10 md:p-12 group flex flex-col min-h-[300px] border border-dotted border-archive-charcoal/40"
               >
                 <div className="space-y-8 flex-grow">
                   <div className="flex justify-between items-start">
-                    <div className="w-20 h-20 border border-archive-charcoal/5 p-4 bg-archive-cream/30 flex items-center justify-center relative overflow-hidden group-hover:bg-white transition-colors duration-500">
+                    <div className="w-28 h-28 border border-archive-charcoal/5 p-1.5 bg-archive-cream/30 flex items-center justify-center relative overflow-hidden group-hover:bg-white transition-colors duration-500">
                       <img
                         src={item.logo}
                         alt={item.company}
@@ -345,13 +345,9 @@ const ExhibitorsTestimonialPage: React.FC = () => {
                 </div>
 
                 <div className="mt-10 pt-6 border-t border-archive-charcoal/5 flex justify-between items-center">
-                  <div className="flex items-center gap-2 text-[9px] font-bold text-archive-charcoal/30 tracking-widest">
+                  <div className="flex items-center gap-2 text-[9px] font-bold text-archive-charcoal/60 tracking-widest">
                     <div className="w-1.5 h-1.5 bg-archive-clay rotate-45"></div>
                     {item.showName.toUpperCase()} | {item.year}
-                  </div>
-                  <div className="flex items-center gap-1 text-[8px] font-bold text-archive-charcoal/20">
-                    <Globe size={10} />
-                    {item.country.toUpperCase()}
                   </div>
                 </div>
               </div>
@@ -371,8 +367,29 @@ const ExhibitorsTestimonialPage: React.FC = () => {
         )}
       </section>
 
+      {/* 80% Width CTA Section */}
+      <section className="max-w-[1400px] mx-auto bg-archive-charcoal py-24 mt-32 relative overflow-hidden">
+
+        <div className="max-w-[1440px] mx-auto px-6 md:px-12 flex flex-col items-center justify-center relative z-10 text-center">
+          <h2 className="text-3xl md:text-5xl font-black text-white uppercase tracking-tighter mb-4">
+            Ready to <span className="text-archive-clay">Join Intex?</span>
+          </h2>
+          <p className="text-white/60 text-sm font-bold tracking-widest max-w-2xl mx-auto mb-10 leading-relaxed">
+            Secure your premium booth space or register as a buyer for the upcoming editions.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 w-full">
+            <button className="px-12 py-6 bg-archive-clay text-white font-black text-[12px] tracking-[0.3em] hover:bg-white hover:text-archive-charcoal transition-all w-full sm:w-auto uppercase shadow-xl">
+              Exhibitor Enquiry
+            </button>
+            <button className="px-12 py-6 border border-white/20 text-white font-black text-[12px] tracking-[0.3em] hover:bg-white hover:text-archive-charcoal hover:border-white transition-all w-full sm:w-auto uppercase">
+              Buyer Registration
+            </button>
+          </div>
+        </div>
+      </section>
+
       {/* Decorative Technical Shutter */}
-      <div className="h-4 bg-archive-charcoal relative overflow-hidden opacity-10 mt-40">
+      <div className="h-4 bg-archive-charcoal relative overflow-hidden opacity-10">
         <div className="absolute inset-0 measuring-tape"></div>
       </div>
     </div>

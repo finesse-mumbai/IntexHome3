@@ -58,7 +58,7 @@ const PromotionActivitiesPage: React.FC = () => {
   return (
     <div className="bg-archive-cream min-h-screen pt-32 pb-24 overflow-hidden">
       {/* Hero Section */}
-      <section className="px-6 md:px-12 max-w-[1440px] mx-auto mb-32">
+      <section className="px-6 md:px-12 max-w-[1440px] mx-auto mb-16">
         <div className="flex flex-col gap-12">
           <div className="space-y-6">
             <div className="flex items-center gap-4">
@@ -74,7 +74,7 @@ const PromotionActivitiesPage: React.FC = () => {
       </section>
 
       {/* Narrative Section */}
-      <section className="px-6 md:px-12 max-w-[1440px] mx-auto mb-40">
+      <section className="px-6 md:px-12 max-w-[1440px] mx-auto mb-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
           <div className="lg:col-span-12 space-y-5">
             <p className="text-xl md:text-3xl font-black text-archive-charcoal leading-tight">
@@ -124,9 +124,14 @@ const PromotionActivitiesPage: React.FC = () => {
           Drive <span>Engagement.</span> <br />
           <span >Secure Volume.</span>
         </h2>
-        <button className="px-12 py-6 bg-archive-clay text-white font-black text-[10px] tracking-[0.4em] hover:bg-archive-charcoal transition-all flex items-center gap-4">
-          PARTNER WITH INTEX SOUTH ASIA <ArrowRight size={14} className="uppercase" />
-        </button>
+        <div className="flex flex-col sm:flex-row gap-6">
+          <button className="px-12 py-6 bg-archive-clay text-white font-black text-[10px] tracking-[0.4em] hover:bg-archive-charcoal transition-all flex items-center justify-center gap-4">
+            BUYER REGISTRATION <ArrowRight size={14} className="uppercase" />
+          </button>
+          <button className="px-12 py-6 border border-archive-charcoal text-archive-charcoal font-black text-[10px] tracking-[0.4em] hover:bg-archive-charcoal hover:text-white transition-all flex items-center justify-center">
+            EXHIBITOR ENQUIRY
+          </button>
+        </div>
       </section>
 
       {/* Decorative Technical Detail */}

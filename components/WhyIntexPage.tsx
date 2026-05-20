@@ -33,7 +33,8 @@ const ADVANTAGES = [
   {
     icon: Globe,
     title: "Global Gateway",
-    desc: "Serving as the primary entry point for international trade, connecting global suppliers with the heart of South Asia’s manufacturing ecosystem."
+    desc: "Serving as the primary entry point for international trade, connecting global suppliers with the heart of South Asia’s manufacturing ecosystem.",
+    bgClass: "bg-white"
   },
   {
     icon: ShieldCheck,
@@ -43,7 +44,8 @@ const ADVANTAGES = [
   {
     icon: TrendingUp,
     title: "Trend Intelligence",
-    desc: "Shaped by industry needs, the platform empowers stakeholders to stay aligned with evolving global sourcing trends and innovations."
+    desc: "Shaped by industry needs, the platform empowers stakeholders to stay aligned with evolving global sourcing trends and innovations.",
+    bgClass: "bg-white"
   }
 ];
 
@@ -169,7 +171,7 @@ const WhyIntexPage: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.1 }}
               viewport={{ once: true }}
-              className="p-16 flex flex-col gap-10 hover:bg-archive-charcoal hover:text-white transition-all duration-700 group"
+              className={`p-16 flex flex-col gap-10 hover:bg-archive-charcoal hover:text-white transition-all duration-700 group ${adv.bgClass || ''}`}
             >
               <adv.icon size={32} className="text-archive-clay" />
               <div className="space-y-4">
@@ -183,23 +185,7 @@ const WhyIntexPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Closing CTA */}
-      <section className="py-40 bg-white border-y border-archive-charcoal/10">
-        <div className="max-w-[1440px] mx-auto px-6 md:px-12 flex flex-col items-center text-center space-y-12">
-          <div className="w-20 h-[1px] bg-archive-clay"></div>
-          <h2 className="text-xs md:text-sm font-black tracking-tighter text-archive-charcoal uppercase">
-            Ready To Scale In <br /> <span>South Asia?</span>
-          </h2>
-          <div className="flex flex-col sm:flex-row gap-6">
-            <button className="px-12 py-6 bg-archive-charcoal text-white font-black text-[10px] tracking-[0.4em] hover:bg-archive-clay transition-all flex items-center gap-4">
-              APPLY TO EXHIBIT <ArrowRight size={14} className="uppercase" />
-            </button>
-            <button className="px-12 py-6 border border-archive-charcoal text-archive-charcoal font-black text-[10px] tracking-[0.4em] hover:bg-archive-charcoal hover:text-white transition-all">
-              VISITOR REGISTRATION
-            </button>
-          </div>
-        </div>
-      </section>
+
 
       {/* Decorative Technical Detail */}
       <div className="h-4 bg-archive-charcoal relative overflow-hidden opacity-10">

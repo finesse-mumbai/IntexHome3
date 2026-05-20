@@ -164,7 +164,7 @@ const BuyersTestimonialPage: React.FC = () => {
     });
   }, [filterLocation, filterYear]);
 
-  const locations = ['ALL', 'BANGLADESH', 'SRI LANKA', 'INDIA'];
+  const locations = ['ALL', 'BANGLADESH', 'SRI LANKA'];
   const years = ['ALL', '2025', '2024'];
 
   return (
@@ -220,87 +220,61 @@ const BuyersTestimonialPage: React.FC = () => {
 
       {/* Grid of Testimonials */}
       <section className="px-6 md:px-12 max-w-[1440px] mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-archive-charcoal/10 border border-archive-charcoal/10">
-          <AnimatePresence mode="popLayout">
-            {filteredData.map((item, idx) => (
-              <motion.div
-                key={item.id}
-                layout
-                initial={{ opacity: 0, y: 100 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: idx * 0.05 }}
-                className="bg-white p-12 md:p-16 flex flex-col justify-between group h-full"
-              >
-                <div className="space-y-12">
-                  <div className="flex justify-between items-start">
-                    <div className="w-24 h-24 border border-archive-charcoal/5 p-4 bg-archive-cream/30 flex items-center justify-center relative overflow-hidden group-hover:bg-white transition-colors duration-500">
-                      <img
-                        src={item.logo}
-                        alt={item.company}
-                        className="max-w-full max-h-full object-contain transition-all duration-700"
-                        onError={(e) => {
-                          (e.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${item.company}&background=F3EBE8&color=2F2C2C&bold=true`;
-                        }}
-                      />
-                      <div className="absolute top-0 right-0 p-2 opacity-10 group-hover:opacity-100 transition-opacity">
-                        <UserCheck size={14} className="text-archive-clay" />
+        {filteredData.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <AnimatePresence mode="popLayout">
+              {filteredData.map((item, idx) => (
+                <motion.div
+                  key={item.id}
+                  layout
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.5, delay: idx * 0.02 }}
+                  className="bg-white p-10 md:p-12 group flex flex-col min-h-[300px] border border-dotted border-archive-charcoal/40"
+                >
+                  <div className="space-y-8 flex-grow">
+                    <div className="flex justify-between items-start">
+                      <div className="w-28 h-28 border border-archive-charcoal/5 p-1.5 bg-archive-cream/30 flex items-center justify-center relative overflow-hidden group-hover:bg-white transition-colors duration-500">
+                        <img
+                          src={item.logo}
+                          alt={item.company}
+                          className="max-w-full max-h-full object-contain transition-all duration-700"
+                          onError={(e) => {
+                            (e.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${item.company}&background=F3EBE8&color=2F2C2C&bold=true`;
+                          }}
+                        />
                       </div>
-                    </div>
-                    <Quote size={40} className="text-archive-clay opacity-10" />
-                  </div>
-
-                  <div className="space-y-6">
-                    <div className="space-y-2">
-                      <h3 className="text-xl font-black text-archive-charcoal tracking-tight group-hover:text-archive-clay transition-colors uppercase">{item.name}</h3>
-                      <div className="flex flex-col gap-1">
-                        <span className="text-[10px] font-black tracking-[0.2em] text-archive-clay uppercase">{item.designation}</span>
-                        <span className="text-[10px] font-bold tracking-[0.1em] text-archive-charcoal/40 uppercase">{item.company}</span>
-                      </div>
-                      <div className="flex items-center gap-2 text-[9px] font-bold text-archive-charcoal/30 tracking-widest pt-2">
-                        <MapPin size={10} className="text-archive-clay/40" />
-                        {item.country.toUpperCase()}
-                      </div>
+                      <Quote size={20} className="text-archive-clay opacity-10" />
                     </div>
 
-                    <p className="text-[15px] font-medium leading-relaxed text-archive-charcoal tracking-tight">
-                      "{item.message}"
-                    </p>
-                  </div>
-                </div>
-
-                <div className="mt-16 pt-8 border-t border-archive-charcoal/5 flex flex-col sm:flex-row justify-between items-end gap-6">
-                  <div className="space-y-2">
-                    <div className="flex items-center gap-2">
-                      <Fingerprint size={12} className="text-archive-clay" />
-                      <span className="text-[9px] font-black tracking-widest text-archive-charcoal block uppercase">Show Name</span>
-                    </div>
-                    <h4 className="text-xl font-black tracking-tighter text-archive-charcoal leading-none uppercase">{item.showName}</h4>
-                  </div>
-
-                  <div className="flex gap-10">
-                    <div className="space-y-1 text-right">
-                      <span className="text-[8px] font-black tracking-widest opacity-30 block uppercase">Dates</span>
-                      <div className="flex items-center justify-end gap-2 text-[10px] font-bold text-archive-charcoal/80">
-                        <Calendar size={10} className="text-archive-clay" />
-                        {item.dates}
+                    <div className="space-y-4">
+                      <div className="space-y-1">
+                        <h3 className="text-lg font-black text-archive-charcoal tracking-tight group-hover:text-archive-clay transition-colors uppercase">{item.name}</h3>
+                        <div className="flex flex-col">
+                          <span className="text-[9px] font-black tracking-widest text-archive-charcoal/40 uppercase">{item.designation}</span>
+                          <span className="text-[9px] font-black tracking-widest text-archive-clay uppercase">{item.company}</span>
+                        </div>
                       </div>
-                    </div>
-                    <div className="space-y-1 text-right">
-                      <span className="text-[8px] font-black tracking-widest opacity-30 block uppercase">Exhibition Year</span>
-                      <div className="text-[11px] font-black text-archive-charcoal font-mono px-2">
-                        {item.year}
-                      </div>
+
+                      <p className="text-[13px] font-medium leading-relaxed text-archive-charcoal/80 tracking-tight">
+                        "{item.message}"
+                      </p>
                     </div>
                   </div>
-                </div>
-              </motion.div>
-            ))}
-          </AnimatePresence>
-        </div>
 
-        {filteredData.length === 0 && (
-          <div className="py-60 flex flex-col items-center justify-center border border-dashed border-archive-charcoal/20 text-center">
+                  <div className="mt-10 pt-6 border-t border-archive-charcoal/5 flex justify-between items-center">
+                    <div className="flex items-center gap-2 text-[9px] font-bold text-archive-charcoal/60 tracking-widest">
+                      <div className="w-1.5 h-1.5 bg-archive-clay rotate-45"></div>
+                      {item.showName.toUpperCase()} | {item.year}
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </AnimatePresence>
+          </div>
+        ) : (
+          <div className="h-[400px] flex flex-col items-center justify-center border border-dashed border-archive-charcoal/20 text-center bg-white/50">
             <Search size={40} className="text-archive-clay/20 mb-6" />
             <span className="text-[10px] font-black tracking-[0.5em] text-archive-charcoal/30 uppercase">No matching buyer records found.</span>
             <button

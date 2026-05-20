@@ -74,13 +74,6 @@ const FEATURED_DATA: Record<string, FeaturedExhibitor[]> = {
     { id: 'FE_SL_17', name: 'Texin India', logo: 'https://sl.intexsouthasia.com/assets/img/exhibitor-logo/Texin India.png', country: 'Sri Lanka', category: 'Textile', booth: 'TBA' },
     { id: 'FE_SL_18', name: 'Toplight Fabrics', logo: 'https://sl.intexsouthasia.com/assets/img/exhibitor-logo/Toplight Fabrics Pvt Ltd.png', country: 'Sri Lanka', category: 'Textile', booth: 'TBA' },
     { id: 'FE_SL_19', name: 'VP Tex', logo: 'https://sl.intexsouthasia.com/assets/img/exhibitor-logo/vptex.png', country: 'Sri Lanka', category: 'Textile', booth: 'TBA' },
-  ],
-  'INDIA': [
-    { id: 'FE_IN_01', name: 'Raymond Luxury', logo: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=400', country: 'India', category: 'Suiting Fabrics', booth: 'I-501' },
-    { id: 'FE_IN_02', name: 'Arvind Limited', logo: 'https://images.unsplash.com/photo-1454165833767-027ffea9e778?auto=format&fit=crop&q=80&w=400', country: 'India', category: 'Denim Solutions', booth: 'I-202' },
-    { id: 'FE_IN_03', name: 'Birla Cellulose', logo: 'https://images.unsplash.com/photo-1614850523296-d8c1af93d400?auto=format&fit=crop&q=80&w=400', country: 'India', category: 'Man-made Fibres', booth: 'I-101' },
-    { id: 'FE_IN_04', name: 'Grasim Industries', logo: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=400', country: 'India', category: 'Industrial Textiles', booth: 'I-303' },
-    { id: 'FE_IN_05', name: 'Trident Group', logo: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=400', country: 'India', category: 'Home Textiles', booth: 'I-404' },
   ]
 };
 
@@ -113,16 +106,23 @@ const FeaturedExhibitorsPage: React.FC = () => {
             </div>
 
             {/* Show Tabs Selector */}
-            <div className="flex border border-archive-charcoal/10 bg-white p-2">
-              {shows.map((show) => (
-                <button
-                  key={show}
-                  onClick={() => setActiveShow(show)}
-                   className={`px-8 py-4 text-[10px] font-black tracking-widest transition-all uppercase ${activeShow === show ? 'bg-archive-charcoal text-white' : 'text-archive-charcoal/40 hover:text-archive-charcoal'}`}
-                >
-                  INTEX {show}
-                </button>
-              ))}
+            <div className="flex flex-col sm:flex-row border border-archive-charcoal/10 bg-white p-2">
+              {shows.map((show) => {
+                const dates: Record<string, string> = {
+                  'BANGLADESH': '18-20 JUNE, 2026',
+                  'SRI LANKA': '5-7 AUGUST 2026'
+                };
+                return (
+                  <button
+                    key={show}
+                    onClick={() => setActiveShow(show)}
+                     className={`px-8 py-4 text-[10px] font-black tracking-widest transition-all uppercase ${activeShow === show ? 'bg-archive-charcoal text-white' : 'text-archive-charcoal/40 hover:text-archive-charcoal'}`}
+                  >
+                    INTEX {show}
+                    <span className="opacity-60 font-bold block mt-1">{dates[show]}</span>
+                  </button>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -137,12 +137,12 @@ const FeaturedExhibitorsPage: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 border-t border-l border-archive-charcoal/10"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
           >
             {FEATURED_DATA[activeShow].map((ex, idx) => (
               <motion.div
                 key={ex.id}
-                className="bg-white group relative overflow-hidden flex flex-col h-[340px] border-b border-r border-archive-charcoal/10 hover:bg-archive-charcoal transition-all duration-700"
+                className="bg-white group relative overflow-hidden flex flex-col h-[340px] border border-archive-charcoal/10 hover:bg-archive-charcoal transition-all duration-700 shadow-sm hover:shadow-md"
               >
                 {/* Logo Frame */}
                 <div className="h-[60%] p-12 flex items-center justify-center relative bg-white group-hover:bg-white transition-colors duration-700">
@@ -162,17 +162,14 @@ const FeaturedExhibitorsPage: React.FC = () => {
                 {/* Info Frame */}
                 <div className="h-[40%] flex flex-col  gap-3 bg-archive-cream/30 group-hover:text-white transition-colors duration-700">
                   <div>
-                    <h3 className="text-xl font-black py-4 pl-4 tracking-tighter leading-none group-hover:text-archive-clay transition-colors duration-500">
-                      {ex.name.toUpperCase()}
+                    <h3 className="text-xl font-semibold py-4 pl-4 tracking-tight leading-none group-hover:text-archive-clay transition-colors duration-500 capitalize">
+                      {ex.name}
                     </h3>
                   </div>
 
-                  <div className="pt-4 pl-4 border-t border-archive-charcoal/5 group-hover:border-white/10 flex gap-4 w-full">
-                    <div className="flex  gap-2">
-                      <LayoutGrid size={12} className="text-archive-clay" />
-                       <span className="text-[9px] font-black tracking-widest uppercase">Visit Website</span>
-                    </div>
-                    <ArrowUpRight size={16} className="opacity-0 group-hover:opacity-100 transition-all text-archive-clay" />
+                  <div className="pt-4 pl-4 border-t border-archive-charcoal/5 group-hover:border-white/10 flex gap-2 items-center w-full">
+                    <span className="text-[9px] font-black tracking-widest uppercase">Visit Website</span>
+                    <ArrowUpRight size={14} className="text-archive-clay transition-all" />
                   </div>
                 </div>
               </motion.div>
