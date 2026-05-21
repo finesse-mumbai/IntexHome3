@@ -12,7 +12,7 @@ interface VideoRecord {
 }
 
 const VIDEO_ARCHIVE: VideoRecord[] = [
-   // SRI LANKA Node
+  // SRI LANKA Node
   { id: 'VID_SL_24', year: "2024", url: "https://www.youtube.com/embed/nwWELI2tK0c", event: "Sri Lanka", title: "Intex Sri Lanka 2024 Highlights" },
   { id: 'VID_SL_23', year: "2023", url: "https://www.youtube.com/embed/ow0PVSukAao", event: "Sri Lanka", title: "Intex Sri Lanka 2023 Highlights" },
   { id: 'VID_SL_22', year: "2022", url: "https://www.youtube.com/embed/zSL06CywXLQ", event: "Sri Lanka", title: "Intex Sri Lanka 2022 Highlights" },
@@ -97,7 +97,7 @@ const PostShowVideoPage: React.FC = () => {
 
       {/* Video Grid */}
       <section className="px-6 md:px-12 max-w-[1440px] mx-auto min-h-[400px]">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-archive-charcoal/10 border border-archive-charcoal/10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 ">
           <AnimatePresence mode="popLayout">
             {filteredVideos.map((video, idx) => (
               <motion.div
@@ -132,23 +132,23 @@ const PostShowVideoPage: React.FC = () => {
                   <div className="space-y-4">
 
                     <h3 className="text-xl font-black tracking-tighter leading-none group-hover:text-archive-clay transition-colors duration-500 line-clamp-2">
-                      {video.title.toUpperCase()}
+                      {video.title}
                     </h3>
                   </div>
 
-                  <div className="pt-6 border-t border-archive-charcoal/5 group-hover:border-white/10 flex justify-between items-center">
+                  <div className="pt-6 border-t w-full flex justify-between border-archive-charcoal/5 group-hover:border-white/10 flex justify-between items-center">
                     <div className="flex gap-8">
                       <div className="flex items-center gap-2">
-                        <MapPin size={12} className="text-archive-clay" />
-                        <span className="text-[9px] font-black tracking-widest">{video.event}</span>
+                        <MapPin size={15} className="text-archive-clay" />
+                        <span className="text-[15px] font-black text-black/50">{video.event}</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <Calendar size={12} className="text-archive-clay" />
-                        <span className="text-[9px] font-black tracking-widest">{video.year}</span>
+                        <Calendar size={15} className="text-archive-clay" />
+                        <span className="text-[15px] font-black text-black/50">{video.year}</span>
                       </div>
                     </div>
-                    <div className="flex items-center gap-2 text-[9px] font-black tracking-widest text-archive-clay opacity-0 group-hover:opacity-100 transition-all">
-                      WATCH <ArrowUpRight size={14} className="uppercase" />
+                    <div className="flex items-center gap-4 text-[15px] font-black tracking-widest text-archive-clay  transition-all">
+                      WATCH <ArrowUpRight size={15} className="uppercase" />
                     </div>
                   </div>
                 </div>
@@ -212,62 +212,11 @@ const PostShowVideoPage: React.FC = () => {
         )}
       </AnimatePresence>
 
-      {/* Narrative Section */}
-      <section className="py-40 px-6 md:px-12 max-w-[1440px] mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
-          <div className="space-y-12">
-            <div className="space-y-6">
-              <h2 className="text-sm font-black text-archive-clay leading-none uppercase">Visual Heritage.</h2>
-              <div className="w-20 h-px bg-archive-clay"></div>
-            </div>
-            <div className="space-y-8">
-              <p className="text-[12px] font-bold tracking-[0.15em] leading-relaxed text-archive-charcoal/60">
-                The Intex motion archive documents a decade of trade growth, technological innovation, and industry networking across the Indian subcontinent. These high-fidelity recordings serve as the definitive visual source of truth for the region's textile evolution.
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                {[
-                  { label: "Archive Quality", value: "HD Master Records" },
-                  { label: "Content Type", value: "Official Highlight Tapes" },
-                  { label: "Access Protocol", value: "Public Repository" },
-                  { label: "System Uptime", value: "24/7 Global Sync" }
-                ].map((item, i) => (
-                  <div key={i} className="space-y-2 border-l border-archive-charcoal/10 pl-6">
-                    <span className="text-[8px] font-black tracking-widest opacity-40 block">{item.label}</span>
-                    <span className="text-[11px] font-black text-archive-charcoal">{item.value}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
 
-          <div className="bg-archive-charcoal p-16 text-white space-y-12 relative overflow-hidden">
-            <div className="absolute -bottom-8 -right-8 opacity-5">
-              <Youtube size={200} />
-            </div>
-            <div className="space-y-4 relative z-10">
-              <span className="text-archive-clay text-[10px] font-black tracking-[0.5em]">Broadcast Terminal</span>
-              <h3 className="text-xl font-black leading-none uppercase">Access the Full <br /> Visual Log.</h3>
-            </div>
-            <div className="space-y-8 relative z-10">
-              <p className="text-[11px] font-bold tracking-[0.2em] text-white/40 leading-relaxed">
-                Require unedited B-roll footage, full executive interview manifests, or raw seminar recordings for media publication? Contact our archive management terminal for authorized dataset access.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-6">
-                <button className="px-10 py-5 bg-archive-clay text-white font-black text-[10px] tracking-[0.4em] hover:bg-white hover:text-archive-charcoal transition-all">
-                  REQUEST B-ROLL ACCESS
-                </button>
-                <button className="px-10 py-5 border border-white/20 text-white font-black text-[10px] tracking-[0.4em] hover:bg-white hover:text-archive-charcoal hover:border-white transition-all flex items-center gap-3">
-                  YOUTUBE REGISTRY <ArrowUpRight size={14} className="uppercase" />
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Decorative Technical Detail */}
-      <div className="h-4 bg-archive-charcoal relative overflow-hidden opacity-10">
-        <div className="absolute inset-0 measuring-tape"></div>
+      <div className="h-4  relative overflow-hidden opacity-10">
+        <div className="absolute inset-0"></div>
       </div>
     </div>
   );

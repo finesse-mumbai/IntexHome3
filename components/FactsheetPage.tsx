@@ -92,19 +92,14 @@ const FactsheetPage: React.FC = () => {
                 Detailed technical specifications and <span className="text-archive-clay">event intelligence</span> for the 2026 exhibition cycle.
               </p>
             </div>
-            <div className="lg:col-span-4 flex justify-end">
-              <div className="flex items-center gap-4 text-[10px] font-black tracking-widest text-archive-charcoal opacity-40">
-                <Database size={14} />
-                <span>SYNC_STATUS: ACTIVE_MANIFEST</span>
-              </div>
-            </div>
+
           </div>
         </div>
       </section>
 
       {/* Factsheet Cards */}
       <section className="px-6 md:px-12 max-w-[1440px] mx-auto">
-        <div className="flex flex-col gap-px bg-archive-charcoal/10 border border-archive-charcoal/10">
+        <div className="flex flex-col gap-px bg-archive-charcoal/10 ">
           {FACTSHEET_DATA.map((item, idx) => (
             <motion.div
               key={item.id}
@@ -115,13 +110,13 @@ const FactsheetPage: React.FC = () => {
               className="bg-white grid grid-cols-1 lg:grid-cols-12 gap-0 overflow-hidden group"
             >
               {/* Logo Column */}
-              <div className="lg:col-span-3 p-12 flex flex-col justify-between border-r border-archive-charcoal/5 bg-archive-cream/10 transition-colors duration-700">
-                <div className="space-y-8">
-                  <div className="flex justify-between items-start">
+              <div className="lg:col-span-3 bg-white p-12 flex flex-col justify-between border-r border-archive-charcoal/5  transition-colors duration-700">
+                <div className="space-y-8 bg-white">
+                  {/* <div className="flex justify-between items-start">
                     <span className="text-[10px] font-mono font-black text-archive-clay">{item.id}</span>
                     <Layers size={14} className="opacity-10 group-hover:opacity-100 transition-opacity text-archive-clay" />
-                  </div>
-                  <div className="p-8 border border-archive-charcoal/5 flex items-center justify-center aspect-square transition-all duration-700">
+                  </div> */}
+                  <div className="flex items-center justify-center aspect-square transition-all duration-700">
                     <img
                       src={item.logo}
                       alt={item.name}
@@ -129,13 +124,13 @@ const FactsheetPage: React.FC = () => {
                     />
                   </div>
                 </div>
-                <div className="pt-8">
-                   <div className="text-[9px] font-black tracking-[0.4em] text-archive-clay mb-1 uppercase">Status Protocol</div>
+                {/* <div className="pt-8">
+                  <div className="text-[9px] font-black tracking-[0.4em] text-archive-clay mb-1 uppercase">Status Protocol</div>
                   <div className="flex items-center gap-2">
                     <div className="w-2 h-2 bg-green-500"></div>
                     <span className="text-[10px] font-black uppercase">Active // Open</span>
                   </div>
-                </div>
+                </div> */}
               </div>
 
               {/* Merged Content + Specs Column */}
@@ -144,22 +139,22 @@ const FactsheetPage: React.FC = () => {
                 <div className="lg:col-span-2 p-12 md:p-16 border-r border-archive-charcoal/5 space-y-12">
                   <div className="space-y-4">
                     <span className="text-archive-clay text-[11px] font-black tracking-[0.5em] uppercase">{item.edition}</span>
-                       <h2 className="text-sm md:text-2xl font-black tracking-tighter text-archive-charcoal leading-none uppercase">
-                        {item.name}
-                      </h2>
+                    <h2 className="text-sm md:text-2xl font-black tracking-tighter text-archive-charcoal leading-none uppercase">
+                      {item.name}
+                    </h2>
                   </div>
 
                   {item.highlights && (
                     <div className="space-y-6">
                       <div className="flex items-center gap-3">
                         <div className="w-10 h-px bg-archive-clay"></div>
-                        <span className="text-[10px] font-black tracking-widest opacity-40 uppercase">Show Highlights</span>
+                        <span className="text-[13px] font-black tracking-widest opacity-40 uppercase">Show Highlights</span>
                       </div>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-y-3 gap-x-8">
                         {item.highlights.map((h, i) => (
                           <div key={i} className="flex items-start gap-3">
                             <div className="w-1 h-1 bg-archive-clay rotate-45 mt-1.5 shrink-0"></div>
-                            <span className="text-[10px] font-bold tracking-widest text-archive-charcoal/70 leading-tight uppercase">{h}</span>
+                            <span className="text-[11px] font-bold tracking-widest text-archive-charcoal/70 leading-tight uppercase">{h}</span>
                           </div>
                         ))}
                       </div>
@@ -212,7 +207,7 @@ const FactsheetPage: React.FC = () => {
                       DOWNLOAD PDF <Download size={14} className="group-hover/btn:translate-y-0.5 transition-transform uppercase" />
                     </button>
                     <button className="w-full border border-white/20 text-white py-5 px-8 text-[9px] font-black tracking-[0.4em] hover:bg-white/5 transition-all flex items-center justify-between group/btn">
-                      VIEW DETAILS <ArrowUpRight size={14} className="group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform uppercase" />
+                      REGISTER NOW <ArrowUpRight size={14} className="group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform uppercase" />
                     </button>
                   </div>
                 </div>

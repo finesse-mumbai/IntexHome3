@@ -108,7 +108,7 @@ const MediaCoveragePage: React.FC = () => {
 
       {/* Grid of Media */}
       <section className="px-6 md:px-12 max-w-[1440px] mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-px bg-archive-charcoal/10 border border-archive-charcoal/10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
           <AnimatePresence mode="popLayout">
             {filteredData.map((item, idx) => (
               <motion.div
@@ -149,13 +149,13 @@ const MediaCoveragePage: React.FC = () => {
                 <div className="p-8 flex flex-col justify-between group-hover:text-white transition-colors duration-700 h-1/3">
                   <div className="space-y-3">
 
-                    <h3 className="text-lg font-black tracking-tighter leading-[0.9] group-hover:text-archive-clay transition-colors duration-500 line-clamp-2">
-                      {item.title.toUpperCase()}
+                    <h3 className="text-lg font-black tracking-tighter leading-[0.9] group-hover:text-archive-clay transition-colors duration-500 line-clamp-2 pb-2">
+                      {item.title}
                     </h3>
                   </div>
 
                   <div className="pt-4 border-t border-archive-charcoal/5 group-hover:border-white/10 flex justify-between items-center">
-                    <div className="flex gap-4">
+                    <div className="flex  w-full justify-between">
                       <div className="flex items-center gap-2">
                         <Globe size={10} className="text-archive-clay" />
                         <span className="text-[8px] font-black uppercase">{item.country}</span>
@@ -235,38 +235,13 @@ const MediaCoveragePage: React.FC = () => {
       {/* Info Protocol Section */}
       <section className="py-40 px-6 md:px-12 max-w-[1440px] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
-          <div className="space-y-12">
-            <div className="space-y-6">
-              <h2 className="text-sm font-black text-archive-clay leading-none uppercase">PUBLIC BROADCASTS.</h2>
-              <div className="w-20 h-px bg-archive-clay"></div>
-            </div>
-            <div className="space-y-8">
-              <p className="text-[12px] font-bold tracking-[0.15em] leading-relaxed text-archive-charcoal/60">
-                The Intex visual archive is a curated collection of broadcast material, journalistic reports, and official snapshots documenting the show's impact on the global textile matrix. Each specimen is verified for historical fidelity.
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                {[
-                  { label: "Archive Depth", value: "10+ Years History" },
-                  { label: "Format Support", value: "HD Video & Assets" },
-                  { label: "Global Reach", value: "40+ Broadcasters" },
-                  { label: "System Status", value: "Live Sync Active" }
-                ].map((item, i) => (
-                  <div key={i} className="space-y-2 border-l border-archive-charcoal/10 pl-6">
-                    <span className="text-[8px] font-black tracking-widest opacity-40 block">{item.label}</span>
-                    <span className="text-[11px] font-black text-archive-charcoal">{item.value}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-archive-charcoal p-16 text-white space-y-12 relative overflow-hidden">
+          <div className="bg-archive-charcoal w-[100%]  p-16 text-white space-y-12 relative overflow-hidden">
             <div className="absolute -bottom-8 -right-8 opacity-5">
               <Video size={200} />
             </div>
             <div className="space-y-4 relative z-10">
               <span className="text-archive-clay text-[10px] font-black tracking-[0.5em]">Press Desk</span>
-              <h3 className="text-xl font-black leading-none uppercase">REQUEST HIGH-RES <br /> MEDIA ASSETS.</h3>
+              <h3 className="text-xl font-black leading-none uppercase">Media Registration.</h3>
             </div>
             <div className="space-y-8 relative z-10">
               <p className="text-[11px] font-bold tracking-[0.2em] text-white/40 leading-relaxed">
@@ -274,11 +249,9 @@ const MediaCoveragePage: React.FC = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-6">
                 <button className="px-10 py-5 bg-archive-clay text-white font-black text-[10px] tracking-[0.4em] hover:bg-white hover:text-archive-charcoal transition-all">
-                  ACCESS MEDIA KIT
+                  CLICK HERE FOR MEDIA REGISTRATION
                 </button>
-                <button className="px-10 py-5 border border-white/20 text-white font-black text-[10px] tracking-[0.4em] hover:bg-white hover:text-archive-charcoal hover:border-white transition-all flex items-center gap-3">
-                  VIEW YOUTUBE ARCHIVE <Youtube size={14} className="uppercase" />
-                </button>
+
               </div>
             </div>
           </div>

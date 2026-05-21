@@ -43,7 +43,7 @@ const NAV_ITEMS = [
     label: "Media",
     link: "#",
     children: [
-      { label: "Newsletters", link: "#newsletters" },
+      // { label: "Newsletters", link: "#newsletters" },
       { label: "Press Release", link: "#press-release" },
       { label: "Media Coverage", link: "#media-coverage" },
       { label: "Media Partners", link: "#media-partners" },

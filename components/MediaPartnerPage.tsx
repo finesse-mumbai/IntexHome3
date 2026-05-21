@@ -88,7 +88,7 @@ const MediaPartnerPage: React.FC = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5 }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-px bg-archive-charcoal/10 border border-archive-charcoal/10"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
           >
             {PARTNERS_DATA[activeShow === 'SRI LANKA' ? 'Sri Lanka' : 'Bangladesh'].map((partner, idx) => (
               <motion.div
@@ -97,7 +97,7 @@ const MediaPartnerPage: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: idx * 0.03 }}
-                className="bg-white group relative aspect-square overflow-hidden flex flex-col hover:bg-archive-charcoal transition-all duration-700"
+                className="bg-white group relative aspect-square overflow-hidden border border-dotted flex flex-col hover:bg-archive-charcoal transition-all duration-700"
               >
                 {/* Image Frame */}
                 <div className="h-1/2 p-12 flex items-center justify-center relative bg-white group-hover:bg-white transition-colors duration-700">
@@ -105,7 +105,7 @@ const MediaPartnerPage: React.FC = () => {
                     <img
                       src={partner.img}
                       alt={partner.companyName}
-                      className="max-w-[80%] max-h-[80%] object-contain transition-all duration-700 group-hover:scale-110"
+                      className="max-w-[100%] max-h-[95%] object-contain transition-all duration-700 group-hover:scale-110"
                       onError={(e) => {
                         (e.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${partner.companyName}&background=F3EBE8&color=2F2C2C&bold=true`;
                       }}
@@ -117,8 +117,8 @@ const MediaPartnerPage: React.FC = () => {
                 <div className="h-1/2 p-10 flex flex-col justify-between bg-archive-cream/30 group-hover:text-white transition-colors duration-700">
                   <div className="space-y-4">
 
-                    <h3 className="text-lg font-black tracking-tighter leading-[1.1] group-hover:text-archive-clay transition-colors duration-500">
-                      {partner.companyName.toUpperCase()}
+                    <h3 className="text-md font-semibold tracking-tighter leading-[1.1] group-hover:text-archive-clay transition-colors duration-500">
+                      {partner.companyName}
                     </h3>
                   </div>
 
@@ -129,9 +129,9 @@ const MediaPartnerPage: React.FC = () => {
                       rel="noopener noreferrer"
                       className="flex items-center gap-3 text-[9px] font-black tracking-[0.3em] text-archive-charcoal group-hover:text-white transition-colors group/btn"
                     >
-                      VISIT WEBSITE <ExternalLink size={12} className="group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform uppercase" />
+                      VISIT WEBSITE
                     </a>
-                    <Globe size={14} className="text-archive-charcoal/10 group-hover:text-archive-clay" />
+                    <ExternalLink size={12} className="group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform uppercase" />
                   </div>
                 </div>
               </motion.div>
@@ -139,12 +139,6 @@ const MediaPartnerPage: React.FC = () => {
           </motion.div>
         </AnimatePresence>
 
-        {(!PARTNERS_DATA[activeShow] || PARTNERS_DATA[activeShow].length === 0) && (
-          <div className="py-60 flex flex-col items-center justify-center border border-dashed border-archive-charcoal/20 text-center">
-            <Search size={40} className="text-archive-clay/20 mb-6" />
-            <span className="text-[10px] font-black tracking-[0.5em] text-archive-charcoal/30 uppercase">NO PARTNER RECORDS FOUND FOR SELECTED NODE.</span>
-          </div>
-        )}
       </section>
 
       {/* Narrative Section */}
@@ -152,7 +146,7 @@ const MediaPartnerPage: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
           <div className="space-y-12">
             <div className="space-y-6">
-              <h2 className="text-sm font-black text-archive-clay leading-none uppercase">GLOBAL CIRCULATION.</h2>
+              <h2 className="text-xl font-black text-archive-clay leading-none uppercase">GLOBAL CIRCULATION.</h2>
               <div className="w-20 h-px bg-archive-clay"></div>
             </div>
             <div className="space-y-8">
@@ -191,9 +185,7 @@ const MediaPartnerPage: React.FC = () => {
                 <button className="px-10 py-5 bg-archive-clay text-white font-black text-[10px] tracking-[0.4em] hover:bg-white hover:text-archive-charcoal transition-all">
                   APPLY FOR PARTNERSHIP
                 </button>
-                <button className="px-10 py-5 border border-white/20 text-white font-black text-[10px] tracking-[0.4em] hover:bg-white hover:text-archive-charcoal hover:border-white transition-all flex items-center gap-3">
-                  REGISTRY DATA <ShieldCheck size={14} className="uppercase" />
-                </button>
+
               </div>
             </div>
           </div>

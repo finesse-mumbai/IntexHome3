@@ -91,7 +91,7 @@ const PostShowReportPage: React.FC = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5 }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-px bg-archive-charcoal/10 border border-archive-charcoal/10"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6"
           >
             {filteredReports.map((report, idx) => (
               <motion.div
@@ -104,7 +104,7 @@ const PostShowReportPage: React.FC = () => {
                 className="bg-white group relative aspect-[3/5] overflow-hidden flex flex-col hover:bg-archive-charcoal transition-all duration-700"
               >
                 {/* Visual Frame */}
-                <div className="h-[75%] relative overflow-hidden bg-archive-cream/30 p-6 group-hover:p-4 transition-all duration-700">
+                <div className="h-[100%] relative overflow-hidden bg-archive-cream/30 p-6 group-hover:p-4 transition-all duration-700">
                   <div className="w-full h-full border border-archive-charcoal/5 flex items-center justify-center relative overflow-hidden bg-white shadow-sm group-hover:shadow-md transition-all duration-700">
                     <img
                       src={report.img}
@@ -126,8 +126,8 @@ const PostShowReportPage: React.FC = () => {
                 <div className="h-[25%] p-6 flex flex-col justify-between group-hover:text-white transition-colors duration-700">
                   <div className="space-y-2">
 
-                    <h3 className="text-lg font-black tracking-tighter leading-tight group-hover:text-archive-clay transition-colors duration-500 line-clamp-2 uppercase">
-                      {report.text.toUpperCase()}
+                    <h3 className="text-lg font-black tracking-tighter leading-tight group-hover:text-archive-clay transition-colors duration-500 line-clamp-2">
+                      {report.text}
                     </h3>
                   </div>
 
@@ -136,11 +136,11 @@ const PostShowReportPage: React.FC = () => {
                       href={report.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-3 text-[9px] font-black tracking-[0.3em] text-archive-charcoal group-hover:text-white transition-colors group/btn"
+                      className="flex items-center gap-3 text-[11px] font-black tracking-[0.1em] text-archive-charcoal group-hover:text-white transition-colors group/btn"
                     >
-                      READ REPORT <ArrowUpRight size={14} className="group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform uppercase" />
+                      READ REPORT
                     </a>
-                    <BarChart3 size={14} className="text-archive-charcoal/10 group-hover:text-archive-clay" />
+                    <ArrowUpRight size={14} className="group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform uppercase" />
                   </div>
                 </div>
               </motion.div>
@@ -156,62 +156,11 @@ const PostShowReportPage: React.FC = () => {
         )}
       </section>
 
-      {/* Summary Matrix Section */}
-      <section className="py-40 px-6 md:px-12 max-w-[1440px] mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
-          <div className="space-y-12">
-            <div className="space-y-6">
-              <h2 className="text-sm font-black text-archive-clay leading-none uppercase">Analytics & Growth.</h2>
-              <div className="w-20 h-px bg-archive-clay"></div>
-            </div>
-            <div className="space-y-8">
-              <p className="text-[12px] font-bold tracking-[0.15em] leading-relaxed text-archive-charcoal/60">
-                The Post Show Reports provide a granular analysis of trade visitor demographics, exhibitor satisfaction indices, and regional market penetration. This archive documents 10+ years of steady growth in the South Asian textile ecosystem.
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                {[
-                  { label: "Data Integrity", value: "Audited Trade Stats" },
-                  { label: "Reach Analysis", value: "Verified Visitor Logs" },
-                  { label: "Economic Impact", value: "Multi-Million Transaction Index" },
-                  { label: "Historical Depth", value: "Archive From 2015" }
-                ].map((item, i) => (
-                  <div key={i} className="space-y-2 border-l border-archive-charcoal/10 pl-6">
-                    <span className="text-[8px] font-black tracking-widest opacity-40 block">{item.label}</span>
-                    <span className="text-[11px] font-black text-archive-charcoal">{item.value}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
 
-          <div className="bg-archive-charcoal p-16 text-white space-y-12 relative overflow-hidden">
-            <div className="absolute -bottom-8 -right-8 opacity-5">
-              <History size={200} />
-            </div>
-            <div className="space-y-4 relative z-10">
-              <span className="text-archive-clay text-[10px] font-black tracking-[0.5em]">Insight Protocol</span>
-              <h3 className="text-xl font-black leading-none uppercase">Request Custom <br /> Impact Data.</h3>
-            </div>
-            <div className="space-y-8 relative z-10">
-              <p className="text-[11px] font-bold tracking-[0.2em] text-white/40 leading-relaxed">
-                Require specialized year-on-year growth analysis or regional trade flows data? Our research department facilitates high-tier technical data requests for verified industry partners.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-6">
-                <button className="px-10 py-5 bg-archive-clay text-white font-black text-[10px] tracking-[0.4em] hover:bg-white hover:text-archive-charcoal transition-all">
-                  REQUEST DATASET
-                </button>
-                <button className="px-10 py-5 border border-white/20 text-white font-black text-[10px] tracking-[0.4em] hover:bg-white hover:text-archive-charcoal hover:border-white transition-all flex items-center gap-3">
-                  REGISTRY SYNC <ShieldCheck size={14} className="uppercase" />
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Decorative Technical Detail */}
-      <div className="h-4 bg-archive-charcoal relative overflow-hidden opacity-10">
-        <div className="absolute inset-0 measuring-tape"></div>
+      <div className="h-4  relative overflow-hidden opacity-10">
+        <div className="absolute inset-0"></div>
       </div>
     </div>
   );

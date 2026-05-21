@@ -13,7 +13,9 @@ import SocialFeed from './components/SocialFeed';
 import BuyerCategories from './components/BuyerCategories';
 import Gallery from './components/Gallery';
 import VideoShowcase from './components/VideoShowcase';
+import HomeBlogs from './components/HomeBlogs';
 import Footer from './components/Footer';
+import FaqPage from './components/FaqPage';
 import RevealWrapper from './components/RevealWrapper';
 import ShowProfilePage from './components/ShowProfilePage';
 import OrganiserPage from './components/OrganiserPage';
@@ -40,6 +42,15 @@ import PhotoGalleryPage from './components/PhotoGalleryPage';
 import IntexTimesPage from './components/IntexTimesPage';
 import TestimonialPlaybackPage from './components/TestimonialPlaybackPage';
 import IBFDetailsPage from './components/IBFDetailsPage';
+import BlogsPage from './components/BlogsPage';
+import BlogCottonToMmfPage from './components/blogs/BlogCottonToMmfPage';
+import BlogGlobalBuyersShiftPage from './components/blogs/BlogGlobalBuyersShiftPage';
+import BlogIntexGatewayPage from './components/blogs/BlogIntexGatewayPage';
+import BlogSouthAsiaExportsPage from './components/blogs/BlogSouthAsiaExportsPage';
+import BlogSustainableCottonPage from './components/blogs/BlogSustainableCottonPage';
+import BlogTopExportersPage from './components/blogs/BlogTopExportersPage';
+import BlogTopForeignBuyersPage from './components/blogs/BlogTopForeignBuyersPage';
+import BlogZaraHmSourcingPage from './components/blogs/BlogZaraHmSourcingPage';
 
 import { motion, useScroll, useSpring, AnimatePresence } from 'framer-motion';
 
@@ -135,8 +146,38 @@ const App: React.FC = () => {
     if (currentPath === '#testimonial-playback') {
       return <TestimonialPlaybackPage />;
     }
+if (currentPath === '#faq') {
+  return <FaqPage />;
+}
     if (currentPath === '#ibf-details') {
       return <IBFDetailsPage />;
+    }
+    if (currentPath === '#blogs') {
+      return <BlogsPage />;
+    }
+    if (currentPath === '#blogs/cotton-to-mmf') {
+      return <BlogCottonToMmfPage />;
+    }
+    if (currentPath === '#blogs/global-buyers-shift') {
+      return <BlogGlobalBuyersShiftPage />;
+    }
+    if (currentPath === '#blogs/intex-gateway') {
+      return <BlogIntexGatewayPage />;
+    }
+    if (currentPath === '#blogs/south-asia-exports') {
+      return <BlogSouthAsiaExportsPage />;
+    }
+    if (currentPath === '#blogs/sustainable-cotton') {
+      return <BlogSustainableCottonPage />;
+    }
+    if (currentPath === '#blogs/top-exporters') {
+      return <BlogTopExportersPage />;
+    }
+    if (currentPath === '#blogs/top-foreign-buyers') {
+      return <BlogTopForeignBuyersPage />;
+    }
+    if (currentPath === '#blogs/zara-hm-sourcing') {
+      return <BlogZaraHmSourcingPage />;
     }
 
     return (
@@ -253,7 +294,11 @@ const App: React.FC = () => {
           <SocialFeed />
         </RevealWrapper>
 
-        <RevealWrapper text="RESOURCES." subtext="REG_ID // 11" type="slide" direction="down" amount={0.4}>
+        <RevealWrapper text="INSIGHTS." subtext="REG_ID // 11" type="bands-h" amount={0.3}>
+          <HomeBlogs />
+        </RevealWrapper>
+
+        <RevealWrapper text="RESOURCES." subtext="REG_ID // 12" type="slide" direction="down" amount={0.4}>
           <Resources />
         </RevealWrapper>
       </>
@@ -285,7 +330,16 @@ const App: React.FC = () => {
     '#photo-gallery',
     '#intex-times',
     '#testimonial-playback',
-    '#ibf-details'
+    '#ibf-details',
+    '#blogs',
+    '#blogs/cotton-to-mmf',
+    '#blogs/global-buyers-shift',
+    '#blogs/intex-gateway',
+    '#blogs/south-asia-exports',
+    '#blogs/sustainable-cotton',
+    '#blogs/top-exporters',
+    '#blogs/top-foreign-buyers',
+    '#blogs/zara-hm-sourcing'
   ].includes(currentPath);
 
   return (

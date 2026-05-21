@@ -51,7 +51,7 @@ const MediaCoverageReportPage: React.FC = () => {
   const [activeEvent, setActiveEvent] = useState('ALL');
   const [activeYear, setActiveYear] = useState('ALL');
 
-  const events = ['ALL', 'BANGLADESH', 'SRI LANKA', 'INDIA', 'GLOBAL'];
+  const events = ['ALL', 'BANGLADESH', 'SRI LANKA'];
   const years = ['ALL', '2025', '2024'];
 
   const filteredReports = useMemo(() => {
@@ -114,7 +114,7 @@ const MediaCoverageReportPage: React.FC = () => {
 
       {/* Reports Grid with Bottom-to-Top Animation */}
       <section className="px-6 md:px-12 max-w-[1440px] mx-auto min-h-[400px]">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-archive-charcoal/10 border border-archive-charcoal/10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <AnimatePresence mode="popLayout">
             {filteredReports.map((report, idx) => (
               <motion.div
@@ -128,7 +128,7 @@ const MediaCoverageReportPage: React.FC = () => {
                   ease: [0.16, 1, 0.3, 1],
                   delay: idx * 0.05
                 }}
-                className="bg-white group p-6 md:p-8 flex flex-col justify-between h-[500px] relative overflow-hidden hover:bg-archive-charcoal transition-all duration-700"
+                className="bg-white group p-6 md:p-8 flex flex-col justify-between h-[600px] relative overflow-hidden hover:bg-archive-charcoal transition-all duration-700"
               >
                 {/* Background Decor */}
                 <div className="absolute -bottom-8 -right-8 text-[12rem] font-black text-archive-charcoal/[0.02] group-hover:text-white/[0.03] select-none pointer-events-none transition-colors duration-700">
@@ -138,7 +138,7 @@ const MediaCoverageReportPage: React.FC = () => {
                 <div className="space-y-8 relative z-10">
                   <div className="w-full">
                     {report.url && report.url !== '#' ? (
-                      <div className="w-full h-48 mb-6 border border-archive-charcoal/10 bg-archive-cream/30 p-2 group-hover:border-archive-clay transition-colors">
+                      <div className="w-full h-72 mb-6 border border-archive-charcoal/10 bg-archive-cream/30 p-2 group-hover:border-archive-clay transition-colors">
                         <iframe
                           src={`${report.url}#view=FitH&toolbar=0&navpanes=0`}
                           className="w-full h-full border border-archive-charcoal/5 shadow-sm bg-white"
@@ -155,19 +155,19 @@ const MediaCoverageReportPage: React.FC = () => {
                   <div className="space-y-4">
                     <div className="space-y-2">
                       <span className="text-[9px] font-black tracking-widest text-archive-clay uppercase">{report.event} // {report.year}</span>
-                       <h3 className="text-lg font-black text-archive-charcoal tracking-tighter leading-[1] group-hover:text-white transition-colors duration-500 uppercase">
+                      <h3 className="text-lg font-black text-archive-charcoal tracking-tighter leading-[1] group-hover:text-white transition-colors duration-500">
                         {report.title}
                       </h3>
                     </div>
-                    <div className="w-12 h-px bg-archive-clay/40 group-hover:w-full transition-all duration-700"></div>
+
                   </div>
                 </div>
 
                 <div className="relative z-10 pt-6 border-t border-archive-charcoal/5 group-hover:border-white/10 mt-auto flex justify-between items-end">
                   <div className="space-y-1">
                     <div className="flex items-center gap-2">
-                      <FileText size={12} className="text-archive-clay" />
-                       <span className="text-[8px] font-black tracking-widest text-archive-charcoal/30 group-hover:text-white/30 uppercase">PDF Manifest</span>
+
+                      <span className="text-[8px] font-black tracking-widest text-archive-charcoal/30 group-hover:text-white/30 uppercase">PDF Manifest</span>
                     </div>
                     <span className="text-[12px] font-black text-archive-charcoal group-hover:text-archive-clay transition-colors">{report.fileSize}</span>
                   </div>
@@ -177,7 +177,7 @@ const MediaCoverageReportPage: React.FC = () => {
                     rel="noopener noreferrer"
                     className="px-8 py-5 bg-archive-charcoal text-white group-hover:bg-archive-clay transition-all flex items-center gap-4 text-[9px] font-black tracking-[0.3em]"
                   >
-                     DOWNLOAD <Download size={14} className="uppercase" />
+                    DOWNLOAD <Download size={14} className="uppercase" />
                   </a>
                 </div>
               </motion.div>
@@ -188,7 +188,7 @@ const MediaCoverageReportPage: React.FC = () => {
         {filteredReports.length === 0 && (
           <div className="py-60 flex flex-col items-center justify-center border border-dashed border-archive-charcoal/20 text-center">
             <Search size={40} className="text-archive-clay/20 mb-6" />
-             <span className="text-[10px] font-black tracking-[0.5em] text-archive-charcoal/30 uppercase">NO REPORTS INDEXED FOR SELECTED FILTERS.</span>
+            <span className="text-[10px] font-black tracking-[0.5em] text-archive-charcoal/30 uppercase">NO REPORTS INDEXED FOR SELECTED FILTERS.</span>
           </div>
         )}
       </section>
@@ -198,7 +198,7 @@ const MediaCoverageReportPage: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
           <div className="space-y-12">
             <div className="space-y-6">
-               <h2 className="text-sm font-black text-archive-clay leading-none uppercase">JOURNALISTIC VERIFICATION.</h2>
+              <h2 className="text-sm font-black text-archive-clay leading-none uppercase">JOURNALISTIC VERIFICATION.</h2>
               <div className="w-20 h-px bg-archive-clay"></div>
             </div>
             <div className="space-y-8">
@@ -227,7 +227,7 @@ const MediaCoverageReportPage: React.FC = () => {
             </div>
             <div className="space-y-4 relative z-10">
               <span className="text-archive-clay text-[10px] font-black tracking-[0.5em]">Press Desk</span>
-               <h3 className="text-xl font-black leading-none uppercase">Request Custom <br /> Impact Data.</h3>
+              <h3 className="text-xl font-black leading-none uppercase">Request Custom <br /> Impact Data.</h3>
             </div>
             <div className="space-y-8 relative z-10">
               <p className="text-[11px] font-bold tracking-[0.2em] text-white/40 leading-relaxed">
@@ -235,10 +235,10 @@ const MediaCoverageReportPage: React.FC = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-6">
                 <button className="px-10 py-5 bg-archive-clay text-white font-black text-[10px] tracking-[0.4em] hover:bg-white hover:text-archive-charcoal transition-all">
-                   CONTACT MEDIA RELATIONS
+                  CONTACT MEDIA RELATIONS
                 </button>
                 <button className="px-10 py-5 border border-white/20 text-white font-black text-[10px] tracking-[0.4em] hover:bg-white hover:text-archive-charcoal hover:border-white transition-all flex items-center gap-3">
-                   REGISTRY AUDIT <ShieldCheck size={14} className="uppercase" />
+                  REGISTRY AUDIT <ShieldCheck size={14} className="uppercase" />
                 </button>
               </div>
             </div>

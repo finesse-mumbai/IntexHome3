@@ -33,16 +33,7 @@ const BRANDING_DATA: Record<string, BrandingKit[]> = {
       status: 'OPEN'
     }
   ],
-  'INDIA': [
-    {
-      id: 'BR_IN_26_MASTER',
-      title: 'New Delhi Alpha Program',
-      description: 'Premium branding integration for the upcoming Indian node.',
-      pdfUrl: '#',
-      fileSize: 'TBD',
-      status: 'SOON'
-    }
-  ]
+
 };
 
 const BrandingOpportunitiesPage: React.FC = () => {
@@ -122,18 +113,18 @@ const BrandingOpportunitiesPage: React.FC = () => {
                 <div className="space-y-12 relative z-10">
                   <div className="flex justify-between items-start">
                     <div className="flex flex-col gap-2">
-                      <span className="text-[10px] font-mono font-black text-archive-clay">{activeKit.id}</span>
+
                       <div className={`px-3 py-1 w-fit text-[8px] font-black tracking-widest ${activeKit.status === 'OPEN' ? 'bg-green-500/10 text-green-500' : 'bg-archive-clay/10 text-archive-clay'}`}>
-                        STATUS // {activeKit.status.toUpperCase()}
+                        UPDATED PDF FILE
                       </div>
                     </div>
                   </div>
 
                   <div className="space-y-6">
-                       <h3 className="text-3xl md:text-4xl font-black text-archive-charcoal tracking-tighter leading-[0.9] uppercase">
-                        {activeKit.title}
-                      </h3>
-                    <div className="w-24 h-px bg-archive-clay/40"></div>
+                    <h3 className="text-3xl md:text-4xl font-black text-archive-charcoal tracking-tighter leading-[0.9] uppercase">
+                      {activeKit.title}
+                    </h3>
+                    <div className="w-full h-px bg-gray-50"></div>
                     <p className="text-sm md:text-base font-medium tracking-[0.1em] leading-relaxed text-archive-charcoal/60 max-w-lg">
                       {activeKit.description}
                     </p>
@@ -141,10 +132,10 @@ const BrandingOpportunitiesPage: React.FC = () => {
                 </div>
 
                 <div className="relative z-10 pt-12 border-t border-archive-charcoal/5 mt-12 flex flex-col sm:flex-row justify-between items-end gap-8">
-                  <div className="space-y-2">
+                  <div className=" border border-dotted px-10 py-3">
                     <div className="flex items-center gap-2">
-                      <FileText size={12} className="text-archive-clay" />
-                       <span className="text-[9px] font-black tracking-widest text-archive-charcoal/30 uppercase">Specimen Manifest</span>
+
+                      <span className="text-[11px] font-black tracking-widest text-archive-charcoal/30 uppercase">Specimen Manifest</span>
                     </div>
                     <span className="text-[12px] font-black text-archive-charcoal">{activeKit.fileSize} PDF Asset</span>
                   </div>
@@ -155,11 +146,11 @@ const BrandingOpportunitiesPage: React.FC = () => {
                       rel="noopener noreferrer"
                       className="w-full sm:w-auto px-12 py-6 bg-archive-charcoal text-white hover:bg-archive-clay transition-all flex items-center justify-between gap-6 text-[10px] font-black tracking-[0.4em]"
                     >
-                       DOWNLOAD KIT <Download size={18} className="group-hover:translate-y-1 transition-transform uppercase" />
+                      DOWNLOAD PDF <Download size={18} className="group-hover:translate-y-1 transition-transform uppercase" />
                     </a>
                   ) : (
                     <button disabled className="w-full sm:w-auto px-12 py-6 bg-archive-charcoal/10 text-archive-charcoal/40 cursor-not-allowed flex items-center justify-between gap-6 text-[10px] font-black tracking-[0.4em]">
-                       COMING SOON
+                      COMING SOON
                     </button>
                   )}
                 </div>
@@ -174,7 +165,7 @@ const BrandingOpportunitiesPage: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
           <div className="space-y-12">
             <div className="space-y-6">
-               <h2 className="text-sm font-black text-archive-clay leading-none uppercase">PARTNERSHIP INTEGRITY.</h2>
+              <h2 className="text-sm font-black text-archive-clay leading-none uppercase">PARTNERSHIP INTEGRITY.</h2>
               <div className="w-20 h-px bg-archive-clay"></div>
             </div>
             <div className="space-y-8">
@@ -203,7 +194,7 @@ const BrandingOpportunitiesPage: React.FC = () => {
             </div>
             <div className="space-y-4 relative z-10">
               <span className="text-archive-clay text-[10px] font-black tracking-[0.5em]">Executive Portal</span>
-               <h3 className="text-xl font-black leading-none uppercase">Custom Alpha <br /> Partnerships.</h3>
+              <h3 className="text-xl font-black leading-none uppercase">Custom Alpha <br /> Partnerships.</h3>
             </div>
             <div className="space-y-8 relative z-10">
               <p className="text-[11px] font-bold tracking-[0.2em] text-white/40 leading-relaxed">
@@ -211,10 +202,10 @@ const BrandingOpportunitiesPage: React.FC = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-6">
                 <button className="px-10 py-5 bg-archive-clay text-white font-black text-[10px] tracking-[0.4em] hover:bg-white hover:text-archive-charcoal transition-all">
-                   REQUEST CONSULTATION
+                  CONTACT US NOW
                 </button>
                 <button className="px-10 py-5 border border-white/20 text-white font-black text-[10px] tracking-[0.4em] hover:bg-white hover:text-archive-charcoal hover:border-white transition-all flex items-center gap-3">
-                   REGISTRY AUDIT <ShieldCheck size={14} className="uppercase" />
+                  REGISTRY AUDIT <ShieldCheck size={14} className="uppercase" />
                 </button>
               </div>
             </div>
