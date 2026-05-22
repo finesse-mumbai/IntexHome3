@@ -1,299 +1,336 @@
+import React, { useMemo, useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
+import { Camera, Calendar, ChevronDown, MapPin, Maximize2, Search, X } from 'lucide-react';
 
-import React, { useState, useMemo, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Maximize2, Search, Database, Calendar, MapPin, Camera, X, Layers, LayoutGrid } from 'lucide-react';
+type GalleryEvent = 'Bangladesh' | 'Sri Lanka';
 
 interface GalleryAsset {
   id: string;
   url: string;
   year: string;
-  event: 'BANGLADESH' | 'SRI LANKA';
+  event: GalleryEvent;
+  title: string;
 }
 
-// Structuring the raw paths into technical specimens
+const makeAssets = (
+  event: GalleryEvent,
+  year: string,
+  basePath: string,
+  files: string[],
+): GalleryAsset[] =>
+  files.map((file, index) => ({
+    id: `${event.replace(/\s/g, '_')}_${year}_${file.replace(/\W/g, '_')}`,
+    url: `${basePath}/${file}`,
+    year,
+    event,
+    title: `${event} ${year} Gallery ${index + 1}`,
+  }));
+
+const range = (count: number, ext: string) => Array.from({ length: count }, (_, i) => `${i + 1}.${ext}`);
+
 const GALLERY_DATA: GalleryAsset[] = [
-  // 2025 - BD Focus
-  ...Array.from({ length: 40 }, (_, i) => ({
-    id: `GAL_BD_25_${i + 1}`,
-    url: `https://sl.intexsouthasia.com/assets/img/Gallery/2025/${i + 1}.jpg`,
-    year: '2025',
-    event: 'BANGLADESH' as const
-  })),
-  // 2024 - SL/BD Mixed
-  ...Array.from({ length: 16 }, (_, i) => ({
-    id: `GAL_MIX_24_${i + 1}`,
-    url: `https://sl.intexsouthasia.com/assets/img/Gallery/2024/large/${i + 1}.jpg`,
-    year: '2024',
-    event: 'SRI LANKA' as const
-  })),
-  // 2023 - SL/BD Mixed
-  ...Array.from({ length: 16 }, (_, i) => ({
-    id: `GAL_MIX_23_${i + 1}`,
-    url: `https://sl.intexsouthasia.com/assets/img/Gallery/2023/large/${i + 1}.jpg`,
-    year: '2023',
-    event: 'SRI LANKA' as const
-  })),
-  // 2022
-  ...Array.from({ length: 12 }, (_, i) => ({
-    id: `GAL_MIX_22_${i + 1}`,
-    url: `https://sl.intexsouthasia.com/assets/img/Gallery/2022/large/${i + 1}.jpg`,
-    year: '2022',
-    event: 'SRI LANKA' as const
-  })),
-  // 2019
-  ...Array.from({ length: 12 }, (_, i) => ({
-    id: `GAL_MIX_19_${i + 1}`,
-    url: `https://sl.intexsouthasia.com/assets/img/Gallery/2019/large/${i + 1}.jpg`,
-    year: '2019',
-    event: 'SRI LANKA' as const
-  })),
-  // 2018 - 2015 Archives
-  ...Array.from({ length: 20 }, (_, i) => ({
-    id: `GAL_HIST_18_${i + 1}`,
-    url: `https://sl.intexsouthasia.com/assets/img/Gallery/2018/large/${i + 1}.jpg`,
-    year: '2018',
-    event: 'BANGLADESH' as const
-  }))
+  ...makeAssets('Bangladesh', '2025', '/assets/img/GalleryBD/2025', [
+    '1.png', '2.png', '3.png', '4.png', '5.png', '6.png', '7.png', '8.png', '9.png', '10.png', '10A.png',
+    '11.png', '12.png', '13.png', '14.png', '15.png', '16.png', '17.png', '17A.png', '18.png', '19.png',
+    '20.png', '21.png', '22.png', '23.png', '24.png', '25.png', '26.png', '27.png', '28.png', '29.png',
+    '30.png', '31.png', '32.png', '33.png',
+  ]),
+  ...makeAssets('Bangladesh', '2024', '/assets/img/GalleryBD/2024/large', range(16, 'jpg')),
+  ...makeAssets('Bangladesh', '2023', '/assets/img/GalleryBD/2023/large', range(16, 'jpg')),
+  ...makeAssets('Bangladesh', '2022', '/assets/img/GalleryBD/2022/large', [
+    '1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.png', '7.png', '8.png', '9.jpg', '10.png', '11.png', '12.png',
+  ]),
+  ...makeAssets('Bangladesh', '2019', '/assets/img/GalleryBD/2019/large', range(12, 'jpg')),
+
+  ...makeAssets('Sri Lanka', '2025', '/assets/img/GallerySL/2025', range(40, 'jpg')),
+  ...makeAssets('Sri Lanka', '2024', '/assets/img/GallerySL/2024', range(36, 'jpg')),
+  ...makeAssets('Sri Lanka', '2023', '/assets/img/GallerySL/2023', range(36, 'png')),
+  ...makeAssets('Sri Lanka', '2019', '/assets/img/GallerySL/2019/large', range(13, 'jpg')),
+  ...makeAssets('Sri Lanka', '2018', '/assets/img/GallerySL/2018/large', range(20, 'jpg')),
+  ...makeAssets('Sri Lanka', '2017', '/assets/img/GallerySL/2017', range(5, 'jpg')),
+  ...makeAssets('Sri Lanka', '2016', '/assets/img/GallerySL/2016', range(9, 'png')),
+  ...makeAssets('Sri Lanka', '2015', '/assets/img/GallerySL/2015', range(7, 'png')),
 ];
 
+const EVENTS: Array<'ALL' | GalleryEvent> = ['ALL', 'Bangladesh', 'Sri Lanka'];
+
 const PhotoGalleryPage: React.FC = () => {
-  const [filterEvent, setFilterEvent] = useState<'ALL' | 'BANGLADESH' | 'SRI LANKA'>('ALL');
+  const [filterEvent, setFilterEvent] = useState<'ALL' | GalleryEvent>('ALL');
   const [filterYear, setFilterYear] = useState('ALL');
   const [selectedAsset, setSelectedAsset] = useState<GalleryAsset | null>(null);
 
-  const years = ['ALL', '2025', '2024', '2023', '2022', '2019', '2018'];
-  const events = ['ALL', 'BANGLADESH', 'SRI LANKA'];
+  const years = useMemo(() => {
+    const uniqueYears = Array.from(new Set(GALLERY_DATA.map((asset) => asset.year)));
+    return ['ALL', ...uniqueYears.sort((a, b) => b.localeCompare(a))];
+  }, []);
 
   const filteredAssets = useMemo(() => {
-    return GALLERY_DATA.filter(asset => {
+    return GALLERY_DATA.filter((asset) => {
       const eventMatch = filterEvent === 'ALL' || asset.event === filterEvent;
       const yearMatch = filterYear === 'ALL' || asset.year === filterYear;
       return eventMatch && yearMatch;
     });
   }, [filterEvent, filterYear]);
 
+  const groupedAssets = useMemo(() => {
+    return EVENTS.filter((event): event is GalleryEvent => event !== 'ALL')
+      .map((event) => ({
+        event,
+        years: years
+          .filter((year) => year !== 'ALL')
+          .map((year) => ({
+            year,
+            assets: filteredAssets.filter((asset) => asset.event === event && asset.year === year),
+          }))
+          .filter((group) => group.assets.length > 0),
+      }))
+      .filter((group) => filterEvent === 'ALL' || group.event === filterEvent)
+      .filter((group) => group.years.length > 0);
+  }, [filterEvent, filteredAssets, years]);
+
   return (
-    <div className="bg-archive-cream min-h-screen pt-32 pb-24 overflow-hidden">
-      {/* Page Header */}
-      <section className="px-6 md:px-12 max-w-[1440px] mx-auto mb-20">
+    <div className="relative min-h-screen overflow-hidden bg-archive-charcoal pt-32 pb-24">
+      <GalleryBackground />
+
+      <section className="relative z-10 mx-auto mb-12 max-w-[1440px] px-6 md:px-12">
         <div className="flex flex-col gap-12">
           <div className="space-y-6">
             <div className="flex items-center gap-4">
-              <div className="w-12 h-[1px] bg-archive-clay"></div>
-              <span className="text-[10px] font-black tracking-[0.5em] text-archive-clay uppercase">Visual Archive // Light Manifest</span>
+              <div className="h-px w-12 bg-archive-clay"></div>
+              <span className="text-[10px] font-black uppercase tracking-[0.5em] text-archive-clay">Visual Archive // Event Records</span>
             </div>
-            <h1 className="text-4xl md:text-8xl font-black tracking-tighter leading-[0.85] text-archive-charcoal uppercase">
-              PHOTO <br />
-              <span className="text-white">GALLERY.</span>
+            <h1 className="text-4xl md:text-8xl font-black uppercase tracking-tighter leading-[0.85] text-white">
+              PHOTO{' '}
+              <span className="text-archive-clay">GALLERY.</span>
             </h1>
           </div>
 
-          <div className="flex flex-col lg:flex-row gap-12 border-y border-archive-charcoal/10 py-12">
-            <div className="space-y-4">
-              <span className="text-[10px] font-black tracking-widest opacity-40 uppercase">Regional Registry</span>
-              <div className="flex flex-wrap gap-2">
-                {events.map(ev => (
-                  <button
-                    key={ev}
-                    onClick={() => setFilterEvent(ev as any)}
-                    className={`px-8 py-3 text-[10px] font-black tracking-widest border transition-all ${filterEvent === ev ? 'bg-archive-charcoal text-white border-archive-charcoal' : 'border-archive-charcoal/10 text-archive-charcoal/40 hover:text-archive-charcoal'}`}
-                  >
-                    {ev}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            <div className="space-y-4">
-              <span className="text-[10px] font-black tracking-widest opacity-40 uppercase">Cycle Timeline</span>
-              <div className="flex flex-wrap gap-2">
-                {years.map(yr => (
-                  <button
-                    key={yr}
-                    onClick={() => setFilterYear(yr)}
-                    className={`px-8 py-3 text-[10px] font-black tracking-widest border transition-all ${filterYear === yr ? 'bg-archive-clay border-archive-clay text-white' : 'border-archive-charcoal/10 text-archive-charcoal/40 hover:text-archive-charcoal'}`}
-                  >
-                    {yr}
-                  </button>
-                ))}
-              </div>
+          <div className="space-y-6 bg-white/10 px-5 py-6 shadow-sm backdrop-blur-md md:px-8">
+            <p className="max-w-xl text-sm font-bold leading-relaxed tracking-[0.15em] text-white/70">
+              Event-wise photo archive from Intex Bangladesh and Intex Sri Lanka, arranged by year for quick browsing and full-screen viewing.
+            </p>
+            <div className="grid gap-4 md:grid-cols-2">
+              <FilterDropdown label="Event" values={EVENTS} active={filterEvent} onChange={(value) => setFilterEvent(value as 'ALL' | GalleryEvent)} />
+              <FilterDropdown label="Year" values={years} active={filterYear} onChange={setFilterYear} highlight />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Gallery Grid with "Fly Up" Animation */}
-      <section className="px-6 md:px-12 max-w-[90vw] mx-auto min-h-[600px]">
-        <div className="grid grid-cols-2 gap-px bg-archive-charcoal/10 border border-archive-charcoal/10">
-          <AnimatePresence mode="popLayout">
-            {filteredAssets.slice(0, 50).map((asset, idx) => (
-              <motion.div
-                key={asset.id}
-                layout
-                initial={{ opacity: 0, y: 200 + Math.random() * 300 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -200, scale: 0.8 }}
-                transition={{
-                  duration: 1.2,
-                  ease: [0.16, 1, 0.3, 1],
-                  delay: Math.random() * 0.5
-                }}
-                className="bg-white group relative aspect-square overflow-hidden cursor-crosshair border border-transparent hover:border-archive-clay transition-colors duration-500"
-                onClick={() => setSelectedAsset(asset)}
-              >
-                <img
-                  src={asset.url}
-                  alt={asset.id}
-                  className="w-full h-full object-cover brightness-[0.85] group-hover:scale-105 group-hover:brightness-[0.4] transition-all duration-[1200ms] ease-out"
-                  loading="lazy"
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${asset.id}&background=F3EBE8&color=2F2C2C&bold=true`;
-                  }}
-                />
-
-                {/* Refined Overlay */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-between p-5 text-white">
-                  <div className="flex justify-between items-start translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
-                    <span className="text-[7px] font-black tracking-widest border border-white/30 px-2 py-1 bg-black/20 backdrop-blur-sm">Specimen_{asset.id.split('_').pop()}</span>
-                    <div className="w-8 h-8 rounded-full bg-archive-clay/20 border border-archive-clay/40 flex items-center justify-center backdrop-blur-md">
-                      <Maximize2 size={12} className="text-white" />
-                    </div>
-                  </div>
-                  <div className="space-y-1 translate-y-2 group-hover:translate-y-0 transition-transform duration-500 delay-75">
-                    <div className="flex items-center gap-2">
-                      <div className="w-1.5 h-1.5 bg-archive-clay rounded-full shadow-[0_0_8px_rgba(180,140,110,0.8)]"></div>
-                      <span className="text-[9px] font-black tracking-[0.2em] text-archive-clay uppercase">{asset.event}</span>
-                    </div>
-                    <p className="text-[11px] font-black tracking-tighter uppercase">{asset.year.toUpperCase()} VISUAL REGISTRY</p>
-                  </div>
-                </div>
-
-                {/* Technical Corner Detail */}
-                <div className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-white/0 group-hover:border-white/40 transition-colors duration-500"></div>
-              </motion.div>
+      <section className="relative z-10 mx-auto max-w-[1440px] px-6 md:px-12">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={`${filterEvent}-${filterYear}`}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.35 }}
+            className="space-y-24"
+          >
+            {groupedAssets.map((eventGroup) => (
+              <div key={eventGroup.event} className="space-y-12">
+                <EventHeader event={eventGroup.event} count={eventGroup.years.reduce((sum, group) => sum + group.assets.length, 0)} />
+                {eventGroup.years.map((yearGroup) => (
+                  <YearGallery
+                    key={`${eventGroup.event}-${yearGroup.year}`}
+                    event={eventGroup.event}
+                    year={yearGroup.year}
+                    assets={yearGroup.assets}
+                    onSelect={setSelectedAsset}
+                  />
+                ))}
+              </div>
             ))}
-          </AnimatePresence>
-        </div>
+          </motion.div>
+        </AnimatePresence>
 
         {filteredAssets.length === 0 && (
-          <div className="py-60 flex flex-col items-center justify-center border border-dashed border-archive-charcoal/20 text-center">
-            <Search size={40} className="text-archive-clay/20 mb-6" />
-            <span className="text-[10px] font-black tracking-[0.5em] text-archive-charcoal/30 uppercase">Registry null result for selected node.</span>
+          <div className="flex flex-col items-center justify-center bg-white/10 py-40 text-center backdrop-blur-md">
+            <Search size={40} className="mb-6 text-archive-clay/60" />
+            <span className="text-[10px] font-black uppercase tracking-[0.5em] text-white/50">No gallery images for selected filters.</span>
           </div>
         )}
       </section>
 
-      {/* Lightbox Modal */}
       <AnimatePresence>
         {selectedAsset && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] bg-archive-charcoal/98 backdrop-blur-2xl flex items-center justify-center p-6 md:p-24"
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-archive-charcoal/95 p-5 backdrop-blur-xl md:p-16"
             onClick={() => setSelectedAsset(null)}
           >
-            <button className="absolute top-12 right-12 text-white/40 hover:text-white text-4xl font-light transition-colors group">
-              <X size={40} strokeWidth={1} />
+            <button className="absolute right-6 top-6 text-white/60 transition-colors hover:text-white md:right-12 md:top-12">
+              <X size={36} strokeWidth={1.4} />
             </button>
-
             <motion.div
-              initial={{ scale: 0.95, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.95, opacity: 0 }}
-              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-              className="w-full max-w-5xl aspect-square md:aspect-video bg-black relative border border-white/5 shadow-2xl"
-              onClick={(e) => e.stopPropagation()}
+              initial={{ opacity: 0, scale: 0.96 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.96 }}
+              transition={{ duration: 0.35 }}
+              className="grid w-full max-w-6xl gap-6 lg:grid-cols-[1fr_280px]"
+              onClick={(event) => event.stopPropagation()}
             >
-              <img
-                src={selectedAsset.url}
-                className="w-full h-full object-contain hover:grayscale-0 transition-all duration-1000"
-                alt={selectedAsset.id}
-              />
-
-              <div className="absolute -bottom-24 left-0 w-full flex justify-between items-end">
-                <div className="space-y-4">
-                  <div className="flex items-center gap-3">
-                    <Camera size={14} className="text-archive-clay" />
-                    <span className="text-archive-clay text-[10px] font-black tracking-[0.5em] uppercase">Archive Master Specimen // {selectedAsset.id}</span>
-                  </div>
-                  <h2 className="text-sm md:text-base font-black text-white tracking-tighter leading-none">
-                    {selectedAsset.event} <span className="text-white/40 uppercase">{selectedAsset.year.toUpperCase()} RECORD</span>
-                  </h2>
-                </div>
-                <div className="flex gap-10 text-white/40 text-[10px] font-black tracking-widest">
-                  <div className="flex flex-col gap-1 items-end">
-                    <span className="opacity-40">System_Sync</span>
-                    <span className="text-green-500 font-mono">VERIFIED</span>
-                  </div>
-                  <div className="flex flex-col gap-1 items-end">
-                    <span className="opacity-40">Resolution</span>
-                    <span className="text-white">HD_MASTER</span>
+              <div className="flex max-h-[75vh] items-center justify-center bg-black/40 backdrop-blur-md">
+                <img src={selectedAsset.url} alt={selectedAsset.title} className="max-h-[75vh] w-full object-contain" />
+              </div>
+              <div className="flex flex-col justify-between bg-white/10 p-8 text-white backdrop-blur-md">
+                <div className="space-y-5">
+                  <span className="text-[10px] font-black uppercase tracking-[0.4em] text-archive-clay">Selected Image</span>
+                  <h2 className="text-2xl font-black uppercase leading-none">{selectedAsset.event}</h2>
+                  <div className="space-y-3 text-xs font-bold uppercase tracking-widest text-white/60">
+                    <p className="flex items-center gap-2"><Calendar size={14} className="text-archive-clay" /> {selectedAsset.year}</p>
+                    <p className="flex items-center gap-2"><Camera size={14} className="text-archive-clay" /> {selectedAsset.title}</p>
                   </div>
                 </div>
+                <button onClick={() => setSelectedAsset(null)} className="mt-8 bg-archive-charcoal px-6 py-4 text-[10px] font-black uppercase tracking-[0.3em] text-white transition-colors hover:bg-archive-clay">
+                  Close Preview
+                </button>
               </div>
             </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
+    </div>
+  );
+};
 
-      {/* Narrative Section */}
-      <section className="py-40 px-6 md:px-12 max-w-[1440px] mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
-          <div className="space-y-12">
-            <div className="space-y-6">
-              <h2 className="text-sm font-black text-archive-clay leading-none uppercase">Static Heritage.</h2>
-              <div className="w-20 h-px bg-archive-clay"></div>
-            </div>
-            <div className="space-y-8">
-              <p className="text-[12px] font-bold tracking-[0.15em] leading-relaxed text-archive-charcoal/60">
-                Our visual registry documents the tactile and architectural evolution of Intex South Asia. Spanning over a decade, these specimens represent the pinnacle of regional trade networking and material innovation.
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                {[
-                  { label: "Archive Volume", value: "2000+ Master Assets" },
-                  { label: "Asset Fidelity", value: "HD Technical Records" },
-                  { label: "Indexing Status", value: "Publicly Accessible" },
-                  { label: "System Sync", value: "Real-time Node Update" }
-                ].map((item, i) => (
-                  <div key={i} className="space-y-2 border-l border-archive-charcoal/10 pl-6">
-                    <span className="text-[8px] font-black tracking-widest opacity-40 block">{item.label}</span>
-                    <span className="text-[11px] font-black text-archive-charcoal">{item.value}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
+const GalleryBackground: React.FC = () => (
+  <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+    <div
+      className="absolute left-1/2 top-0 w-[170%]"
+      style={{ transform: 'translateX(-50%) rotate(15deg) skewX(-5deg)' }}
+    >
+      <motion.div
+        className="grid grid-cols-4 gap-0.5 p-2 md:grid-cols-7 lg:grid-cols-10"
+        initial={{ y: '0%' }}
+        animate={{ y: '-50%' }}
+        transition={{ duration: 60, ease: 'linear', repeat: Infinity }}
+      >
+        {[...GALLERY_DATA, ...GALLERY_DATA].slice(0, 160).map((asset, index) => (
+          <div key={`${asset.id}-background-${index}`} className="relative aspect-[4/3] overflow-hidden">
+            <img
+              src={asset.url}
+              alt=""
+              aria-hidden="true"
+              loading="lazy"
+              className="h-full w-full object-cover brightness-50"
+            />
           </div>
+        ))}
+      </motion.div>
+    </div>
+    <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.48)_0%,rgba(0,0,0,0.18)_42%,#050505_100%)]"></div>
+    <div className="absolute inset-0 bg-black/45"></div>
+  </div>
+);
 
-          <div className="bg-archive-charcoal p-16 text-white space-y-12 relative overflow-hidden">
-            <div className="absolute -bottom-8 -right-8 opacity-5">
-              <LayoutGrid size={200} />
-            </div>
-            <div className="space-y-4 relative z-10">
-              <span className="text-archive-clay text-[10px] font-black tracking-[0.5em]">Media Request Terminal</span>
-              <h3 className="text-xl font-black leading-none uppercase">Access the Full <br /> Visual Inventory.</h3>
-            </div>
-            <div className="space-y-8 relative z-10">
-              <p className="text-[11px] font-bold tracking-[0.2em] text-white/40 leading-relaxed">
-                Require high-fidelity RAW files for publication or technical industry reports? Authenticated media partners may request terminal access to the full 10-year master visual registry.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-6">
-                <button className="px-10 py-5 bg-archive-clay text-white font-black text-[10px] tracking-[0.4em] hover:bg-white hover:text-archive-charcoal transition-all">
-                  REQUEST TERMINAL ACCESS
-                </button>
-                <button className="px-10 py-5 border border-white/20 text-white font-black text-[10px] tracking-[0.4em] hover:bg-white hover:text-archive-charcoal hover:border-white transition-all flex items-center gap-3">
-                  SYNC REGISTRY <Layers size={14} className="uppercase" />
-                </button>
-              </div>
-            </div>
+const FilterDropdown: React.FC<{
+  label: string;
+  values: string[];
+  active: string;
+  onChange: (value: string) => void;
+  highlight?: boolean;
+}> = ({ label, values, active, onChange, highlight = false }) => (
+  <div className="space-y-3">
+    <span className="text-[10px] font-black uppercase tracking-widest text-white/50">{label}</span>
+    <div className={`relative backdrop-blur-md ${highlight ? 'bg-archive-clay/80' : 'bg-white/15'}`}>
+      <select
+        value={active}
+        onChange={(event) => onChange(event.target.value)}
+        className="w-full appearance-none bg-transparent px-5 py-4 pr-12 text-[11px] font-black uppercase tracking-widest text-white outline-none"
+      >
+        {values.map((value) => (
+          <option key={value} value={value} className="bg-archive-charcoal text-white">
+            {value}
+          </option>
+        ))}
+      </select>
+      <ChevronDown size={16} className="pointer-events-none absolute right-5 top-1/2 -translate-y-1/2 text-white/70" />
+    </div>
+  </div>
+);
+
+const EventHeader: React.FC<{ event: GalleryEvent; count: number }> = ({ event, count }) => (
+  <div className="relative overflow-hidden bg-white/10 px-6 py-8 text-white backdrop-blur-md md:px-10">
+    <div className="absolute inset-y-0 right-0 w-1/2 bg-[linear-gradient(90deg,transparent,rgba(238,117,57,0.18))]"></div>
+    <div className="relative flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+    <div className="space-y-3">
+      <div className="flex items-center gap-3 text-archive-clay">
+        <MapPin size={16} />
+        <span className="text-[10px] font-black uppercase tracking-[0.4em]">Event Gallery</span>
+      </div>
+      <h2 className="text-3xl font-black uppercase tracking-tight md:text-5xl">{event}</h2>
+    </div>
+    <span className="text-[10px] font-black uppercase tracking-[0.4em] text-white/45">{count} Images</span>
+    </div>
+  </div>
+);
+
+const YearGallery: React.FC<{
+  event: GalleryEvent;
+  year: string;
+  assets: GalleryAsset[];
+  onSelect: (asset: GalleryAsset) => void;
+}> = ({ event, year, assets, onSelect }) => {
+  const previewAssets = assets.slice(0, 24);
+
+  return (
+    <div className="space-y-6">
+      <div className="flex items-center justify-between gap-6 pb-4">
+        <div className="flex items-center gap-4">
+          <span className="flex h-11 w-11 items-center justify-center bg-archive-clay text-[11px] font-black text-white">
+            {year.slice(2)}
+          </span>
+          <div>
+            <h3 className="text-xl font-black uppercase tracking-tight text-white">{year}</h3>
+            <p className="text-[10px] font-black uppercase tracking-widest text-white/45">{event} visual record</p>
           </div>
         </div>
-      </section>
-
-      {/* Decorative Technical Shutter */}
-      <div className="h-4 bg-archive-charcoal relative overflow-hidden opacity-10">
-        <div className="absolute inset-0 measuring-tape"></div>
+        <span className="text-[10px] font-black uppercase tracking-widest text-white/45">{assets.length} Photos</span>
       </div>
+      <div className="grid grid-cols-1 gap-1 sm:grid-cols-2 lg:grid-cols-4">
+        {previewAssets.map((asset, index) => {
+          return (
+            <motion.button
+              key={asset.id}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.45, delay: index * 0.025 }}
+              onClick={() => onSelect(asset)}
+              className="group relative block w-full overflow-hidden bg-white/10 text-left shadow-sm backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:bg-white/15 hover:shadow-2xl"
+            >
+              <img
+                src={asset.url}
+                alt={asset.title}
+                loading="lazy"
+                className="block aspect-[4/3] w-full object-cover transition-all duration-700 group-hover:scale-105 group-hover:brightness-[0.62] group-hover:saturate-110"
+                onError={(event) => {
+                  (event.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${encodeURIComponent(asset.title)}&background=F3EBE8&color=2F2C2C&bold=true`;
+                }}
+              />
+              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(47,44,44,0)_35%,rgba(47,44,44,0.82)_100%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
+              <div className="absolute inset-x-0 bottom-0 translate-y-3 p-5 text-white opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                <div className="flex items-end justify-between gap-4">
+                  <div className="space-y-2">
+                    <span className="text-[9px] font-black uppercase tracking-widest text-archive-clay">{event} // {year}</span>
+                    <p className="text-xs font-black uppercase tracking-tight">Open image</p>
+                  </div>
+                  <span className="flex h-9 w-9 items-center justify-center bg-white/10 backdrop-blur">
+                    <Maximize2 size={14} />
+                  </span>
+                </div>
+              </div>
+            </motion.button>
+          );
+        })}
+      </div>
+      {assets.length > previewAssets.length && (
+        <p className="text-right text-[10px] font-black uppercase tracking-[0.35em] text-white/45">
+          Showing {previewAssets.length} of {assets.length}
+        </p>
+      )}
     </div>
   );
 };

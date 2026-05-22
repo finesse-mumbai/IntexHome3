@@ -14,6 +14,7 @@ import BuyerCategories from './components/BuyerCategories';
 import Gallery from './components/Gallery';
 import VideoShowcase from './components/VideoShowcase';
 import HomeBlogs from './components/HomeBlogs';
+import Home2Page from './components/Home2Page';
 import Footer from './components/Footer';
 import FaqPage from './components/FaqPage';
 import RevealWrapper from './components/RevealWrapper';
@@ -75,6 +76,9 @@ const App: React.FC = () => {
   }, []);
 
   const renderContent = () => {
+    if (currentPath === '#home2') {
+      return <Home2Page />;
+    }
     if (currentPath === '#show-profile') {
       return <ShowProfilePage />;
     }
