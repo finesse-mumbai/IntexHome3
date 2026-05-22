@@ -13,10 +13,23 @@ interface Bulletin {
 }
 
 const BULLETIN_DATA: Bulletin[] = [
+  // BANGLADESH - 2025
+  { id: 'IT_BD_25_03', year: '2025', event: 'Bangladesh', title: "Intex Times - Day 3", pdfLink: "https://bd.intexsouthasia.com/assets/pdf/Intex-Times-Day-3-2025.pdf", type: 'Daily Bulletin' },
+  { id: 'IT_BD_25_02', year: '2025', event: 'Bangladesh', title: "Intex Times - Day 2", pdfLink: "https://bd.intexsouthasia.com/assets/pdf/Intex-Times-Day-2-2025.pdf", type: 'Daily Bulletin' },
+  { id: 'IT_BD_25_01', year: '2025', event: 'Bangladesh', title: "Intex Times - Day 1", pdfLink: "https://bd.intexsouthasia.com/assets/pdf/Intex-Times-Day-1-2025.pdf", type: 'Daily Bulletin' },
+
+  // BANGLADESH - 2024
+  { id: 'IT_BD_24_02', year: '2024', event: 'Bangladesh', title: "Intex Times - Day 2 & 3", pdfLink: "https://bd.intexsouthasia.com/assets/pdf/Intex-Times-DAY-2-2024.pdf", type: 'Daily Bulletin' },
+  { id: 'IT_BD_24_01', year: '2024', event: 'Bangladesh', title: "Intex Times - Day 1", pdfLink: "https://bd.intexsouthasia.com/assets/pdf/Intex-Times-DAY-1-2024.pdf", type: 'Daily Bulletin' },
+
+  // BANGLADESH - 2023
+  { id: 'IT_BD_23_03', year: '2023', event: 'Bangladesh', title: "Intex Times - Day 3", pdfLink: "https://bd.intexsouthasia.com/assets/pdf/INTEX Times Bulletin 2023 - Day 3.pdf", type: 'Daily Bulletin' },
+  { id: 'IT_BD_23_02', year: '2023', event: 'Bangladesh', title: "Intex Times - Day 2", pdfLink: "https://bd.intexsouthasia.com/assets/pdf/INTEX Times Bulletin 2023 - Day 2.pdf", type: 'Daily Bulletin' },
+  { id: 'IT_BD_23_01', year: '2023', event: 'Bangladesh', title: "Intex Times - Day 1", pdfLink: "https://bd.intexsouthasia.com/assets/pdf/INTEX Times Bulletin 2023 - Day 1.pdf", type: 'Daily Bulletin' },
+
   // SRI LANKA - 2025
-  { id: 'IT_SL_25_01', year: '2025', event: 'Sri Lanka', title: "Intex Times - Day 1", pdfLink: "https://sl.intexsouthasia.com/assets/pdf/Intex-Times-Day-1-2025.pdf", type: 'Daily Bulletin' },
-  { id: 'IT_SL_25_02', year: '2025', event: 'Sri Lanka', title: "Intex Times - Day 2", pdfLink: "https://sl.intexsouthasia.com/assets/pdf/Intex-Times-Day-2-2025.pdf", type: 'Daily Bulletin' },
-  { id: 'IT_SL_25_03', year: '2025', event: 'Sri Lanka', title: "Intex Times - Day 3", pdfLink: "https://sl.intexsouthasia.com/assets/pdf/Intex-Times-Day-3-2025.pdf", type: 'Daily Bulletin' },
+  { id: 'IT_SL_25_01', year: '2025', event: 'Sri Lanka', title: "Preview 1", pdfLink: "https://sl.intexsouthasia.com/assets/pdf/Intex-Times-2025.pdf", type: 'Event Preview' },
+  { id: 'IT_SL_25_02', year: '2025', event: 'Sri Lanka', title: "Preview 2", pdfLink: "https://sl.intexsouthasia.com/assets/pdf/Intex-InMac-Times.pdf", type: 'Machinery Index' },
 
   // SRI LANKA - 2024
   { id: 'IT_SL_24_01', year: '2024', event: 'Sri Lanka', title: "Intex Times - Day 1", pdfLink: "https://sl.intexsouthasia.com/assets/Images/pdf/intex-srilanka-2024-day-1.pdf", type: 'Daily Bulletin' },
@@ -25,11 +38,7 @@ const BULLETIN_DATA: Bulletin[] = [
   // SRI LANKA - 2023
   { id: 'IT_SL_23_01', year: '2023', event: 'Sri Lanka', title: "Intex Times - Day 1", pdfLink: "https://sl.intexsouthasia.com/assets/Images/pdf/INTEXTIMES - DAY 1.pdf", type: 'Daily Bulletin' },
   { id: 'IT_SL_23_02', year: '2023', event: 'Sri Lanka', title: "Intex Times - Day 2", pdfLink: "https://sl.intexsouthasia.com/assets/Images/pdf/INTEXTIMES - DAY 2.pdf", type: 'Daily Bulletin' },
-  { id: 'IT_SL_23_03', year: '2023', event: 'Sri Lanka', title: "Intex Times - Day 3", pdfLink: "https://sl.intexsouthasia.com/assets/Images/pdf/INTEXTIMES 2023-DAY3.pdf", type: 'Daily Bulletin' },
-
-  // BANGLADESH - 2025
-  { id: 'IT_BD_25_01', year: '2025', event: 'Bangladesh', title: "Preview 1", pdfLink: "https://sl.intexsouthasia.com/assets/pdf/Intex-Times-2025.pdf", type: 'Event Preview' },
-  { id: 'IT_BD_25_02', year: '2025', event: 'Bangladesh', title: "Preview 2", pdfLink: "https://sl.intexsouthasia.com/assets/pdf/Intex-InMac-Times.pdf", type: 'Machinery Index' }
+  { id: 'IT_SL_23_03', year: '2023', event: 'Sri Lanka', title: "Intex Times - Day 3", pdfLink: "https://sl.intexsouthasia.com/assets/Images/pdf/INTEXTIMES 2023-DAY3.pdf", type: 'Daily Bulletin' }
 ];
 
 const IntexTimesPage: React.FC = () => {
@@ -41,7 +50,7 @@ const IntexTimesPage: React.FC = () => {
 
   const filteredBulletins = useMemo(() => {
     return BULLETIN_DATA.filter(item => {
-      const eventMatch = activeEvent === 'ALL' || item.event === activeEvent;
+      const eventMatch = activeEvent === 'ALL' || item.event.toUpperCase() === activeEvent;
       const yearMatch = activeYear === 'ALL' || item.year === activeYear;
       return eventMatch && yearMatch;
     });

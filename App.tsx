@@ -32,6 +32,7 @@ import NewsletterPage from './components/NewsletterPage';
 import PressReleasePage from './components/PressReleasePage';
 import MediaCoveragePage from './components/MediaCoveragePage';
 import MediaPartnerPage from './components/MediaPartnerPage';
+import IndustryPartnersPage from './components/IndustryPartnersPage';
 import InfoKitPage from './components/InfoKitPage';
 import FactsheetPage from './components/FactsheetPage';
 import BrandingOpportunitiesPage from './components/BrandingOpportunitiesPage';
@@ -118,6 +119,9 @@ const App: React.FC = () => {
     }
     if (currentPath === '#media-partners') {
       return <MediaPartnerPage />;
+    }
+    if (currentPath === '#industry-partners') {
+      return <IndustryPartnersPage />;
     }
     if (currentPath === '#info-kit') {
       return <InfoKitPage />;
@@ -319,8 +323,10 @@ if (currentPath === '#faq') {
     '#exhibitor-list',
     '#newsletters',
     '#press-release',
+    '#faq',
     '#media-coverage',
     '#media-partners',
+    '#industry-partners',
     '#info-kit',
     '#factsheet',
     '#branding-opportunities',

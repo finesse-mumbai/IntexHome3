@@ -16,7 +16,8 @@ interface Hotel {
   };
   distance: string;
   image: string;
-  remarks: string;
+  airportTransfers?: string;
+  remarks?: string;
 }
 
 const HOTELS_DATA: Record<string, Hotel[]> = {
@@ -33,8 +34,7 @@ const HOTELS_DATA: Record<string, Hotel[]> = {
         twin: "US $165 (All Incl.)"
       },
       distance: "3.5 kms - 9 mins",
-      image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=800",
-      remarks: "Based on minimum of 30 rooms per night",
+      image: "/assets/img/hotel/2025/Sheratone.jpeg",
     },
     {
       name: "The Kingsbury",
@@ -48,8 +48,7 @@ const HOTELS_DATA: Record<string, Hotel[]> = {
         twin: "US $120 (All Incl.)"
       },
       distance: "6 kms - 15 mins",
-      image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&q=80&w=800",
-      remarks: "Based on minimum of 30 rooms per night",
+      image: "/assets/img/hotel/2025/The Kingsbury.jpeg",
     },
     {
       name: "Cinnamon Grand",
@@ -63,8 +62,7 @@ const HOTELS_DATA: Record<string, Hotel[]> = {
         twin: "US $145 (All Incl.)"
       },
       distance: "5.3 kms - 13 mins",
-      image: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&q=80&w=800",
-      remarks: "Based on minimum of 30 rooms per night",
+      image: "/assets/img/hotel/2025/Cinamon Grand Hotel.png",
     },
     {
       name: "Cinnamon Lakeside",
@@ -78,8 +76,7 @@ const HOTELS_DATA: Record<string, Hotel[]> = {
         twin: "US $115 (All Incl.)"
       },
       distance: "5 kms - 11 mins",
-      image: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&q=80&w=800",
-      remarks: "Based on minimum of 30 rooms per night",
+      image: "/assets/img/hotel/2025/Cinnamon Grand Lakeside.jpg",
     },
     {
       name: "Taj Samudra",
@@ -93,8 +90,7 @@ const HOTELS_DATA: Record<string, Hotel[]> = {
         twin: "US $120 (All Incl.)"
       },
       distance: "5.3 kms - 17 mins",
-      image: "https://images.unsplash.com/photo-1551882547-ff43c63e8c24?auto=format&fit=crop&q=80&w=800",
-      remarks: "Based on minimum of 30 rooms per night",
+      image: "/assets/img/hotel/2025/Taj Samudra.jpeg",
     },
     {
       name: "Hilton Colombo",
@@ -108,8 +104,78 @@ const HOTELS_DATA: Record<string, Hotel[]> = {
         twin: "US $135 (All Incl.)"
       },
       distance: "6 kms - 15 mins",
-      image: "https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=800",
-      remarks: "Based on minimum of 30 rooms per night",
+      image: "/assets/img/hotel/2025/Hilton Colombo.jpeg",
+    },
+    {
+      name: "Courtyard By Marriott Colombo",
+      address: "Colombo City Centre, 137 Muttiah Road, Colombo, Western 00200",
+      website: "https://www.marriott.com/en-us/hotels/cmbcy-courtyard-colombo/",
+      star: 4,
+      roomType: "Superior Room",
+      rates: {
+        single: "US $100 (All Incl.)",
+        double: "US $110 (All Incl.)",
+        twin: "US $110 (All Incl.)"
+      },
+      distance: "3.3 kms - 9 mins",
+      image: "/assets/img/hotel/2025/Courtyard by Marriott Colombo.jpg",
+    },
+    {
+      name: "Marino Beach",
+      address: "590 Marine Drive, Colombo, Western 00300",
+      website: "https://www.marinobeach.com/",
+      star: 4,
+      roomType: "Superior Room",
+      rates: {
+        single: "US $115 (All Incl.)",
+        double: "US $120 (All Incl.)",
+        twin: "US $120 (All Incl.)"
+      },
+      distance: "3 kms - 9 mins",
+      image: "/assets/img/hotel/2025/marina.jpeg",
+    },
+    {
+      name: "Granbell Hotel",
+      address: "282/5 Kollupitiya Road, Marine Drive, Colombo, Western Province 00300",
+      website: "https://granbellhotel.lk/",
+      star: 4,
+      roomType: "Standard Room",
+      rates: {
+        single: "US $85 (All Incl.)",
+        double: "US $95 (All Incl.)",
+        twin: "US $95 (All Incl.)"
+      },
+      distance: "3.5 kms - 9 mins",
+      image: "/assets/img/hotel/2025/Granbell Colombo.jpg",
+    },
+    {
+      name: "Ramada Colombo",
+      address: "30 Sir Mohamed Macan Makar Mawatha, Colombo, 00300",
+      website: "https://www.wyndhamhotels.com/ramada/colombo-sri-lanka/",
+      star: 4,
+      roomType: "Deluxe Room",
+      rates: {
+        single: "US $85 (All Incl.)",
+        double: "US $95 (All Incl.)",
+        twin: "US $95 (All Incl.)"
+      },
+      distance: "4.9 kms - 11 mins",
+      image: "/assets/img/hotel/2025/Ramada Colombo.png",
+      remarks: "Based on minimum of 15 rooms per night",
+    },
+    {
+      name: "Hotel Sofia Colombo",
+      address: "295A Galle Road, Colombo, Western 00300",
+      website: "https://www.sofiacolombo.com/",
+      star: 4,
+      roomType: "Standard Room",
+      rates: {
+        single: "US $85 (All Incl.)",
+        double: "US $90 (All Incl.)",
+        twin: "US $90 (All Incl.)"
+      },
+      distance: "3.6 kms - 10 mins",
+      image: "/assets/img/hotel/2025/sofia hotel colombo.jpg",
     },
     {
       name: "Mandarina Colombo",
@@ -123,107 +189,175 @@ const HOTELS_DATA: Record<string, Hotel[]> = {
         twin: "US $90 (All Incl.)"
       },
       distance: "2.8 kms - 9 mins",
-      image: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&q=80&w=800",
-      remarks: "Based on minimum of 15 rooms per night",
+      image: "/assets/img/hotel/2025/mandarina.jpeg",
+    },
+    {
+      name: "Radisson Colombo",
+      address: "36-38 Clifford Pl, Colombo 00400, Sri Lanka",
+      website: "http://www.radissonhotels.com/",
+      star: 4,
+      roomType: "Superior Room",
+      rates: {
+        single: "US $105 (All Incl.)",
+        double: "US $110 (All Incl.)",
+        twin: "US $110 (All Incl.)"
+      },
+      distance: "2.8 kms - 9 mins",
+      image: "/assets/img/hotel/2025/exterior.jpg",
     }
   ],
   'Bangladesh': [
     {
-      name: "Radisson Blu Water Garden",
-      address: "Airport Road, Dhaka Cantonment, Dhaka 1206",
-      website: "https://www.radissonhotels.com/en-us/hotels/radisson-blu-dhaka",
+      name: "Hotel Dhaka Regency",
+      address: "Airport Road, Nikunja 2, Dhaka 1229, Bangladesh",
+      website: "https://www.dhakaregency.com",
       star: 5,
-      roomType: "Superior Room",
+      roomType: "Standard",
       rates: {
-        single: "US $185 (All Incl.)",
-        double: "US $205 (All Incl.)",
-        twin: "US $205 (All Incl.)"
+        single: "US $85 (All Inclusive)",
+        double: "US $100 (All Inclusive)",
+        twin: "US $100 (All Inclusive)"
       },
-      distance: "2 kms - 5 mins",
-      image: "https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&q=80&w=800",
-      remarks: "Priority booking for Intex exhibitors",
+      distance: "4.2 km - 10 mins",
+      image: "/assets/img/hotel/2025/Dhaka_Regency.jpg",
+      airportTransfers: "Airport Transfers Complimentary",
     },
     {
-      name: "Dhaka Regency Hotel & Resort",
-      address: "Airport Road, Nikunja 2, Dhaka 1229",
-      website: "https://www.dhakaregency.com/",
-      star: 5,
-      roomType: "Executive Suite",
-      rates: {
-        single: "US $130 (All Incl.)",
-        double: "US $145 (All Incl.)",
-        twin: "US $145 (All Incl.)"
-      },
-      distance: "1.5 kms - 4 mins",
-      image: "https://images.unsplash.com/photo-1578683010236-d716f9759678?auto=format&fit=crop&q=80&w=800",
-      remarks: "Shuttle service included to ICCB venue",
-    },
-    {
-      name: "Hotel Sarina Dhaka",
-      address: "Plot #27, Road #17, Banani C/A, Dhaka 1213",
-      website: "https://www.sarinahotels.com/",
+      name: "Renaissance Dhaka Gulshan Hotel",
+      address: "78 Gulshan Avenue Dhaka 1212, Bangladesh",
+      website: "http://renaissancedhakagulshan.com/",
       star: 5,
       roomType: "Deluxe Room",
       rates: {
-        single: "US $110 (All Incl.)",
-        double: "US $125 (All Incl.)",
-        twin: "US $125 (All Incl.)"
+        single: "US $100 (All Inclusive)",
+        double: "US $123 (All Inclusive)"
       },
-      distance: "6 kms - 20 mins",
-      image: "https://images.unsplash.com/photo-1496417263034-38ec4f0b665a?auto=format&fit=crop&q=80&w=800",
-      remarks: "Special corporate rate for international delegates",
+      distance: "12 km - 30 min",
+      image: "/assets/img/hotel/2025/renessiance.jpg",
+      airportTransfers: "US $50 with taxes",
     },
     {
-      name: "Grace 21 Smart Hotel",
-      address: "House 21, Road 17, Nikunja 2, Dhaka 1229",
-      website: "https://grace21hotel.com/",
+      name: "Crowne Plaza Dhaka Gulshan",
+      address: "6/A North Avenue, C/A Gulshan-2, Dhaka, Dhaka Division 1212",
+      website: "https://www.ihg.com/crowneplaza/hotels/us/en/dhaka/daccr/hoteldetail",
+      star: 5,
+      roomType: "Standard King Room",
+      rates: {
+        single: "US $99 (All Inclusive)",
+        double: "US $130 (All Inclusive)"
+      },
+      distance: "7.3 km - 16 mins",
+      image: "/assets/img/hotel/2025/Crowne Plaza.jpg",
+      airportTransfers: "US $28 per way per person",
+    },
+    {
+      name: "Le Meridien",
+      address: "79/A Commercial Area, Airport Road, Nikunja 02, Khilkhet, Dhaka 1229, Bangladesh",
+      website: "https://www.marriott.com/en-us/hotels/dacmd-le-meridien-dhaka/overview/?scid=f2ae0541-1279-4f24-b197-a979c79310b0",
+      star: 5,
+      roomType: "Standard King Room",
+      rates: {
+        single: "US $165 (All Inclusive)",
+        double: "US $200 (All Inclusive)"
+      },
+      distance: "3.2 km - 7 minutes",
+      image: "/assets/img/hotel/2025/LeMeridien.webp",
+      airportTransfers: "US $26 per way per person",
+    },
+    {
+      name: "Best Western PLUS Runway",
+      address: "Plot 1C -2C, 17-18, Road Kobi Farooq Shoroni, Dhaka, Dhaka Division 1229",
+      website: "https://bwplusrunway.com",
       star: 4,
-      roomType: "Premium Room",
+      roomType: "Standard King Room",
       rates: {
-        single: "US $85 (All Incl.)",
-        double: "US $95 (All Incl.)",
-        twin: "US $95 (All Incl.)"
+        single: "US $90 (All Inclusive)",
+        double: "US $120 (All Inclusive)"
       },
-      distance: "1.8 kms - 5 mins",
-      image: "https://images.unsplash.com/photo-1444201983204-c43cbd584d93?auto=format&fit=crop&q=80&w=800",
-      remarks: "Walking distance to major corporate nodes",
-    }
-  ],
-  'India': [
-    {
-      name: "Yashobhoomi Dwarka Hotel",
-      address: "Sector 25, Dwarka, New Delhi 110061",
-      website: "https://www.yashobhoomi.com/",
-      star: 5,
-      roomType: "Business Suite",
-      rates: {
-        single: "INR 12,000 (All Incl.)",
-        double: "INR 14,000 (All Incl.)"
-      },
-      distance: "Adjacent to Venue",
-      image: "https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&q=80&w=800",
-      remarks: "In-venue accommodation",
+      distance: "3.7 km - 9 mins",
+      image: "/assets/img/hotel/2025/Best Western Plus Runway.jpg",
+      airportTransfers: "Airport Transfers Complimentary",
     },
     {
-      name: "Pullman New Delhi Aerocity",
-      address: "Asset No 02, GMR Hospitality District, Aerocity, New Delhi 110037",
-      website: "https://www.pullmandelhiaerocity.com/",
-      star: 5,
+      name: "Ascott Palace Dhaka",
+      address: "Baridhara Diplomatic Area, House 14, Road 6, Dhaka 1212, Bangladesh",
+      website: "https://www.ascottpalace.com/",
+      star: 4,
       roomType: "Superior Room",
       rates: {
-        single: "INR 14,500 (All Incl.)",
-        double: "INR 16,000 (All Incl.)"
+        single: "US $85 (All Inclusive)",
+        double: "US $110 (All Inclusive)"
       },
-      distance: "5 kms - 12 mins",
-      image: "https://images.unsplash.com/photo-1561501900-3701fa6a0f64?auto=format&fit=crop&q=80&w=800",
-      remarks: "Premium airport proximity",
+      distance: "5.1 km - 16 mins",
+      image: "/assets/img/hotel/2025/Ascott Palace.jpg",
+      airportTransfers: "Airport Transfers Complimentary",
+    },
+    {
+      name: "Hotel Bengal Blueberry",
+      address: "House # 1/A, Road # 90, Gulshan-2, Gulshan, Dhaka 1212",
+      website: "https://www.bengalblueberry.com",
+      star: 4,
+      roomType: "Deluxe Room",
+      rates: {
+        single: "US $70 (All Inclusive)",
+        double: "US $80 (All Inclusive)"
+      },
+      distance: "5.1 km - 16 mins",
+      image: "/assets/img/hotel/2025/Bengal Blueberry.jpg",
+      airportTransfers: "Airport Transfers Complimentary",
+    },
+    {
+      name: "Royal Park Residence Hotel",
+      address: "No.85, Road No.25A, Block A, Banani, Gulshan, Dhaka 1213",
+      website: "https://www.royalparkdhaka.com",
+      star: 3,
+      roomType: "Superior Queen Room",
+      rates: {
+        single: "US $82 (All Inclusive)",
+        double: "US $101 (All Inclusive)"
+      },
+      distance: "6.2 km - 13 mins",
+      image: "/assets/img/hotel/2025/Royal Park.jpg",
+      airportTransfers: "Airport Transfers Complimentary",
+      remarks: "Royal King Room: Single Occupancy - US $95 (All Inclusive), Double Occupancy - US $114 (All Inclusive)",
+    },
+    {
+      name: "Hotel Lake Castle",
+      address: "Plot # 1A, Road # 68/A, Gulshan-2, Rd No 63, Dhaka, Dhaka Division 1212",
+      website: "https://hotellakecastle.com/",
+      star: 3,
+      roomType: "Deluxe Single Room",
+      rates: {
+        single: "US $70 (All Inclusive)",
+        double: "US $90 (All Inclusive)"
+      },
+      distance: "6.7 km - 14 mins",
+      image: "/assets/img/hotel/2025/Lake Castle.jpg",
+      airportTransfers: "Airport Transfers Complimentary",
+    },
+    {
+      name: "Grace 21 Hotel",
+      address: "House #1&3, Road #21, Dhaka 1229, Bangladesh",
+      website: "https://www.hotelgrace21.com/",
+      star: 3,
+      roomType: "Deluxe Single Room",
+      rates: {
+        single: "US $50 (All Inclusive)",
+        double: "US $65 (All Inclusive)",
+        twin: "US $65 (All Inclusive)"
+      },
+      distance: "3.5 km - 7 mins",
+      image: "/assets/img/hotel/2025/Grace21.jpeg",
+      airportTransfers: "Airport Transfers with protocol service complimentary",
     }
   ]
 };
 
 const HotelsTravelPage: React.FC = () => {
-  const [activeShow, setActiveShow] = useState('SRI LANKA');
+  const [activeShow, setActiveShow] = useState('Sri Lanka');
   const shows = Object.keys(HOTELS_DATA);
+  const activeHotels = HOTELS_DATA[activeShow] ?? [];
+  const bookingDeadline = activeShow === 'Bangladesh' ? '1st May, 2026' : '15th July, 2026';
 
   const renderStars = (count: number) => {
     return Array.from({ length: 5 }, (_, i) => (
@@ -285,7 +419,7 @@ const HotelsTravelPage: React.FC = () => {
             transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-archive-charcoal/10 border border-archive-charcoal/10"
           >
-            {HOTELS_DATA[activeShow].map((hotel, idx) => (
+            {activeHotels.map((hotel, idx) => (
               <motion.div
                 key={hotel.name}
                 className="bg-white group relative overflow-hidden flex flex-col h-full hover:bg-archive-charcoal transition-all duration-700"
@@ -330,6 +464,23 @@ const HotelsTravelPage: React.FC = () => {
                           <p className="text-[11px] font-bold">{hotel.rates.double}</p>
                         </div>
                       </div>
+                      {hotel.rates.twin && (
+                        <div className="flex justify-between gap-4">
+                          <span className="text-[8px] font-black tracking-widest opacity-20 group-hover:opacity-60 uppercase">Twin</span>
+                          <p className="text-right text-[11px] font-bold">{hotel.rates.twin}</p>
+                        </div>
+                      )}
+                      {hotel.airportTransfers && (
+                        <div className="flex justify-between gap-4">
+                          <span className="text-[8px] font-black tracking-widest opacity-20 group-hover:opacity-60 uppercase">Airport Transfers</span>
+                          <p className="text-right text-[11px] font-bold">{hotel.airportTransfers}</p>
+                        </div>
+                      )}
+                      {hotel.remarks && (
+                        <p className="text-[10px] font-bold leading-relaxed text-archive-charcoal/50 group-hover:text-white/50">
+                          {hotel.remarks}
+                        </p>
+                      )}
                     </div>
                   </div>
 
@@ -369,7 +520,7 @@ const HotelsTravelPage: React.FC = () => {
 
           <ul className="space-y-6">
             {[
-              "Kindly send us the duly filled hotel booking form on or before 10th July, 2026.",
+              `Kindly send us the duly filled hotel booking form on or before ${bookingDeadline}.`,
               "The room rates include Buffet Breakfast, Wi-Fi & Complimentary In-Room Amenities.",
               "Full payment should be made in advance for booking the rooms.",
               "Above room rates are applicable on a first come, first served basis.",

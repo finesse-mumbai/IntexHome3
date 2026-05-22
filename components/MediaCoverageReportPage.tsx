@@ -24,25 +24,25 @@ const REPORT_DATA: ReportSpecimen[] = [
   {
     id: 'REP_SL_25_LOG',
     title: "Media Coverage Report - 2025",
-    url: "https://sl.intexsouthasia.com/assets/pdf/MEDIA-COVERAGE-2025.pdf",
+    url: "https://sl.intexsouthasia.com/assets/pdf/sl-Media-Coverage.pdf",
     year: "2025",
     event: "Sri Lanka",
     fileSize: "4.1 MB"
   },
   {
-    id: 'REP_GL_24_LOG',
+    id: 'REP_BD_24_LOG',
     title: "Media Coverage Report - 2024",
-    url: "https://sl.intexsouthasia.com/assets/pdf/MEDIA-COVERAGE-2024.pdf",
+    url: "https://bd.intexsouthasia.com/assets/pdf/MEDIA-COVERAGE-2024.pdf",
     year: "2024",
-    event: "Global",
+    event: "Bangladesh",
     fileSize: "5.2 MB"
   },
   {
-    id: 'REP_IN_24_LOG',
+    id: 'REP_SL_24_LOG',
     title: "Media Coverage Report - 2024",
-    url: "https://sl.intexsouthasia.com/assets/pdf/MEDIA-COVERAGE-2024.pdf",
+    url: "https://sl.intexsouthasia.com/assets/pdf/Intex-Sri-Lanka-Media-Coverage.pdf",
     year: "2024",
-    event: "India",
+    event: "Sri Lanka",
     fileSize: "2.9 MB"
   }
 ];
@@ -56,7 +56,7 @@ const MediaCoverageReportPage: React.FC = () => {
 
   const filteredReports = useMemo(() => {
     return REPORT_DATA.filter(item => {
-      const eventMatch = activeEvent === 'ALL' || item.event === activeEvent;
+      const eventMatch = activeEvent === 'ALL' || item.event.toUpperCase() === activeEvent;
       const yearMatch = activeYear === 'ALL' || item.year === activeYear;
       return eventMatch && yearMatch;
     });

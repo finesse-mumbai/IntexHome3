@@ -14,7 +14,7 @@ const NAV_ITEMS = [
       { label: "About Organiser", link: "#organiser" },
       { label: "IBF Seminar Series", link: "#home" },
       { label: "Promotion Activities", link: "#promotion-activities" },
-      { label: "Industry Partners", link: "#home" },
+      { label: "Industry Partners", link: "#industry-partners" },
     ],
   },
   {
