@@ -13,21 +13,21 @@ export const blogs = [
     id: 1,
     heading: "$45B Exports. World-Class Manufacturing. Rising Demand: South Asia Is Where You Need to Be.",
     excerpt: "Global sourcing is shifting toward South Asia. With $45B in exports and a massive sourcing gap, discover why this region is the ultimate priority for global textile suppliers.",
-    image: "https://plus.unsplash.com/premium_photo-1661963212517-830bbb7d76fc?auto=format&fit=crop&q=80&w=1200",
+    image: "/assets/img/Blogs/blog05.png",
     link: "#blogs/south-asia-exports",
   },
   {
     id: 3,
     heading: "The Top 10 Foreign Companies Purchasing Bangladeshi Garments: Global Sourcing Powerhouses Driving the Apparel Industry",
     excerpt: "Who are the biggest players in the game? We profile the top 10 international brands that rely on Bangladesh for their global supply chains.",
-    image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80&w=1000",
+    image: "/assets/img/Blogs/blog7.png",
     link: "#blogs/top-foreign-buyers",
   },
   {
     id: 4,
     heading: "Top 10 Garment Exporters in Bangladesh: Industry Leaders Powering Global Apparel",
     excerpt: "Meet the giants of the industry. A deep dive into the top 10 exporters in Bangladesh that are setting new standards in quality and scale.",
-    image: "https://images.unsplash.com/photo-1556740738-b6a63e27c4df?auto=format&fit=crop&q=80&w=1000",
+    image: "/assets/img/Blogs/blog8.png",
     link: "#blogs/top-exporters",
   },
   {
@@ -64,10 +64,12 @@ export default function BlogsPage() {
   return (
     <main className="min-h-screen bg-slate-50 pt-20 pb-20">
       <div className="max-w-6xl mx-auto px-4">
-        {/* Header Section */}
         <div className="mb-16 text-center">
-          <h1 className="text-4xl md:text-5xl font-semibold text-slate-900 mb-4 tracking-tight">
-            Industry <span className="text-[#F27B35]">Insights</span>
+          <span className="text-[10px] font-black tracking-[0.5em] text-[#F27B35] uppercase mb-4 block">
+            Market Intelligence
+          </span>
+          <h1 className="text-4xl md:text-5xl font-black text-slate-900 mb-4 tracking-tight uppercase">
+            Latest <span className="text-[#F27B35]">Insights.</span>
           </h1>
           <p className="text-slate-600 text-lg max-w-2xl mx-auto">
             Stay updated with the latest trends, market reports, and strategic shifts in the South Asian textile and garment landscape.

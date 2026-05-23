@@ -14,18 +14,28 @@ const UPCOMING_EVENTS = [
     month: 'Jun',
     day: '2026',
     time: '10:00 - 18:00',
-    title: 'Interactive Business Forum Seminar Series (IBF)',
+    title: 'VIP OPENING CEREMONY',
     location: 'ICCB, Dhaka, Bangladesh',
     image: IMG_BANGLADESH
   },
   {
     id: 'u2',
+    date: '18',
+    month: 'Jun',
+    day: '2026',
+    time: '10:00 - 18:00',
+    title: 'Interactive Business Forum Seminar Series (IBF)',
+    location: 'ICCB, Dhaka, Bangladesh',
+    image: IMG_BANGLADESH
+  },
+  {
+    id: 'u3',
     date: '07',
     month: 'Aug',
     day: '2025',
     time: '17:30 - 19:30',
-    title: 'Networking Seminar: Future of Sustainable Textiles',
-    location: 'BMICH, Colombo, Sri Lanka',
+    title: 'B2B MEETINGS & NETWORKING SESSION',
+    location: 'ICCB, Dhaka, Bangladesh',
     image: IMG_RECEPTION
   }
 ];
@@ -52,9 +62,9 @@ const Schedule: React.FC = () => {
   const hoveredEvent = currentData.find(e => e.id === hoveredEventId) || currentData[0];
 
   return (
-    <section className="relative py-32 bg-white overflow-hidden border-b border-archive-charcoal/10" id="schedule">
+    <section className="relative py-32 bg-white overflow-hidden " id="schedule">
       <div className="max-w-[1440px] mx-auto px-12">
-        <div className="bg-white rounded-[40px] overflow-hidden border-[3px] border-archive-charcoal/10 shadow-[0_40px_80px_-20px_rgba(0,0,0,0.05)] relative min-h-[800px] flex items-stretch">
+        <div className="bg-white rounded-[40px] overflow-hidden border-[3px]  shadow-[0_40px_80px_-20px_rgba(0,0,0,0.05)] relative min-h-[800px] flex items-stretch">
 
           <div className="w-full grid grid-cols-1 lg:grid-cols-[3.5fr_6.5fr] relative z-10">
 

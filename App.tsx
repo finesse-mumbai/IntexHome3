@@ -44,6 +44,7 @@ import PhotoGalleryPage from './components/PhotoGalleryPage';
 import IntexTimesPage from './components/IntexTimesPage';
 import TestimonialPlaybackPage from './components/TestimonialPlaybackPage';
 import IBFDetailsPage from './components/IBFDetailsPage';
+import IBFSeminarSeriesPage from './components/IBFSeminarSeriesPage';
 import BlogsPage from './components/BlogsPage';
 import BlogCottonToMmfPage from './components/blogs/BlogCottonToMmfPage';
 import BlogGlobalBuyersShiftPage from './components/blogs/BlogGlobalBuyersShiftPage';
@@ -154,11 +155,14 @@ const App: React.FC = () => {
     if (currentPath === '#testimonial-playback') {
       return <TestimonialPlaybackPage />;
     }
-if (currentPath === '#faq') {
-  return <FaqPage />;
-}
+    if (currentPath === '#faq') {
+      return <FaqPage />;
+    }
     if (currentPath === '#ibf-details') {
       return <IBFDetailsPage />;
+    }
+    if (currentPath === '#ibf-seminar-series') {
+      return <IBFSeminarSeriesPage />;
     }
     if (currentPath === '#blogs') {
       return <BlogsPage />;
@@ -230,7 +234,7 @@ if (currentPath === '#faq') {
                         </motion.div>
                       )}
                     </AnimatePresence>
-                    <button 
+                    <button
                       onClick={() => setIsAboutExpanded(!isAboutExpanded)}
                       className="text-[10px] font-black tracking-[0.2em] text-archive-clay uppercase hover:underline block"
                     >
@@ -245,10 +249,10 @@ if (currentPath === '#faq') {
 
               <div className="lg:col-span-7 relative flex justify-end">
                 <div className="relative w-full max-w-[600px] flex justify-end">
-                  <div className="w-[80%] aspect-[3/4] border border-archive-charcoal overflow-hidden bg-archive-charcoal/5">
+                  <div className="w-[80%] aspect-[3/4] border border-orange-100 overflow-hidden bg-archive-charcoal/5 p-2">
                     <img src="/assets/intex collage.jpg.jpeg" className="w-full h-full object-cover mix-blend-multiply" />
                   </div>
-                  <div className="absolute top-1/4 -left-12 w-[60%] aspect-square border border-archive-charcoal bg-archive-cream overflow-hidden z-10 p-2">
+                  <div className="absolute top-1/4 -left-12 w-[60%] aspect-square border border-orange-300 bg-archive-cream overflow-hidden z-10 p-2">
                     <img src="/assets/squareImage.jpg.jpeg" className="w-full h-full object-cover mix-blend-multiply" />
                   </div>
                 </div>
@@ -341,6 +345,7 @@ if (currentPath === '#faq') {
     '#intex-times',
     '#testimonial-playback',
     '#ibf-details',
+    '#ibf-seminar-series',
     '#blogs',
     '#blogs/cotton-to-mmf',
     '#blogs/global-buyers-shift',

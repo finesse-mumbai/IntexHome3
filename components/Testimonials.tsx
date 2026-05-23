@@ -16,20 +16,20 @@ interface SpecimenPanelProps {
   isDark?: boolean;
 }
 
-const SpecimenPanel = memo(({ 
-  testimonial, 
-  onNext, 
-  onPrev, 
-  label, 
+const SpecimenPanel = memo(({
+  testimonial,
+  onNext,
+  onPrev,
+  label,
   index,
   onPlayVideo,
-  isDark = true 
+  isDark = true
 }: SpecimenPanelProps) => (
   <div className={`w-full lg:w-1/2 flex flex-col justify-between relative p-12 md:p-16 xl:p-24 min-h-[650px] transition-colors duration-700 overflow-hidden ${isDark ? 'bg-archive-charcoal text-archive-cream border-t border-b border-archive-charcoal lg:border-r' : 'bg-archive-cream text-archive-charcoal border-archive-charcoal/5'}`}>
-    
+
     {/* BACKGROUND DECORATIVE ELEMENTS */}
     <div className="absolute bottom-1/4 -left-12 opacity-[0.03] pointer-events-none rotate-90">
-       <span className="text-9xl font-black tracking-tighter uppercase whitespace-nowrap">{label}_ARCHIVE</span>
+      <span className="text-9xl font-black tracking-tighter uppercase whitespace-nowrap">{label}_ARCHIVE</span>
     </div>
 
     {/* HEADER METADATA */}
@@ -45,13 +45,13 @@ const SpecimenPanel = memo(({
           {testimonial.type}
         </span>
         {testimonial.videoUrl && (
-            <div 
-              className="flex items-center gap-2 px-3 py-1.5 bg-archive-clay text-white text-[9px] font-black tracking-widest uppercase cursor-pointer hover:bg-archive-charcoal hover:scale-105 transition-all shadow-lg"
-              onClick={() => onPlayVideo(testimonial)}
-            >
-              <Play size={10} fill="currentColor" strokeWidth={0} />
-              WATCH VIDEO
-            </div>
+          <div
+            className="flex items-center gap-2 px-3 py-1.5 bg-archive-clay text-white text-[9px] font-black tracking-widest uppercase cursor-pointer hover:bg-archive-charcoal hover:scale-105 transition-all shadow-lg"
+            onClick={() => onPlayVideo(testimonial)}
+          >
+            <Play size={10} fill="currentColor" strokeWidth={0} />
+            WATCH VIDEO
+          </div>
         )}
       </div>
     </div>
@@ -79,12 +79,12 @@ const SpecimenPanel = memo(({
                     (e.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${testimonial.author || testimonial.company}&background=F3EBE8&color=2F2C2C&bold=true`;
                   }}
                 />
-                
+
                 {/* PLAY OVERLAY */}
                 {testimonial.videoUrl && (
-                  <div 
+                  <div
                     className="absolute inset-0 flex items-center justify-center bg-black/10 transition-all cursor-pointer z-20"
-                  onClick={() => onPlayVideo(testimonial)}
+                    onClick={() => onPlayVideo(testimonial)}
                   >
                     <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-archive-clay shadow-2xl transform scale-75 group-hover/img-block:scale-100 transition-all duration-500">
                       <Play size={22} fill="currentColor" strokeWidth={0} />
@@ -126,12 +126,12 @@ const SpecimenPanel = memo(({
     {/* FOOTER NAVIGATION */}
     <div className={`flex justify-between items-center border-t pt-10 mt-16 relative z-10 ${isDark ? 'border-white/5' : 'border-archive-charcoal/10'}`}>
       <div className="flex items-center gap-6">
-          <button
+        <button
           onClick={onPrev}
           className={`group/nav-btn w-12 h-12 border flex items-center justify-center transition-all duration-500 bg-archive-clay hover:bg-archive-charcoal text-white border-archive-clay/20 shadow-lg hover:shadow-archive-charcoal/20`}
-          >
+        >
           <ArrowLeft size={16} className="group-hover/nav-btn:-translate-x-1 transition-transform" />
-          </button>
+        </button>
       </div>
 
       <button
@@ -254,7 +254,7 @@ const Testimonials: React.FC = () => {
 
   const handleNextBuyer = useCallback(() => setBuyerActive((prev) => (prev + 1) % buyers.length), [buyers.length]);
   const handlePrevBuyer = useCallback(() => setBuyerActive((prev) => (prev - 1 + buyers.length) % buyers.length), [buyers.length]);
-  
+
   const handlePlayVideo = useCallback((testimonial: TestimonialItem) => {
     sessionStorage.setItem('testimonial_video', JSON.stringify({
       videoUrl: testimonial.videoUrl,
@@ -281,7 +281,7 @@ const Testimonials: React.FC = () => {
           <div className="flex items-center gap-6">
             <div className="w-16 h-[1px] bg-archive-clay"></div>
             <div className="flex flex-col">
-                <span className="text-[10px] font-black tracking-[0.6em] uppercase text-archive-clay">Archive // Intelligence // Feedback</span>
+              <span className="text-[10px] font-black tracking-[0.6em] uppercase text-archive-clay">Archive // Intelligence // Feedback</span>
             </div>
           </div>
           <h2 className="text-2xl md:text-4xl font-black uppercase leading-[0.9] text-archive-charcoal">
@@ -291,18 +291,18 @@ const Testimonials: React.FC = () => {
 
         {/* Decorative elements */}
         <div className="absolute top-1/2 right-12 -translate-y-1/2 flex items-center gap-12 pointer-events-none opacity-20">
-            <Binary size={100} strokeWidth={0.5} className="text-archive-charcoal rotate-12" />
+          <Binary size={100} strokeWidth={0.5} className="text-archive-charcoal rotate-12" />
         </div>
       </div>
 
       <div className="flex flex-col lg:flex-row divide-y lg:divide-y-0 lg:divide-x divide-archive-charcoal/5">
         {/* LEFT PANEL: EXHIBITORS */}
         {exhibitors.length > 0 && (
-          <SpecimenPanel 
+          <SpecimenPanel
             key={`exh-${exhibitorActive}`}
-            testimonial={exhibitors[exhibitorActive]} 
-            onNext={handleNextExhibitor} 
-            onPrev={handlePrevExhibitor} 
+            testimonial={exhibitors[exhibitorActive]}
+            onNext={handleNextExhibitor}
+            onPrev={handlePrevExhibitor}
             label="EXHIBITOR"
             index={exhibitorActive}
             onPlayVideo={handlePlayVideo}
@@ -312,15 +312,15 @@ const Testimonials: React.FC = () => {
 
         {/* RIGHT PANEL: BUYERS */}
         {buyers.length > 0 && (
-          <SpecimenPanel 
+          <SpecimenPanel
             key={`buy-${buyerActive}`}
-            testimonial={buyers[buyerActive]} 
-            onNext={handleNextBuyer} 
-            onPrev={handlePrevBuyer} 
+            testimonial={buyers[buyerActive]}
+            onNext={handleNextBuyer}
+            onPrev={handlePrevBuyer}
             label="BUYER"
             index={buyerActive}
             onPlayVideo={handlePlayVideo}
-            isDark={false} 
+            isDark={false}
           />
         )}
       </div>

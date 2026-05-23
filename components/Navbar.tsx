@@ -12,7 +12,7 @@ const NAV_ITEMS = [
       { label: "Show Profile", link: "#show-profile" },
       { label: "Why Intex South Asia", link: "#why-intex" },
       { label: "About Organiser", link: "#organiser" },
-      { label: "IBF Seminar Series", link: "#home" },
+      { label: "IBF Seminar Series", link: "#ibf-seminar-series" },
       { label: "Promotion Activities", link: "#promotion-activities" },
       { label: "Industry Partners", link: "#industry-partners" },
     ],

@@ -13,7 +13,7 @@ export default function HomeBlogs() {
               Market Intelligence
             </span>
             <h2 className="text-3xl md:text-5xl font-black tracking-tighter leading-[0.9] text-archive-charcoal uppercase">
-              Latest <br /> Insights.
+              Intex <br /> Blogs.
             </h2>
           </div>
           <a
@@ -50,7 +50,7 @@ export default function HomeBlogs() {
                 <div>
                   <a
                     href={blog.link}
-                    className="inline-flex items-center gap-3 px-8 py-4 bg-archive-clay text-white font-bold text-sm uppercase tracking-widest rounded-full hover:bg-archive-charcoal transition-all shadow-xl shadow-orange-500/20 group/link"
+                    className="inline-flex items-center gap-3 px-8 py-3 bg-archive-clay text-white font-semibold text-sm  tracking-widest rounded-full hover:bg-archive-charcoal transition-all shadow-xl shadow-orange-500/20 group/link"
                   >
                     Read Full
                     <svg
