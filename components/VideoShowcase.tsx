@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Play, Activity, MonitorPlay, X, ArrowLeft, ArrowRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const VIDEOS = [
     { 
@@ -30,6 +31,7 @@ const VIDEOS = [
 
 const VideoShowcase: React.FC = () => {
     const [activeVideoIndex, setActiveVideoIndex] = useState<number | null>(null);
+    const navigate = useNavigate();
 
     const handleNext = (e?: React.MouseEvent) => {
         e?.stopPropagation();
@@ -135,7 +137,7 @@ const VideoShowcase: React.FC = () => {
                             <span className="text-[9px] font-black tracking-widest uppercase">Digital Specimen Directory</span>
                         </div>
                         <button
-                            onClick={() => window.location.hash = '#post-show-video'}
+                            onClick={() => navigate('/post-show-video')}
                             className="group flex items-center gap-3 px-6 py-3 border border-archive-clay text-archive-clay text-[10px] font-black tracking-widest uppercase hover:bg-archive-clay hover:text-white transition-all duration-300"
                         >
                             View All Highlights

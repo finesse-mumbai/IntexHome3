@@ -104,7 +104,7 @@ const PromotionActivitiesPage: React.FC = () => {
                   </div>
                 </div>
                 <div className="space-y-4">
-                   <h3 className={`text-xl font-black tracking-tighter leading-none transition-colors uppercase ${[0, 2, 5, 7].includes(idx) ? 'text-white group-hover:text-white' : 'group-hover:text-archive-clay'}`}>{activity.title}</h3>
+                  <h3 className={`text-xl font-black tracking-tighter leading-none transition-colors uppercase ${[0, 2, 5, 7].includes(idx) ? 'text-white group-hover:text-white' : 'group-hover:text-archive-clay'}`}>{activity.title}</h3>
                   <div className={`transition-all duration-700 ${[0, 2, 5, 7].includes(idx) ? 'w-full bg-white/40 h-px' : 'w-10 h-px bg-archive-clay/40 group-hover:w-full'}`}></div>
                 </div>
               </div>
@@ -134,10 +134,7 @@ const PromotionActivitiesPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Decorative Technical Detail */}
-      <div className="h-4 bg-archive-charcoal relative overflow-hidden opacity-10">
-        <div className="absolute inset-0 measuring-tape"></div>
-      </div>
+
     </div>
   );
 };

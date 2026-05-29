@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 
 interface Blog {
   id: number;
@@ -59,8 +60,8 @@ const BlogCard: React.FC<BlogCardProps> = ({ blog, index }) => {
           {blog.excerpt}
         </p>
         <div>
-          <a
-            href={blog.link}
+          <Link
+            to={blog.link}
             className="inline-flex items-center gap-2 px-6 py-2.5 bg-[#F27B35] text-white font-semibold rounded-full hover:bg-[#d96d2b] transition-all transform hover:scale-105 active:scale-95 shadow-md"
           >
             Read Full
@@ -73,7 +74,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ blog, index }) => {
             >
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </svg>
-          </a>
+          </Link>
         </div>
       </div>
 

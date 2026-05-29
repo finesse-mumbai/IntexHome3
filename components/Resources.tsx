@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import { FileText, BarChart3, History, HelpCircle, Download, ArrowUpRight } from 'lucide-react';
 import { RESOURCES } from '../constants';
 
@@ -50,6 +51,7 @@ const Resources: React.FC = () => {
 
 const ResourceModule: React.FC<{ resource: any; index: number }> = ({ resource, index }) => {
   const IconComponent = iconMap[resource.icon];
+  const navigate = useNavigate();
   
   // 1st and 3rd are white, 2nd and 4th are charcoal
   const bgClass = (index === 0 || index === 2) ? 'bg-white' : 'bg-archive-charcoal';
@@ -57,9 +59,17 @@ const ResourceModule: React.FC<{ resource: any; index: number }> = ({ resource, 
   const isDarkBg = bgClass === 'bg-archive-charcoal';
   const isTitleOrange = true;
 
+  const handleClick = () => {
+    if (resource.link.startsWith('http')) {
+      window.open(resource.link, '_blank', 'noopener,noreferrer');
+    } else {
+      navigate(resource.link);
+    }
+  };
 
   return (
     <motion.div
+      onClick={handleClick}
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ delay: index * 0.1 }}

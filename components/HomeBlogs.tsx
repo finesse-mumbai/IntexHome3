@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { blogs } from "./BlogsPage";
 
 export default function HomeBlogs() {
@@ -16,12 +17,12 @@ export default function HomeBlogs() {
               Intex <br /> Blogs.
             </h2>
           </div>
-          <a
-            href="#blogs"
+          <Link
+            to="/blogs"
             className="px-8 py-4 bg-archive-charcoal text-archive-cream font-black text-[10px] tracking-[0.4em] hover:bg-archive-clay transition-all uppercase whitespace-nowrap"
           >
             Read All Blogs
-          </a>
+          </Link>
         </div>
 
         <div className="flex flex-col space-y-12">
@@ -48,8 +49,8 @@ export default function HomeBlogs() {
                   {blog.excerpt}
                 </p>
                 <div>
-                  <a
-                    href={blog.link}
+                  <Link
+                    to={blog.link}
                     className="inline-flex items-center gap-3 px-8 py-3 bg-archive-clay text-white font-semibold text-sm  tracking-widest rounded-full hover:bg-archive-charcoal transition-all shadow-xl shadow-orange-500/20 group/link"
                   >
                     Read Full
@@ -62,7 +63,7 @@ export default function HomeBlogs() {
                     >
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                     </svg>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </article>

@@ -5,6 +5,7 @@ import { exhibitorstestBD, exhibitorstestSL } from '../constants/Exhibitortestim
 import { buyertestBD, buyertestSL } from '../constants/Buyertestimonial';
 import { Hash, Binary, ArrowLeft, ArrowRight, Play } from 'lucide-react';
 import { TestimonialItem } from '../types';
+import { useNavigate } from 'react-router-dom';
 
 interface SpecimenPanelProps {
   testimonial: TestimonialItem;
@@ -147,6 +148,7 @@ const SpecimenPanel = memo(({
 SpecimenPanel.displayName = 'SpecimenPanel';
 
 const Testimonials: React.FC = () => {
+  const navigate = useNavigate();
   // Function to convert youtu.be or youtube.com links to embed format
   const getEmbedUrl = (url: string) => {
     if (!url) return undefined;
@@ -264,9 +266,8 @@ const Testimonials: React.FC = () => {
       type: testimonial.type,
       imageUrl: testimonial.imageUrl,
     }));
-    window.location.hash = '#testimonial-playback';
-    window.scrollTo(0, 0);
-  }, []);
+    navigate('/testimonial-playback');
+  }, [navigate]);
 
   return (
     <section className="flex flex-col border-b border-archive-charcoal/5 bg-archive-cream overflow-hidden" id="testimonials">

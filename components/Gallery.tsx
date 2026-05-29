@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { GALLERY_ITEMS } from '../constants';
 
@@ -82,13 +83,15 @@ const Gallery: React.FC = () => {
           <div className="p-1 border border-archive-clay/10 rounded-full">
             <div className="p-1 border border-archive-clay/15 rounded-full">
               <div className="p-1 border border-archive-clay/20 rounded-full">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="relative block min-w-[320px] text-center py-5 px-16 bg-archive-clay text-white font-black text-xl tracking-tighter hover:bg-white hover:text-archive-clay transition-all duration-500 shadow-2xl rounded-full"
-                >
-                  VIEW FULL EVENT GALLERY
-                </motion.button>
+                <Link to="/photo-gallery" className="block">
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="relative block min-w-[320px] text-center py-5 px-16 bg-archive-clay text-white font-black text-xl tracking-tighter hover:bg-white hover:text-archive-clay transition-all duration-500 shadow-2xl rounded-full"
+                  >
+                    VIEW FULL EVENT GALLERY
+                  </motion.button>
+                </Link>
               </div>
             </div>
           </div>

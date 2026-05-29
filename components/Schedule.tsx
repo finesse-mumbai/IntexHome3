@@ -16,6 +16,7 @@ const UPCOMING_EVENTS = [
     time: '10:00 - 18:00',
     title: 'VIP OPENING CEREMONY',
     location: 'ICCB, Dhaka, Bangladesh',
+    logo: '/assets/OC LOGO.png',
     image: IMG_BANGLADESH
   },
   {
@@ -26,6 +27,7 @@ const UPCOMING_EVENTS = [
     time: '10:00 - 18:00',
     title: 'Interactive Business Forum Seminar Series (IBF)',
     location: 'ICCB, Dhaka, Bangladesh',
+    logo: 'https://bd.intexsouthasia.com/assets/img/output-onlinepngtools.png',
     image: IMG_BANGLADESH
   },
   {
@@ -36,6 +38,7 @@ const UPCOMING_EVENTS = [
     time: '17:30 - 19:30',
     title: 'B2B MEETINGS & NETWORKING SESSION',
     location: 'ICCB, Dhaka, Bangladesh',
+    logo: '/assets/B2B LOGO.png',
     image: IMG_RECEPTION
   }
 ];
@@ -188,9 +191,9 @@ const Schedule: React.FC = () => {
                           <div className="p-2 grid grid-cols-2 items-center gap-10">
                             <div className="w-full h-26 flex items-center justify-center">
                               <img
-                                src="https://bd.intexsouthasia.com/assets/img/output-onlinepngtools.png"
+                                src={event.logo || "https://bd.intexsouthasia.com/assets/img/output-onlinepngtools.png"}
                                 alt="Event Logo"
-                                className="h-full w-auto  transition-all duration-700 object-contain"
+                                className="h-[75%] w-auto transition-all duration-700 object-contain"
                               />
                             </div>
                             <h3 className="text-[13px] md:text-lg font-black leading-tight text-archive-charcoal group-hover:text-archive-clay transition-colors uppercase tracking-tight">
@@ -203,7 +206,7 @@ const Schedule: React.FC = () => {
                             {activeTab === 'Upcoming' && (
                               <>
                                 <a
-                                  href="#ibf-details"
+                                  href="/ibf-details"
                                   className="group/btn relative w-fit overflow-hidden py-2 px-5 border border-archive-charcoal/10 rounded-full flex items-center gap-4 transition-all hover:bg-archive-clay hover:border-archive-clay"
                                 >
                                   <span className="relative z-10 text-[9px] font-black tracking-[0.3em] text-archive-charcoal group-hover/btn:text-white transition-colors uppercase">View Detail</span>

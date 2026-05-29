@@ -16,6 +16,7 @@ export interface ResourceItem {
   title: string;
   icon: string;
   description: string;
+  link: string;
 }
 
 export interface TestimonialItem {

@@ -87,10 +87,10 @@ export const BUYER_IMAGE_PROFILES: BuyerImageProfile[] = [
 ];
 
 export const RESOURCES: ResourceItem[] = [
-  { id: 'brochure', title: 'Show Brochure', icon: 'FileText', description: 'Comprehensive exhibition details' },
-  { id: 'factsheet', title: 'Factsheet', icon: 'BarChart3', description: 'Key statistics and insights' },
-  { id: 'report', title: 'Post Show Report', icon: 'History', description: 'Past event highlights' },
-  { id: 'faq', title: 'FAQ', icon: 'HelpCircle', description: 'Quick answers' },
+  { id: 'brochure', title: 'Show Brochure', icon: 'FileText', description: 'Comprehensive exhibition details', link: 'https://bd.intexsouthasia.com/assets/pdf/Brochure.pdf' },
+  { id: 'factsheet', title: 'Factsheet', icon: 'BarChart3', description: 'Key statistics and insights', link: '/factsheet' },
+  { id: 'report', title: 'Post Show Report', icon: 'History', description: 'Past event highlights', link: '/post-show-reports' },
+  { id: 'faq', title: 'FAQ', icon: 'HelpCircle', description: 'Quick answers', link: '/faq' },
 ];
 
 export const TESTIMONIALS: TestimonialItem[] = [

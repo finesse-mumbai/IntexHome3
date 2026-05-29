@@ -190,7 +190,7 @@ const NewsletterPage: React.FC = () => {
                   SUBSCRIBE NOW
                 </button>
                 <button className="px-10 py-5 border border-white/20 text-white font-black text-[10px] tracking-[0.4em] hover:bg-white hover:text-archive-charcoal hover:border-white transition-all flex items-center gap-3">
-                   REGISTRY PROTOCOL <ShieldCheck size={14} className="uppercase" />
+                  REGISTRY PROTOCOL <ShieldCheck size={14} className="uppercase" />
                 </button>
               </div>
             </div>
@@ -198,10 +198,7 @@ const NewsletterPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Decorative Technical Detail */}
-      <div className="h-4 bg-archive-charcoal relative overflow-hidden opacity-10">
-        <div className="absolute inset-0 measuring-tape"></div>
-      </div>
+
     </div>
   );
 };

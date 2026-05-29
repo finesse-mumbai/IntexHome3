@@ -122,10 +122,7 @@ const BuyerProfilePage: React.FC = () => {
         </div>
       </section>
 
-      {/* Decorative Technical Detail */}
-      <div className="h-4 bg-archive-charcoal relative overflow-hidden opacity-10">
-        <div className="absolute inset-0 measuring-tape"></div>
-      </div>
+
     </div>
   );
 };

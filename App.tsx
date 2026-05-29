@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -56,10 +55,14 @@ import BlogTopForeignBuyersPage from './components/blogs/BlogTopForeignBuyersPag
 import BlogZaraHmSourcingPage from './components/blogs/BlogZaraHmSourcingPage';
 
 import { motion, useScroll, useSpring, AnimatePresence } from 'framer-motion';
+import { useLocation, Link } from 'react-router-dom';
 
 const App: React.FC = () => {
-  const [currentPath, setCurrentPath] = useState(window.location.hash || '#home');
   const [isAboutExpanded, setIsAboutExpanded] = useState(false);
+  const location = useLocation();
+  const currentPath = location.pathname === '/'
+    ? (location.hash || '#home')
+    : `#${location.pathname.replace(/^\/+/, '')}`;
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -68,13 +71,8 @@ const App: React.FC = () => {
   });
 
   useEffect(() => {
-    const handleHashChange = () => {
-      setCurrentPath(window.location.hash || '#home');
-      window.scrollTo(0, 0);
-    };
-    window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
-  }, []);
+    window.scrollTo(0, 0);
+  }, [location.pathname, location.hash]);
 
   const renderContent = () => {
     if (currentPath === '#home2') {
@@ -241,9 +239,9 @@ const App: React.FC = () => {
                       {isAboutExpanded ? 'Read Less' : 'Read Full'}
                     </button>
                   </div>
-                  <button className="px-10 py-5 bg-archive-clay text-archive-cream font-black text-[10px] tracking-[0.4em] hover:bg-archive-charcoal hover:text-archive-cream transition-all uppercase">
+                  <Link to="/why-intex" className="inline-block px-10 py-5 bg-archive-clay text-archive-cream font-black text-[10px] tracking-[0.4em] hover:bg-archive-charcoal hover:text-archive-cream transition-all uppercase">
                     VIEW HIGHLIGHTS
-                  </button>
+                  </Link>
                 </div>
               </div>
 
