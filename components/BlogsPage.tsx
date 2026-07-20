@@ -65,7 +65,7 @@ export default function BlogsPage() {
     <main className="min-h-screen bg-slate-50 pt-20 pb-20">
       <div className="max-w-6xl mx-auto px-4">
         <div className="mb-16 text-center">
-          <span className="text-[10px] font-black tracking-[0.5em] text-[#F27B35] uppercase mb-4 block">
+          <span className="text-[14px] font-black tracking-[0.5em] text-[#F27B35] uppercase mb-4 block">
             Market Intelligence
           </span>
           <h1 className="text-4xl md:text-5xl font-black text-slate-900 mb-4 tracking-tight uppercase">

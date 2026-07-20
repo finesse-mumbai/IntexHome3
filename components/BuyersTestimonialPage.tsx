@@ -175,7 +175,7 @@ const BuyersTestimonialPage: React.FC = () => {
           <div className="space-y-6">
             <div className="flex items-center gap-4">
               <div className="w-12 h-[1px] bg-archive-clay"></div>
-              <span className="text-[10px] font-black tracking-[0.5em] text-archive-clay uppercase">Buyer Registry // Feedback</span>
+              <span className="text-[14px] font-black tracking-[0.5em] text-archive-clay uppercase">Buyer Registry // Feedback</span>
             </div>
             <h1 className="text-4xl md:text-8xl font-black tracking-tighter leading-[0.85] text-archive-charcoal uppercase">
               Buyer <br />
@@ -186,13 +186,13 @@ const BuyersTestimonialPage: React.FC = () => {
           {/* Logic Filters */}
           <div className="flex flex-col lg:flex-row gap-12 border-y border-archive-charcoal/10 py-12">
             <div className="space-y-4">
-              <span className="text-[10px] font-black tracking-widest opacity-40">Sourcing Node</span>
+              <span className="text-[14px] font-black tracking-widest opacity-40">Sourcing Node</span>
               <div className="flex flex-wrap gap-2">
                 {locations.map(loc => (
                   <button
                     key={loc}
                     onClick={() => setFilterLocation(loc)}
-                    className={`px-8 py-3 text-[10px] font-black tracking-widest border transition-all ${filterLocation === loc ? 'bg-archive-charcoal text-white border-archive-charcoal' : 'border-archive-charcoal/10 text-archive-charcoal/40 hover:text-archive-charcoal'}`}
+                    className={`px-8 py-3 text-[14px] font-black tracking-widest border transition-all ${filterLocation === loc ? 'bg-archive-charcoal text-white border-archive-charcoal' : 'border-archive-charcoal/10 text-archive-charcoal/40 hover:text-archive-charcoal'}`}
                   >
                     {loc.toUpperCase()}
                   </button>
@@ -201,13 +201,13 @@ const BuyersTestimonialPage: React.FC = () => {
             </div>
 
             <div className="space-y-4">
-              <span className="text-[10px] font-black tracking-widest opacity-40">Archive Cycle</span>
+              <span className="text-[14px] font-black tracking-widest opacity-40">Archive Cycle</span>
               <div className="flex gap-2">
                 {years.map(yr => (
                   <button
                     key={yr}
                     onClick={() => setFilterYear(yr)}
-                    className={`px-8 py-3 text-[10px] font-black tracking-widest border transition-all ${filterYear === yr ? 'bg-archive-clay border-archive-clay text-white' : 'border-archive-charcoal/10 text-archive-charcoal/40 hover:text-archive-charcoal'}`}
+                    className={`px-8 py-3 text-[14px] font-black tracking-widest border transition-all ${filterYear === yr ? 'bg-archive-clay border-archive-clay text-white' : 'border-archive-charcoal/10 text-archive-charcoal/40 hover:text-archive-charcoal'}`}
                   >
                     {yr}
                   </button>
@@ -252,19 +252,19 @@ const BuyersTestimonialPage: React.FC = () => {
                       <div className="space-y-1">
                         <h3 className="text-lg font-black text-archive-charcoal tracking-tight group-hover:text-archive-clay transition-colors uppercase">{item.name}</h3>
                         <div className="flex flex-col">
-                          <span className="text-[9px] font-black tracking-widest text-archive-charcoal/40 uppercase">{item.designation}</span>
-                          <span className="text-[9px] font-black tracking-widest text-archive-clay uppercase">{item.company}</span>
+                          <span className="text-[14px] font-black tracking-widest text-archive-charcoal/40 uppercase">{item.designation}</span>
+                          <span className="text-[14px] font-black tracking-widest text-archive-clay uppercase">{item.company}</span>
                         </div>
                       </div>
 
-                      <p className="text-[13px] font-medium leading-relaxed text-archive-charcoal/80 tracking-tight">
+                      <p className="text-[14px] font-medium leading-relaxed text-archive-charcoal/80 tracking-tight">
                         "{item.message}"
                       </p>
                     </div>
                   </div>
 
                   <div className="mt-10 pt-6 border-t border-archive-charcoal/5 flex justify-between items-center">
-                    <div className="flex items-center gap-2 text-[9px] font-bold text-archive-charcoal/60 tracking-widest">
+                    <div className="flex items-center gap-2 text-[14px] font-bold text-archive-charcoal/60 tracking-widest">
                       <div className="w-1.5 h-1.5 bg-archive-clay rotate-45"></div>
                       {item.showName.toUpperCase()} | {item.year}
                     </div>
@@ -276,21 +276,16 @@ const BuyersTestimonialPage: React.FC = () => {
         ) : (
           <div className="h-[400px] flex flex-col items-center justify-center border border-dashed border-archive-charcoal/20 text-center bg-white/50">
             <Search size={40} className="text-archive-clay/20 mb-6" />
-            <span className="text-[10px] font-black tracking-[0.5em] text-archive-charcoal/30 uppercase">No matching buyer records found.</span>
+            <span className="text-[14px] font-black tracking-[0.5em] text-archive-charcoal/30 uppercase">No matching buyer records found.</span>
             <button
               onClick={() => { setFilterLocation('ALL'); setFilterYear('ALL'); }}
-              className="mt-8 px-8 py-4 border border-archive-charcoal text-[10px] font-black tracking-widest hover:bg-archive-charcoal hover:text-white transition-all"
+              className="mt-8 px-8 py-4 border border-archive-charcoal text-[14px] font-black tracking-widest hover:bg-archive-charcoal hover:text-white transition-all"
             >
               RESET FILTERS
             </button>
           </div>
         )}
       </section>
-
-      {/* Decorative Technical Shutter */}
-      <div className="h-4 bg-archive-charcoal relative overflow-hidden opacity-10 mt-40">
-        <div className="absolute inset-0 measuring-tape"></div>
-      </div>
     </div>
   );
 };

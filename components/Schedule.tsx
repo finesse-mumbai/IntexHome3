@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Plus, Calendar, Clock, ArrowUpRight, ChevronRight, ChevronLeft, MapPin } from 'lucide-react';
@@ -99,7 +98,7 @@ const Schedule: React.FC = () => {
                   <div className="space-y-6">
                     <div className="flex items-center gap-4">
                       <div className="w-12 h-[1px] bg-archive-clay"></div>
-                      <span className="text-[10px] font-black tracking-[0.5em] text-archive-clay uppercase">Event Registry</span>
+                      <span className="text-[14px] font-black tracking-[0.5em] text-archive-clay uppercase">Event Registry</span>
                     </div>
                     <h2 className="text-2xl md:text-4xl font-black tracking-tighter leading-[0.9] text-archive-charcoal uppercase">
                       Events & <br /> <span className="text-archive-clay">Program.</span>
@@ -107,7 +106,7 @@ const Schedule: React.FC = () => {
                   </div>
 
                   <div className="max-w-xs space-y-6">
-                    <p className="text-[11px] font-bold tracking-widest text-archive-charcoal/60 leading-relaxed">
+                    <p className="text-[14px] font-bold tracking-widest text-archive-charcoal/60 leading-relaxed">
                       Strategic sessions, technical forums, and industry mixers indexed for the current and historical cycles.
                     </p>
                   </div>
@@ -119,7 +118,7 @@ const Schedule: React.FC = () => {
                         <button
                           key={tab}
                           onClick={() => setActiveTab(tabName)}
-                          className={`p-8 text-left text-[11px] font-black tracking-[0.3em] transition-all flex justify-between items-center group uppercase ${activeTab === tabName ? 'bg-archive-clay text-white' : 'text-archive-charcoal hover:bg-archive-clay/5'}`}
+                          className={`p-8 text-left text-[14px] font-black tracking-[0.3em] transition-all flex justify-between items-center group uppercase ${activeTab === tabName ? 'bg-archive-clay text-white' : 'text-archive-charcoal hover:bg-archive-clay/5'}`}
                         >
                           <span>{tab.toUpperCase()}</span>
                           <Plus size={14} className={`transition-transform duration-500 ${activeTab === tabName ? 'rotate-45' : 'group-hover:rotate-90'}`} />
@@ -130,7 +129,7 @@ const Schedule: React.FC = () => {
                 </div>
 
                 <div className="pt-12 flex flex-col items-start gap-4">
-                  <button className="text-[10px] font-black tracking-[0.4em] text-archive-charcoal border-b border-archive-clay/40 pb-2 hover:border-archive-clay transition-all flex items-center gap-3">
+                  <button className="text-[14px] font-black tracking-[0.4em] text-archive-charcoal border-b border-archive-clay/40 pb-2 hover:border-archive-clay transition-all flex items-center gap-3">
                     View All Event Reports <ArrowUpRight size={12} className="uppercase" />
                   </button>
                 </div>
@@ -174,8 +173,8 @@ const Schedule: React.FC = () => {
                               <div className="flex items-center gap-3">
                                 <Calendar size={14} className="text-archive-clay" />
                                 <div className="flex items-baseline gap-2">
-                                  <span className="text-[10px] font-black text-archive-charcoal leading-none group-hover:text-archive-clay transition-colors">{event.date}</span>
-                                  <span className="text-[10px] font-black tracking-widest text-archive-charcoal/40 uppercase">
+                                  <span className="text-[14px] font-black text-archive-charcoal leading-none group-hover:text-archive-clay transition-colors">{event.date}</span>
+                                  <span className="text-[14px] font-black tracking-widest text-archive-charcoal/40 uppercase">
                                     {event.month} {event.day}
                                   </span>
                                 </div>
@@ -183,7 +182,7 @@ const Schedule: React.FC = () => {
                             </div>
                             <div className="flex items-center gap-3">
                               <MapPin size={14} className="text-archive-clay" />
-                              <span className="text-[10px] font-black tracking-widest text-archive-charcoal/40 uppercase">{event.location}</span>
+                              <span className="text-[14px] font-black tracking-widest text-archive-charcoal/40 uppercase">{event.location}</span>
                             </div>
                           </div>
 
@@ -196,7 +195,7 @@ const Schedule: React.FC = () => {
                                 className="h-[75%] w-auto transition-all duration-700 object-contain"
                               />
                             </div>
-                            <h3 className="text-[13px] md:text-lg font-black leading-tight text-archive-charcoal group-hover:text-archive-clay transition-colors uppercase tracking-tight">
+                            <h3 className="text-[14px] md:text-lg font-black leading-tight text-archive-charcoal group-hover:text-archive-clay transition-colors uppercase tracking-tight">
                               {event.title}
                             </h3>
                           </div>
@@ -209,12 +208,12 @@ const Schedule: React.FC = () => {
                                   href="/ibf-details"
                                   className="group/btn relative w-fit overflow-hidden py-2 px-5 border border-archive-charcoal/10 rounded-full flex items-center gap-4 transition-all hover:bg-archive-clay hover:border-archive-clay"
                                 >
-                                  <span className="relative z-10 text-[9px] font-black tracking-[0.3em] text-archive-charcoal group-hover/btn:text-white transition-colors uppercase">View Detail</span>
+                                  <span className="relative z-10 text-[14px] font-black tracking-[0.3em] text-archive-charcoal group-hover/btn:text-white transition-colors uppercase">View Detail</span>
                                   <ArrowUpRight size={14} className="relative z-10 text-archive-clay group-hover/btn:text-white transition-colors" />
                                   <div className="absolute inset-0 bg-archive-clay translate-y-full group-hover/btn:translate-y-0 transition-transform duration-500" />
                                 </a>
                                 <button className="group/btn relative w-fit overflow-hidden py-2 px-5 bg-archive-charcoal rounded-full flex items-center justify-center transition-all hover:bg-archive-clay">
-                                  <span className="relative z-10 text-[9px] font-black tracking-[0.3em] text-white transition-colors uppercase">Register Now</span>
+                                  <span className="relative z-10 text-[14px] font-black tracking-[0.3em] text-white transition-colors uppercase">Register Now</span>
                                   <div className="absolute inset-0 bg-archive-clay translate-y-full group-hover/btn:translate-y-0 transition-transform duration-500" />
                                 </button>
                               </>
@@ -235,10 +234,10 @@ const Schedule: React.FC = () => {
 
                   <div className="relative z-10 flex flex-col md:flex-row justify-between items-center gap-8">
                     <div className="space-y-2 text-center md:text-left">
-                      <h4 className="text-[10px] font-black tracking-[0.3em] text-white uppercase">Branding Opportunities</h4>
-                      <p className="text-[8px] font-mono text-white/40">Partner with us for the 2026 Seminar Series.</p>
+                      <h4 className="text-[14px] font-black tracking-[0.3em] text-white uppercase">Branding Opportunities</h4>
+                      <p className="text-[14px] font-mono text-white/40">Partner with us for the 2026 Seminar Series.</p>
                     </div>
-                    <button className="px-10 py-4 bg-archive-clay text-white text-[10px] font-black tracking-[0.2em] rounded-xl hover:bg-white hover:text-archive-charcoal transition-all duration-500 uppercase shadow-lg shadow-archive-clay/20">
+                    <button className="px-10 py-4 bg-archive-clay text-white text-[14px] font-black tracking-[0.2em] rounded-xl hover:bg-white hover:text-archive-charcoal transition-all duration-500 uppercase shadow-lg shadow-archive-clay/20">
                       Enquire Now
                     </button>
                   </div>

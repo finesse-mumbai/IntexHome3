@@ -26,9 +26,9 @@ const BuyerProfile: React.FC = () => {
           <div className="hidden lg:block border-l border-black/10 pl-8 space-y-4 max-w-xs">
             <div className="flex items-center gap-2 text-archive-clay">
               <Cpu size={12} />
-              <span className="text-[9px] font-black tracking-widest uppercase">List of Exhibitor Profile</span>
+              <span className="text-[14px] font-black tracking-widest uppercase">List of Exhibitor Profile</span>
             </div>
-            <p className="text-[10px] font-bold tracking-widest leading-relaxed text-black/50">
+            <p className="text-[14px] font-bold tracking-widest leading-relaxed text-black/50">
               High-fidelity material datasets verified for global apparel manufacturing.
             </p>
           </div>
@@ -74,7 +74,7 @@ const ExhibitorUnit: React.FC<{ cat: CategoryItem; index: number }> = ({ cat, in
       <div className="absolute inset-0 z-10 p-10 flex flex-col justify-between">
         <div className="flex justify-between items-start">
           <div className="space-y-1">
-            <span className="text-[10px] font-mono text-white font-black bg-white/10 px-2 py-0.5 uppercase">Unit {index + 1}</span>
+            <span className="text-[14px] font-mono text-white font-black bg-white/10 px-2 py-0.5 uppercase">Unit {index + 1}</span>
           </div>
           <Layers className="text-white/40 group-hover:text-white transition-all" size={20} />
         </div>
@@ -88,13 +88,13 @@ const ExhibitorUnit: React.FC<{ cat: CategoryItem; index: number }> = ({ cat, in
           </div>
 
           <div className="relative overflow-hidden">
-            <p className="text-[10px] font-bold tracking-widest text-black leading-relaxed translate-y-full group-hover:translate-y-0 transition-transform duration-500 bg-white p-3">
+            <p className="text-[14px] font-bold tracking-widest text-black leading-relaxed translate-y-full group-hover:translate-y-0 transition-transform duration-500 bg-white p-3">
               {cat.description}
             </p>
           </div>
 
           <div className="flex justify-between items-end pt-2 opacity-0 group-hover:opacity-100 transition-all duration-700 delay-100">
-            <button className="flex items-center gap-3 bg-white text-black px-4 py-2 text-[9px] font-black tracking-widest hover:bg-archive-clay hover:text-white transition-all uppercase">
+            <button className="flex items-center gap-3 bg-white text-black px-4 py-2 text-[14px] font-black tracking-widest hover:bg-archive-clay hover:text-white transition-all uppercase">
               Access Data
               <Plus size={10} />
             </button>

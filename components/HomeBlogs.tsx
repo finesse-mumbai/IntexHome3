@@ -10,7 +10,7 @@ export default function HomeBlogs() {
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 p-2">
         <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
           <div>
-            <span className="text-[10px] font-black tracking-[0.5em] text-archive-clay uppercase mb-4 block">
+            <span className="text-[14px] font-black tracking-[0.5em] text-archive-clay uppercase mb-4 block">
               Market Intelligence
             </span>
             <h2 className="text-3xl md:text-5xl font-black tracking-tighter leading-[0.9] text-archive-charcoal uppercase">
@@ -19,7 +19,7 @@ export default function HomeBlogs() {
           </div>
           <Link
             to="/blogs"
-            className="px-8 py-4 bg-archive-charcoal text-archive-cream font-black text-[10px] tracking-[0.4em] hover:bg-archive-clay transition-all uppercase whitespace-nowrap"
+            className="px-8 py-4 bg-archive-charcoal text-archive-cream font-black text-[14px] tracking-[0.4em] hover:bg-archive-clay transition-all uppercase whitespace-nowrap"
           >
             Read All Blogs
           </Link>
@@ -51,7 +51,7 @@ export default function HomeBlogs() {
                 <div>
                   <Link
                     to={blog.link}
-                    className="inline-flex items-center gap-3 px-8 py-3 bg-archive-clay text-white font-semibold text-sm  tracking-widest rounded-full hover:bg-archive-charcoal transition-all shadow-xl shadow-orange-500/20 group/link"
+                    className="inline-flex items-center gap-3 px-8 py-3 bg-archive-clay text-white font-semibold text-[14px]  tracking-widest rounded-full hover:bg-archive-charcoal transition-all shadow-xl shadow-orange-500/20 group/link"
                   >
                     Read Full
                     <svg

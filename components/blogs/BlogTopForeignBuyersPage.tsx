@@ -47,8 +47,8 @@ export default function BlogTopForeignBuyersPage() {
     <main ref={containerRef} className="min-h-screen bg-white pt-32 pb-20 overflow-x-hidden">
       {/* Hero Section */}
       <div className="max-w-4xl mx-auto px-4">
-        <a 
-          href="#blogs" 
+        <a
+          href="#blogs"
           className="text-[#F27B35] font-semibold flex items-center gap-2 mb-8 hover:underline blog-hero-content"
         >
           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -56,16 +56,16 @@ export default function BlogTopForeignBuyersPage() {
           </svg>
           Back to Blogs
         </a>
-        
+
         <h1 className="text-3xl md:text-5xl font-extrabold text-slate-900 leading-tight mb-6 blog-hero-content">
           The Top 10 Foreign Companies Purchasing <span className="text-[#F27B35]">Bangladeshi Garments</span>
         </h1>
-        
+
         <p className="text-xl text-slate-600 mb-8 blog-hero-content">
           Global Sourcing Powerhouses Driving the Apparel Industry
         </p>
 
-        <div className="flex items-center gap-4 text-slate-500 text-sm mb-8 blog-hero-content">
+        <div className="flex items-center gap-4 text-slate-500 text-[14px] mb-8 blog-hero-content">
           <span className="bg-slate-100 px-3 py-1 rounded-full text-slate-700 font-medium">Market Intelligence</span>
           <span>May 9, 2026</span>
           <span>•</span>
@@ -73,8 +73,8 @@ export default function BlogTopForeignBuyersPage() {
         </div>
 
         <div className="w-full h-[450px] relative rounded-3xl overflow-hidden mb-12 blog-hero-image shadow-2xl">
-          <img 
-            src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1200" 
+          <img
+            src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1200"
             alt="Bangladesh Garment Sourcing"
             className="w-full h-full object-cover"
           />
@@ -86,9 +86,9 @@ export default function BlogTopForeignBuyersPage() {
       <div className="max-w-3xl mx-auto px-4 prose prose-lg prose-slate">
         <h2 className="text-3xl font-bold text-slate-900 mt-12 mb-6 gsap-reveal">Bangladesh’s Garment Industry: A Global Sourcing Giant</h2>
         <p className="gsap-reveal">
-          Bangladesh has firmly established itself as one of the world’s leading apparel manufacturing hubs, exporting ready-made garments (RMG) worth $45 billion in FY 2025. The country continues to attract thousands of global buyers due to its competitive pricing, large-scale production capabilities, skilled workforce, and improving compliance standards. 
+          Bangladesh has firmly established itself as one of the world’s leading apparel manufacturing hubs, exporting ready-made garments (RMG) worth $45 billion in FY 2025. The country continues to attract thousands of global buyers due to its competitive pricing, large-scale production capabilities, skilled workforce, and improving compliance standards.
         </p>
-        
+
         <div className="bg-orange-50 border-l-4 border-[#F27B35] p-8 my-10 rounded-r-2xl gsap-reveal">
           <p className="text-slate-800 font-bold m-0 text-xl">
             Among these buyers, the top 10 foreign companies alone account for nearly 29% of total exports, representing approximately $10.5 billion in garment sourcing.
@@ -190,13 +190,13 @@ export default function BlogTopForeignBuyersPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16">
           <div className="bg-slate-50 p-8 rounded-3xl gsap-reveal">
             <h3 className="text-xl font-bold text-slate-900 mb-4">9. Next</h3>
-            <p className="text-sm">
+            <p className="text-[14px]">
               Sourcing more than $500 million worth of garments annually from Bangladesh. This includes approximately 160 million pieces, with an average price of $3.24 per garment.
             </p>
           </div>
           <div className="bg-slate-50 p-8 rounded-3xl gsap-reveal">
             <h3 className="text-xl font-bold text-slate-900 mb-4">10. Pepco</h3>
-            <p className="text-sm">
+            <p className="text-[14px]">
               Sourcing worth around $460 million annually at an average price of just $1.75 per piece. Pepco leverages Bangladesh’s unmatched strength in ultra-low-cost production.
             </p>
           </div>
@@ -216,7 +216,7 @@ export default function BlogTopForeignBuyersPage() {
         <ul className="gsap-reveal list-none p-0">
           {['Competitive production costs', 'Large-scale manufacturing capabilities', 'Highly skilled workforce', 'Fast fashion efficiency', 'Improvements in compliance and sustainability'].map((item, i) => (
             <li key={i} className="flex items-center gap-3 mb-4 bg-slate-50 p-4 rounded-xl">
-              <span className="w-6 h-6 bg-[#F27B35] rounded-full flex items-center justify-center text-white text-xs">✓</span>
+              <span className="w-6 h-6 bg-[#F27B35] rounded-full flex items-center justify-center text-white text-[14px]">✓</span>
               {item}
             </li>
           ))}
@@ -229,13 +229,13 @@ export default function BlogTopForeignBuyersPage() {
 
         <div className="mt-20 p-12 bg-gradient-to-br from-slate-900 to-slate-800 rounded-[3rem] text-white text-center gsap-reveal shadow-2xl relative overflow-hidden">
           <div className="absolute top-0 right-0 w-64 h-64 bg-[#F27B35]/10 rounded-full -mr-32 -mt-32 blur-3xl"></div>
-          
+
           <h3 className="text-3xl md:text-4xl font-bold mb-6 relative z-10">Explore Textile Opportunities in Bangladesh</h3>
           <p className="text-slate-300 mb-10 max-w-xl mx-auto text-lg relative z-10">
             Connect with leading manufacturers and discover innovative textile solutions at Intex.
           </p>
-          <a 
-            href="#enquiry-form" 
+          <a
+            href="#enquiry-form"
             className="inline-block px-12 py-5 bg-[#F27B35] text-white font-extrabold rounded-full hover:bg-orange-600 transition-all transform hover:scale-105 active:scale-95 shadow-xl relative z-10"
           >
             Booth Booking Enquiry

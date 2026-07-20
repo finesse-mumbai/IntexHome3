@@ -56,7 +56,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ blog, index }) => {
         <h2 className="text-xl md:text-2xl font-semibold text-slate-800 mb-4 leading-tight group-hover:text-[#F27B35] transition-colors">
           {blog.heading}
         </h2>
-        <p className="text-slate-600 mb-6 line-clamp-2 text-sm md:text-base">
+        <p className="text-slate-600 mb-6 line-clamp-2 text-[14px] md:text-base">
           {blog.excerpt}
         </p>
         <div>

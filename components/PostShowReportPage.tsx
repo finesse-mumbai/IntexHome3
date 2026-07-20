@@ -52,7 +52,7 @@ const PostShowReportPage: React.FC = () => {
           <div className="space-y-6">
             <div className="flex items-center gap-4">
               <div className="w-12 h-[1px] bg-archive-clay"></div>
-              <span className="text-[10px] font-black tracking-[0.5em] text-archive-clay uppercase">Historical Analysis // Audit Log</span>
+              <span className="text-[14px] font-black tracking-[0.5em] text-archive-clay uppercase">Historical Analysis // Audit Log</span>
             </div>
             <h1 className="text-4xl md:text-8xl font-black tracking-tighter leading-[0.85] text-archive-charcoal uppercase">
               POST SHOW <br />
@@ -72,7 +72,7 @@ const PostShowReportPage: React.FC = () => {
                 <button
                   key={yr}
                   onClick={() => setFilterYear(yr)}
-                  className={`px-6 py-3 text-[9px] font-black tracking-widest transition-all ${filterYear === yr ? 'bg-archive-charcoal text-white' : 'text-archive-charcoal/40 hover:text-archive-charcoal'}`}
+                  className={`px-6 py-3 text-[14px] font-black tracking-widest transition-all ${filterYear === yr ? 'bg-archive-charcoal text-white' : 'text-archive-charcoal/40 hover:text-archive-charcoal'}`}
                 >
                   {yr}
                 </button>
@@ -117,7 +117,7 @@ const PostShowReportPage: React.FC = () => {
                     <div className="absolute inset-0 bg-archive-charcoal/10 group-hover:bg-transparent transition-colors"></div>
                   </div>
                   {/* Year Badge */}
-                  <div className="absolute top-4 left-4 bg-archive-charcoal text-white px-3 py-1 text-[9px] font-mono font-black z-10 group-hover:bg-archive-clay transition-colors shadow-sm">
+                  <div className="absolute top-4 left-4 bg-archive-charcoal text-white px-3 py-1 text-[14px] font-mono font-black z-10 group-hover:bg-archive-clay transition-colors shadow-sm">
                     {report.year}
                   </div>
                 </div>
@@ -136,7 +136,7 @@ const PostShowReportPage: React.FC = () => {
                       href={report.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-3 text-[11px] font-black tracking-[0.1em] text-archive-charcoal group-hover:text-white transition-colors group/btn"
+                      className="flex items-center gap-3 text-[14px] font-black tracking-[0.15em] text-archive-charcoal group-hover:text-white transition-colors group/btn"
                     >
                       READ REPORT
                     </a>
@@ -151,7 +151,7 @@ const PostShowReportPage: React.FC = () => {
         {filteredReports.length === 0 && (
           <div className="py-60 flex flex-col items-center justify-center border border-dashed border-archive-charcoal/20 text-center">
             <Search size={40} className="text-archive-clay/20 mb-6" />
-            <span className="text-[10px] font-black tracking-[0.5em] text-archive-charcoal/30 uppercase">No archive records found for selected node.</span>
+            <span className="text-[14px] font-black tracking-[0.5em] text-archive-charcoal/30 uppercase">No archive records found for selected node.</span>
           </div>
         )}
       </section>

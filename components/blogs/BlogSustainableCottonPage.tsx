@@ -40,12 +40,12 @@ export default function BlogSustainableCottonPage() {
           </svg>
           Back to Blogs
         </a>
-        
+
         <h1 className="text-3xl md:text-5xl font-extrabold text-slate-900 leading-tight mb-6 blog-hero-content">
           Global Cotton Demand Evolution: <span className="text-[#F27B35]">Why Certified Sustainable Cotton is Reshaping Sourcing Strategies</span>
         </h1>
-        
-        <div className="flex items-center gap-4 text-slate-500 text-sm mb-8 blog-hero-content">
+
+        <div className="flex items-center gap-4 text-slate-500 text-[14px] mb-8 blog-hero-content">
           <span className="bg-slate-100 px-3 py-1 rounded-full text-slate-700 font-medium">Sustainability Report</span>
           <span>May 7, 2026</span>
           <span>•</span>
@@ -53,8 +53,8 @@ export default function BlogSustainableCottonPage() {
         </div>
 
         <div className="w-full h-[400px] md:h-[500px] relative rounded-3xl overflow-hidden mb-12 blog-hero-image">
-          <img 
-            src="/assets/img/Blogs/blog01.png" 
+          <img
+            src="/assets/img/Blogs/blog01.png"
             alt="Sustainable Cotton Sourcing"
             className="w-full h-full object-cover"
           />
@@ -73,11 +73,11 @@ export default function BlogSustainableCottonPage() {
 
         <div className="my-12 rounded-3xl overflow-hidden gsap-reveal">
           <img src="/assets/img/Blogs/blog02.png" alt="Traceability in Cotton" className="w-full h-auto shadow-lg" />
-          <p className="text-sm text-center text-slate-500 mt-4 italic">Traceability and certified systems are becoming mandatory requirements for global markets.</p>
+          <p className="text-[14px] text-center text-slate-500 mt-4 italic">Traceability and certified systems are becoming mandatory requirements for global markets.</p>
         </div>
 
         <p className="gsap-reveal">
-          The rise of organic and certified cotton textiles is being driven by stringent global compliance frameworks and evolving consumer awareness. Markets across Europe and North America are actively prioritizing sourcing strategies that align with ESG benchmarks, making traceability no longer optional but a mandatory requirement. 
+          The rise of organic and certified cotton textiles is being driven by stringent global compliance frameworks and evolving consumer awareness. Markets across Europe and North America are actively prioritizing sourcing strategies that align with ESG benchmarks, making traceability no longer optional but a mandatory requirement.
         </p>
 
         <p className="gsap-reveal">
@@ -94,7 +94,7 @@ export default function BlogSustainableCottonPage() {
         </div>
 
         <p className="gsap-reveal">
-          Bangladesh, in particular, stands out as one of the largest importers of raw cotton globally, driven by its robust ready-made garment (RMG) sector. Alongside Vietnam, it is expected to remain a key import hub, sourcing massive volumes of cotton to sustain its export-oriented apparel industry. This dependence on imported cotton highlights a critical factor—the need for consistent, high-quality, and traceable cotton supply. 
+          Bangladesh, in particular, stands out as one of the largest importers of raw cotton globally, driven by its robust ready-made garment (RMG) sector. Alongside Vietnam, it is expected to remain a key import hub, sourcing massive volumes of cotton to sustain its export-oriented apparel industry. This dependence on imported cotton highlights a critical factor—the need for consistent, high-quality, and traceable cotton supply.
         </p>
 
         <div className="my-12 rounded-3xl overflow-hidden gsap-reveal">
@@ -107,7 +107,7 @@ export default function BlogSustainableCottonPage() {
 
         <h2 className="text-2xl font-bold text-slate-900 mt-12 mb-6 gsap-reveal">Global Brand Sourcing: The Driving Force</h2>
         <p className="gsap-reveal">
-          The demand surge for sustainable cotton is further reinforced by global brands that have strong sourcing bases in Bangladesh, including H&M, Zara, Primark, Walmart, and Target. These brands are actively increasing their focus on sustainable and traceable cotton-based product lines, particularly as part of their long-term environmental commitments. 
+          The demand surge for sustainable cotton is further reinforced by global brands that have strong sourcing bases in Bangladesh, including H&M, Zara, Primark, Walmart, and Target. These brands are actively increasing their focus on sustainable and traceable cotton-based product lines, particularly as part of their long-term environmental commitments.
         </p>
 
         <div className="bg-orange-50 border-l-4 border-[#F27B35] p-8 my-12 rounded-r-3xl gsap-reveal">
@@ -127,7 +127,7 @@ export default function BlogSustainableCottonPage() {
 
         <div className="my-12 rounded-3xl overflow-hidden gsap-reveal">
           <img src="/assets/img/Blogs/blog05.png" alt="Intex Bangladesh Trade Fair" className="w-full h-auto shadow-lg" />
-          <p className="text-sm text-center text-slate-500 mt-4 italic">Platforms like Intex Bangladesh facilitate critical connections in the textile value chain.</p>
+          <p className="text-[14px] text-center text-slate-500 mt-4 italic">Platforms like Intex Bangladesh facilitate critical connections in the textile value chain.</p>
         </div>
 
         <p className="gsap-reveal">
@@ -143,9 +143,11 @@ export default function BlogSustainableCottonPage() {
           <p className="text-slate-300 mb-8 max-w-xl mx-auto">
             Align with the global transition toward responsible and traceable textiles. Meet 50+ leading cotton suppliers at Intex Bangladesh.
           </p>
-          <a 
-            href="#buyer_reg" 
-            className="inline-block px-10 py-4 bg-[#F27B35] text-white font-bold rounded-full hover:bg-orange-600 transition-all transform hover:scale-105 active:scale-95"
+          <a
+            href="https://portal.intexfair.com/buyer_reg_portal.php?form_name=pre-buyer-registration&country=sl&source_name="
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block px-10 py-4 bg-[#F27B35] text-white font-bold rounded-full hover:bg-orange-600 transition-all transform hover:scale-105 active:scale-95 text-[15px]"
           >
             Register as a Visitor
           </a>

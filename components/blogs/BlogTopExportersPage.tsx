@@ -92,16 +92,16 @@ export default function BlogTopExportersPage() {
           </svg>
           Back to Blogs
         </a>
-        
+
         <h1 className="text-3xl md:text-5xl font-extrabold text-slate-900 leading-tight mb-6 blog-hero-content">
           Top 10 Garment Exporters in Bangladesh: <span className="text-[#F27B35]">Industry Leaders Powering Global Apparel</span>
         </h1>
-        
+
         <p className="text-lg text-slate-600 mb-8 blog-hero-content max-w-2xl">
           Meet the giants of the industry. A deep dive into the top 10 exporters in Bangladesh that are setting new standards in quality and scale.
         </p>
 
-        <div className="flex items-center gap-4 text-slate-500 text-sm mb-8 blog-hero-content">
+        <div className="flex items-center gap-4 text-slate-500 text-[14px] mb-8 blog-hero-content">
           <span className="bg-slate-100 px-3 py-1 rounded-full text-slate-700 font-medium">Industry Leaders</span>
           <span>May 12, 2026</span>
           <span>•</span>
@@ -109,8 +109,8 @@ export default function BlogTopExportersPage() {
         </div>
 
         <div className="w-full h-[450px] relative rounded-3xl overflow-hidden mb-12 blog-hero-image">
-          <img 
-            src="https://images.unsplash.com/photo-1558444479-c8f010528c32?w=1200&q=80" 
+          <img
+            src="https://images.unsplash.com/photo-1558444479-c8f010528c32?w=1200&q=80"
             alt="Bangladesh Garment Manufacturing"
             className="w-full h-full object-cover"
           />
@@ -151,8 +151,8 @@ export default function BlogTopExportersPage() {
           </div>
 
           <div className="w-full h-[400px] relative rounded-3xl overflow-hidden my-12 gsap-reveal">
-            <img 
-              src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=1200&q=80" 
+            <img
+              src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=1200&q=80"
               alt="Sustainable Apparel Production"
               className="w-full h-full object-cover"
             />
@@ -161,7 +161,7 @@ export default function BlogTopExportersPage() {
           <div className="mt-20 p-12 bg-slate-900 rounded-[3rem] text-white text-center relative overflow-hidden gsap-reveal">
             <div className="absolute top-0 right-0 w-64 h-64 bg-[#F27B35]/10 rounded-full -mr-32 -mt-32 blur-3xl"></div>
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#F27B35]/10 rounded-full -ml-32 -mb-32 blur-3xl"></div>
-            
+
             <h3 className="text-3xl md:text-4xl font-bold mb-6">Discover the Industry at Intex South Asia 2026</h3>
             <p className="text-slate-300 mb-10 max-w-2xl mx-auto text-lg">
               To connect with leading garment manufacturers and explore the latest developments in apparel production, don’t miss Intex Bangladesh in Dhaka, from 18–19–20 June 2026. This premier sourcing platform brings the entire textile and garment industry together under one roof—offering unmatched opportunities for networking, sourcing, and business growth.
@@ -169,9 +169,9 @@ export default function BlogTopExportersPage() {
             <p className="text-white font-medium mb-10">
               Be part of the future of apparel manufacturing—all under one roof.
             </p>
-            
-            <a 
-              href="#enquiry-form" 
+
+            <a
+              href="#enquiry-form"
               className="inline-block px-12 py-5 bg-[#F27B35] text-white font-bold rounded-full hover:bg-orange-600 transition-all transform hover:scale-105 active:scale-95 shadow-xl shadow-orange-500/20"
             >
               Register for Intex 2026

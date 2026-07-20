@@ -97,7 +97,7 @@ const PhotoGalleryPage: React.FC = () => {
           <div className="space-y-6">
             <div className="flex items-center gap-4">
               <div className="h-px w-12 bg-archive-clay"></div>
-              <span className="text-[10px] font-black uppercase tracking-[0.5em] text-archive-clay">Visual Archive // Event Records</span>
+              <span className="text-[14px] font-black uppercase tracking-[0.5em] text-archive-clay">Visual Archive // Event Records</span>
             </div>
             <h1 className="text-4xl md:text-8xl font-black uppercase tracking-tighter leading-[0.85] text-white">
               PHOTO{' '}
@@ -106,7 +106,7 @@ const PhotoGalleryPage: React.FC = () => {
           </div>
 
           <div className="space-y-6 bg-white/10 px-5 py-6 shadow-sm backdrop-blur-md md:px-8">
-            <p className="max-w-xl text-sm font-bold leading-relaxed tracking-[0.15em] text-white/70">
+            <p className="max-w-xl text-[14px] font-bold leading-relaxed tracking-[0.15em] text-white/70">
               Event-wise photo archive from Intex Bangladesh and Intex Sri Lanka, arranged by year for quick browsing and full-screen viewing.
             </p>
             <div className="grid gap-4 md:grid-cols-2">
@@ -147,7 +147,7 @@ const PhotoGalleryPage: React.FC = () => {
         {filteredAssets.length === 0 && (
           <div className="flex flex-col items-center justify-center bg-white/10 py-40 text-center backdrop-blur-md">
             <Search size={40} className="mb-6 text-archive-clay/60" />
-            <span className="text-[10px] font-black uppercase tracking-[0.5em] text-white/50">No gallery images for selected filters.</span>
+            <span className="text-[14px] font-black uppercase tracking-[0.5em] text-white/50">No gallery images for selected filters.</span>
           </div>
         )}
       </section>
@@ -177,14 +177,14 @@ const PhotoGalleryPage: React.FC = () => {
               </div>
               <div className="flex flex-col justify-between bg-white/10 p-8 text-white backdrop-blur-md">
                 <div className="space-y-5">
-                  <span className="text-[10px] font-black uppercase tracking-[0.4em] text-archive-clay">Selected Image</span>
+                  <span className="text-[14px] font-black uppercase tracking-[0.4em] text-archive-clay">Selected Image</span>
                   <h2 className="text-2xl font-black uppercase leading-none">{selectedAsset.event}</h2>
-                  <div className="space-y-3 text-xs font-bold uppercase tracking-widest text-white/60">
+                  <div className="space-y-3 text-[14px] font-bold uppercase tracking-widest text-white/60">
                     <p className="flex items-center gap-2"><Calendar size={14} className="text-archive-clay" /> {selectedAsset.year}</p>
                     <p className="flex items-center gap-2"><Camera size={14} className="text-archive-clay" /> {selectedAsset.title}</p>
                   </div>
                 </div>
-                <button onClick={() => setSelectedAsset(null)} className="mt-8 bg-archive-charcoal px-6 py-4 text-[10px] font-black uppercase tracking-[0.3em] text-white transition-colors hover:bg-archive-clay">
+                <button onClick={() => setSelectedAsset(null)} className="mt-8 bg-archive-charcoal px-6 py-4 text-[14px] font-black uppercase tracking-[0.3em] text-white transition-colors hover:bg-archive-clay">
                   Close Preview
                 </button>
               </div>
@@ -234,12 +234,12 @@ const FilterDropdown: React.FC<{
   highlight?: boolean;
 }> = ({ label, values, active, onChange, highlight = false }) => (
   <div className="space-y-3">
-    <span className="text-[10px] font-black uppercase tracking-widest text-white/50">{label}</span>
+    <span className="text-[14px] font-black uppercase tracking-widest text-white/50">{label}</span>
     <div className={`relative backdrop-blur-md ${highlight ? 'bg-archive-clay/80' : 'bg-white/15'}`}>
       <select
         value={active}
         onChange={(event) => onChange(event.target.value)}
-        className="w-full appearance-none bg-transparent px-5 py-4 pr-12 text-[11px] font-black uppercase tracking-widest text-white outline-none"
+        className="w-full appearance-none bg-transparent px-5 py-4 pr-12 text-[14px] font-black uppercase tracking-widest text-white outline-none"
       >
         {values.map((value) => (
           <option key={value} value={value} className="bg-archive-charcoal text-white">
@@ -256,14 +256,14 @@ const EventHeader: React.FC<{ event: GalleryEvent; count: number }> = ({ event, 
   <div className="relative overflow-hidden bg-white/10 px-6 py-8 text-white backdrop-blur-md md:px-10">
     <div className="absolute inset-y-0 right-0 w-1/2 bg-[linear-gradient(90deg,transparent,rgba(238,117,57,0.18))]"></div>
     <div className="relative flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
-    <div className="space-y-3">
-      <div className="flex items-center gap-3 text-archive-clay">
-        <MapPin size={16} />
-        <span className="text-[10px] font-black uppercase tracking-[0.4em]">Event Gallery</span>
+      <div className="space-y-3">
+        <div className="flex items-center gap-3 text-archive-clay">
+          <MapPin size={16} />
+          <span className="text-[14px] font-black uppercase tracking-[0.4em]">Event Gallery</span>
+        </div>
+        <h2 className="text-3xl font-black uppercase tracking-tight md:text-5xl">{event}</h2>
       </div>
-      <h2 className="text-3xl font-black uppercase tracking-tight md:text-5xl">{event}</h2>
-    </div>
-    <span className="text-[10px] font-black uppercase tracking-[0.4em] text-white/45">{count} Images</span>
+      <span className="text-[14px] font-black uppercase tracking-[0.4em] text-white/45">{count} Images</span>
     </div>
   </div>
 );
@@ -280,15 +280,15 @@ const YearGallery: React.FC<{
     <div className="space-y-6">
       <div className="flex items-center justify-between gap-6 pb-4">
         <div className="flex items-center gap-4">
-          <span className="flex h-11 w-11 items-center justify-center bg-archive-clay text-[11px] font-black text-white">
+          <span className="flex h-11 w-11 items-center justify-center bg-archive-clay text-[14px] font-black text-white">
             {year.slice(2)}
           </span>
           <div>
             <h3 className="text-xl font-black uppercase tracking-tight text-white">{year}</h3>
-            <p className="text-[10px] font-black uppercase tracking-widest text-white/45">{event} visual record</p>
+            <p className="text-[14px] font-black uppercase tracking-widest text-white/45">{event} visual record</p>
           </div>
         </div>
-        <span className="text-[10px] font-black uppercase tracking-widest text-white/45">{assets.length} Photos</span>
+        <span className="text-[14px] font-black uppercase tracking-widest text-white/45">{assets.length} Photos</span>
       </div>
       <div className="grid grid-cols-1 gap-1 sm:grid-cols-2 lg:grid-cols-4">
         {previewAssets.map((asset, index) => {
@@ -314,8 +314,8 @@ const YearGallery: React.FC<{
               <div className="absolute inset-x-0 bottom-0 translate-y-3 p-5 text-white opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
                 <div className="flex items-end justify-between gap-4">
                   <div className="space-y-2">
-                    <span className="text-[9px] font-black uppercase tracking-widest text-archive-clay">{event} // {year}</span>
-                    <p className="text-xs font-black uppercase tracking-tight">Open image</p>
+                    <span className="text-[14px] font-black uppercase tracking-widest text-archive-clay">{event} // {year}</span>
+                    <p className="text-[14px] font-black uppercase tracking-tight">Open image</p>
                   </div>
                   <span className="flex h-9 w-9 items-center justify-center bg-white/10 backdrop-blur">
                     <Maximize2 size={14} />
@@ -327,7 +327,7 @@ const YearGallery: React.FC<{
         })}
       </div>
       {assets.length > previewAssets.length && (
-        <p className="text-right text-[10px] font-black uppercase tracking-[0.35em] text-white/45">
+        <p className="text-right text-[14px] font-black uppercase tracking-[0.35em] text-white/45">
           Showing {previewAssets.length} of {assets.length}
         </p>
       )}

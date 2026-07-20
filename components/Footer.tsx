@@ -32,7 +32,7 @@ const Footer: React.FC = () => {
 
               <div className="relative flex flex-col justify-between p-10  bg-black/10">
                 <div className="relative z-10 max-w-[400px] pt-2">
-                  <p className="text-[15px] font-normal leading-relaxed text-white/90">
+                  <p className="text-[14px] font-normal leading-relaxed text-white/90">
                     309, Parvati Premises, Sun Mill Complex,<br />
                     Lower Parel (W), Mumbai - 400 013, India
                   </p>
@@ -77,7 +77,7 @@ const Footer: React.FC = () => {
                       'Privacy Policy',
                     ].map((link) => (
                       <li key={link}>
-                        <button className="group/link flex items-center gap-3 text-left text-sm font-normal text-white transition-all duration-300 hover:text-archive-clay">
+                        <button className="group/link flex items-center gap-3 text-left text-[14px] font-normal text-white transition-all duration-300 hover:text-archive-clay">
                           <span className="h-[2px] w-0 bg-archive-clay transition-all duration-300 group-hover/link:w-3"></span>
                           {link}
                         </button>
@@ -100,7 +100,7 @@ const Footer: React.FC = () => {
                   <h2 className="mb-5 text-2xl font-semibold uppercase leading-none tracking-tighter text-archive-clay md:text-[31px]">
                     About Intex
                   </h2>
-                  <p className="mb-10 max-w-[480px] text-[15px] font-normal leading-relaxed text-white">
+                  <p className="mb-10 max-w-[480px] text-[14px] font-normal leading-relaxed text-white">
                     Intex South Asia is a leading international textile sourcing platform connecting global textile
                     suppliers with apparel manufacturers, buying houses, brands, and trade buyers across South Asia.
                   </p>

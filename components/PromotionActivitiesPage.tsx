@@ -63,7 +63,7 @@ const PromotionActivitiesPage: React.FC = () => {
           <div className="space-y-6">
             <div className="flex items-center gap-4">
               <div className="w-12 h-[1px] bg-archive-clay"></div>
-              <span className="text-[10px] font-black tracking-[0.5em] text-archive-clay uppercase">Outreach // Protocols</span>
+              <span className="text-[14px] font-black tracking-[0.5em] text-archive-clay uppercase">Outreach // Protocols</span>
             </div>
             <h1 className="text-4xl md:text-8xl font-black tracking-tighter leading-[0.85] text-archive-charcoal uppercase">
               Promotion <br />
@@ -109,7 +109,7 @@ const PromotionActivitiesPage: React.FC = () => {
                 </div>
               </div>
 
-              <p className={`text-[11px] font-bold tracking-widest leading-relaxed transition-colors ${[0, 2, 5, 7].includes(idx) ? 'text-white/80 group-hover:text-white' : 'text-archive-charcoal/40 group-hover:text-white/70'}`}>
+              <p className={`text-[14px] font-bold tracking-widest leading-relaxed transition-colors ${[0, 2, 5, 7].includes(idx) ? 'text-white/80 group-hover:text-white' : 'text-archive-charcoal/40 group-hover:text-white/70'}`}>
                 {activity.desc}
               </p>
             </motion.div>
@@ -125,12 +125,22 @@ const PromotionActivitiesPage: React.FC = () => {
           <span >Secure Volume.</span>
         </h2>
         <div className="flex flex-col sm:flex-row gap-6">
-          <button className="px-12 py-6 bg-archive-clay text-white font-black text-[10px] tracking-[0.4em] hover:bg-archive-charcoal transition-all flex items-center justify-center gap-4">
+          <a
+            href="https://portal.intexfair.com/buyer_reg_portal.php?form_name=pre-buyer-registration&country=sl&source_name="
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-12 py-6 bg-archive-clay text-white font-black text-[15px] tracking-[0.4em] hover:bg-archive-charcoal transition-all flex items-center justify-center gap-4"
+          >
             BUYER REGISTRATION <ArrowRight size={14} className="uppercase" />
-          </button>
-          <button className="px-12 py-6 border border-archive-charcoal text-archive-charcoal font-black text-[10px] tracking-[0.4em] hover:bg-archive-charcoal hover:text-white transition-all flex items-center justify-center">
+          </a>
+          <a
+            href="https://sl.intexsouthasia.com/enquiry-form"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-12 py-6 border border-archive-charcoal text-archive-charcoal font-black text-[15px] tracking-[0.4em] hover:bg-archive-charcoal hover:text-white transition-all flex items-center justify-center"
+          >
             EXHIBITOR ENQUIRY
-          </button>
+          </a>
         </div>
       </section>
 

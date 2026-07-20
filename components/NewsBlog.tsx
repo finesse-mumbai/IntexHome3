@@ -7,7 +7,7 @@ const NewsBlog: React.FC = () => {
       <section className="py-40 bg-archive-cream border-b border-archive-charcoal" id="blog">
          <div className="max-w-[1440px] mx-auto px-12">
             <div className="text-center mb-24 space-y-4">
-               <span className="text-[10px] font-black tracking-[0.5em] uppercase text-archive-clay">News Blog</span>
+               <span className="text-[14px] font-black tracking-[0.5em] uppercase text-archive-clay">News Blog</span>
                <h2 className="text-lg font-black tracking-tighter uppercase text-archive-charcoal">
                   Latest From Our Blog
                </h2>
@@ -21,10 +21,10 @@ const NewsBlog: React.FC = () => {
                      <img src="https://images.unsplash.com/photo-1614850523296-d8c1af93d400?auto=format&fit=crop&q=80&w=800" className="w-full h-full object-cover brightness-75 group-hover:scale-105 transition-transform duration-1000" />
                   </div>
                   <div className="pt-8 space-y-4">
-                     <span className="text-[9px] font-black tracking-widest uppercase text-archive-clay">Admin _ Press Release</span>
+                     <span className="text-[14px] font-black tracking-widest uppercase text-archive-clay">Admin _ Press Release</span>
                      <h3 className="text-lg font-black uppercase leading-tight text-archive-charcoal group-hover:text-archive-clay transition-colors">Celebrating Authentic Marathon at Our Museum</h3>
-                     <p className="text-[10px] font-medium leading-relaxed uppercase tracking-widest text-archive-charcoal opacity-70">Explain to you how all this mistaken idea of denouncing pleasure...</p>
-                     <div className="pt-4 flex justify-between items-center text-[9px] font-black tracking-widest border-t border-archive-charcoal/10">
+                     <p className="text-[14px] font-medium leading-relaxed uppercase tracking-widest text-archive-charcoal opacity-70">Explain to you how all this mistaken idea of denouncing pleasure...</p>
+                     <div className="pt-4 flex justify-between items-center text-[14px] font-black tracking-widest border-t border-archive-charcoal/10">
                         <span className="text-archive-clay hover:underline cursor-pointer">READ MORE +</span>
                         <span className="text-archive-charcoal opacity-40">21.10.2025</span>
                      </div>
@@ -38,7 +38,7 @@ const NewsBlog: React.FC = () => {
                      <p className="text-lg font-black uppercase leading-tight mb-8 text-archive-charcoal group-hover:text-archive-clay transition-colors">
                         "While I stand & regard it, the indifference to myself shown by a work of art in itself is art"
                      </p>
-                     <button className="text-[10px] font-black tracking-[0.4em] uppercase border-b border-archive-clay pb-2 text-archive-clay hover:opacity-60 transition-opacity">Read More +</button>
+                     <button className="text-[14px] font-black tracking-[0.4em] uppercase border-b border-archive-clay pb-2 text-archive-clay hover:opacity-60 transition-opacity">Read More +</button>
                   </div>
                   <div className="h-64 border-t border-archive-charcoal overflow-hidden brightness-50">
                      <img src="https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&q=80&w=800" className="w-full h-full object-cover" />
@@ -51,10 +51,10 @@ const NewsBlog: React.FC = () => {
                      <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800" className="w-full h-full object-cover brightness-75 group-hover:scale-105 transition-transform duration-1000" />
                   </div>
                   <div className="pt-8 space-y-4">
-                     <span className="text-[9px] font-black tracking-widest uppercase text-archive-clay">Admin _ Press Release</span>
+                     <span className="text-[14px] font-black tracking-widest uppercase text-archive-clay">Admin _ Press Release</span>
                      <h3 className="text-lg font-black uppercase leading-tight text-archive-charcoal group-hover:text-archive-clay transition-colors">The Impact of Material Innovation in Modern Art</h3>
-                     <p className="text-[10px] font-medium leading-relaxed uppercase tracking-widest text-archive-charcoal opacity-70">Explain to you how all this mistaken idea of denouncing pleasure...</p>
-                     <div className="pt-4 flex justify-between items-center text-[9px] font-black tracking-widest border-t border-archive-charcoal/10">
+                     <p className="text-[14px] font-medium leading-relaxed uppercase tracking-widest text-archive-charcoal opacity-70">Explain to you how all this mistaken idea of denouncing pleasure...</p>
+                     <div className="pt-4 flex justify-between items-center text-[14px] font-black tracking-widest border-t border-archive-charcoal/10">
                         <span className="text-archive-clay hover:underline cursor-pointer">READ MORE +</span>
                         <span className="text-archive-charcoal opacity-40">21.10.2025</span>
                      </div>

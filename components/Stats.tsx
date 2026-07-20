@@ -25,7 +25,7 @@ const Stats: React.FC = () => {
             >
               <stat.icon size={32} strokeWidth={1} className="mb-6 text-archive-clay opacity-60 group-hover:opacity-100" />
               <h3 className="text-4xl md:text-5xl font-black leading-none text-archive-charcoal group-hover:text-archive-cream mb-4">{stat.value}</h3>
-              <p className="text-[10px] font-black tracking-[0.5em] uppercase leading-tight text-archive-charcoal group-hover:text-archive-clay">{stat.label}</p>
+              <p className="text-[14px] font-black tracking-[0.5em] uppercase leading-tight text-archive-charcoal group-hover:text-archive-clay">{stat.label}</p>
             </motion.div>
           ))}
         </div>

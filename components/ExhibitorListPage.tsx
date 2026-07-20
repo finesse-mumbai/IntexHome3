@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Database, AlertCircle, ArrowUpRight, Search, Lock } from 'lucide-react';
@@ -42,7 +41,7 @@ const ExhibitorListPage: React.FC = () => {
           <div className="space-y-6">
             <div className="flex items-center gap-4">
               <div className="w-12 h-[1px] bg-archive-clay"></div>
-              <span className="text-[10px] font-black tracking-[0.5em] text-archive-clay uppercase">Registry // Directory Index</span>
+              <span className="text-[15px] font-black tracking-[0.5em] text-archive-clay uppercase">Registry // Directory Index</span>
             </div>
             <h1 className="text-4xl md:text-8xl font-black tracking-tighter leading-[0.85] text-archive-charcoal uppercase">
               Exhibitor <br />
@@ -80,15 +79,15 @@ const ExhibitorListPage: React.FC = () => {
               {/* Header Info */}
               <div className="p-10 space-y-6 flex-grow">
                 <div className="flex items-center justify-between">
-                  <span className="text-[9px] font-black tracking-[0.5em] text-archive-clay uppercase">Show 0{idx + 1}</span>
-                  <span className="text-[9px] font-black tracking-widest text-white/30 uppercase">{show.year}</span>
+                  <span className="text-[15px] font-black tracking-[0.5em] text-archive-clay uppercase">Show 0{idx + 1}</span>
+                  <span className="text-[15px] font-black tracking-widest text-white/30 uppercase">{show.year}</span>
                 </div>
 
                 <div className="space-y-4">
                   <h3 className="text-2xl md:text-3xl font-black tracking-tighter leading-[0.9] text-white">
                     {show.name}
                   </h3>
-                  <div className="text-[10px] font-bold text-white/40 tracking-widest">
+                  <div className="text-[15px] font-bold text-white/40 tracking-widest">
                     {show.location.toUpperCase()}
                   </div>
                 </div>
@@ -113,7 +112,7 @@ const ExhibitorListPage: React.FC = () => {
                     <span className="text-base font-black tracking-tighter text-white/30">
                       {show.status.toUpperCase()}
                     </span>
-                    <span className="mt-2 text-[9px] font-black tracking-[0.4em] text-archive-clay/60">COMING SOON</span>
+                    <span className="mt-2 text-[15px] font-black tracking-[0.4em] text-archive-clay/60">COMING SOON</span>
                   </div>
                 )}
               </div>
@@ -125,12 +124,12 @@ const ExhibitorListPage: React.FC = () => {
                     href={show.pdf}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 text-[10px] font-black tracking-[0.3em] text-white hover:text-archive-clay transition-all"
+                    className="flex items-center gap-3 text-[15px] font-black tracking-[0.3em] text-archive-clay hover:underline uppercase"
                   >
-                    DOWNLOAD PDF <ArrowUpRight size={14} />
+                    VIEW DETAILS <ArrowUpRight size={14} />
                   </a>
                 ) : (
-                  <span className="text-[10px] font-black tracking-[0.3em] text-white/20">
+                  <span className="text-[15px] font-black tracking-[0.3em] text-white/20 uppercase">
                     UPCOMING
                   </span>
                 )}
@@ -139,11 +138,6 @@ const ExhibitorListPage: React.FC = () => {
           ))}
         </div>
       </section>
-
-      {/* Decorative Technical Shutter */}
-      <div className="h-4 bg-archive-charcoal relative overflow-hidden opacity-10 mt-32">
-        <div className="absolute inset-0 measuring-tape"></div>
-      </div>
     </div>
   );
 };

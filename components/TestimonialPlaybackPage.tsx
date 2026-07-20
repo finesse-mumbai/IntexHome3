@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, Play, Shield } from 'lucide-react';
@@ -53,7 +52,7 @@ const TestimonialPlaybackPage: React.FC = () => {
         <div className="space-y-1">
           <div className="flex items-center gap-4">
             <div className="w-10 h-[1px] bg-archive-clay"></div>
-            <span className="text-[10px] font-black tracking-[0.5em] text-archive-clay uppercase">Testimonial Archive // Playback Terminal</span>
+            <span className="text-[14px] font-black tracking-[0.5em] text-archive-clay uppercase">Testimonial Archive // Playback Terminal</span>
           </div>
           <h1 className="text-3xl md:text-5xl font-black tracking-tighter uppercase leading-none text-archive-charcoal">
             Testimonial <span className="text-archive-clay">Records.</span>
@@ -92,14 +91,14 @@ const TestimonialPlaybackPage: React.FC = () => {
           {/* Bottom info bar */}
           {active && (
             <div className="h-14 bg-black border-t border-white/5 flex items-center px-8 gap-6 shrink-0">
-              <div className={`px-2 py-0.5 text-[7px] font-black tracking-widest uppercase shrink-0 ${active.type === 'EXHIBITOR' ? 'bg-archive-clay text-white' : 'bg-white text-[#0E0E0E]'}`}>
+              <div className={`px-2 py-0.5 text-[14px] font-black tracking-widest uppercase shrink-0 ${active.type === 'EXHIBITOR' ? 'bg-archive-clay text-white' : 'bg-white text-[#0E0E0E]'}`}>
                 {active.type}
               </div>
               <div className="min-w-0">
-                <p className="text-[11px] font-black text-white uppercase tracking-wide truncate">{active.author}</p>
-                <p className="text-[9px] font-bold text-white/30 uppercase tracking-widest truncate">{active.role} · {active.company}</p>
+                <p className="text-[14px] font-black text-white uppercase tracking-wide truncate">{active.author}</p>
+                <p className="text-[14px] font-bold text-white/30 uppercase tracking-widest truncate">{active.role} · {active.company}</p>
               </div>
-              <span className="ml-auto text-[8px] font-mono text-white/15 tracking-widest hidden md:block">STREAM_SRC // INTEX_ARCHIVE_NODE</span>
+              <span className="ml-auto text-[14px] font-mono text-white/15 tracking-widest hidden md:block">STREAM_SRC // INTEX_ARCHIVE_NODE</span>
             </div>
           )}
         </div>
@@ -113,8 +112,8 @@ const TestimonialPlaybackPage: React.FC = () => {
         >
           {/* Playlist header */}
           <div className="border-b border-white/10 px-6 py-5 shrink-0 bg-archive-charcoal">
-            <span className="text-[8px] font-black tracking-[0.5em] text-archive-clay uppercase block">Testimonial Registry</span>
-            <p className="text-[9px] text-white/40 font-bold tracking-widest mt-0.5">{PLAYLIST.length} Archived Specimens</p>
+            <span className="text-[14px] font-black tracking-[0.5em] text-archive-clay uppercase block">Testimonial Registry</span>
+            <p className="text-[14px] text-white/40 font-bold tracking-widest mt-0.5">{PLAYLIST.length} Archived Specimens</p>
           </div>
 
           {/* Scrollable list */}
@@ -125,9 +124,8 @@ const TestimonialPlaybackPage: React.FC = () => {
                 <button
                   key={t.id}
                   onClick={() => handleSelect(t)}
-                  className={`w-full text-left flex gap-4 p-4 border-b border-archive-charcoal/[0.06] transition-all group relative ${
-                    isActive ? 'bg-archive-clay/5' : 'hover:bg-archive-charcoal/[0.03]'
-                  }`}
+                  className={`w-full text-left flex gap-4 p-4 border-b border-archive-charcoal/[0.06] transition-all group relative ${isActive ? 'bg-archive-clay/5' : 'hover:bg-archive-charcoal/[0.03]'
+                    }`}
                 >
                   {/* Active indicator strip */}
                   {isActive && <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-archive-clay" />}
@@ -158,18 +156,18 @@ const TestimonialPlaybackPage: React.FC = () => {
 
                   {/* Info */}
                   <div className="flex flex-col justify-center gap-1.5 min-w-0">
-                    <div className={`self-start px-1.5 py-0.5 text-[6px] font-black tracking-widest uppercase ${t.type === 'EXHIBITOR' ? 'bg-archive-clay text-white' : 'bg-archive-charcoal text-white'}`}>
+                    <div className={`self-start px-1.5 py-0.5 text-[14px] font-black tracking-widest uppercase ${t.type === 'EXHIBITOR' ? 'bg-archive-clay text-white' : 'bg-archive-charcoal text-white'}`}>
                       {t.type}
                     </div>
-                    <p className={`text-[11px] font-black uppercase tracking-tight truncate ${isActive ? 'text-archive-clay' : 'text-archive-charcoal group-hover:text-archive-clay'} transition-colors`}>
+                    <p className={`text-[14px] font-black uppercase tracking-tight truncate ${isActive ? 'text-archive-clay' : 'text-archive-charcoal group-hover:text-archive-clay'} transition-colors`}>
                       {t.author}
                     </p>
-                    <p className="text-[9px] font-bold text-archive-charcoal/50 uppercase tracking-widest truncate">{t.role}</p>
-                    <p className="text-[8px] font-bold text-archive-charcoal/30 uppercase tracking-widest truncate">{t.company}</p>
+                    <p className="text-[14px] font-bold text-archive-charcoal/50 uppercase tracking-widest truncate">{t.role}</p>
+                    <p className="text-[14px] font-bold text-archive-charcoal/30 uppercase tracking-widest truncate">{t.company}</p>
                   </div>
 
                   {/* Index */}
-                  <span className="ml-auto text-[9px] font-black text-archive-charcoal/20 self-center shrink-0 pl-2">
+                  <span className="ml-auto text-[14px] font-black text-archive-charcoal/20 self-center shrink-0 pl-2">
                     {String(idx + 1).padStart(2, '0')}
                   </span>
                 </button>
@@ -179,7 +177,7 @@ const TestimonialPlaybackPage: React.FC = () => {
 
           {/* Footer */}
           <div className="border-t border-archive-charcoal/10 px-6 py-4 shrink-0">
-            <p className="text-[8px] font-mono text-archive-charcoal/30 tracking-widest uppercase">Intex Archive // Testimonial Playback System</p>
+            <p className="text-[14px] font-mono text-archive-charcoal/30 tracking-widest uppercase">Intex Archive // Testimonial Playback System</p>
           </div>
         </motion.div>
       </div>

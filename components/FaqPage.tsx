@@ -25,7 +25,7 @@ const timingsTable = (
     <div>
       <p className="mb-2 font-bold text-archive-charcoal">Bangladesh</p>
       <div className="overflow-x-auto">
-        <table className="w-full min-w-[520px] border-collapse text-sm">
+        <table className="w-full min-w-[520px] border-collapse text-[14px]">
           <tbody>
             <tr className="text-center">
               <td className="border border-archive-charcoal/20 p-2"><strong>Exhibition Timings</strong></td>
@@ -53,7 +53,7 @@ const timingsTable = (
     <div>
       <p className="mb-2 font-bold text-archive-charcoal">Sri Lanka</p>
       <div className="overflow-x-auto">
-        <table className="w-full min-w-[520px] border-collapse text-sm">
+        <table className="w-full min-w-[520px] border-collapse text-[14px]">
           <tbody>
             <tr className="text-center">
               <td className="border border-archive-charcoal/20 p-2"><strong>Exhibition Timings</strong></td>
@@ -147,7 +147,7 @@ const FAQ_SECTIONS: FaqSection[] = [
     items: [
       {
         question: 'How I can pre-register to attend the Exhibition?',
-        answer: <p>To pre-register for the Exhibition - <a className="font-bold text-archive-clay hover:underline" href="https://bd.intexsouthasia.com/buyer_reg.html">Click here</a></p>
+        answer: <p>To pre-register for the Exhibition - <a className="font-bold text-archive-clay hover:underline" href="https://portal.intexfair.com/buyer_reg_portal.php?form_name=pre-buyer-registration&country=sl&source_name=" target="_blank" rel="noopener noreferrer">Click here</a></p>
       },
       { question: 'What are the timings of the Exhibition?', answer: timingsTable },
       { question: 'Who can attend Intex Exhibition?', answer: <p>This is a B2B exhibition open only for the trade visitors in the textile and apparel industry looking for product innovations and latest developments.</p> },
@@ -258,7 +258,7 @@ export default function FaqPage() {
                           exit={{ height: 0, opacity: 0 }}
                           transition={{ duration: 0.25 }}
                         >
-                          <div className="space-y-3 px-4 pb-4 text-sm leading-relaxed text-archive-charcoal/80">
+                          <div className="space-y-3 px-4 pb-4 text-[14px] leading-relaxed text-archive-charcoal/80">
                             {item.answer}
                           </div>
                         </motion.div>

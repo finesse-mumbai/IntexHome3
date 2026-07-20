@@ -49,7 +49,7 @@ const BrandingOpportunitiesPage: React.FC = () => {
           <div className="space-y-6">
             <div className="flex items-center gap-4">
               <div className="w-12 h-[1px] bg-archive-clay"></div>
-              <span className="text-[10px] font-black tracking-[0.5em] text-archive-clay uppercase">Marketing Matrix // Partnership</span>
+              <span className="text-[14px] font-black tracking-[0.5em] text-archive-clay uppercase">Marketing Matrix // Partnership</span>
             </div>
             <h1 className="text-4xl md:text-8xl font-black tracking-tighter leading-[0.85] text-archive-charcoal uppercase">
               BRANDING <br />
@@ -69,7 +69,7 @@ const BrandingOpportunitiesPage: React.FC = () => {
                 <button
                   key={show}
                   onClick={() => setActiveShow(show)}
-                  className={`px-8 py-4 text-[10px] font-black tracking-widest transition-all ${activeShow === show ? 'bg-archive-charcoal text-white' : 'text-archive-charcoal/40 hover:text-archive-charcoal'}`}
+                  className={`px-8 py-4 text-[14px] font-black tracking-widest transition-all ${activeShow === show ? 'bg-archive-charcoal text-white' : 'text-archive-charcoal/40 hover:text-archive-charcoal'}`}
                 >
                   {show.toUpperCase()}
                 </button>
@@ -102,7 +102,7 @@ const BrandingOpportunitiesPage: React.FC = () => {
                 ) : (
                   <div className="w-full h-full flex flex-col items-center justify-center p-12 text-center gap-6">
                     <Zap size={48} className="text-archive-charcoal/20" strokeWidth={1} />
-                    <span className="text-archive-charcoal/40 text-[10px] font-black tracking-widest uppercase">Preview Unavailable</span>
+                    <span className="text-archive-clay/40 text-[14px] font-black tracking-widest uppercase">Preview Unavailable</span>
                   </div>
                 )}
                 {/* Overlay only if no interaction wanted? User asked for preview on UI. Assuming interaction implies scroll. */}
@@ -114,7 +114,7 @@ const BrandingOpportunitiesPage: React.FC = () => {
                   <div className="flex justify-between items-start">
                     <div className="flex flex-col gap-2">
 
-                      <div className={`px-3 py-1 w-fit text-[8px] font-black tracking-widest ${activeKit.status === 'OPEN' ? 'bg-green-500/10 text-green-500' : 'bg-archive-clay/10 text-archive-clay'}`}>
+                      <div className={`px-3 py-1 w-fit text-[14px] font-black tracking-widest ${activeKit.status === 'OPEN' ? 'bg-green-500/10 text-green-500' : 'bg-archive-clay/10 text-archive-clay'}`}>
                         UPDATED PDF FILE
                       </div>
                     </div>
@@ -125,7 +125,7 @@ const BrandingOpportunitiesPage: React.FC = () => {
                       {activeKit.title}
                     </h3>
                     <div className="w-full h-px bg-gray-50"></div>
-                    <p className="text-sm md:text-base font-medium tracking-[0.1em] leading-relaxed text-archive-charcoal/60 max-w-lg">
+                    <p className="text-[14px] md:text-base font-medium tracking-[0.1em] leading-relaxed text-archive-charcoal/60 max-w-lg">
                       {activeKit.description}
                     </p>
                   </div>
@@ -135,21 +135,21 @@ const BrandingOpportunitiesPage: React.FC = () => {
                   <div className=" border border-dotted px-10 py-3">
                     <div className="flex items-center gap-2">
 
-                      <span className="text-[11px] font-black tracking-widest text-archive-charcoal/30 uppercase">Specimen Manifest</span>
+                      <span className="text-[14px] font-black tracking-widest text-archive-charcoal/30 uppercase">Specimen Manifest</span>
                     </div>
-                    <span className="text-[12px] font-black text-archive-charcoal">{activeKit.fileSize} PDF Asset</span>
+                    <span className="text-[14px] font-black text-archive-charcoal">{activeKit.fileSize} PDF Asset</span>
                   </div>
                   {activeKit.pdfUrl && activeKit.pdfUrl !== '#' ? (
                     <a
                       href={activeKit.pdfUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-full sm:w-auto px-12 py-6 bg-archive-charcoal text-white hover:bg-archive-clay transition-all flex items-center justify-between gap-6 text-[10px] font-black tracking-[0.4em]"
+                      className="w-full sm:w-auto px-12 py-6 bg-archive-charcoal text-white hover:bg-archive-clay transition-all flex items-center justify-between gap-6 text-[14px] font-black tracking-[0.4em]"
                     >
                       DOWNLOAD PDF <Download size={18} className="group-hover:translate-y-1 transition-transform uppercase" />
                     </a>
                   ) : (
-                    <button disabled className="w-full sm:w-auto px-12 py-6 bg-archive-charcoal/10 text-archive-charcoal/40 cursor-not-allowed flex items-center justify-between gap-6 text-[10px] font-black tracking-[0.4em]">
+                    <button disabled className="w-full sm:w-auto px-12 py-6 bg-archive-charcoal/10 text-archive-charcoal/40 cursor-not-allowed flex items-center justify-between gap-6 text-[14px] font-black tracking-[0.4em]">
                       COMING SOON
                     </button>
                   )}
@@ -165,11 +165,11 @@ const BrandingOpportunitiesPage: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
           <div className="space-y-12">
             <div className="space-y-6">
-              <h2 className="text-sm font-black text-archive-clay leading-none uppercase">PARTNERSHIP INTEGRITY.</h2>
+              <h2 className="text-[14px] font-black text-archive-clay leading-none uppercase">PARTNERSHIP INTEGRITY.</h2>
               <div className="w-20 h-px bg-archive-clay"></div>
             </div>
             <div className="space-y-8">
-              <p className="text-[13px] font-bold tracking-[0.15em] leading-relaxed text-archive-charcoal/60">
+              <p className="text-[14px] font-bold tracking-[0.15em] leading-relaxed text-archive-charcoal/60">
                 Our branding protocols are designed to ensure maximum synergy between partner identities and the high-end industrial aesthetic of Intex South Asia. Every touchpoint is a technical specimen of brand excellence.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
@@ -180,8 +180,8 @@ const BrandingOpportunitiesPage: React.FC = () => {
                   { label: "Verification", value: "Audited Impression Data" }
                 ].map((item, i) => (
                   <div key={i} className="space-y-2 border-l border-archive-charcoal/10 pl-6">
-                    <span className="text-[8px] font-black tracking-widest opacity-40 block">{item.label}</span>
-                    <span className="text-[12px] font-black text-archive-charcoal">{item.value}</span>
+                    <span className="text-[14px] font-black tracking-widest opacity-40 block">{item.label}</span>
+                    <span className="text-[14px] font-black text-archive-charcoal">{item.value}</span>
                   </div>
                 ))}
               </div>
@@ -193,18 +193,18 @@ const BrandingOpportunitiesPage: React.FC = () => {
               <Target size={200} />
             </div>
             <div className="space-y-4 relative z-10">
-              <span className="text-archive-clay text-[10px] font-black tracking-[0.5em]">Executive Portal</span>
+              <span className="text-archive-clay text-[14px] font-black tracking-[0.5em]">Executive Portal</span>
               <h3 className="text-xl font-black leading-none uppercase">Custom Alpha <br /> Partnerships.</h3>
             </div>
             <div className="space-y-8 relative z-10">
-              <p className="text-[11px] font-bold tracking-[0.2em] text-white/40 leading-relaxed">
+              <p className="text-[14px] font-bold tracking-[0.2em] text-white/40 leading-relaxed">
                 Require a bespoke sponsorship manifest tailored to specific regional goals or product launches? Our partnership desk facilitates high-tier technical integration for global leaders.
               </p>
               <div className="flex flex-col sm:flex-row gap-6">
-                <button className="px-10 py-5 bg-archive-clay text-white font-black text-[10px] tracking-[0.4em] hover:bg-white hover:text-archive-charcoal transition-all">
+                <button className="px-10 py-5 bg-archive-clay text-white font-black text-[14px] tracking-[0.4em] hover:bg-white hover:text-archive-charcoal transition-all">
                   CONTACT US NOW
                 </button>
-                <button className="px-10 py-5 border border-white/20 text-white font-black text-[10px] tracking-[0.4em] hover:bg-white hover:text-archive-charcoal hover:border-white transition-all flex items-center gap-3">
+                <button className="px-10 py-5 border border-white/20 text-white font-black text-[14px] tracking-[0.4em] hover:bg-white hover:text-archive-charcoal hover:border-white transition-all flex items-center gap-3">
                   REGISTRY AUDIT <ShieldCheck size={14} className="uppercase" />
                 </button>
               </div>
@@ -212,11 +212,6 @@ const BrandingOpportunitiesPage: React.FC = () => {
           </div>
         </div>
       </section>
-
-      {/* Decorative Shutter */}
-      <div className="h-4 bg-archive-charcoal relative overflow-hidden opacity-10 mt-32">
-        <div className="absolute inset-0 measuring-tape"></div>
-      </div>
     </div>
   );
 };

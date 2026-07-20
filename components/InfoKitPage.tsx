@@ -47,7 +47,7 @@ const InfoKitPage: React.FC = () => {
           <div className="space-y-6">
             <div className="flex items-center gap-4">
               <div className="w-12 h-[1px] bg-archive-clay"></div>
-              <span className="text-[10px] font-black tracking-[0.5em] text-archive-clay uppercase">Technical Inventory // Asset Kit</span>
+              <span className="text-[14px] font-black tracking-[0.5em] text-archive-clay uppercase">Technical Inventory // Asset Kit</span>
             </div>
             <h1 className="text-4xl md:text-8xl font-black tracking-tighter leading-[0.85] text-archive-charcoal uppercase">
               INFO <br />
@@ -67,7 +67,7 @@ const InfoKitPage: React.FC = () => {
                 <button
                   key={show}
                   onClick={() => setActiveShow(show)}
-                  className={`px-8 py-4 text-[10px] font-black tracking-widest transition-all ${activeShow === show ? 'bg-archive-charcoal text-white' : 'text-archive-charcoal/40 hover:text-archive-charcoal'}`}
+                  className={`px-8 py-4 text-[14px] font-black tracking-widest transition-all ${activeShow === show ? 'bg-archive-charcoal text-white' : 'text-archive-charcoal/40 hover:text-archive-charcoal'}`}
                 >
                   {show.toUpperCase()}
                 </button>
@@ -141,7 +141,7 @@ const InfoKitPage: React.FC = () => {
                     href={asset.downloadUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-8 py-4 w-full bg-archive-charcoal text-white group-hover:bg-archive-clay transition-all flex items-center justify-between gap-4 text-[9px] font-black tracking-[0.3em]"
+                    className="px-8 py-4 w-full bg-archive-charcoal text-white group-hover:bg-archive-clay transition-all flex items-center justify-between gap-4 text-[14px] font-black tracking-[0.3em]"
                   >
                     <span>DOWNLOAD</span> <Download size={14} className="uppercase" />
                   </a>

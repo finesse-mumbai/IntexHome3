@@ -130,7 +130,7 @@ const IBFSeminarSeriesPage: React.FC = () => {
             <div className="w-60 bg-white p-4 mb-10 shadow-2xl">
               <img src="/assets/img/ibf-logo2026.jpg" alt="IBF Logo" className="w-full h-auto" />
             </div>
-            <span className="text-[10px] font-black tracking-[0.55em] text-archive-clay uppercase block mb-5">
+            <span className="text-[14px] font-black tracking-[0.55em] text-archive-clay uppercase block mb-5">
               Interactive Business Forum 2026
             </span>
             <h1 className="text-4xl md:text-7xl font-semibold tracking-tighter leading-[0.9] text-white uppercase max-w-4xl">
@@ -142,13 +142,13 @@ const IBFSeminarSeriesPage: React.FC = () => {
             <div className="mt-10 flex flex-wrap gap-4">
               <a
                 href="#home"
-                className="inline-flex items-center gap-3 bg-archive-clay px-8 py-4 text-white text-[11px] font-black tracking-[0.25em] uppercase hover:bg-white hover:text-archive-charcoal transition-colors"
+                className="inline-flex items-center gap-3 bg-archive-clay px-8 py-4 text-white text-[14px] font-black tracking-[0.25em] uppercase hover:bg-white hover:text-archive-charcoal transition-colors"
               >
                 Register Now <ArrowRight size={16} />
               </a>
               <a
                 href="#contact"
-                className="inline-flex items-center border border-white/30 px-8 py-4 text-white text-[11px] font-black tracking-[0.25em] uppercase hover:bg-white hover:text-archive-charcoal transition-colors"
+                className="inline-flex items-center border border-white/30 px-8 py-4 text-white text-[14px] font-black tracking-[0.25em] uppercase hover:bg-white hover:text-archive-charcoal transition-colors"
               >
                 Partner Enquiry
               </a>
@@ -160,7 +160,7 @@ const IBFSeminarSeriesPage: React.FC = () => {
       <section className="py-20 px-6 md:px-12 bg-archive-cream">
         <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
           <div className="lg:col-span-5">
-            <span className="text-[10px] font-black tracking-[0.45em] text-archive-clay uppercase block mb-4">
+            <span className="text-[14px] font-black tracking-[0.45em] text-archive-clay uppercase block mb-4">
               Interactive Business Forum
             </span>
             <h2 className="text-3xl md:text-5xl font-black tracking-tighter leading-none uppercase">
@@ -190,7 +190,7 @@ const IBFSeminarSeriesPage: React.FC = () => {
           <div className="p-6 md:p-10 border-b border-slate-100">
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
               <div>
-                <p className="text-[10px] font-black tracking-[0.3em] uppercase text-archive-clay mb-3">Textile Genesis Industry Session</p>
+                <p className="text-[14px] font-black tracking-[0.3em] uppercase text-archive-clay mb-3">Textile Genesis Industry Session</p>
                 <h3 className="text-2xl md:text-4xl font-semibold tracking-tight uppercase text-slate-900">Invitation Only Session</h3>
               </div>
               <img src="/assets/img/mediaPartner/textilegenesis.jpeg" alt="Textile Genesis" className="w-52 max-w-full object-contain bg-white border border-slate-200 p-3" />
@@ -198,12 +198,12 @@ const IBFSeminarSeriesPage: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-4 gap-5 mt-8">
               {textileGenesisItems.map((item) => (
                 <div key={item.label} className="bg-archive-cream p-4">
-                  <p className="text-[9px] font-black tracking-[0.3em] uppercase text-archive-clay">{item.label}</p>
-                  <p className="text-sm font-bold text-slate-800 mt-1">{item.value}</p>
+                  <p className="text-[14px] font-black tracking-[0.3em] uppercase text-archive-clay">{item.label}</p>
+                  <p className="text-[14px] font-bold text-slate-800 mt-1">{item.value}</p>
                 </div>
               ))}
             </div>
-            <p className="mt-6 text-sm md:text-base font-semibold text-slate-700">
+            <p className="mt-6 text-[14px] md:text-base font-semibold text-slate-700">
               Followed by Networking and High Tea Reception.
             </p>
           </div>
@@ -219,18 +219,18 @@ const IBFSeminarSeriesPage: React.FC = () => {
                 <div key={item.label} className="flex items-start gap-3">
                   <div className="mt-1">{item.icon}</div>
                   <div>
-                    <p className="text-[9px] font-black tracking-[0.3em] uppercase text-white/60">{item.label}</p>
-                    <p className="text-sm font-bold">{item.value}</p>
+                    <p className="text-[14px] font-black tracking-[0.3em] uppercase text-white/60">{item.label}</p>
+                    <p className="text-[14px] font-bold">{item.value}</p>
                   </div>
                 </div>
               ))}
             </div>
           </div>
           <div className="p-6 md:p-10">
-            <h4 className="text-[13px] font-black tracking-[0.15em] text-archive-clay uppercase mb-6">Panel Discussions</h4>
+            <h4 className="text-[14px] font-black tracking-[0.15em] text-archive-clay uppercase mb-6">Panel Discussions</h4>
             <SessionCard session={sessions[0]} />
 
-            <h4 className="text-[13px] font-black tracking-[0.15em] text-archive-clay uppercase mb-6">
+            <h4 className="text-[14px] font-black tracking-[0.15em] text-archive-clay uppercase mb-6">
               Day 1 Speakers and Moderator
             </h4>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-10">
@@ -243,7 +243,7 @@ const IBFSeminarSeriesPage: React.FC = () => {
                   />
                   <div>
                     <p className="font-black text-slate-900 leading-tight">{speaker.name}</p>
-                    <p className="text-sm text-slate-600 leading-snug">{speaker.title}</p>
+                    <p className="text-[14px] text-slate-600 leading-snug">{speaker.title}</p>
                   </div>
                 </div>
               ))}
@@ -255,14 +255,14 @@ const IBFSeminarSeriesPage: React.FC = () => {
                 />
                 <div>
                   <p className="font-black text-slate-900 leading-tight">Mohammad Monower Hossain</p>
-                  <p className="text-sm text-slate-600 leading-snug">Moderator, Head of Sustainability, TEAM Group</p>
+                  <p className="text-[14px] text-slate-600 leading-snug">Moderator, Head of Sustainability, TEAM Group</p>
                 </div>
               </div>
             </div>
 
             <SessionCard session={sessions[1]} />
 
-            <h4 className="text-[13px] font-black tracking-[0.15em] text-archive-clay uppercase mb-6">
+            <h4 className="text-[14px] font-black tracking-[0.15em] text-archive-clay uppercase mb-6">
               Day 2 Speakers and Moderator
             </h4>
             <div className="bg-archive-cream p-6 text-center">
@@ -276,7 +276,7 @@ const IBFSeminarSeriesPage: React.FC = () => {
         <div className="max-w-[1200px] mx-auto">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
             <div>
-              <span className="text-[10px] font-black tracking-[0.45em] text-archive-clay uppercase block mb-4">Archive</span>
+              <span className="text-[14px] font-black tracking-[0.45em] text-archive-clay uppercase block mb-4">Archive</span>
               <h2 className="text-3xl md:text-5xl font-black tracking-tighter uppercase">Past Speakers</h2>
             </div>
             <p className="text-slate-600 max-w-xl">
@@ -291,8 +291,8 @@ const IBFSeminarSeriesPage: React.FC = () => {
                   alt={speaker.name}
                   className="w-24 h-24 rounded-full object-cover mx-auto mb-4 bg-white border"
                 />
-                <p className="font-black text-sm text-slate-900 leading-tight">{speaker.name}</p>
-                <p className="text-xs text-slate-600 mt-2 leading-snug">{speaker.title}</p>
+                <p className="font-black text-[14px] text-slate-900 leading-tight">{speaker.name}</p>
+                <p className="text-[14px] text-slate-600 mt-2 leading-snug">{speaker.title}</p>
               </div>
             ))}
           </div>
@@ -303,7 +303,7 @@ const IBFSeminarSeriesPage: React.FC = () => {
         <div className="max-w-[1200px] mx-auto">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
             <div>
-              <span className="text-[10px] font-black tracking-[0.45em] text-archive-clay uppercase block mb-4">Speakers</span>
+              <span className="text-[14px] font-black tracking-[0.45em] text-archive-clay uppercase block mb-4">Speakers</span>
               <h2 className="text-3xl md:text-5xl font-black tracking-tighter uppercase">Testimonial</h2>
             </div>
             <p className="text-slate-600 max-w-xl">
@@ -330,9 +330,9 @@ const IBFSeminarSeriesPage: React.FC = () => {
                   />
                   <div>
                     <Quote size={18} className="text-archive-clay mb-2" />
-                    <p className="text-sm text-slate-700 leading-relaxed">{testimonial.quote}</p>
-                    <p className="mt-3 font-black text-sm text-slate-900">{testimonial.name}</p>
-                    <p className="text-xs text-slate-500 font-bold">{testimonial.designation}</p>
+                    <p className="text-[14px] text-slate-700 leading-relaxed">{testimonial.quote}</p>
+                    <p className="mt-3 font-black text-[14px] text-slate-900">{testimonial.name}</p>
+                    <p className="text-[14px] text-slate-500 font-bold">{testimonial.designation}</p>
                   </div>
                 </div>
               ))}
@@ -362,9 +362,9 @@ interface SessionCardProps {
 
 const SessionCard: React.FC<SessionCardProps> = ({ session }) => (
   <div className="bg-archive-cream p-5 md:p-8 mb-10">
-    <p className="text-[10px] font-black tracking-[0.3em] uppercase text-archive-clay">{session.label}</p>
+    <p className="text-[14px] font-black tracking-[0.3em] uppercase text-archive-clay">{session.label}</p>
     <h5 className="text-xl md:text-3xl font-black text-slate-900 leading-tight mt-3">{session.title}</h5>
-    <div className="mt-6 space-y-2 text-sm md:text-base font-bold text-slate-700">
+    <div className="mt-6 space-y-2 text-[14px] md:text-base font-bold text-slate-700">
       <p>{session.date}</p>
       <p>{session.time}</p>
       <p>Mezzanine Level, Hall 4 - ICCB, Dhaka</p>
@@ -372,7 +372,7 @@ const SessionCard: React.FC<SessionCardProps> = ({ session }) => (
       <p className="text-archive-clay">{session.speakerStatus}</p>
     </div>
     <div className="mt-6 flex flex-col sm:flex-row sm:items-center gap-3">
-      <span className="text-[10px] font-black tracking-[0.25em] uppercase text-slate-500">{session.partner}</span>
+      <span className="text-[14px] font-black tracking-[0.25em] uppercase text-slate-500">{session.partner}</span>
       <img
         src={session.partnerLogo}
         alt={`${session.partner.replace("In Association with ", "")} logo`}

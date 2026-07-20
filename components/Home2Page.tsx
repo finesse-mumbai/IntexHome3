@@ -79,7 +79,7 @@ const Home2Page: React.FC = () => {
           <div className="space-y-8">
             <div className="inline-flex items-center gap-3 bg-white/10 px-4 py-3 backdrop-blur-md">
               <Sparkles size={16} className="text-archive-clay" />
-              <span className="text-[10px] font-black uppercase tracking-[0.35em] text-white/70">
+              <span className="text-[14px] font-black uppercase tracking-[0.35em] text-white/70">
                 Textile sourcing platform of South Asia
               </span>
             </div>
@@ -99,10 +99,20 @@ const Home2Page: React.FC = () => {
                 retailers, sourcing offices, and trade bodies across Sri Lanka, Bangladesh, and the wider region.
               </p>
               <div className="flex flex-col gap-3 sm:flex-row md:flex-col">
-                <a href="#buyers-profile" className="inline-flex items-center justify-between gap-5 bg-archive-clay px-7 py-5 text-[10px] font-black uppercase tracking-[0.28em] text-white transition-colors hover:bg-white hover:text-[#111111]">
+                <a
+                  href="https://portal.intexfair.com/buyer_reg_portal.php?form_name=pre-buyer-registration&country=sl&source_name="
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-between gap-5 bg-archive-clay px-7 py-5 text-[15px] font-black uppercase tracking-[0.28em] text-white transition-colors hover:bg-white hover:text-[#111111]"
+                >
                   Buyer Registration <ArrowUpRight size={16} />
                 </a>
-                <a href="#info-kit" className="inline-flex items-center justify-between gap-5 bg-white/10 px-7 py-5 text-[10px] font-black uppercase tracking-[0.28em] text-white backdrop-blur-md transition-colors hover:bg-white hover:text-[#111111]">
+                <a
+                  href="https://sl.intexsouthasia.com/enquiry-form"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-between gap-5 bg-white/10 px-7 py-5 text-[15px] font-black uppercase tracking-[0.28em] text-white backdrop-blur-md transition-colors hover:bg-white hover:text-[#111111]"
+                >
                   Exhibitor Enquiry <ArrowUpRight size={16} />
                 </a>
               </div>
@@ -113,7 +123,7 @@ const Home2Page: React.FC = () => {
             {METRICS.map((item) => (
               <div key={item.label} className="bg-black/40 p-6 backdrop-blur-md">
                 <div className="text-4xl font-black tracking-tight text-archive-clay md:text-5xl">{item.value}</div>
-                <p className="mt-3 text-[10px] font-black uppercase tracking-[0.25em] text-white/55">{item.label}</p>
+                <p className="mt-3 text-[14px] font-black uppercase tracking-[0.25em] text-white/55">{item.label}</p>
               </div>
             ))}
           </div>
@@ -129,16 +139,16 @@ const Home2Page: React.FC = () => {
                 <img src={show.image} alt={`${show.country} event`} className="absolute inset-0 h-full w-full object-cover brightness-[0.58] transition-transform duration-700 group-hover:scale-105" />
                 <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.1),rgba(0,0,0,0.88))]"></div>
                 <div className="relative z-10 flex h-full min-h-[520px] flex-col justify-between p-8">
-                  <div className="flex items-center justify-between text-[10px] font-black uppercase tracking-[0.25em] text-white/65">
+                  <div className="flex items-center justify-between text-[14px] font-black uppercase tracking-[0.25em] text-white/65">
                     <span>{show.date}</span>
                     <ArrowUpRight size={18} className="text-archive-clay" />
                   </div>
                   <div>
-                    <p className="mb-3 flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.24em] text-archive-clay">
+                    <p className="mb-3 flex items-center gap-2 text-[14px] font-bold uppercase tracking-[0.24em] text-archive-clay">
                       <MapPin size={14} /> {show.city}
                     </p>
                     <h2 className="text-4xl font-black uppercase leading-none tracking-tight md:text-5xl">{show.country}</h2>
-                    <p className="mt-5 max-w-sm text-sm font-medium leading-relaxed text-white/65">{show.venue}</p>
+                    <p className="mt-5 max-w-sm text-[14px] font-medium leading-relaxed text-white/65">{show.venue}</p>
                   </div>
                 </div>
               </a>
@@ -171,7 +181,7 @@ const Home2Page: React.FC = () => {
                   {[Layers3, Users, Globe2, BadgeCheck].map((Icon, iconIndex) => iconIndex === index && <Icon key={title} size={20} />)}
                 </div>
                 <h3 className="text-xl font-black uppercase tracking-tight">{title}</h3>
-                <p className="mt-4 text-sm font-medium leading-relaxed text-white/60">{text}</p>
+                <p className="mt-4 text-[14px] font-medium leading-relaxed text-white/60">{text}</p>
               </div>
             ))}
           </div>
@@ -188,7 +198,7 @@ const Home2Page: React.FC = () => {
                 <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.18),rgba(0,0,0,0.9))]"></div>
                 <div className="relative z-10 flex min-h-[320px] flex-col justify-end p-6">
                   <h3 className="text-2xl font-black uppercase leading-none tracking-tight">{category.title}</h3>
-                  <p className="mt-4 line-clamp-3 text-xs font-medium leading-relaxed text-white/60">{category.description}</p>
+                  <p className="mt-4 line-clamp-3 text-[14px] font-medium leading-relaxed text-white/60">{category.description}</p>
                 </div>
               </div>
             ))}
@@ -202,7 +212,7 @@ const Home2Page: React.FC = () => {
             <a key={pathway.title} href={pathway.href} className="group bg-white/[0.06] p-8 backdrop-blur-md transition-colors hover:bg-white/[0.1] md:p-12">
               <h2 className="text-4xl font-black uppercase tracking-tight md:text-6xl">{pathway.title}</h2>
               <p className="mt-8 max-w-2xl text-base font-medium leading-relaxed text-white/65">{pathway.text}</p>
-              <span className="mt-12 inline-flex items-center gap-4 bg-archive-clay px-7 py-5 text-[10px] font-black uppercase tracking-[0.28em] text-white">
+              <span className="mt-12 inline-flex items-center gap-4 bg-archive-clay px-7 py-5 text-[14px] font-black uppercase tracking-[0.28em] text-white">
                 {pathway.cta} <ArrowUpRight size={16} />
               </span>
             </a>
@@ -248,7 +258,7 @@ const Home2Page: React.FC = () => {
                 <p className="text-lg font-medium leading-relaxed text-white/75">"{item.quote}"</p>
                 <div className="pt-8">
                   <h3 className="text-base font-black uppercase tracking-tight text-archive-clay">{item.author}</h3>
-                  <p className="mt-2 text-[10px] font-black uppercase tracking-[0.22em] text-white/45">{item.company}</p>
+                  <p className="mt-2 text-[14px] font-black uppercase tracking-[0.22em] text-white/45">{item.company}</p>
                 </div>
               </article>
             ))}
@@ -270,7 +280,7 @@ const Home2Page: React.FC = () => {
                 <FileText size={22} className="text-archive-clay" />
                 <div>
                   <h3 className="text-lg font-black uppercase tracking-tight">{resource.title}</h3>
-                  <p className="mt-2 text-xs font-medium leading-relaxed text-white/55">{resource.description}</p>
+                  <p className="mt-2 text-[14px] font-medium leading-relaxed text-white/55">{resource.description}</p>
                 </div>
               </a>
             ))}
@@ -283,7 +293,7 @@ const Home2Page: React.FC = () => {
           {GALLERY_ITEMS.slice(0, 3).map((item) => (
             <a key={item.id} href="#photo-gallery" className="group flex items-center justify-between bg-white/[0.06] p-6 backdrop-blur-md transition-colors hover:bg-white/[0.1]">
               <div>
-                <p className="text-[10px] font-black uppercase tracking-[0.24em] text-white/40">{item.year}</p>
+                <p className="text-[14px] font-black uppercase tracking-[0.24em] text-white/40">{item.year}</p>
                 <h3 className="mt-2 text-xl font-black uppercase tracking-tight">{item.title}</h3>
               </div>
               <Play size={18} className="text-archive-clay" />
@@ -298,7 +308,7 @@ const Home2Page: React.FC = () => {
 const SectionKicker: React.FC<{ label: string }> = ({ label }) => (
   <div className="flex items-center gap-4">
     <div className="h-px w-12 bg-archive-clay"></div>
-    <span className="text-[10px] font-black uppercase tracking-[0.4em] text-archive-clay">{label}</span>
+    <span className="text-[14px] font-black uppercase tracking-[0.4em] text-archive-clay">{label}</span>
   </div>
 );
 

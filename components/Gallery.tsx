@@ -72,7 +72,7 @@ const Gallery: React.FC = () => {
         <div className="text-center mb-12 space-y-6">
           <div className="flex flex-col items-center gap-4">
             <div className="w-12 h-[1px] bg-archive-clay"></div>
-            <span className="text-[10px] font-black tracking-[0.5em] uppercase text-archive-clay">Spotlight Archive</span>
+            <span className="text-[14px] font-black tracking-[0.5em] uppercase text-archive-clay">Spotlight Archive</span>
           </div>
           <h2 className="text-4xl md:text-8xl font-black tracking-tighter uppercase leading-none text-white">
             VISUAL <span className="text-white">ARCHIVE.</span>

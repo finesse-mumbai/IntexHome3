@@ -24,7 +24,7 @@ const NAV_ITEMS = [
       { label: "Exhibitor Profile", link: "/exhibitor-profile" },
       { label: "Featured Exhibitors", link: "/featured-exhibitors" },
       { label: "Exhibitor's Testimonial", link: "/exhibitors-testimonial" },
-      { label: "Booth Booking Enquiry", link: "/" },
+      { label: "Booth Booking Enquiry", link: "https://sl.intexsouthasia.com/enquiry-form", external: true },
       { label: "Hotel & Travel", link: "/hotels-travel" },
     ],
   },
@@ -35,7 +35,7 @@ const NAV_ITEMS = [
       { label: "Buyers Profile", link: "/buyers-profile" },
       { label: "Buyer's Testimonial", link: "/buyers-testimonial" },
       { label: "Exhibitor's List", link: "/exhibitor-list" },
-      { label: "Visitor Registration", link: "/" },
+      { label: "Visitor Registration", link: "https://portal.intexfair.com/buyer_reg_portal.php?form_name=pre-buyer-registration&country=sl&source_name=", external: true },
       { label: "Hotel & Travel", link: "/hotels-travel" },
     ],
   },
@@ -57,7 +57,6 @@ const NAV_ITEMS = [
       { label: "Factsheet", link: "/factsheet" },
       { label: "Branding Opportunities", link: "/branding-opportunities" },
       { label: "Media Coverage Report", link: "/media-coverage-report" },
-      { label: "InDyChem Brochure", link: "#", external: true },
       { label: "FAQ - Exhibitors | Buyers", link: "/faq" },
     ],
   },
@@ -97,7 +96,7 @@ const Navbar: React.FC = () => {
               />
             </Link>
 
-            <div className="hidden lg:flex gap-14 text-[13px] font-black tracking-[0.2em] transition-colors text-archive-clay">
+            <div className="hidden lg:flex gap-14 text-[15px] font-black tracking-[0.2em] transition-colors text-archive-clay">
               {NAV_ITEMS.map((item) => (
                 <div
                   key={item.label}
@@ -129,7 +128,9 @@ const Navbar: React.FC = () => {
                               <a
                                 key={child.label}
                                 href={child.link}
-                                className="text-[11px] font-black tracking-widest hover:text-archive-clay hover:pl-2 transition-all flex items-center justify-between group/sub"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-[15px] font-black tracking-widest hover:text-archive-clay hover:pl-2 transition-all flex items-center justify-between group/sub"
                               >
                                 {child.label}
                                 <ArrowRight size={12} className="opacity-0 group-hover/sub:opacity-100 transition-opacity" />
@@ -138,7 +139,7 @@ const Navbar: React.FC = () => {
                               <Link
                                 key={child.label}
                                 to={child.link}
-                                className="text-[11px] font-black tracking-widest hover:text-archive-clay hover:pl-2 transition-all flex items-center justify-between group/sub"
+                                className="text-[15px] font-black tracking-widest hover:text-archive-clay hover:pl-2 transition-all flex items-center justify-between group/sub"
                               >
                                 {child.label}
                                 <ArrowRight size={12} className="opacity-0 group-hover/sub:opacity-100 transition-opacity" />
@@ -158,7 +159,7 @@ const Navbar: React.FC = () => {
             <a
               href="https://portal.intexfair.com/login.php"
               target="_blank"
-              className="hidden sm:flex px-8 py-3 rounded-full text-[10px] font-black tracking-widest transition-all duration-500 bg-archive-clay text-white hover:bg-archive-charcoal"
+              className="hidden sm:flex px-8 py-3 rounded-full text-[15px] font-black tracking-widest transition-all duration-500 bg-archive-clay text-white hover:bg-archive-charcoal"
             >
               LOGIN
             </a>
@@ -208,7 +209,7 @@ const Navbar: React.FC = () => {
                     onClick={() => !item.children && setIsMenuOpen(false)}
                     className="text-2xl md:text-4xl font-black text-archive-charcoal hover:text-archive-clay transition-all flex items-center gap-8"
                   >
-                    <span className="text-[12px] font-mono opacity-20 font-black">0{idx + 1}</span>
+                    <span className="text-[15px] font-mono opacity-20 font-black">0{idx + 1}</span>
                     {item.label}
                   </Link>
                 </motion.div>

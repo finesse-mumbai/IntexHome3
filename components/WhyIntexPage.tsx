@@ -63,7 +63,7 @@ const WhyIntexPage: React.FC = () => {
           <div className="space-y-6">
             <div className="flex items-center gap-4">
               <div className="w-12 h-[1px] bg-archive-clay"></div>
-              <span className="text-[10px] font-black tracking-[0.5em] text-archive-clay uppercase">Strategic Reasoning // Matrix</span>
+              <span className="text-[14px] font-black tracking-[0.5em] text-archive-clay uppercase">Strategic Reasoning // Matrix</span>
             </div>
             <h1 className="text-4xl md:text-8xl font-black tracking-tighter leading-[0.85] text-archive-charcoal uppercase">
               Why <span>Intex</span> <br />
@@ -116,14 +116,14 @@ const WhyIntexPage: React.FC = () => {
               <div className="space-y-6">
                 <div className="space-y-2">
                   <h3 className="text-2xl font-black tracking-tighter text-archive-charcoal leading-none">{region.country}</h3>
-                  <p className="text-[15px] mt-1 font-black tracking-widest text-archive-clay uppercase">{region.title}</p>
+                  <p className="text-[14px] mt-1 font-black tracking-widest text-archive-clay uppercase">{region.title}</p>
                 </div>
               </div>
               <p className="text-[14px] font-medium tracking-widest leading-relaxed text-archive-charcoal/50 group-hover:text-archive-charcoal transition-colors">
                 {region.desc}
               </p>
               <div className="pt-4 flex justify-between items-center">
-                <span className="text-[12px] font-black tracking-widest opacity-40 group-hover:opacity-100 transition-all uppercase">{region.node}</span>
+                <span className="text-[14px] font-black tracking-widest opacity-40 group-hover:opacity-100 transition-all uppercase">{region.node}</span>
                 <Layers size={14} className="opacity-0 group-hover:opacity-100 transition-all text-archive-clay" />
               </div>
             </motion.div>
@@ -138,7 +138,7 @@ const WhyIntexPage: React.FC = () => {
             <h2 className="text-2xl md:text-3xl font-black leading-[0.9] text-white uppercase">
               The Epicenter of <br /> <span className="text-archive-clay">Textile Innovation.</span>
             </h2>
-            <div className="space-y-6 text-sm font-bold tracking-[0.15em] leading-relaxed text-white/60">
+            <div className="space-y-6 text-[14px] font-bold tracking-[0.15em] leading-relaxed text-white/60">
               <p>
                 South Asia today represents one of the most dynamic regions for textile manufacturing, sourcing, retail growth, and apparel innovation. Intex South Asia provides direct access to this rapidly evolving ecosystem by bringing together international suppliers, textile innovators, apparel manufacturers, sourcing professionals, buying houses, retailers, and industry leaders under one powerful platform.
               </p>
@@ -147,7 +147,7 @@ const WhyIntexPage: React.FC = () => {
               </p>
             </div>
             <div className="pt-8">
-              <button className="px-10 py-6 bg-archive-clay text-white font-black text-[10px] tracking-[0.4em] hover:bg-white hover:text-archive-charcoal transition-all">
+              <button className="px-10 py-6 bg-archive-clay text-white font-black text-[14px] tracking-[0.4em] hover:bg-white hover:text-archive-charcoal transition-all">
                 DOWNLOAD IMPACT REPORT
               </button>
             </div>

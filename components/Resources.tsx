@@ -25,14 +25,14 @@ const Resources: React.FC = () => {
           <div className="space-y-6">
             <div className="flex items-center gap-4">
               <div className="w-12 h-[1px] bg-archive-clay"></div>
-              <span className="text-[10px] font-black tracking-[0.5em] uppercase text-archive-clay">Asset Library</span>
+              <span className="text-[14px] font-black tracking-[0.5em] uppercase text-archive-clay">Asset Library</span>
             </div>
             <h2 className="text-2xl md:text-4xl font-black tracking-tighter uppercase leading-[0.9] text-archive-charcoal">
               Resource <br /><span className="text-archive-clay">Inventory.</span>
             </h2>
           </div>
           <div className="flex flex-col items-end gap-6 max-w-xs text-right py-2">
-            <p className="text-[10px] font-bold tracking-widest text-archive-charcoal/40 uppercase leading-relaxed">
+            <p className="text-[14px] font-bold tracking-widest text-archive-charcoal/40 uppercase leading-relaxed">
               Proprietary datasets, technical specifications, and post-exhibition intelligence for the global textile matrix.
             </p>
           </div>
@@ -52,7 +52,7 @@ const Resources: React.FC = () => {
 const ResourceModule: React.FC<{ resource: any; index: number }> = ({ resource, index }) => {
   const IconComponent = iconMap[resource.icon];
   const navigate = useNavigate();
-  
+
   // 1st and 3rd are white, 2nd and 4th are charcoal
   const bgClass = (index === 0 || index === 2) ? 'bg-white' : 'bg-archive-charcoal';
 
@@ -93,7 +93,7 @@ const ResourceModule: React.FC<{ resource: any; index: number }> = ({ resource, 
           <h3 className={`text-xl font-black uppercase tracking-tighter leading-[0.8] transition-colors duration-500 ${isTitleOrange ? 'text-archive-clay' : (isDarkBg ? 'text-white group-hover:text-white/80' : 'text-archive-charcoal group-hover:text-archive-clay')}`}>
             {resource.title}
           </h3>
-          <p className={`text-[10px] font-bold tracking-widest leading-relaxed uppercase transition-colors duration-500 ${isDarkBg ? 'text-white/80 group-hover:text-white' : 'text-archive-charcoal/60 group-hover:text-archive-charcoal'}`}>
+          <p className={`text-[14px] font-bold tracking-widest leading-relaxed uppercase transition-colors duration-500 ${isDarkBg ? 'text-white/80 group-hover:text-white' : 'text-archive-charcoal/60 group-hover:text-archive-charcoal'}`}>
             {resource.description}
           </p>
         </div>
@@ -101,7 +101,7 @@ const ResourceModule: React.FC<{ resource: any; index: number }> = ({ resource, 
 
       <div className="relative z-10 pt-8 mt-12">
         <div className={`flex w-full items-center justify-center gap-4 py-3 px-8 rounded-full transition-all duration-500 ${isDarkBg ? 'bg-white/10 text-white hover:bg-white hover:text-archive-charcoal' : 'bg-white text-archive-charcoal hover:bg-archive-charcoal hover:text-white border border-archive-charcoal/10'}`}>
-          <span className="text-[9px] font-black tracking-[0.2em] uppercase">VIEW DETAILS</span>
+          <span className="text-[12px] font-black tracking-[0.2em] uppercase">VIEW DETAILS</span>
           <ArrowUpRight size={14} strokeWidth={2.5} />
         </div>
       </div>

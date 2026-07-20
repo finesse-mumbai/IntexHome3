@@ -6,49 +6,49 @@ export const CATEGORIES: CategoryItem[] = [
     id: 'fibres',
     title: 'Fibres',
     description: 'Natural Fibres, Man-Made Fibres, Silk, Wool, Synthetic Fibres, Organic, Polyester, Acrylic and many more...',
-    imageUrl: 'https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?auto=format&fit=crop&q=80&w=1200'
+    imageUrl: 'https://bd.intexsouthasia.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Ffibres.4614012b.png&w=384&q=75'
   },
   {
     id: 'yarns',
     title: 'Yarns',
     description: 'Acrylic, Blended, Brushed, Cabled, Carded, Coated, Combed, Cotton, Dyed, Elastic, Core, Fancy, Lace, Linen, Nylon, Organic, Polyester, Ring, Spun, Silk, Synthetic, Textured, Twisted, Wool and Many More...',
-    imageUrl: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=1200'
+    imageUrl: 'https://bd.intexsouthasia.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fyarns.9424003d.png&w=384&q=75'
   },
   {
     id: 'fabrics',
     title: 'Apparel Fabrics',
     description: 'Acrylic, Art Silk, Batik, Blended, Chiffon, Corduroy, Cotton, Denim, Dyed, Embroidery, Fancy, Interlock, Jacquard, Jersey, Knitted, Linen, Netting, Nylon, Organza, Polyester, Printed, Silk and Many More...',
-    imageUrl: 'https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&q=80&w=1200'
+    imageUrl: 'https://bd.intexsouthasia.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fapparelfabrics.827ebf61.png&w=384&q=75'
   },
   {
     id: 'denims',
     title: 'Denims',
     description: 'Cotton Denim, Cross-hatch Denim, Denim Yarns, Dry Denim, Denim Accessories, Fashion Denim, Floc Coated Denim, Linen Denim, Raw Denim, Open End Denim, Poly Denim and Many More...',
-    imageUrl: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&q=80&w=1200'
+    imageUrl: 'https://bd.intexsouthasia.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fdenims.2643f640.png&w=384&q=75'
   },
   {
     id: 'trims',
     title: 'Trims & Accessories',
     description: 'Buttonhole, Buttons, Cord, Elastic, Embroidery, Interlining, Labels, Motifs, Piping, Pocketing Fabric, Ribbons, Rivet, Rosettes, Sequins, Tapes, Threads, Toggles, Trimmings, Velcro, Zippers and Many More...',
-    imageUrl: 'https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?auto=format&fit=crop&q=80&w=1200'
+    imageUrl: 'https://bd.intexsouthasia.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FTrimsAccessories.80482faa.png&w=640&q=75'
   },
   {
     id: 'dyes',
     title: 'Dyes & Chemicals',
     description: 'Dyestuff and Pigment, Basic Dye, Direct Dye, Reactive Dye, Sulphur Dye, Indigo Blue, Sulfurated Black, Organic Pigment, Printing Plasm, Color Dyestuff, Dye Intermediates, and Many More...',
-    imageUrl: 'https://images.unsplash.com/photo-1614850523296-d8c1af93d400?auto=format&fit=crop&q=80&w=1200'
+    imageUrl: 'https://bd.intexsouthasia.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FDyesChemicals.629bf26c.png&w=384&q=75'
   },
   {
     id: 'software',
     title: 'Software & ERP',
     description: 'Software, AI Technology, Supply Chain, 3D Design, CAD-CAM, Pattern Design, Cloud Solutions, and many more...',
-    imageUrl: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1200'
+    imageUrl: 'https://bd.intexsouthasia.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FSoftwareERP.d862753d.png&w=384&q=75'
   },
   {
     id: 'allied',
     title: 'Other Allied Services',
     description: 'Testing Equipments, Laboratory Tools, Design Studios, Trends Forecasters, Textile & Fashion Institutes, Trade Associations, and Many More...',
-    imageUrl: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1200'
+    imageUrl: 'https://bd.intexsouthasia.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FOtherAlliedServices.d12d9592.png&w=384&q=75'
   },
 ];
 

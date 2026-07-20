@@ -42,7 +42,7 @@ const NewsletterPage: React.FC = () => {
           <div className="space-y-6">
             <div className="flex items-center gap-4">
               <div className="w-12 h-[1px] bg-archive-clay"></div>
-              <span className="text-[10px] font-black tracking-[0.5em] text-archive-clay uppercase">Digital Archive // Communication</span>
+              <span className="text-[14px] font-black tracking-[0.5em] text-archive-clay uppercase">Digital Archive // Communication</span>
             </div>
             <h1 className="text-4xl md:text-8xl font-black tracking-tighter leading-[0.85] text-archive-charcoal uppercase">
               NEWSLETTER <br />
@@ -63,7 +63,7 @@ const NewsletterPage: React.FC = () => {
                 <button
                   key={show}
                   onClick={() => setActiveShow(show)}
-                  className={`px-8 py-4 text-[10px] font-black tracking-widest transition-all ${activeShow === show ? 'bg-archive-charcoal text-white' : 'text-archive-charcoal/40 hover:text-archive-charcoal'}`}
+                  className={`px-8 py-4 text-[14px] font-black tracking-widest transition-all ${activeShow === show ? 'bg-archive-charcoal text-white' : 'text-archive-charcoal/40 hover:text-archive-charcoal'}`}
                 >
                   {show}
                 </button>
@@ -107,7 +107,7 @@ const NewsletterPage: React.FC = () => {
 
                   {/* Serial Overlay */}
                   <div className="absolute top-4 left-4 bg-white/90 px-3 py-1 group-hover:bg-archive-clay transition-colors">
-                    <span className="text-[9px] font-mono font-black text-archive-charcoal group-hover:text-white uppercase">EDM_{String(idx + 1).padStart(2, '0')}</span>
+                    <span className="text-[14px] font-mono font-black text-archive-charcoal group-hover:text-white uppercase">EDM_{String(idx + 1).padStart(2, '0')}</span>
                   </div>
                 </div>
 
@@ -125,7 +125,7 @@ const NewsletterPage: React.FC = () => {
                       href={nl.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-3 text-[9px] font-black tracking-[0.3em] text-archive-charcoal group-hover:text-white transition-colors group/btn"
+                      className="flex items-center gap-3 text-[14px] font-black tracking-[0.3em] text-archive-charcoal group-hover:text-white transition-colors group/btn"
                     >
                       VIEW DETAILS <ArrowUpRight size={14} className="group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform uppercase" />
                     </a>
@@ -140,7 +140,7 @@ const NewsletterPage: React.FC = () => {
         {(!NEWSLETTER_DATA[activeShow] || NEWSLETTER_DATA[activeShow].length === 0) && (
           <div className="py-60 flex flex-col items-center justify-center border border-dashed border-archive-charcoal/20 text-center">
             <Search size={40} className="text-archive-clay/20 mb-6" />
-            <span className="text-[10px] font-black tracking-[0.5em] text-archive-charcoal/30 uppercase">NO BROADCAST RECORDS FOUND FOR SELECTED NODE.</span>
+            <span className="text-[14px] font-black tracking-[0.5em] text-archive-charcoal/30 uppercase">NO BROADCAST RECORDS FOUND FOR SELECTED NODE.</span>
           </div>
         )}
       </section>
@@ -150,11 +150,11 @@ const NewsletterPage: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
           <div className="space-y-12">
             <div className="space-y-6">
-              <h2 className="text-sm font-black text-archive-clay leading-none uppercase">GLOBAL BROADCASTS.</h2>
+              <h2 className="text-[14px] font-black text-archive-clay leading-none uppercase">GLOBAL BROADCASTS.</h2>
               <div className="w-20 h-px bg-archive-clay"></div>
             </div>
             <div className="space-y-8">
-              <p className="text-[12px] font-bold tracking-[0.15em] leading-relaxed text-archive-charcoal/60">
+              <p className="text-[14px] font-bold tracking-[0.15em] leading-relaxed text-archive-charcoal/60">
                 The Intex digital bulletin registry maintains a historical log of all official communications, show updates, and partner announcements. These records serve as a verified source of truth for exhibitors and trade visitors alike.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
@@ -162,11 +162,11 @@ const NewsletterPage: React.FC = () => {
                   { label: "Circulation Volume", value: "100K+ Recipients" },
                   { label: "Content Fidelity", value: "Verified Official" },
                   { label: "Node Distribution", value: "Multinational" },
-                  { label: "Audit Log", value: "Historical Registry" }
+                  { label: "Archive Status", value: "Historical Registry" }
                 ].map((item, i) => (
                   <div key={i} className="space-y-2 border-l border-archive-charcoal/10 pl-6">
-                    <span className="text-[8px] font-black tracking-widest opacity-40 block">{item.label}</span>
-                    <span className="text-[11px] font-black text-archive-charcoal">{item.value}</span>
+                    <span className="text-[14px] font-black tracking-widest opacity-40 block">{item.label}</span>
+                    <span className="text-[14px] font-black text-archive-charcoal">{item.value}</span>
                   </div>
                 ))}
               </div>
@@ -178,18 +178,18 @@ const NewsletterPage: React.FC = () => {
               <Database size={200} />
             </div>
             <div className="space-y-4 relative z-10">
-              <span className="text-archive-clay text-[10px] font-black tracking-[0.5em]">Subscription Matrix</span>
+              <span className="text-archive-clay text-[14px] font-black tracking-[0.5em]">Subscription Matrix</span>
               <h3 className="text-xl font-black leading-none uppercase">JOIN THE <br /> INDUSTRY BROADCAST.</h3>
             </div>
             <div className="space-y-8 relative z-10">
-              <p className="text-[11px] font-bold tracking-[0.2em] text-white/40 leading-relaxed">
+              <p className="text-[14px] font-bold tracking-[0.2em] text-white/40 leading-relaxed">
                 Receive priority technical specifications and show updates directly to your terminal. Authenticated registry for industry professionals only.
               </p>
               <div className="flex flex-col sm:flex-row gap-6">
-                <button className="px-10 py-5 bg-archive-clay text-white font-black text-[10px] tracking-[0.4em] hover:bg-white hover:text-archive-charcoal transition-all">
+                <button className="px-10 py-5 bg-archive-clay text-white font-black text-[14px] tracking-[0.4em] hover:bg-white hover:text-archive-charcoal transition-all">
                   SUBSCRIBE NOW
                 </button>
-                <button className="px-10 py-5 border border-white/20 text-white font-black text-[10px] tracking-[0.4em] hover:bg-white hover:text-archive-charcoal hover:border-white transition-all flex items-center gap-3">
+                <button className="px-10 py-5 border border-white/20 text-white font-black text-[14px] tracking-[0.4em] hover:bg-white hover:text-archive-charcoal hover:border-white transition-all flex items-center gap-3">
                   REGISTRY PROTOCOL <ShieldCheck size={14} className="uppercase" />
                 </button>
               </div>

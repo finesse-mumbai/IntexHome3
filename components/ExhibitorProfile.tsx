@@ -38,7 +38,7 @@ const ExhibitorProfile: React.FC = () => {
 
       {/* Background Micro-details */}
       <div className="absolute top-0 right-0 p-12 opacity-20 pointer-events-none">
-        <span className="text-[10px] font-mono text-archive-charcoal tracking-[0.5em] uppercase">Upcoming_Nodes // 2026 Cycle</span>
+        <span className="text-[14px] font-mono text-archive-charcoal tracking-[0.5em] uppercase">Upcoming_Nodes // 2026 Cycle</span>
       </div>
 
       <div className="max-w-[1440px] mx-auto px-12 relative z-10">
@@ -47,7 +47,7 @@ const ExhibitorProfile: React.FC = () => {
         <div className="mb-20 space-y-6">
           <div className="flex items-center gap-4">
             <div className="w-12 h-[1px] bg-archive-clay"></div>
-            <span className="text-[10px] font-black tracking-[0.5em] text-archive-clay uppercase">Sourcing Registry</span>
+            <span className="text-[14px] font-black tracking-[0.5em] text-archive-clay uppercase">Sourcing Registry</span>
           </div>
           <h2 className="text-2xl md:text-4xl font-black tracking-tighter leading-[0.9] text-archive-charcoal uppercase">
             Upcoming <br /><span className="text-archive-clay">Exhibitions.</span>
@@ -98,7 +98,7 @@ const ExhibitorProfile: React.FC = () => {
                     <div className="space-y-4">
                       <span className="block text-[40px] font-black text-white/10 leading-none tabular-nums">0{idx + 1}</span>
                       <div className="inline-block px-3 py-1 bg-archive-clay border border-archive-clay">
-                        <span className="text-[9px] font-black text-white tracking-[0.2em] uppercase">{ex.edition}</span>
+                        <span className="text-[14px] font-black text-white tracking-[0.2em] uppercase">{ex.edition}</span>
                       </div>
                     </div>
                   </div>
@@ -111,21 +111,21 @@ const ExhibitorProfile: React.FC = () => {
 
                       <div className="space-y-3">
                         <div className="flex flex-col">
-                          <span className="text-[8px] font-bold text-white/40 tracking-widest uppercase">Event Date</span>
-                          <span className="text-sm font-black text-white tracking-wider uppercase">{ex.date}</span>
+                          <span className="text-[14px] font-bold text-white/40 tracking-widest uppercase">Event Date</span>
+                          <span className="text-[14px] font-black text-white tracking-wider uppercase">{ex.date}</span>
                         </div>
                         <div className="flex flex-col">
-                          <span className="text-[8px] font-bold text-white/40 tracking-widest uppercase">Event Venue</span>
+                          <span className="text-[14px] font-bold text-white/40 tracking-widest uppercase">Event Venue</span>
                           <div className="flex items-center gap-2">
                             <MapPin size={12} className="text-archive-clay" />
-                            <span className="text-xs font-black text-white tracking-wider uppercase">{ex.location}</span>
+                            <span className="text-[14px] font-black text-white tracking-wider uppercase">{ex.location}</span>
                           </div>
                         </div>
                       </div>
                     </div>
 
                     <button className="w-full bg-white group/btn relative overflow-hidden py-4 px-6 flex items-center justify-between transition-all hover:bg-archive-clay">
-                      <span className="relative z-10 text-[9px] font-black text-archive-charcoal group-hover:text-white tracking-[0.4em] transition-colors uppercase">VIEW DETAILS</span>
+                      <span className="relative z-10 text-[14px] font-black text-archive-charcoal group-hover:text-white tracking-[0.4em] transition-colors uppercase">VIEW DETAILS</span>
                       <ArrowUpRight size={16} className="relative z-10 text-archive-clay group-hover:text-white transition-colors" />
                       <div className="absolute inset-0 bg-archive-clay translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
                     </button>

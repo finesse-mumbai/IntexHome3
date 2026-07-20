@@ -44,13 +44,13 @@ const Hero: React.FC = () => {
               </motion.text>
             </svg>
           </div>
-          <p className="text-[14px] font-bold tracking-[0.2em] text-white opacity-60 uppercase">
+          <p className="text-[15px] font-bold tracking-[0.2em] text-white opacity-60 uppercase">
             THE PREMIER INTERNATIONAL TEXTILE SOURCING SHOWS OF SOUTH ASIA
           </p>
           <div className="flex flex-wrap items-center justify-center gap-x-16 gap-y-6 pt-10">
             {['Bangladesh', 'Sri Lanka', 'India'].map((country) => (
               <div key={country} className="flex flex-col items-center gap-3 group">
-                <span className="text-[12px] font-black tracking-[0.4em] text-white uppercase transition-colors group-hover:text-archive-clay">
+                <span className="text-[15px] font-black tracking-[0.4em] text-white uppercase transition-colors group-hover:text-archive-clay">
                   {country}
                 </span>
                 <div className="w-8 h-[1px] bg-archive-clay/40 group-hover:w-full group-hover:bg-archive-clay transition-all duration-500"></div>
@@ -65,12 +65,22 @@ const Hero: React.FC = () => {
           transition={{ delay: 0.5 }}
           className="pt-12 flex flex-col sm:flex-row items-center justify-center gap-6"
         >
-          <button className="w-full sm:w-auto px-10 py-5 bg-archive-clay text-white font-black text-[10px] tracking-[0.4em] hover:bg-white hover:text-archive-charcoal border border-archive-clay transition-all uppercase">
+          <a
+            href="https://portal.intexfair.com/buyer_reg_portal.php?form_name=pre-buyer-registration&country=sl&source_name="
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full sm:w-auto px-10 py-5 bg-archive-clay text-white font-black text-[15px] tracking-[0.2em] hover:bg-white hover:text-archive-charcoal border border-archive-clay transition-all uppercase text-center block sm:inline-block"
+          >
             BUYER REGISTRATION
-          </button>
-          <button className="w-full sm:w-auto px-10 py-5 bg-transparent text-white font-black text-[10px] tracking-[0.4em] hover:bg-white hover:text-archive-charcoal border border-white/30 hover:border-white transition-all uppercase">
+          </a>
+          <a
+            href="https://sl.intexsouthasia.com/enquiry-form"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full sm:w-auto px-10 py-5 bg-transparent text-white font-black text-[15px] tracking-[0.2em] hover:bg-white hover:text-archive-charcoal border border-white/30 hover:border-white transition-all uppercase text-center block sm:inline-block"
+          >
             EXHIBITOR ENQUIRY
-          </button>
+          </a>
         </motion.div>
       </div>
 

@@ -14,7 +14,7 @@ const ShowProfilePage: React.FC = () => {
           <div className="space-y-6">
             <div className="flex items-center gap-4">
               <div className="w-12 h-[1px] bg-archive-clay"></div>
-              <span className="text-[10px] font-black tracking-[0.5em] text-archive-clay uppercase">Identity // Records</span>
+              <span className="text-[14px] font-black tracking-[0.5em] text-archive-clay uppercase">Identity // Records</span>
             </div>
             <h1 className="text-4xl md:text-8xl font-black tracking-tighter leading-[0.8] text-archive-charcoal uppercase">
               Show <br /> <span className="text-archive-clay">Profile.</span>
@@ -24,9 +24,9 @@ const ShowProfilePage: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
             <div className="space-y-12">
               <div className="space-y-8">
-                <h2 className="text-xs font-black leading-none text-archive-charcoal uppercase">About The Show</h2>
+                <h2 className="text-[14px] font-black leading-none text-archive-charcoal uppercase">About The Show</h2>
                 <div className="w-12 h-[2px] bg-archive-clay"></div>
-                <div className="space-y-6 text-[13px] font-medium tracking-[0.1em] leading-relaxed text-archive-charcoal/80">
+                <div className="space-y-6 text-[14px] font-medium tracking-[0.1em] leading-relaxed text-archive-charcoal/80">
                   <p>
                     Since its launch in 2015, Intex has evolved into the region’s most influential and largest international textile sourcing show in South Asia, with a strong presence across Sri Lanka, Bangladesh, and India. Over the course of 17 successful editions, the platform has consistently brought together the global textile community at the heart of South Asia’s manufacturing ecosystem.
                   </p>
@@ -40,12 +40,22 @@ const ShowProfilePage: React.FC = () => {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-6 pt-8">
-                <button className="flex-1 px-10 py-6 bg-archive-clay text-white font-black text-[10px] tracking-[0.4em] hover:bg-archive-charcoal transition-all flex items-center justify-center gap-4">
+                <a
+                  href="https://portal.intexfair.com/buyer_reg_portal.php?form_name=pre-buyer-registration&country=sl&source_name="
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 px-10 py-6 bg-archive-clay text-white font-black text-[15px] tracking-[0.4em] hover:bg-archive-charcoal transition-all flex items-center justify-center gap-4"
+                >
                   BUYER REGISTRATION <ArrowRight size={14} className="uppercase" />
-                </button>
-                <button className="flex-1 px-10 py-6 border border-archive-charcoal text-archive-charcoal font-black text-[10px] tracking-[0.4em] hover:bg-archive-charcoal hover:text-white transition-all">
+                </a>
+                <a
+                  href="https://sl.intexsouthasia.com/enquiry-form"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 px-10 py-6 border border-archive-charcoal text-archive-charcoal font-black text-[15px] tracking-[0.4em] hover:bg-archive-charcoal hover:text-white transition-all flex items-center justify-center"
+                >
                   EXHIBITOR ENQUIRY
-                </button>
+                </a>
               </div>
             </div>
 
@@ -90,11 +100,6 @@ const ShowProfilePage: React.FC = () => {
 
       {/* Stats Section */}
       <Stats />
-
-      {/* Decorative Technical Streamer */}
-      <div className="h-4 bg-archive-charcoal overflow-hidden relative opacity-10">
-        <div className="absolute inset-0 measuring-tape"></div>
-      </div>
     </div>
   );
 };

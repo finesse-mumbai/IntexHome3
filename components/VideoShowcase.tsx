@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -6,26 +5,25 @@ import { Play, Activity, MonitorPlay, X, ArrowLeft, ArrowRight } from 'lucide-re
 import { useNavigate } from 'react-router-dom';
 
 const VIDEOS = [
-    { 
-        id: 'v1', 
-        title: 'Strategic Forum Highlights', 
-        role: 'Intex Sourcing', 
+    {
+        id: 'v1',
+        role: 'Intex Sourcing',
         url: 'https://www.youtube.com/embed/VCDUdLZfZeY',
-        youtubeId: 'VCDUdLZfZeY' 
+        youtubeId: 'VCDUdLZfZeY'
     },
-    { 
-        id: 'v2', 
-        title: 'Global Industry Summit', 
-        role: 'Industry Mixer', 
+    {
+        id: 'v2',
+        title: 'Global Industry Summit',
+        role: 'Industry Mixer',
         url: 'https://www.youtube.com/embed/KmkzgC3-KAQ',
-        youtubeId: 'KmkzgC3-KAQ' 
+        youtubeId: 'KmkzgC3-KAQ'
     },
-    { 
-        id: 'v3', 
-        title: 'Archival Highlight Record', 
-        role: 'Show Highlights', 
+    {
+        id: 'v3',
+        title: 'Archival Highlight Record',
+        role: 'Show Highlights',
         url: 'https://www.youtube.com/embed/nwWELI2tK0c',
-        youtubeId: 'nwWELI2tK0c' 
+        youtubeId: 'nwWELI2tK0c'
     },
 ];
 
@@ -57,15 +55,15 @@ const VideoShowcase: React.FC = () => {
                         className="absolute inset-0 bg-black/95 backdrop-blur-md"
                         onClick={() => setActiveVideoIndex(null)}
                     />
-                    
+
                     {/* Header Controls */}
                     <div className="absolute top-6 left-6 right-6 md:top-10 md:left-10 md:right-10 flex justify-between items-center z-[100000]">
-                         <div className="text-white bg-white/5 backdrop-blur-md px-6 py-2 border border-white/10 rounded-full hidden md:block">
-                             <span className="text-[10px] font-black tracking-widest uppercase opacity-40">Highlight Specimen: </span>
-                             <span className="text-[10px] font-black tracking-widest uppercase">0{activeVideoIndex + 1} // 03</span>
-                         </div>
-                         
-                         <motion.button
+                        <div className="text-white bg-white/5 backdrop-blur-md px-6 py-2 border border-white/10 rounded-full hidden md:block">
+                            <span className="text-[14px] font-black tracking-widest uppercase opacity-40">Highlight Specimen: </span>
+                            <span className="text-[14px] font-black tracking-widest uppercase">0{activeVideoIndex + 1} // 03</span>
+                        </div>
+
+                        <motion.button
                             initial={{ opacity: 0, scale: 0.5 }}
                             animate={{ opacity: 1, scale: 1 }}
                             onClick={() => setActiveVideoIndex(null)}
@@ -105,7 +103,7 @@ const VideoShowcase: React.FC = () => {
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                             allowFullScreen
                         />
-                        
+
                         {/* Title Overlay in Modal */}
                         <div className="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-black/80 to-transparent pointer-events-none hidden md:block">
                             <h3 className="text-xl font-black text-white uppercase tracking-widest">{currentVideo.title}</h3>
@@ -124,7 +122,7 @@ const VideoShowcase: React.FC = () => {
                     <div className="space-y-6">
                         <div className="flex items-center gap-4">
                             <div className="w-12 h-[1px] bg-archive-clay"></div>
-                            <span className="text-[10px] font-black tracking-[0.5em] uppercase text-archive-clay">Motion Registry</span>
+                            <span className="text-[14px] font-black tracking-[0.5em] uppercase text-archive-clay">Motion Registry</span>
                         </div>
                         <h2 className="text-2xl md:text-4xl font-black uppercase text-archive-charcoal leading-[0.9]">
                             Show <br /> <span className="text-archive-clay">Highlights.</span>
@@ -134,11 +132,11 @@ const VideoShowcase: React.FC = () => {
                     <div className="flex flex-col items-start lg:items-end gap-5 max-w-sm text-left lg:text-right py-2">
                         <div className="flex items-center gap-3 text-archive-clay">
                             <MonitorPlay size={14} />
-                            <span className="text-[9px] font-black tracking-widest uppercase">Digital Specimen Directory</span>
+                            <span className="text-[14px] font-black tracking-widest uppercase">Digital Specimen Directory</span>
                         </div>
                         <button
                             onClick={() => navigate('/post-show-video')}
-                            className="group flex items-center gap-3 px-6 py-3 border border-archive-clay text-archive-clay text-[10px] font-black tracking-widest uppercase hover:bg-archive-clay hover:text-white transition-all duration-300"
+                            className="group flex items-center gap-3 px-6 py-3 border border-archive-clay text-archive-clay text-[14px] font-black tracking-widest uppercase hover:bg-archive-clay hover:text-white transition-all duration-300"
                         >
                             View All Highlights
                             <span className="group-hover:translate-x-1 transition-transform inline-block">→</span>
@@ -162,7 +160,7 @@ const VideoShowcase: React.FC = () => {
                             {/* Video Card Container */}
                             <div className="aspect-video bg-archive-charcoal rounded-[24px] overflow-hidden relative shadow-[0_30px_60px_-15px_rgba(0,0,0,0.15)] transition-all duration-700 group-hover:shadow-[0_40px_80px_-20px_rgba(238,117,57,0.25)]">
                                 {/* YouTube Thumbnail */}
-                                <img 
+                                <img
                                     src={`https://img.youtube.com/vi/${video.youtubeId}/maxresdefault.jpg`}
                                     alt={video.title}
                                     className="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-all duration-1000 group-hover:scale-105"
@@ -180,15 +178,15 @@ const VideoShowcase: React.FC = () => {
 
                                 {/* Premium Corner Accent */}
                                 <div className="absolute bottom-4 right-4 p-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                                     <Activity size={18} className="text-white animate-pulse" />
+                                    <Activity size={18} className="text-white animate-pulse" />
                                 </div>
                             </div>
 
-            <div className="mt-8 space-y-2">
-                <h4 className="text-[12px] md:text-[13px] font-black uppercase tracking-[0.2em] text-archive-charcoal group-hover:text-archive-clay transition-colors">
-                    {video.title}
-                </h4>
-            </div>
+                            {/* <div className="mt-8 space-y-2">
+                                <h4 className="text-[14px] font-black uppercase tracking-[0.2em] text-archive-charcoal group-hover:text-archive-clay transition-colors">
+                                    {video.title}
+                                </h4>
+                            </div> */}
                         </motion.div>
                     ))}
                 </div>

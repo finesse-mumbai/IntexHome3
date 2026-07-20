@@ -38,16 +38,16 @@ const SpecimenPanel = memo(({
       <div className="space-y-1">
         <div className="flex items-center gap-3">
           <Hash size={14} className="text-archive-clay" />
-          <span className={`text-[9px] font-black tracking-[0.5em] uppercase ${isDark ? 'text-white/40' : 'text-archive-charcoal/60'}`}>{label} </span>
+          <span className={`text-[14px] font-black tracking-[0.5em] uppercase ${isDark ? 'text-white/40' : 'text-archive-charcoal/60'}`}>{label} </span>
         </div>
       </div>
       <div className="flex flex-col items-end gap-2">
-        <span className={`text-[10px] font-mono uppercase tracking-[0.3em] border px-4 py-2.5 rounded-none font-bold transition-all duration-500 ${isDark ? 'bg-[#EE7539] text-white border-transparent shadow-[0_0_15px_rgba(238,117,57,0.3)]' : 'bg-archive-charcoal text-white border-archive-charcoal'}`}>
+        <span className={`text-[14px] font-mono uppercase tracking-[0.3em] border px-4 py-2.5 rounded-none font-bold transition-all duration-500 ${isDark ? 'bg-[#EE7539] text-white border-transparent shadow-[0_0_15px_rgba(238,117,57,0.3)]' : 'bg-archive-charcoal text-white border-archive-charcoal'}`}>
           {testimonial.type}
         </span>
         {testimonial.videoUrl && (
           <div
-            className="flex items-center gap-2 px-3 py-1.5 bg-archive-clay text-white text-[9px] font-black tracking-widest uppercase cursor-pointer hover:bg-archive-charcoal hover:scale-105 transition-all shadow-lg"
+            className="flex items-center gap-2 px-3 py-1.5 bg-archive-clay text-white text-[14px] font-black tracking-widest uppercase cursor-pointer hover:bg-archive-charcoal hover:scale-105 transition-all shadow-lg"
             onClick={() => onPlayVideo(testimonial)}
           >
             <Play size={10} fill="currentColor" strokeWidth={0} />
@@ -102,10 +102,10 @@ const SpecimenPanel = memo(({
                 {testimonial.author}
               </h4>
               <div className="flex flex-col gap-3">
-                <span className="text-[12px] md:text-sm font-black tracking-[0.4em] uppercase text-archive-clay">
+                <span className="text-[14px] font-black tracking-[0.4em] uppercase text-archive-clay">
                   {testimonial.role}
                 </span>
-                <span className={`text-[11px] md:text-[12px] font-bold tracking-[0.25em] uppercase leading-relaxed max-w-[200px] ${isDark ? 'text-white/40' : 'text-archive-charcoal/50'}`}>
+                <span className={`text-[14px] font-bold tracking-[0.25em] uppercase leading-relaxed max-w-[200px] ${isDark ? 'text-white/40' : 'text-archive-charcoal/50'}`}>
                   {testimonial.company}
                 </span>
               </div>
@@ -282,7 +282,7 @@ const Testimonials: React.FC = () => {
           <div className="flex items-center gap-6">
             <div className="w-16 h-[1px] bg-archive-clay"></div>
             <div className="flex flex-col">
-              <span className="text-[10px] font-black tracking-[0.6em] uppercase text-archive-clay">Archive // Intelligence // Feedback</span>
+              <span className="text-[14px] font-black tracking-[0.6em] uppercase text-archive-clay">Archive // Intelligence // Feedback</span>
             </div>
           </div>
           <h2 className="text-2xl md:text-4xl font-black uppercase leading-[0.9] text-archive-charcoal">

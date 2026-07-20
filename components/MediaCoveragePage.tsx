@@ -64,7 +64,7 @@ const MediaCoveragePage: React.FC = () => {
           <div className="space-y-6">
             <div className="flex items-center gap-4">
               <div className="w-12 h-[1px] bg-archive-clay"></div>
-              <span className="text-[10px] font-black tracking-[0.5em] text-archive-clay uppercase">Visual Intelligence // Media Log</span>
+              <span className="text-[14px] font-black tracking-[0.5em] text-archive-clay uppercase">Visual Intelligence // Media Log</span>
             </div>
             <h1 className="text-4xl md:text-8xl font-black tracking-tighter leading-[0.85] text-archive-charcoal uppercase">
               MEDIA <br />
@@ -74,13 +74,13 @@ const MediaCoveragePage: React.FC = () => {
 
           <div className="flex flex-col lg:flex-row gap-12 border-y border-archive-charcoal/10 py-12">
             <div className="space-y-4">
-              <span className="text-[10px] font-black tracking-widest opacity-40">Exhibition Country</span>
+              <span className="text-[14px] font-black tracking-widest opacity-40">Exhibition Country</span>
               <div className="flex flex-wrap gap-2">
                 {locations.map(loc => (
                   <button
                     key={loc}
                     onClick={() => setFilterLocation(loc)}
-                    className={`px-8 py-3 text-[10px] font-black tracking-widest border transition-all ${filterLocation === loc ? 'bg-archive-charcoal text-white border-archive-charcoal' : 'border-archive-charcoal/10 text-archive-charcoal/40 hover:text-archive-charcoal'}`}
+                    className={`px-8 py-3 text-[14px] font-black tracking-widest border transition-all ${filterLocation === loc ? 'bg-archive-charcoal text-white border-archive-charcoal' : 'border-archive-charcoal/10 text-archive-charcoal/40 hover:text-archive-charcoal'}`}
                   >
                     {loc}
                   </button>
@@ -89,13 +89,13 @@ const MediaCoveragePage: React.FC = () => {
             </div>
 
             <div className="space-y-4">
-              <span className="text-[10px] font-black tracking-widest opacity-40">Exhibition Year</span>
+              <span className="text-[14px] font-black tracking-widest opacity-40">Exhibition Year</span>
               <div className="flex flex-wrap gap-2">
                 {years.map(yr => (
                   <button
                     key={yr}
                     onClick={() => setFilterYear(yr)}
-                    className={`px-8 py-3 text-[10px] font-black tracking-widest border transition-all ${filterYear === yr ? 'bg-archive-clay border-archive-clay text-white' : 'border-archive-charcoal/10 text-archive-charcoal/40 hover:text-archive-charcoal'}`}
+                    className={`px-8 py-3 text-[14px] font-black tracking-widest border transition-all ${filterYear === yr ? 'bg-archive-clay border-archive-clay text-white' : 'border-archive-charcoal/10 text-archive-charcoal/40 hover:text-archive-charcoal'}`}
                   >
                     {yr}
                   </button>
@@ -158,11 +158,11 @@ const MediaCoveragePage: React.FC = () => {
                     <div className="flex  w-full justify-between">
                       <div className="flex items-center gap-2">
                         <Globe size={10} className="text-archive-clay" />
-                        <span className="text-[8px] font-black uppercase">{item.country}</span>
+                        <span className="text-[14px] font-black uppercase">{item.country}</span>
                       </div>
                       <div className="flex items-center gap-2">
                         <Calendar size={10} className="text-archive-clay" />
-                        <span className="text-[8px] font-black">{item.year}</span>
+                        <span className="text-[14px] font-black">{item.year}</span>
                       </div>
                     </div>
                     <Maximize2 size={12} className="opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -176,7 +176,7 @@ const MediaCoveragePage: React.FC = () => {
         {filteredData.length === 0 && (
           <div className="py-60 flex flex-col items-center justify-center border border-dashed border-archive-charcoal/20 text-center">
             <Search size={40} className="text-archive-clay/20 mb-6" />
-            <span className="text-[10px] font-black tracking-[0.5em] text-archive-charcoal/30 uppercase">NO MATCHING MEDIA RECORDS FOUND.</span>
+            <span className="text-[14px] font-black tracking-[0.5em] text-archive-charcoal/30 uppercase">NO MATCHING MEDIA RECORDS FOUND.</span>
           </div>
         )}
       </section>
@@ -213,10 +213,10 @@ const MediaCoveragePage: React.FC = () => {
 
               <div className="absolute -bottom-24 left-0 w-full flex justify-between items-end">
                 <div className="space-y-4">
-                  <span className="text-archive-clay text-[10px] font-black tracking-[0.5em] uppercase">{selectedMedia.eventName}</span>
-                  <h2 className="text-sm md:text-base font-black text-white tracking-tighter uppercase">{selectedMedia.title.toUpperCase()}</h2>
+                  <span className="text-archive-clay text-[14px] font-black tracking-[0.5em] uppercase">{selectedMedia.eventName}</span>
+                  <h2 className="text-[14px] md:text-base font-black text-white tracking-tighter uppercase">{selectedMedia.title.toUpperCase()}</h2>
                 </div>
-                <div className="flex gap-10 text-white/40 text-[10px] font-black tracking-widest">
+                <div className="flex gap-10 text-white/40 text-[14px] font-black tracking-widest">
                   <div className="flex flex-col gap-1 items-end">
                     <span className="opacity-40">Ref_ID</span>
                     <span className="text-white font-mono">{selectedMedia.id}</span>
@@ -240,15 +240,15 @@ const MediaCoveragePage: React.FC = () => {
               <Video size={200} />
             </div>
             <div className="space-y-4 relative z-10">
-              <span className="text-archive-clay text-[10px] font-black tracking-[0.5em]">Press Desk</span>
+              <span className="text-archive-clay text-[14px] font-black tracking-[0.5em]">Press Desk</span>
               <h3 className="text-xl font-black leading-none uppercase">Media Registration.</h3>
             </div>
             <div className="space-y-8 relative z-10">
-              <p className="text-[11px] font-bold tracking-[0.2em] text-white/40 leading-relaxed">
+              <p className="text-[14px] font-bold tracking-[0.2em] text-white/40 leading-relaxed">
                 Journalists and industry analysts may request access to our master visual server for high-fidelity assets, unedited footage, and executive interview manifests.
               </p>
               <div className="flex flex-col sm:flex-row gap-6">
-                <button className="px-10 py-5 bg-archive-clay text-white font-black text-[10px] tracking-[0.4em] hover:bg-white hover:text-archive-charcoal transition-all">
+                <button className="px-10 py-5 bg-archive-clay text-white font-black text-[14px] tracking-[0.4em] hover:bg-white hover:text-archive-charcoal transition-all">
                   CLICK HERE FOR MEDIA REGISTRATION
                 </button>
 

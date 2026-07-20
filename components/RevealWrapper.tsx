@@ -51,7 +51,7 @@ const RevealWrapper: React.FC<RevealWrapperProps> = ({
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 0, transition: { ...commonTransition, duration: 0.5 } } : { opacity: 0.4 }}
             transition={{ duration: 0.5, delay: delay + 0.5 }}
-            className="text-archive-clay text-[10px] font-mono font-black tracking-[0.8em] uppercase"
+            className="text-archive-clay text-[14px] font-mono font-black tracking-[0.8em] uppercase"
           >
             {subtext}
           </motion.div>

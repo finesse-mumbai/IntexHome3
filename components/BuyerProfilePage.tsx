@@ -13,7 +13,7 @@ const BuyerProfilePage: React.FC = () => {
           <div className="space-y-6">
             <div className="flex items-center gap-4">
               <div className="w-12 h-[1px] bg-archive-clay"></div>
-              <span className="text-[10px] font-black tracking-[0.5em] text-archive-clay uppercase">Sourcing Matrix // 2025</span>
+              <span className="text-[14px] font-black tracking-[0.5em] text-archive-clay uppercase">Sourcing Matrix // 2025</span>
             </div>
             <h1 className="text-4xl md:text-8xl font-black tracking-tighter leading-[0.85] text-archive-charcoal uppercase">
               Buyer <br />
@@ -31,7 +31,7 @@ const BuyerProfilePage: React.FC = () => {
               <div className="flex items-center justify-center gap-8 border border-archive-charcoal/10 p-6 bg-white/50 backdrop-blur-sm">
                 <div className="text-center px-4">
                   <div className="text-3xl font-black text-archive-clay">22</div>
-                  <div className="text-[8px] font-black tracking-widest opacity-40 uppercase">Profile Types</div>
+                  <div className="text-[14px] font-black tracking-widest opacity-40 uppercase">Profile Types</div>
                 </div>
               </div>
             </div>
@@ -81,7 +81,7 @@ const BuyerProfilePage: React.FC = () => {
               <div className="w-20 h-px bg-archive-clay"></div>
             </div>
             <div className="space-y-8">
-              <p className="text-[12px] font-bold tracking-[0.15em] leading-relaxed text-archive-charcoal/60">
+              <p className="text-[14px] font-bold tracking-[0.15em] leading-relaxed text-archive-charcoal/60">
                 The Intex buyer registry consists of pre-vetted industry professionals with high purchasing power. Our database is verified through a rigorous protocol to ensure exhibitors connect with genuine decision-makers from over 40 countries.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
@@ -92,8 +92,8 @@ const BuyerProfilePage: React.FC = () => {
                   { label: "Audit Standard", value: "Verified Registry" }
                 ].map((item, i) => (
                   <div key={i} className="space-y-2 border-l border-archive-charcoal/10 pl-6">
-                    <span className="text-[8px] font-black tracking-widest opacity-40 block uppercase">{item.label}</span>
-                    <span className="text-[11px] font-black text-archive-charcoal uppercase">{item.value}</span>
+                    <span className="text-[14px] font-black tracking-widest opacity-40 block uppercase">{item.label}</span>
+                    <span className="text-[14px] font-black text-archive-charcoal uppercase">{item.value}</span>
                   </div>
                 ))}
               </div>
@@ -105,15 +105,15 @@ const BuyerProfilePage: React.FC = () => {
               <Target size={200} />
             </div>
             <div className="space-y-4 relative z-10">
-              <span className="text-archive-clay text-[10px] font-black tracking-[0.5em] uppercase">Visitor Registry</span>
+              <span className="text-archive-clay text-[14px] font-black tracking-[0.5em] uppercase">Visitor Registry</span>
               <h3 className="text-xl font-black leading-none uppercase">Register as a <br /> High-Value Buyer.</h3>
             </div>
             <div className="space-y-8 relative z-10">
-              <p className="text-[11px] font-bold tracking-[0.2em] text-white/40 leading-relaxed">
+              <p className="text-[14px] font-bold tracking-[0.2em] text-white/40 leading-relaxed">
                 Gain exclusive access to the 2026 Intex Archive. Network with verified manufacturers and access proprietary trend data ahead of the global market.
               </p>
               <div className="flex flex-col sm:flex-row gap-6">
-                <button className="px-16 py-6 w-full sm:w-auto bg-archive-clay text-white font-black text-sm tracking-[0.3em] hover:bg-white hover:text-archive-charcoal transition-all">
+                <button className="px-16 py-6 w-full sm:w-auto bg-archive-clay text-white font-black text-[14px] tracking-[0.3em] hover:bg-white hover:text-archive-charcoal transition-all">
                   REGISTER NOW
                 </button>
               </div>

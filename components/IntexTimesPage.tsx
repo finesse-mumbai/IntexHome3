@@ -1,4 +1,3 @@
-
 import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Download, FileText, Search, Database, ShieldCheck, Clock, Newspaper, ArrowUpRight } from 'lucide-react';
@@ -64,7 +63,7 @@ const IntexTimesPage: React.FC = () => {
           <div className="space-y-6">
             <div className="flex items-center gap-4">
               <div className="w-12 h-[1px] bg-archive-clay"></div>
-              <span className="text-[10px] font-black tracking-[0.5em] text-archive-clay uppercase">Chronological Archive // Daily Record</span>
+              <span className="text-[14px] font-black tracking-[0.5em] text-archive-clay uppercase">Chronological Archive // Daily Record</span>
             </div>
             <h1 className="text-4xl md:text-8xl font-black tracking-tighter leading-[0.85] text-archive-charcoal uppercase">
               INTEX <br />
@@ -74,13 +73,13 @@ const IntexTimesPage: React.FC = () => {
 
           <div className="flex flex-col lg:flex-row gap-12 border-y border-archive-charcoal/10 py-12">
             <div className="space-y-4">
-              <span className="text-[10px] font-black tracking-widest opacity-40">Operational Node</span>
+              <span className="text-[14px] font-black tracking-widest opacity-40">Operational Node</span>
               <div className="flex flex-wrap gap-2">
                 {events.map(ev => (
                   <button
                     key={ev}
                     onClick={() => setActiveEvent(ev)}
-                    className={`px-8 py-3 text-[10px] font-black tracking-widest border transition-all ${activeEvent === ev ? 'bg-archive-charcoal text-white border-archive-charcoal' : 'border-archive-charcoal/10 text-archive-charcoal/40 hover:text-archive-charcoal'}`}
+                    className={`px-8 py-3 text-[14px] font-black tracking-widest border transition-all ${activeEvent === ev ? 'bg-archive-charcoal text-white border-archive-charcoal' : 'border-archive-charcoal/10 text-archive-charcoal/40 hover:text-archive-charcoal'}`}
                   >
                     {ev}
                   </button>
@@ -89,13 +88,13 @@ const IntexTimesPage: React.FC = () => {
             </div>
 
             <div className="space-y-4">
-              <span className="text-[10px] font-black tracking-widest opacity-40">Temporal Frame</span>
+              <span className="text-[14px] font-black tracking-widest opacity-40">Temporal Frame</span>
               <div className="flex flex-wrap gap-2">
                 {years.map(yr => (
                   <button
                     key={yr}
                     onClick={() => setActiveYear(yr)}
-                    className={`px-8 py-3 text-[10px] font-black tracking-widest border transition-all ${activeYear === yr ? 'bg-archive-clay border-archive-clay text-white' : 'border-archive-charcoal/10 text-archive-charcoal/40 hover:text-archive-charcoal'}`}
+                    className={`px-8 py-3 text-[14px] font-black tracking-widest border transition-all ${activeYear === yr ? 'bg-archive-clay border-archive-clay text-white' : 'border-archive-charcoal/10 text-archive-charcoal/40 hover:text-archive-charcoal'}`}
                   >
                     {yr}
                   </button>
@@ -134,15 +133,13 @@ const IntexTimesPage: React.FC = () => {
                     />
                     <div className="absolute inset-0 bg-archive-charcoal/5 group-hover:bg-transparent pointer-events-none transition-colors"></div>
                   </div>
-
                 </div>
 
                 <div className="flex-1 p-8 flex flex-col justify-between group-hover:text-white transition-colors duration-700">
                   <div className="space-y-6">
                     <div className="space-y-2">
                       <div className="flex items-center gap-3">
-                        <span className="text-[10px] font-black tracking-widest text-archive-clay uppercase">{bulletin.event} | {bulletin.year}</span>
-
+                        <span className="text-[14px] font-black tracking-widest text-archive-clay uppercase">{bulletin.event} | {bulletin.year}</span>
                       </div>
                       <h3 className="text-xl font-semibold pb-2 text-archive-charcoal tracking-tighter leading-tight group-hover:text-white transition-colors duration-500">
                         {bulletin.title}
@@ -155,7 +152,7 @@ const IntexTimesPage: React.FC = () => {
                       href={bulletin.pdfLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-8 py-5 bg-archive-charcoal text-white group-hover:bg-archive-clay transition-all flex items-center gap-4 text-[9px] font-black tracking-[0.3em]"
+                      className="px-8 py-5 bg-archive-charcoal text-white group-hover:bg-archive-clay transition-all flex items-center gap-4 text-[14px] font-black tracking-[0.3em]"
                     >
                       READ FULL <Download size={14} className="uppercase" />
                     </a>
@@ -169,16 +166,13 @@ const IntexTimesPage: React.FC = () => {
         {filteredBulletins.length === 0 && (
           <div className="py-60 flex flex-col items-center justify-center border border-dashed border-archive-charcoal/20 text-center">
             <Search size={40} className="text-archive-clay/20 mb-6" />
-            <span className="text-[10px] font-black tracking-[0.5em] text-archive-charcoal/30 uppercase">NO BULLETINS INDEXED FOR SELECTED NODE.</span>
+            <span className="text-[14px] font-black tracking-[0.5em] text-archive-charcoal/30 uppercase">NO BULLETINS INDEXED FOR SELECTED NODE.</span>
           </div>
         )}
       </section>
 
-      {/* Intelligence Protocol Section */}
-
-
       {/* Decorative Technical Detail */}
-      <div className="h-4  relative overflow-hidden opacity-10">
+      <div className="h-4 relative overflow-hidden opacity-10">
         <div className="absolute inset-0"></div>
       </div>
     </div>

@@ -48,7 +48,7 @@ const OrganiserPage: React.FC = () => {
             <div className="space-y-6 text-center md:text-left">
               <div className="flex items-center justify-center md:justify-start gap-4">
                 <div className="w-12 h-[1px] bg-archive-clay"></div>
-                <span className="text-[10px] font-black tracking-[0.5em] text-archive-clay uppercase">Organiser Registry</span>
+                <span className="text-[14px] font-black tracking-[0.5em] text-archive-clay uppercase">Organiser Registry</span>
               </div>
               <h1 className="text-4xl md:text-8xl font-black tracking-tighter leading-[0.9] text-archive-charcoal max-w-2xl uppercase">
                 Worldex India Exhibition & <span >Promotion Pvt. Ltd.</span>
@@ -68,11 +68,11 @@ const OrganiserPage: React.FC = () => {
             <div className="grid grid-cols-2 gap-4">
               <div className="p-6 border border-white/10 text-center bg-white/5">
                 <div className="text-4xl font-black text-archive-clay">21+</div>
-                <div className="text-[8px] font-black tracking-widest opacity-40 uppercase">Years Experience</div>
+                <div className="text-[14px] font-black tracking-widest opacity-40 uppercase">Years Experience</div>
               </div>
               <div className="p-6 border border-white/10 text-center bg-white/5">
                 <div className="text-4xl font-black text-archive-clay">Global</div>
-                <div className="text-[8px] font-black tracking-widest opacity-40 uppercase">Expertise</div>
+                <div className="text-[14px] font-black tracking-widest opacity-40 uppercase">Expertise</div>
               </div>
             </div>
           </div>
@@ -84,10 +84,10 @@ const OrganiserPage: React.FC = () => {
               We provide premium standards of service and solutions as show organisers and trade promoters. We successfully organise and represent international trade promotions in India, Southeast Asia and European markets, through our close industry connects and support from leading Government Agencies, Chambers of Commerce, Federations and Trade Associations. We have been closely working and representing international trade bodies for more than 10 years in our region such as Hong Kong Trade Development Council (HKTDC), Taiwan Textile Federation (TTF) and China Council for Promotion of International Trade (CCPIT).
             </p>
             <div className="pt-12 flex flex-col sm:flex-row gap-6">
-              <button className="px-10 py-5 bg-archive-clay text-white font-black text-[10px] tracking-[0.4em] hover:bg-white hover:text-archive-charcoal transition-all flex items-center justify-center gap-4">
+              <button className="px-10 py-5 bg-archive-clay text-white font-black text-[14px] tracking-[0.4em] hover:bg-white hover:text-archive-charcoal transition-all flex items-center justify-center gap-4">
                 VISIT WEBSITE <Globe size={14} className="uppercase" />
               </button>
-              <button className="px-10 py-5 border border-white/20 text-white font-black text-[10px] tracking-[0.4em] hover:bg-archive-clay hover:border-archive-clay transition-all flex items-center justify-center gap-4">
+              <button className="px-10 py-5 border border-white/20 text-white font-black text-[14px] tracking-[0.4em] hover:bg-archive-clay hover:border-archive-clay transition-all flex items-center justify-center gap-4">
                 DOWNLOAD BROCHURE <Download size={14} className="uppercase" />
               </button>
             </div>
@@ -100,7 +100,7 @@ const OrganiserPage: React.FC = () => {
         <div className="mb-20 space-y-4">
           <div className="flex items-center gap-4">
             <div className="w-12 h-[1px] bg-archive-clay"></div>
-            <span className="text-[10px] font-black tracking-[0.5em] text-archive-clay uppercase">Upcoming Events</span>
+            <span className="text-[14px] font-black tracking-[0.5em] text-archive-clay uppercase">Upcoming Events</span>
           </div>
           <h2 className="text-2xl md:text-4xl font-black tracking-tighter text-archive-charcoal uppercase">
             Exhibition <span>Calendar.</span>
@@ -129,21 +129,16 @@ const OrganiserPage: React.FC = () => {
                 <div className="space-y-6">
                   <div className="space-y-2">
                     <h3 className="text-3xl font-black leading-[0.9] uppercase">{ex.title}</h3>
-                    <p className="text-archive-clay text-[10px] font-black tracking-widest uppercase">{ex.location}</p>
+                    <p className="text-archive-clay text-[14px] font-black tracking-widest uppercase">{ex.location}</p>
                   </div>
                   <div className="h-px w-12 bg-white/20 group-hover:w-full transition-all duration-700"></div>
-                  <p className="text-[12px] font-bold tracking-[0.2em] opacity-60">{ex.date}</p>
+                  <p className="text-[14px] font-bold tracking-[0.2em] opacity-60">{ex.date}</p>
                 </div>
               </div>
             </motion.div>
           ))}
         </div>
       </section>
-
-      {/* Decorative Shutter Detail */}
-      <div className="h-4 bg-archive-charcoal relative overflow-hidden opacity-10">
-        <div className="absolute inset-0 measuring-tape"></div>
-      </div>
     </div>
   );
 };

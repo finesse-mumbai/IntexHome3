@@ -1,4 +1,3 @@
-
 import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Play, Video, Youtube, Maximize2, Search, Database, Calendar, MapPin, ArrowUpRight, ShieldCheck } from 'lucide-react';
@@ -53,7 +52,7 @@ const PostShowVideoPage: React.FC = () => {
           <div className="space-y-6">
             <div className="flex items-center gap-4">
               <div className="w-12 h-[1px] bg-archive-clay"></div>
-              <span className="text-[10px] font-black tracking-[0.5em] text-archive-clay uppercase">Motion Archive // Post Show Highlights</span>
+              <span className="text-[14px] font-black tracking-[0.5em] text-archive-clay uppercase">Motion Archive // Post Show Highlights</span>
             </div>
             <h1 className="text-4xl md:text-8xl font-black tracking-tighter leading-[0.85] text-archive-charcoal uppercase">
               POST SHOW <br />
@@ -63,13 +62,13 @@ const PostShowVideoPage: React.FC = () => {
 
           <div className="flex flex-col lg:flex-row gap-12 border-y border-archive-charcoal/10 py-12">
             <div className="space-y-4">
-              <span className="text-[10px] font-black tracking-widest opacity-40">Regional Node</span>
+              <span className="text-[14px] font-black tracking-widest opacity-40">Regional Node</span>
               <div className="flex flex-wrap gap-2">
                 {events.map(ev => (
                   <button
                     key={ev}
                     onClick={() => setActiveEvent(ev)}
-                    className={`px-8 py-3 text-[10px] font-black tracking-widest border transition-all ${activeEvent === ev ? 'bg-archive-charcoal text-white border-archive-charcoal' : 'border-archive-charcoal/10 text-archive-charcoal/40 hover:text-archive-charcoal'}`}
+                    className={`px-8 py-3 text-[14px] font-black tracking-widest border transition-all ${activeEvent === ev ? 'bg-archive-charcoal text-white border-archive-charcoal' : 'border-archive-charcoal/10 text-archive-charcoal/40 hover:text-archive-charcoal'}`}
                   >
                     {ev}
                   </button>
@@ -78,13 +77,13 @@ const PostShowVideoPage: React.FC = () => {
             </div>
 
             <div className="space-y-4">
-              <span className="text-[10px] font-black tracking-widest opacity-40">Cycle Year</span>
+              <span className="text-[14px] font-black tracking-widest opacity-40">Cycle Year</span>
               <div className="flex flex-wrap gap-2">
                 {years.map(yr => (
                   <button
                     key={yr}
                     onClick={() => setActiveYear(yr)}
-                    className={`px-8 py-3 text-[10px] font-black tracking-widest border transition-all ${activeYear === yr ? 'bg-archive-clay border-archive-clay text-white' : 'border-archive-charcoal/10 text-archive-charcoal/40 hover:text-archive-charcoal'}`}
+                    className={`px-8 py-3 text-[14px] font-black tracking-widest border transition-all ${activeYear === yr ? 'bg-archive-clay border-archive-clay text-white' : 'border-archive-charcoal/10 text-archive-charcoal/40 hover:text-archive-charcoal'}`}
                   >
                     {yr}
                   </button>
@@ -124,13 +123,11 @@ const PostShowVideoPage: React.FC = () => {
                     allowFullScreen
                     loading="lazy"
                   />
-
                 </div>
 
                 {/* Content Frame */}
                 <div className="h-1/3 pt-10 flex flex-col justify-between group-hover:text-white transition-colors duration-700">
                   <div className="space-y-4">
-
                     <h3 className="text-xl font-black tracking-tighter leading-none group-hover:text-archive-clay transition-colors duration-500 line-clamp-2">
                       {video.title}
                     </h3>
@@ -140,14 +137,14 @@ const PostShowVideoPage: React.FC = () => {
                     <div className="flex gap-8">
                       <div className="flex items-center gap-2">
                         <MapPin size={15} className="text-archive-clay" />
-                        <span className="text-[15px] font-black text-black/50">{video.event}</span>
+                        <span className="text-[14px] font-black text-black/50">{video.event}</span>
                       </div>
                       <div className="flex items-center gap-2">
                         <Calendar size={15} className="text-archive-clay" />
-                        <span className="text-[15px] font-black text-black/50">{video.year}</span>
+                        <span className="text-[14px] font-black text-black/50">{video.year}</span>
                       </div>
                     </div>
-                    <div className="flex items-center gap-4 text-[15px] font-black tracking-widest text-archive-clay  transition-all">
+                    <div className="flex items-center gap-4 text-[14px] font-black tracking-widest text-archive-clay  transition-all">
                       WATCH <ArrowUpRight size={15} className="uppercase" />
                     </div>
                   </div>
@@ -160,7 +157,7 @@ const PostShowVideoPage: React.FC = () => {
         {filteredVideos.length === 0 && (
           <div className="py-60 flex flex-col items-center justify-center border border-dashed border-archive-charcoal/20 text-center">
             <Search size={40} className="text-archive-clay/20 mb-6" />
-            <span className="text-[10px] font-black tracking-[0.5em] text-archive-charcoal/30 uppercase">No matching highlight tapes found.</span>
+            <span className="text-[14px] font-black tracking-[0.5em] text-archive-charcoal/30 uppercase">No matching highlight tapes found.</span>
           </div>
         )}
       </section>
@@ -193,10 +190,10 @@ const PostShowVideoPage: React.FC = () => {
 
               <div className="absolute -bottom-24 left-0 w-full flex justify-between items-end">
                 <div className="space-y-4">
-                  <span className="text-archive-clay text-[10px] font-black tracking-[0.5em] uppercase">Archive Master Record // {focusedVideo.year}</span>
-                  <h2 className="text-sm md:text-base font-black text-white tracking-tighter uppercase">{focusedVideo.title}</h2>
+                  <span className="text-archive-clay text-[14px] font-black tracking-[0.5em] uppercase">Archive Master Record // {focusedVideo.year}</span>
+                  <h2 className="text-[14px] md:text-base font-black text-white tracking-tighter uppercase">{focusedVideo.title}</h2>
                 </div>
-                <div className="flex gap-12 text-white/40 text-[10px] font-black tracking-widest">
+                <div className="flex gap-12 text-white/40 text-[14px] font-black tracking-widest">
                   <div className="flex flex-col gap-1 items-end">
                     <span className="opacity-40">System_Status</span>
                     <span className="text-green-500">Live Streaming</span>
@@ -212,10 +209,8 @@ const PostShowVideoPage: React.FC = () => {
         )}
       </AnimatePresence>
 
-
-
       {/* Decorative Technical Detail */}
-      <div className="h-4  relative overflow-hidden opacity-10">
+      <div className="h-4 relative overflow-hidden opacity-10">
         <div className="absolute inset-0"></div>
       </div>
     </div>

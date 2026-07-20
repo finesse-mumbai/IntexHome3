@@ -1,7 +1,6 @@
-
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowUpRight, ShieldCheck, Database, LayoutGrid, Fingerprint } from 'lucide-react';
+import { ArrowUpRight, ShieldCheck, Database, ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface FeaturedExhibitor {
   id: string;
@@ -79,8 +78,28 @@ const FEATURED_DATA: Record<string, FeaturedExhibitor[]> = {
 
 const FeaturedExhibitorsPage: React.FC = () => {
   const [activeShow, setActiveShow] = useState('BANGLADESH');
+  const scrollRef = useRef<HTMLDivElement>(null);
 
   const shows = Object.keys(FEATURED_DATA);
+
+  const handleScroll = (direction: 'left' | 'right') => {
+    if (scrollRef.current) {
+      const { scrollLeft, clientWidth } = scrollRef.current;
+      const scrollAmount = clientWidth * 0.75;
+      const targetScroll = direction === 'left' ? scrollLeft - scrollAmount : scrollLeft + scrollAmount;
+      scrollRef.current.scrollTo({
+        left: targetScroll,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  // Reset scroll position on active show change
+  useEffect(() => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollLeft = 0;
+    }
+  }, [activeShow]);
 
   return (
     <div className="bg-archive-cream min-h-screen pt-32 pb-24 overflow-hidden">
@@ -90,7 +109,7 @@ const FeaturedExhibitorsPage: React.FC = () => {
           <div className="space-y-6">
             <div className="flex items-center gap-4">
               <div className="w-12 h-[1px] bg-archive-clay"></div>
-              <span className="text-[10px] font-black tracking-[0.5em] text-archive-clay uppercase">Elite Registry // Node Selection</span>
+              <span className="text-[15px] font-black tracking-[0.5em] text-archive-clay uppercase">Elite Registry // Node Selection</span>
             </div>
             <h1 className="text-4xl md:text-8xl font-black tracking-tighter leading-[0.85] text-archive-charcoal uppercase">
               Featured <br />
@@ -116,7 +135,7 @@ const FeaturedExhibitorsPage: React.FC = () => {
                   <button
                     key={show}
                     onClick={() => setActiveShow(show)}
-                     className={`px-8 py-4 text-[10px] font-black tracking-widest transition-all uppercase ${activeShow === show ? 'bg-archive-charcoal text-white' : 'text-archive-charcoal/40 hover:text-archive-charcoal'}`}
+                    className={`px-8 py-4 text-[15px] font-black tracking-widest transition-all uppercase ${activeShow === show ? 'bg-archive-charcoal text-white' : 'text-archive-charcoal/40 hover:text-archive-charcoal'}`}
                   >
                     INTEX {show}
                     <span className="opacity-60 font-bold block mt-1">{dates[show]}</span>
@@ -128,52 +147,79 @@ const FeaturedExhibitorsPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Grid Section */}
-      <section className="px-6 md:px-12 max-w-[1440px] mx-auto min-h-[600px]">
+      {/* Slider Section */}
+      <section className="px-6 md:px-12 max-w-[1440px] mx-auto min-h-[480px] relative group/slider">
+        {/* Navigation Buttons */}
+        <div className="absolute left-6 md:left-12 top-[180px] -translate-y-1/2 z-20 flex gap-2">
+          <button
+            onClick={() => handleScroll('left')}
+            className="w-14 h-14 bg-white/90 hover:bg-archive-charcoal hover:text-white border border-archive-charcoal/10 flex items-center justify-center transition-all duration-300 shadow-lg text-archive-charcoal backdrop-blur-md rounded-full"
+            aria-label="Previous Slide"
+          >
+            <ChevronLeft size={24} />
+          </button>
+        </div>
+        
+        <div className="absolute right-6 md:right-12 top-[180px] -translate-y-1/2 z-20 flex gap-2">
+          <button
+            onClick={() => handleScroll('right')}
+            className="w-14 h-14 bg-white/90 hover:bg-archive-charcoal hover:text-white border border-archive-charcoal/10 flex items-center justify-center transition-all duration-300 shadow-lg text-archive-charcoal backdrop-blur-md rounded-full"
+            aria-label="Next Slide"
+          >
+            <ChevronRight size={24} />
+          </button>
+        </div>
+
         <AnimatePresence mode="wait">
           <motion.div
             key={activeShow}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5 }}
+            className="relative"
           >
-            {FEATURED_DATA[activeShow].map((ex, idx) => (
-              <motion.div
-                key={ex.id}
-                className="bg-white group relative overflow-hidden flex flex-col h-[340px] border border-archive-charcoal/10 hover:bg-archive-charcoal transition-all duration-700 shadow-sm hover:shadow-md"
-              >
-                {/* Logo Frame */}
-                <div className="h-[60%] p-12 flex items-center justify-center relative bg-white group-hover:bg-white transition-colors duration-700">
-                  <div className="w-full h-full flex items-center justify-center relative overflow-hidden">
-                    <img
-                      src={ex.logo}
-                      alt={ex.name}
-                      className="w-[150px] h-[180px] object-contain transition-all duration-700 group-hover:scale-110"
-                      onError={(e) => {
-                        (e.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${ex.name}&background=F3EBE8&color=2F2C2C&bold=true`;
-                      }}
-                    />
+            {/* Horizontal Scroll Area */}
+            <div
+              ref={scrollRef}
+              className="flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-8 pt-4 scrollbar-hide"
+              style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            >
+              {FEATURED_DATA[activeShow].map((ex) => (
+                <div
+                  key={ex.id}
+                  className="flex-shrink-0 w-[280px] snap-start bg-white group/card relative overflow-hidden flex flex-col h-[340px] border border-archive-charcoal/10 hover:bg-archive-charcoal transition-all duration-700 shadow-sm hover:shadow-md"
+                >
+                  {/* Logo Frame */}
+                  <div className="h-[60%] p-8 flex items-center justify-center relative bg-white transition-colors duration-700">
+                    <div className="w-full h-full flex items-center justify-center relative overflow-hidden">
+                      <img
+                        src={ex.logo}
+                        alt={ex.name}
+                        className="w-[140px] h-[100px] object-contain transition-all duration-700 group-hover/card:scale-110"
+                        onError={(e) => {
+                          (e.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${ex.name}&background=F3EBE8&color=2F2C2C&bold=true`;
+                        }}
+                      />
+                    </div>
+                  </div>
 
+                  {/* Info Frame */}
+                  <div className="h-[40%] flex flex-col justify-between p-6 bg-archive-cream/30 group-hover/card:text-white transition-colors duration-700">
+                    <div>
+                      <h3 className="text-xl font-semibold tracking-tight leading-snug group-hover/card:text-archive-clay transition-colors duration-500 line-clamp-2">
+                        {ex.name}
+                      </h3>
+                    </div>
+
+                    <div className="pt-4 border-t border-archive-charcoal/5 group-hover/card:border-white/10 flex gap-2 items-center w-full">
+                      <span className="text-[15px] font-black tracking-widest uppercase">Visit Website</span>
+                      <ArrowUpRight size={14} className="text-archive-clay transition-all" />
+                    </div>
                   </div>
                 </div>
-
-                {/* Info Frame */}
-                <div className="h-[40%] flex flex-col  gap-3 bg-archive-cream/30 group-hover:text-white transition-colors duration-700">
-                  <div>
-                    <h3 className="text-xl font-semibold py-4 pl-4 tracking-tight leading-none group-hover:text-archive-clay transition-colors duration-500 capitalize">
-                      {ex.name}
-                    </h3>
-                  </div>
-
-                  <div className="pt-4 pl-4 border-t border-archive-charcoal/5 group-hover:border-white/10 flex gap-2 items-center w-full">
-                    <span className="text-[9px] font-black tracking-widest uppercase">Visit Website</span>
-                    <ArrowUpRight size={14} className="text-archive-clay transition-all" />
-                  </div>
-                </div>
-              </motion.div>
-            ))}
+              ))}
+            </div>
           </motion.div>
         </AnimatePresence>
       </section>
@@ -188,29 +234,29 @@ const FeaturedExhibitorsPage: React.FC = () => {
             <div className="lg:col-span-8 space-y-8">
               <div className="flex items-center gap-4">
                 <Database size={16} className="text-archive-clay" />
-                <span className="text-[10px] font-black tracking-[0.5em] text-archive-clay uppercase">Exhibition Management</span>
+                <span className="text-[15px] font-black tracking-[0.5em] text-archive-clay uppercase">Exhibition Management</span>
               </div>
               <h2 className="text-3xl md:text-4xl font-black tracking-tighter leading-[0.9] uppercase">
                 Get your brand <br /> <span className="text-archive-clay">indexed as featured.</span>
               </h2>
-              <p className="text-[12px] font-bold tracking-widest leading-relaxed text-white/40 max-w-xl">
+              <p className="text-[15px] font-bold tracking-widest leading-relaxed text-white/40 max-w-xl">
                 Featured exhibitors receive priority placement across all digital directories, physical signage, and post-show media coverage.
                 Enquire today to elevate your visibility in the 2026 Archive.
               </p>
             </div>
             <div className="lg:col-span-4 flex justify-end">
-              <button className="w-full lg:w-auto px-12 py-6 bg-archive-clay text-white font-black text-[10px] tracking-[0.4em] hover:bg-white hover:text-archive-charcoal transition-all">
+              <a
+                href="https://sl.intexsouthasia.com/enquiry-form"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full lg:w-auto px-12 py-6 bg-archive-clay text-white font-black text-[15px] tracking-[0.4em] hover:bg-white hover:text-archive-charcoal transition-all text-center uppercase"
+              >
                 APPLY FOR FEATURED STATUS
-              </button>
+              </a>
             </div>
           </div>
         </div>
       </section>
-
-      {/* Decorative Shutter Detail */}
-      <div className="h-4 bg-archive-charcoal relative overflow-hidden opacity-10">
-        <div className="absolute inset-0 measuring-tape"></div>
-      </div>
     </div>
   );
 };

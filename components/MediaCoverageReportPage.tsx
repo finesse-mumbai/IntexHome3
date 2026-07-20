@@ -1,64 +1,41 @@
-
 import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Download, FileText, Search, Database, ShieldCheck, ArrowRight, BarChart3 } from 'lucide-react';
+import { Download, FileText, BarChart3, Search, Database, ShieldCheck, Mail, Phone, UserCheck } from 'lucide-react';
 
-interface ReportSpecimen {
+interface MediaReport {
   id: string;
-  title: string;
-  url: string;
-  year: string;
   event: string;
+  year: string;
+  title: string;
   fileSize: string;
+  url: string;
 }
 
-const REPORT_DATA: ReportSpecimen[] = [
-  {
-    id: 'REP_BD_25_LOG',
-    title: "Media Coverage Report - 2025",
-    url: "https://bd.intexsouthasia.com/assets/pdf/MEDIA-COVERAGE-2025.pdf",
-    year: "2025",
-    event: "Bangladesh",
-    fileSize: "3.8 MB"
-  },
-  {
-    id: 'REP_SL_25_LOG',
-    title: "Media Coverage Report - 2025",
-    url: "https://sl.intexsouthasia.com/assets/pdf/sl-Media-Coverage.pdf",
-    year: "2025",
-    event: "Sri Lanka",
-    fileSize: "4.1 MB"
-  },
-  {
-    id: 'REP_BD_24_LOG',
-    title: "Media Coverage Report - 2024",
-    url: "https://bd.intexsouthasia.com/assets/pdf/MEDIA-COVERAGE-2024.pdf",
-    year: "2024",
-    event: "Bangladesh",
-    fileSize: "5.2 MB"
-  },
-  {
-    id: 'REP_SL_24_LOG',
-    title: "Media Coverage Report - 2024",
-    url: "https://sl.intexsouthasia.com/assets/pdf/Intex-Sri-Lanka-Media-Coverage.pdf",
-    year: "2024",
-    event: "Sri Lanka",
-    fileSize: "2.9 MB"
-  }
+const REPORTS_DATA: MediaReport[] = [
+  { id: 'REP_BD_24', event: 'Intex Bangladesh', year: '2024', title: 'Post Show PR Report 2024', fileSize: '1.2 MB', url: 'https://sl.intexsouthasia.com/assets/pdf/Intex-Bangladesh-2024-Post-Show-PR-Report.pdf' },
+  { id: 'REP_SL_24', event: 'Intex Sri Lanka', year: '2024', title: 'Media Coverage Report 2024', fileSize: '2.5 MB', url: 'https://sl.intexsouthasia.com/assets/pdf/Intex-Sri-Lanka-2024-Media-Coverage-Report.pdf' },
+  { id: 'REP_BD_23', event: 'Intex Bangladesh', year: '2023', title: 'Media Coverage Report 2023', fileSize: '3.1 MB', url: 'https://bd.intexsouthasia.com/assets/pdf/Intex-Bangladesh-2023-Media-Coverage-Report.pdf' },
+  { id: 'REP_SL_23', event: 'Intex Sri Lanka', year: '2023', title: 'Media Coverage Report 2023', fileSize: '1.9 MB', url: 'https://sl.intexsouthasia.com/assets/pdf/Intex-Sri-Lanka-2023-Media-Coverage-Report.pdf' },
+  { id: 'REP_SL_22', event: 'Intex Sri Lanka', year: '2022', title: 'Media Coverage Report 2022', fileSize: '2.2 MB', url: 'https://sl.intexsouthasia.com/assets/pdf/Intex-Sri-Lanka-2022-Media-Coverage-Report.pdf' },
 ];
 
 const MediaCoverageReportPage: React.FC = () => {
   const [activeEvent, setActiveEvent] = useState('ALL');
   const [activeYear, setActiveYear] = useState('ALL');
 
-  const events = ['ALL', 'BANGLADESH', 'SRI LANKA'];
-  const years = ['ALL', '2025', '2024'];
+  const events = useMemo(() => {
+    return ['ALL', ...Array.from(new Set(REPORTS_DATA.map(r => r.event)))];
+  }, []);
+
+  const years = useMemo(() => {
+    return ['ALL', ...Array.from(new Set(REPORTS_DATA.map(r => r.year)))].sort((a, b) => b.localeCompare(a));
+  }, []);
 
   const filteredReports = useMemo(() => {
-    return REPORT_DATA.filter(item => {
-      const eventMatch = activeEvent === 'ALL' || item.event.toUpperCase() === activeEvent;
-      const yearMatch = activeYear === 'ALL' || item.year === activeYear;
-      return eventMatch && yearMatch;
+    return REPORTS_DATA.filter(report => {
+      const matchEvent = activeEvent === 'ALL' || report.event === activeEvent;
+      const matchYear = activeYear === 'ALL' || report.year === activeYear;
+      return matchEvent && matchYear;
     });
   }, [activeEvent, activeYear]);
 
@@ -70,7 +47,7 @@ const MediaCoverageReportPage: React.FC = () => {
           <div className="space-y-6">
             <div className="flex items-center gap-4">
               <div className="w-12 h-[1px] bg-archive-clay"></div>
-              <span className="text-[10px] font-black tracking-[0.5em] text-archive-clay">Public Relations // Audit Archive</span>
+              <span className="text-[14px] font-black tracking-[0.5em] text-archive-clay">Public Relations // Audit Archive</span>
             </div>
             <h1 className="text-4xl md:text-8xl font-black tracking-tighter leading-[0.85] text-archive-charcoal uppercase">
               COVERAGE <br />
@@ -80,13 +57,13 @@ const MediaCoverageReportPage: React.FC = () => {
 
           <div className="flex flex-col lg:flex-row gap-12 border-y border-archive-charcoal/10 py-12">
             <div className="space-y-4">
-              <span className="text-[10px] font-black tracking-widest opacity-40">Event Cluster</span>
+              <span className="text-[14px] font-black tracking-widest opacity-40">Event Cluster</span>
               <div className="flex flex-wrap gap-2">
                 {events.map(ev => (
                   <button
                     key={ev}
                     onClick={() => setActiveEvent(ev)}
-                    className={`px-8 py-3 text-[10px] font-black tracking-widest border transition-all ${activeEvent === ev ? 'bg-archive-charcoal text-white border-archive-charcoal' : 'border-archive-charcoal/10 text-archive-charcoal/40 hover:text-archive-charcoal'}`}
+                    className={`px-8 py-3 text-[14px] font-black tracking-widest border transition-all ${activeEvent === ev ? 'bg-archive-charcoal text-white border-archive-charcoal' : 'border-archive-charcoal/10 text-archive-charcoal/40 hover:text-archive-charcoal'}`}
                   >
                     {ev}
                   </button>
@@ -95,13 +72,13 @@ const MediaCoverageReportPage: React.FC = () => {
             </div>
 
             <div className="space-y-4">
-              <span className="text-[10px] font-black tracking-widest opacity-40">Archive Cycle</span>
+              <span className="text-[14px] font-black tracking-widest opacity-40">Archive Cycle</span>
               <div className="flex flex-wrap gap-2">
                 {years.map(yr => (
                   <button
                     key={yr}
                     onClick={() => setActiveYear(yr)}
-                    className={`px-8 py-3 text-[10px] font-black tracking-widest border transition-all ${activeYear === yr ? 'bg-archive-clay border-archive-clay text-white' : 'border-archive-charcoal/10 text-archive-charcoal/40 hover:text-archive-charcoal'}`}
+                    className={`px-8 py-3 text-[14px] font-black tracking-widest border transition-all ${activeYear === yr ? 'bg-archive-clay border-archive-clay text-white' : 'border-archive-charcoal/10 text-archive-charcoal/40 hover:text-archive-charcoal'}`}
                   >
                     {yr}
                   </button>
@@ -154,7 +131,7 @@ const MediaCoverageReportPage: React.FC = () => {
 
                   <div className="space-y-4">
                     <div className="space-y-2">
-                      <span className="text-[9px] font-black tracking-widest text-archive-clay uppercase">{report.event} // {report.year}</span>
+                      <span className="text-[14px] font-black tracking-widest text-archive-clay uppercase">{report.event} // {report.year}</span>
                       <h3 className="text-lg font-black text-archive-charcoal tracking-tighter leading-[1] group-hover:text-white transition-colors duration-500">
                         {report.title}
                       </h3>
@@ -167,15 +144,15 @@ const MediaCoverageReportPage: React.FC = () => {
                   <div className="space-y-1">
                     <div className="flex items-center gap-2">
 
-                      <span className="text-[8px] font-black tracking-widest text-archive-charcoal/30 group-hover:text-white/30 uppercase">PDF Manifest</span>
+                      <span className="text-[14px] font-black tracking-widest text-archive-charcoal/30 group-hover:text-white/30 uppercase">PDF Manifest</span>
                     </div>
-                    <span className="text-[12px] font-black text-archive-charcoal group-hover:text-archive-clay transition-colors">{report.fileSize}</span>
+                    <span className="text-[14px] font-black text-archive-charcoal group-hover:text-archive-clay transition-colors">{report.fileSize}</span>
                   </div>
                   <a
                     href={report.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-8 py-5 bg-archive-charcoal text-white group-hover:bg-archive-clay transition-all flex items-center gap-4 text-[9px] font-black tracking-[0.3em]"
+                    className="px-8 py-5 bg-archive-charcoal text-white group-hover:bg-archive-clay transition-all flex items-center gap-4 text-[14px] font-black tracking-[0.3em]"
                   >
                     DOWNLOAD <Download size={14} className="uppercase" />
                   </a>
@@ -188,7 +165,7 @@ const MediaCoverageReportPage: React.FC = () => {
         {filteredReports.length === 0 && (
           <div className="py-60 flex flex-col items-center justify-center border border-dashed border-archive-charcoal/20 text-center">
             <Search size={40} className="text-archive-clay/20 mb-6" />
-            <span className="text-[10px] font-black tracking-[0.5em] text-archive-charcoal/30 uppercase">NO REPORTS INDEXED FOR SELECTED FILTERS.</span>
+            <span className="text-[14px] font-black tracking-[0.5em] text-archive-charcoal/30 uppercase">NO REPORTS INDEXED FOR SELECTED FILTERS.</span>
           </div>
         )}
       </section>
@@ -198,11 +175,11 @@ const MediaCoverageReportPage: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
           <div className="space-y-12">
             <div className="space-y-6">
-              <h2 className="text-sm font-black text-archive-clay leading-none uppercase">JOURNALISTIC VERIFICATION.</h2>
+              <h2 className="text-[14px] font-black text-archive-clay leading-none uppercase">JOURNALISTIC VERIFICATION.</h2>
               <div className="w-20 h-px bg-archive-clay"></div>
             </div>
             <div className="space-y-8">
-              <p className="text-[12px] font-bold tracking-[0.15em] leading-relaxed text-archive-charcoal/60">
+              <p className="text-[14px] font-bold tracking-[0.15em] leading-relaxed text-archive-charcoal/60">
                 The Media Coverage Reports are compiled by independent audit agencies to document the reach and impact of Intex South Asia across digital, print, and broadcast channels. Every mention is indexed for historical transparency.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
@@ -213,8 +190,8 @@ const MediaCoverageReportPage: React.FC = () => {
                   { label: "Archive Status", value: "Publicly Accessible" }
                 ].map((item, i) => (
                   <div key={i} className="space-y-2 border-l border-archive-charcoal/10 pl-6">
-                    <span className="text-[8px] font-black tracking-widest opacity-40 block">{item.label}</span>
-                    <span className="text-[11px] font-black text-archive-charcoal">{item.value}</span>
+                    <span className="text-[14px] font-black tracking-widest opacity-40 block">{item.label}</span>
+                    <span className="text-[14px] font-black text-archive-charcoal">{item.value}</span>
                   </div>
                 ))}
               </div>
@@ -226,18 +203,18 @@ const MediaCoverageReportPage: React.FC = () => {
               <Database size={200} />
             </div>
             <div className="space-y-4 relative z-10">
-              <span className="text-archive-clay text-[10px] font-black tracking-[0.5em]">Press Desk</span>
+              <span className="text-archive-clay text-[14px] font-black tracking-[0.5em]">Press Desk</span>
               <h3 className="text-xl font-black leading-none uppercase">Request Custom <br /> Impact Data.</h3>
             </div>
             <div className="space-y-8 relative z-10">
-              <p className="text-[11px] font-bold tracking-[0.2em] text-white/40 leading-relaxed">
+              <p className="text-[14px] font-bold tracking-[0.2em] text-white/40 leading-relaxed">
                 Require specific regional media analysis or exhibitor-exclusive impact reports? Our public relations department facilitates custom technical data requests for verified partners.
               </p>
               <div className="flex flex-col sm:flex-row gap-6">
-                <button className="px-10 py-5 bg-archive-clay text-white font-black text-[10px] tracking-[0.4em] hover:bg-white hover:text-archive-charcoal transition-all">
+                <button className="px-10 py-5 bg-archive-clay text-white font-black text-[14px] tracking-[0.4em] hover:bg-white hover:text-archive-charcoal transition-all">
                   CONTACT MEDIA RELATIONS
                 </button>
-                <button className="px-10 py-5 border border-white/20 text-white font-black text-[10px] tracking-[0.4em] hover:bg-white hover:text-archive-charcoal hover:border-white transition-all flex items-center gap-3">
+                <button className="px-10 py-5 border border-white/20 text-white font-black text-[14px] tracking-[0.4em] hover:bg-white hover:text-archive-charcoal hover:border-white transition-all flex items-center gap-3">
                   REGISTRY AUDIT <ShieldCheck size={14} className="uppercase" />
                 </button>
               </div>
@@ -245,11 +222,6 @@ const MediaCoverageReportPage: React.FC = () => {
           </div>
         </div>
       </section>
-
-      {/* Decorative Technical Detail */}
-      <div className="h-4 bg-archive-charcoal relative overflow-hidden opacity-10 mt-32">
-        <div className="absolute inset-0 measuring-tape"></div>
-      </div>
     </div>
   );
 };

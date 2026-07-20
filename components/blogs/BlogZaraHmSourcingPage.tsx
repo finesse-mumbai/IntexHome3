@@ -39,12 +39,12 @@ export default function BlogZaraHmSourcingPage() {
           </svg>
           Back to Blogs
         </a>
-        
+
         <h1 className="text-3xl md:text-5xl font-extrabold text-slate-900 leading-tight mb-8 blog-hero-content">
           Where Do Zara & H&M Source Their Clothes in 2026—and Why Is Bangladesh Becoming the <span className="text-[#F27B35]">World’s Go-To Apparel Hub?</span>
         </h1>
-        
-        <div className="flex items-center gap-4 text-slate-500 text-sm mb-10 blog-hero-content">
+
+        <div className="flex items-center gap-4 text-slate-500 text-[14px] mb-10 blog-hero-content">
           <span className="bg-slate-100 px-3 py-1 rounded-full text-slate-700 font-medium">Market Trends</span>
           <span>May 12, 2026</span>
           <span>•</span>
@@ -52,8 +52,8 @@ export default function BlogZaraHmSourcingPage() {
         </div>
 
         <div className="w-full h-[500px] relative rounded-3xl overflow-hidden mb-12 blog-hero-image">
-          <img 
-            src="/assets/img/Blogs/blog6.png" 
+          <img
+            src="/assets/img/Blogs/blog6.png"
             alt="Zara and H&M Sourcing"
             className="w-full h-full object-cover"
           />
@@ -76,8 +76,8 @@ export default function BlogZaraHmSourcingPage() {
           </p>
 
           <div className="w-full h-[400px] relative rounded-3xl overflow-hidden my-12 gsap-reveal">
-            <img 
-              src="/assets/img/Blogs/blog8.png" 
+            <img
+              src="/assets/img/Blogs/blog8.png"
               alt="Bangladesh Apparel Manufacturing Scale"
               className="w-full h-full object-cover"
             />
@@ -92,8 +92,8 @@ export default function BlogZaraHmSourcingPage() {
           </p>
 
           <div className="w-full h-[400px] relative rounded-3xl overflow-hidden my-12 gsap-reveal">
-            <img 
-              src="/assets/img/Blogs/blog7.png" 
+            <img
+              src="/assets/img/Blogs/blog7.png"
               alt="Global Sourcing Shift"
               className="w-full h-full object-cover"
             />
@@ -108,8 +108,8 @@ export default function BlogZaraHmSourcingPage() {
           </p>
 
           <div className="w-full h-[400px] relative rounded-3xl overflow-hidden my-12 gsap-reveal">
-            <img 
-              src="/assets/img/Blogs/blog9.png" 
+            <img
+              src="/assets/img/Blogs/blog9.png"
               alt="Skilled Workforce in Bangladesh"
               className="w-full h-full object-cover"
             />
@@ -160,14 +160,14 @@ export default function BlogZaraHmSourcingPage() {
           <div className="mt-20 p-12 bg-slate-900 rounded-[3rem] text-white text-center relative overflow-hidden gsap-reveal">
             <div className="absolute top-0 right-0 w-64 h-64 bg-[#F27B35]/10 rounded-full -mr-32 -mt-32 blur-3xl"></div>
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#F27B35]/10 rounded-full -ml-32 -mb-32 blur-3xl"></div>
-            
+
             <h3 className="text-3xl md:text-4xl font-bold mb-6">Experience the Future of Sourcing</h3>
             <p className="text-slate-300 mb-10 max-w-2xl mx-auto text-lg">
               Join industry leaders at Intex Bangladesh to discover the latest in apparel manufacturing and textile innovation.
             </p>
-            
-            <a 
-              href="#enquiry-form" 
+
+            <a
+              href="#enquiry-form"
               className="inline-block px-12 py-5 bg-[#F27B35] text-white font-bold rounded-full hover:bg-orange-600 transition-all transform hover:scale-105 active:scale-95 shadow-xl shadow-orange-500/20"
             >
               Connect with Suppliers

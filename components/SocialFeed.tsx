@@ -314,7 +314,7 @@ const SocialFeed: React.FC = () => {
         <div className="flex flex-col items-start text-left space-y-6">
           <div className="flex items-center gap-4">
             <div className="w-12 h-[1px] bg-archive-clay"></div>
-            <span className="text-[10px] font-black uppercase text-archive-clay tracking-[0.3em]">Social Intelligence</span>
+            <span className="text-[14px] font-black uppercase text-archive-clay tracking-[0.3em]">Social Intelligence</span>
           </div>
           <h2 className="text-2xl md:text-4xl font-black tracking-tighter uppercase leading-[0.9] text-archive-charcoal">
             Social Network <br /> <span className="text-archive-clay">Feed Insight.</span>
@@ -329,7 +329,7 @@ const SocialFeed: React.FC = () => {
             <div className="p-5 border-b border-black/5 bg-white/40 backdrop-blur-md sticky top-0 z-20 flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <Linkedin size={20} className="text-[#0A66C2]" fill="currentColor" strokeWidth={0} />
-                <span className="text-[15px] font-black tracking-widest uppercase text-archive-charcoal leading-none mt-1">LinkedIn Activity</span>
+                <span className="text-[14px] font-black tracking-widest uppercase text-archive-charcoal leading-none mt-1">LinkedIn Activity</span>
               </div>
               <a
                 href={OFFICIAL_LINKS.linkedin}
@@ -347,7 +347,7 @@ const SocialFeed: React.FC = () => {
               {loading.linkedin ? (
                 <div className="h-full flex flex-col justify-center items-center gap-3 text-archive-charcoal/40">
                   <Loader2 className="animate-spin" size={24} />
-                  <span className="text-xs font-semibold uppercase tracking-wider">Syncing LinkedIn...</span>
+                  <span className="text-[14px] font-semibold uppercase tracking-wider">Syncing LinkedIn...</span>
                 </div>
               ) : (
                 <div
@@ -372,22 +372,22 @@ const SocialFeed: React.FC = () => {
                               </div>
                               <div>
                                 <div className="flex items-center gap-1.5">
-                                  <h4 className="text-[12px] font-black uppercase text-archive-charcoal leading-none">{post.authorName}</h4>
+                                  <h4 className="text-[14px] font-black uppercase text-archive-charcoal leading-none">{post.authorName}</h4>
                                 </div>
-                                <span className="text-[9px] font-bold tracking-widest text-archive-charcoal/40 uppercase">{post.timestamp}</span>
+                                <span className="text-[14px] font-bold tracking-widest text-archive-charcoal/40 uppercase">{post.timestamp}</span>
                               </div>
                             </div>
                             <MoreHorizontal size={20} className="text-archive-charcoal/30 hover:text-black hidden sm:block" />
                           </div>
 
-                          <p className="text-[11px] md:text-xs text-archive-charcoal/80 leading-relaxed font-medium whitespace-pre-line">
+                          <p className="text-[14px] text-archive-charcoal/80 leading-relaxed font-medium whitespace-pre-line">
                             {post.content}
                           </p>
 
                           <div className="aspect-video bg-archive-cream/50 rounded-xl overflow-hidden border border-black/5 relative group-hover:scale-[1.01] transition-transform duration-500">
                             <img src={post.mediaUrl} className="w-full h-full object-cover transition-all duration-500" alt="Post graphic" />
                             <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                              <span className="bg-white/95 px-3 py-1.5 rounded-full text-[9px] font-black uppercase tracking-widest text-archive-charcoal flex items-center gap-1 shadow-md">
+                              <span className="bg-white/95 px-3 py-1.5 rounded-full text-[14px] font-black uppercase tracking-widest text-archive-charcoal flex items-center gap-1 shadow-md">
                                 View Post <ExternalLink size={10} />
                               </span>
                             </div>
@@ -400,11 +400,11 @@ const SocialFeed: React.FC = () => {
                             className={`flex items-center gap-2 hover:text-[#0A66C2] transition-colors ${isLiked ? 'text-[#0A66C2]' : ''}`}
                           >
                             <ThumbsUp size={16} className={isLiked ? 'fill-current' : ''} />
-                            <span className="text-[10px] font-bold">{getLikesCount(post.id, post.likes)}</span>
+                            <span className="text-[14px] font-bold">{getLikesCount(post.id, post.likes)}</span>
                           </button>
                           <div className="flex items-center gap-2 hover:text-[#0A66C2] transition-colors">
                             <MessageCircle size={16} />
-                            <span className="text-[10px] font-bold">{post.comments}</span>
+                            <span className="text-[14px] font-bold">{post.comments}</span>
                           </div>
                           <div className="flex items-center gap-2 hover:text-[#0A66C2] transition-colors"><Share2 size={16} /></div>
                         </div>
@@ -422,7 +422,7 @@ const SocialFeed: React.FC = () => {
             <div className="p-5 border-b border-black/5 bg-white/40 backdrop-blur-md sticky top-0 z-20 flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <Facebook size={20} className="text-[#1877F2]" fill="currentColor" strokeWidth={0} />
-                <span className="text-[15px] font-black tracking-widest uppercase text-archive-charcoal leading-none mt-1">Facebook Timeline</span>
+                <span className="text-[14px] font-black tracking-widest uppercase text-archive-charcoal leading-none mt-1">Facebook Timeline</span>
               </div>
               <a
                 href={OFFICIAL_LINKS.facebook}
@@ -440,7 +440,7 @@ const SocialFeed: React.FC = () => {
               {loading.facebook ? (
                 <div className="h-full flex flex-col justify-center items-center gap-3 text-archive-charcoal/40">
                   <Loader2 className="animate-spin" size={24} />
-                  <span className="text-xs font-semibold uppercase tracking-wider">Syncing Facebook...</span>
+                  <span className="text-[14px] font-semibold uppercase tracking-wider">Syncing Facebook...</span>
                 </div>
               ) : (
                 <div
@@ -464,22 +464,22 @@ const SocialFeed: React.FC = () => {
                               </div>
                               <div>
                                 <div className="flex items-center gap-1.5">
-                                  <h4 className="text-[12px] font-black uppercase text-archive-charcoal leading-none">{post.authorName}</h4>
+                                  <h4 className="text-[14px] font-black uppercase text-archive-charcoal leading-none">{post.authorName}</h4>
                                 </div>
-                                <span className="text-[9px] font-bold tracking-widest text-archive-charcoal/40 uppercase">{post.timestamp}</span>
+                                <span className="text-[14px] font-bold tracking-widest text-archive-charcoal/40 uppercase">{post.timestamp}</span>
                               </div>
                             </div>
                             <MoreHorizontal size={20} className="text-archive-charcoal/30 hover:text-black hidden sm:block" />
                           </div>
 
-                          <p className="text-[11px] md:text-xs text-archive-charcoal/80 leading-relaxed font-medium whitespace-pre-line">
+                          <p className="text-[14px] text-archive-charcoal/80 leading-relaxed font-medium whitespace-pre-line">
                             {post.content}
                           </p>
 
                           <div className="aspect-video bg-archive-cream/50 rounded-xl overflow-hidden border border-black/5 relative group-hover:scale-[1.01] transition-transform duration-500">
                             <img src={post.mediaUrl} className="w-full h-full object-cover transition-all duration-500" alt="Post graphic" />
                             <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                              <span className="bg-white/95 px-3 py-1.5 rounded-full text-[9px] font-black uppercase tracking-widest text-archive-charcoal flex items-center gap-1 shadow-md">
+                              <span className="bg-white/95 px-3 py-1.5 rounded-full text-[14px] font-black uppercase tracking-widest text-archive-charcoal flex items-center gap-1 shadow-md">
                                 View Post <ExternalLink size={10} />
                               </span>
                             </div>
@@ -492,11 +492,11 @@ const SocialFeed: React.FC = () => {
                             className={`flex items-center gap-2 hover:text-[#1877F2] transition-colors ${isLiked ? 'text-[#1877F2]' : ''}`}
                           >
                             <ThumbsUp size={16} className={isLiked ? 'fill-current' : ''} />
-                            <span className="text-[10px] font-bold">{getLikesCount(post.id, post.likes)}</span>
+                            <span className="text-[14px] font-bold">{getLikesCount(post.id, post.likes)}</span>
                           </button>
                           <div className="flex items-center gap-2 hover:text-[#1877F2] transition-colors">
                             <MessageCircle size={16} />
-                            <span className="text-[10px] font-bold">{post.comments}</span>
+                            <span className="text-[14px] font-bold">{post.comments}</span>
                           </div>
                           <div className="flex items-center gap-2 hover:text-[#1877F2] transition-colors"><Share2 size={16} /></div>
                         </div>
@@ -516,7 +516,7 @@ const SocialFeed: React.FC = () => {
                 <div className="w-5 h-5 bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] rounded-md flex items-center justify-center text-white shrink-0">
                   <Instagram size={14} />
                 </div>
-                <span className="text-[15px] font-black tracking-widest uppercase text-archive-charcoal leading-none mt-1">Instagram Feed</span>
+                <span className="text-[14px] font-black tracking-widest uppercase text-archive-charcoal leading-none mt-1">Instagram Feed</span>
               </div>
               <a
                 href={OFFICIAL_LINKS.instagram}
@@ -534,7 +534,7 @@ const SocialFeed: React.FC = () => {
               {loading.instagram ? (
                 <div className="h-full flex flex-col justify-center items-center gap-3 text-archive-charcoal/40">
                   <Loader2 className="animate-spin" size={24} />
-                  <span className="text-xs font-semibold uppercase tracking-wider">Syncing Instagram...</span>
+                  <span className="text-[14px] font-semibold uppercase tracking-wider">Syncing Instagram...</span>
                 </div>
               ) : (
                 <div
@@ -559,9 +559,9 @@ const SocialFeed: React.FC = () => {
                             </div>
                             <div>
                               <div className="flex items-center gap-1">
-                                <h4 className="text-[11px] font-black uppercase text-archive-charcoal leading-none">{post.authorName}</h4>
+                                <h4 className="text-[14px] font-black uppercase text-archive-charcoal leading-none">{post.authorName}</h4>
                               </div>
-                              <span className="text-[8px] font-bold text-archive-charcoal/30 uppercase tracking-widest">{post.timestamp}</span>
+                              <span className="text-[14px] font-bold text-archive-charcoal/30 uppercase tracking-widest">{post.timestamp}</span>
                             </div>
                           </div>
                           <ExternalLink size={12} className="text-archive-charcoal/30 group-hover:text-archive-clay transition-colors" />
@@ -570,13 +570,13 @@ const SocialFeed: React.FC = () => {
                         <div className="aspect-square rounded-xl overflow-hidden border border-black/5 relative group-hover:scale-[1.01] transition-transform duration-500">
                           <img src={post.mediaUrl} className="w-full h-full object-cover transition-all duration-500" alt="Instagram creative" />
                           <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                            <span className="bg-white/95 px-3 py-1.5 rounded-full text-[9px] font-black uppercase tracking-widest text-archive-charcoal flex items-center gap-1 shadow-md">
+                            <span className="bg-white/95 px-3 py-1.5 rounded-full text-[14px] font-black uppercase tracking-widest text-archive-charcoal flex items-center gap-1 shadow-md">
                               View on IG <ExternalLink size={10} />
                             </span>
                           </div>
                         </div>
 
-                        <p className="text-[10px] font-bold text-archive-charcoal/80 uppercase tracking-wide leading-relaxed whitespace-pre-line">
+                        <p className="text-[14px] font-bold text-archive-charcoal/80 uppercase tracking-wide leading-relaxed whitespace-pre-line">
                           {post.content.length > 150 ? post.content.substring(0, 147) + "..." : post.content}
                         </p>
 
@@ -586,11 +586,11 @@ const SocialFeed: React.FC = () => {
                             className={`flex items-center gap-1.5 hover:text-archive-clay transition-colors ${isLiked ? 'text-archive-clay' : ''}`}
                           >
                             <ThumbsUp size={16} className={isLiked ? 'fill-current' : ''} />
-                            <span className="text-[10px] font-bold">{getLikesCount(post.id, post.likes)}</span>
+                            <span className="text-[14px] font-bold">{getLikesCount(post.id, post.likes)}</span>
                           </button>
                           <div className="flex items-center gap-1.5 hover:text-archive-clay transition-colors">
                             <MessageCircle size={16} />
-                            <span className="text-[10px] font-bold">{post.comments}</span>
+                            <span className="text-[14px] font-bold">{post.comments}</span>
                           </div>
                           <div className="flex items-center gap-1.5 hover:text-archive-clay transition-colors"><Share2 size={16} /></div>
                         </div>

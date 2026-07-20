@@ -80,7 +80,7 @@ export default function BlogSouthAsiaExportsPage() {
           $45B Exports. World-Class Manufacturing. Rising Demand: <span className="text-[#F27B35]">South Asia Is Where You Need to Be</span>
         </h1>
 
-        <div className="flex items-center gap-4 text-slate-500 text-sm mb-8 blog-hero-content">
+        <div className="flex items-center gap-4 text-slate-500 text-[14px] mb-8 blog-hero-content">
           <span className="bg-slate-100 px-3 py-1 rounded-full text-slate-700 font-medium">Industry Analysis</span>
           <span>May 9, 2026</span>
           <span>•</span>

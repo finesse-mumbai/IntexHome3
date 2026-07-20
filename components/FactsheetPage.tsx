@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Download, Calendar, Clock, MapPin, Database, Layers, ArrowUpRight, Info } from 'lucide-react';
@@ -58,6 +57,26 @@ const FACTSHEET_DATA: FactsheetItem[] = [
     venue: 'BMICH, Colombo, Sri Lanka'
   },
   {
+    id: 'FS_IN_17',
+    name: 'Intex India',
+    edition: '17th Edition',
+    logo: 'https://sl.intexsouthasia.com/_next/image?url=%2Fassets%2Fimg%2Forgi.png&w=384&q=75',
+    highlights: [
+      'Grand Opening Ceremony',
+      'Country Pavilions',
+      'Domestic + International Exhibitors',
+      'Innovation & Trends Showcase',
+      'Interactive Business Forum Seminar Series',
+      'Buyer Delegations + International Hosted Buyers',
+      'Networking & B2B Matchmaking',
+      'Trade Media Corner',
+      'VIP Platinum Lounge for B2B Meetings'
+    ],
+    date: '03-04-05 December 2026',
+    time: '10:00 AM - 06:00 PM',
+    venue: 'IICC, New Delhi, India'
+  },
+  {
     id: 'FS_INMAC_04',
     name: 'InMac Sri Lanka',
     edition: '4th Edition',
@@ -78,7 +97,7 @@ const FactsheetPage: React.FC = () => {
           <div className="space-y-6">
             <div className="flex items-center gap-4">
               <div className="w-12 h-[1px] bg-archive-clay"></div>
-              <span className="text-[10px] font-black tracking-[0.5em] text-archive-clay uppercase">Technical Manifest // Statistics</span>
+              <span className="text-[15px] font-black tracking-[0.5em] text-archive-clay uppercase">Technical Manifest // Statistics</span>
             </div>
             <h1 className="text-4xl md:text-8xl font-black tracking-tighter leading-[0.85] text-archive-charcoal uppercase">
               FACT <br />
@@ -92,7 +111,6 @@ const FactsheetPage: React.FC = () => {
                 Detailed technical specifications and <span className="text-archive-clay">event intelligence</span> for the 2026 exhibition cycle.
               </p>
             </div>
-
           </div>
         </div>
       </section>
@@ -112,10 +130,6 @@ const FactsheetPage: React.FC = () => {
               {/* Logo Column */}
               <div className="lg:col-span-3 bg-white p-12 flex flex-col justify-between border-r border-archive-charcoal/5  transition-colors duration-700">
                 <div className="space-y-8 bg-white">
-                  {/* <div className="flex justify-between items-start">
-                    <span className="text-[10px] font-mono font-black text-archive-clay">{item.id}</span>
-                    <Layers size={14} className="opacity-10 group-hover:opacity-100 transition-opacity text-archive-clay" />
-                  </div> */}
                   <div className="flex items-center justify-center aspect-square transition-all duration-700">
                     <img
                       src={item.logo}
@@ -124,13 +138,6 @@ const FactsheetPage: React.FC = () => {
                     />
                   </div>
                 </div>
-                {/* <div className="pt-8">
-                  <div className="text-[9px] font-black tracking-[0.4em] text-archive-clay mb-1 uppercase">Status Protocol</div>
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-green-500"></div>
-                    <span className="text-[10px] font-black uppercase">Active // Open</span>
-                  </div>
-                </div> */}
               </div>
 
               {/* Merged Content + Specs Column */}
@@ -138,8 +145,8 @@ const FactsheetPage: React.FC = () => {
                 {/* Main Content Section */}
                 <div className="lg:col-span-2 p-12 md:p-16 border-r border-archive-charcoal/5 space-y-12">
                   <div className="space-y-4">
-                    <span className="text-archive-clay text-[11px] font-black tracking-[0.5em] uppercase">{item.edition}</span>
-                    <h2 className="text-sm md:text-2xl font-black tracking-tighter text-archive-charcoal leading-none uppercase">
+                    <span className="text-archive-clay text-[15px] font-black tracking-[0.5em] uppercase">{item.edition}</span>
+                    <h2 className="text-[15px] md:text-2xl font-black tracking-tighter text-archive-charcoal leading-none uppercase">
                       {item.name}
                     </h2>
                   </div>
@@ -148,13 +155,13 @@ const FactsheetPage: React.FC = () => {
                     <div className="space-y-6">
                       <div className="flex items-center gap-3">
                         <div className="w-10 h-px bg-archive-clay"></div>
-                        <span className="text-[13px] font-black tracking-widest opacity-40 uppercase">Show Highlights</span>
+                        <span className="text-[15px] font-black tracking-widest opacity-40 uppercase">Show Highlights</span>
                       </div>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-y-3 gap-x-8">
                         {item.highlights.map((h, i) => (
                           <div key={i} className="flex items-start gap-3">
                             <div className="w-1 h-1 bg-archive-clay rotate-45 mt-1.5 shrink-0"></div>
-                            <span className="text-[11px] font-bold tracking-widest text-archive-charcoal/70 leading-tight uppercase">{h}</span>
+                            <span className="text-[15px] font-bold tracking-widest text-archive-charcoal/70 leading-tight uppercase">{h}</span>
                           </div>
                         ))}
                       </div>
@@ -165,9 +172,9 @@ const FactsheetPage: React.FC = () => {
                     <div className="space-y-6">
                       <div className="flex items-center gap-3">
                         <div className="w-10 h-px bg-archive-clay"></div>
-                        <span className="text-[10px] font-black tracking-widest opacity-40 uppercase">Show Profile</span>
+                        <span className="text-[15px] font-black tracking-widest opacity-40 uppercase">Show Profile</span>
                       </div>
-                      <p className="text-[13px] font-medium tracking-[0.1em] leading-relaxed text-archive-charcoal/60">
+                      <p className="text-[15px] font-medium tracking-[0.1em] leading-relaxed text-archive-charcoal/60">
                         {item.profile}
                       </p>
                     </div>
@@ -181,32 +188,32 @@ const FactsheetPage: React.FC = () => {
                       <div className="flex items-center gap-4 border-b border-white/10 pb-6">
                         <Calendar size={18} className="text-archive-clay" />
                         <div className="space-y-1">
-                          <span className="text-[8px] font-black tracking-widest opacity-40 block uppercase">Event Date</span>
-                          <span className="text-xs font-bold tracking-widest">{item.date}</span>
+                          <span className="text-[15px] font-black tracking-widest opacity-40 block uppercase">Event Date</span>
+                          <span className="text-[15px] font-bold tracking-widest">{item.date}</span>
                         </div>
                       </div>
                       <div className="flex items-center gap-4 border-b border-white/10 pb-6">
                         <Clock size={18} className="text-archive-clay" />
                         <div className="space-y-1">
-                          <span className="text-[8px] font-black tracking-widest opacity-40 block uppercase">Event Time</span>
-                          <span className="text-xs font-bold tracking-widest">{item.time}</span>
+                          <span className="text-[15px] font-black tracking-widest opacity-40 block uppercase">Event Time</span>
+                          <span className="text-[15px] font-bold tracking-widest">{item.time}</span>
                         </div>
                       </div>
                       <div className="flex items-center gap-4">
                         <MapPin size={18} className="text-archive-clay" />
                         <div className="space-y-1">
-                          <span className="text-[8px] font-black tracking-widest opacity-40 block uppercase">Event Venue</span>
-                          <span className="text-xs font-bold tracking-widest leading-snug">{item.venue}</span>
+                          <span className="text-[15px] font-black tracking-widest opacity-40 block uppercase">Event Venue</span>
+                          <span className="text-[15px] font-bold tracking-widest leading-snug">{item.venue}</span>
                         </div>
                       </div>
                     </div>
                   </div>
 
                   <div className="pt-12 space-y-4">
-                    <button className="w-full bg-archive-clay text-white py-5 px-8 text-[9px] font-black tracking-[0.4em] hover:bg-white hover:text-archive-charcoal transition-all flex items-center justify-between group/btn">
+                    <button className="w-full bg-archive-clay text-white py-5 px-8 text-[15px] font-black tracking-[0.4em] hover:bg-white hover:text-archive-charcoal transition-all flex items-center justify-between group/btn">
                       DOWNLOAD PDF <Download size={14} className="group-hover/btn:translate-y-0.5 transition-transform uppercase" />
                     </button>
-                    <button className="w-full border border-white/20 text-white py-5 px-8 text-[9px] font-black tracking-[0.4em] hover:bg-white/5 transition-all flex items-center justify-between group/btn">
+                    <button className="w-full border border-white/20 text-white py-5 px-8 text-[15px] font-black tracking-[0.4em] hover:bg-white/5 transition-all flex items-center justify-between group/btn">
                       REGISTER NOW <ArrowUpRight size={14} className="group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform uppercase" />
                     </button>
                   </div>
@@ -223,10 +230,10 @@ const FactsheetPage: React.FC = () => {
           <div className="space-y-10">
             <div className="flex items-center gap-4 text-archive-clay">
               <Info size={24} />
-              <span className="text-[12px] font-black tracking-[0.5em] uppercase">Security Protocol</span>
+              <span className="text-[15px] font-black tracking-[0.5em] uppercase">Security Protocol</span>
             </div>
             <h3 className="text-3xl md:text-4xl font-black leading-none text-archive-charcoal uppercase">VERIFIED EVENT <br /><span className="text-archive-clay">DOCUMENTATION.</span></h3>
-            <p className="text-[14px] font-bold tracking-widest leading-relaxed text-archive-charcoal/50">
+            <p className="text-[15px] font-bold tracking-widest leading-relaxed text-archive-charcoal/50">
               All data points indexed in these factsheets are verified by the Worldex India audit registry. For customized technical requirements or specialized data queries, contact our information desk.
             </p>
           </div>
@@ -236,23 +243,18 @@ const FactsheetPage: React.FC = () => {
               <Database size={150} />
             </div>
             <div className="space-y-2">
-              <span className="text-archive-clay text-[10px] font-black tracking-[0.4em] uppercase">Master Archive</span>
+              <span className="text-archive-clay text-[15px] font-black tracking-[0.4em] uppercase">Master Archive</span>
               <h4 className="text-2xl font-black text-archive-charcoal uppercase">DOWNLOAD GLOBAL FACTSHEET.</h4>
             </div>
-            <p className="text-[11px] font-medium tracking-widest text-archive-charcoal/40 leading-relaxed max-w-md">
+            <p className="text-[15px] font-medium tracking-widest text-archive-charcoal/40 leading-relaxed max-w-md">
               Get the combined technical specifications for all South Asian nodes in a single high-fidelity document.
             </p>
-            <button className="flex items-center gap-4 text-[10px] font-black tracking-[0.5em] text-archive-charcoal hover:text-archive-clay transition-colors group">
+            <button className="flex items-center gap-4 text-[15px] font-black tracking-[0.5em] text-archive-charcoal hover:text-archive-clay transition-colors group">
               GET MASTER RECORD <Download size={14} className="group-hover:translate-y-0.5 transition-transform uppercase" />
             </button>
           </div>
         </div>
       </section>
-
-      {/* Decorative Technical Shutter */}
-      <div className="h-4 bg-archive-charcoal relative overflow-hidden opacity-10 mt-32">
-        <div className="absolute inset-0 measuring-tape"></div>
-      </div>
     </div>
   );
 };

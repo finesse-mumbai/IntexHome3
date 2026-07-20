@@ -13,7 +13,7 @@ const ExhibitorProfilePage: React.FC = () => {
           <div className="space-y-6">
             <div className="flex items-center gap-4">
               <div className="w-12 h-[1px] bg-archive-clay"></div>
-              <span className="text-[10px] font-black tracking-[0.5em] text-archive-clay uppercase">Technical Catalog // 2025</span>
+              <span className="text-[14px] font-black tracking-[0.5em] text-archive-clay uppercase">Technical Catalog // 2025</span>
             </div>
             <h1 className="text-4xl md:text-8xl font-black tracking-tighter leading-[0.85] text-archive-charcoal uppercase">
               Exhibitor <br />
@@ -31,7 +31,7 @@ const ExhibitorProfilePage: React.FC = () => {
               <div className="flex items-center gap-8 border border-archive-charcoal/10 p-6 bg-white/50 backdrop-blur-sm">
                 <div className="text-center px-4">
                   <div className="text-3xl font-black text-archive-clay">08</div>
-                  <div className="text-[8px] font-black tracking-widest opacity-40 uppercase">Categories</div>
+                  <div className="text-[14px] font-black tracking-widest opacity-40 uppercase">Categories</div>
                 </div>
               </div>
             </div>
@@ -63,7 +63,7 @@ const ExhibitorProfilePage: React.FC = () => {
                 {/* Tech Overlays */}
                 <div className="absolute top-6 left-6 flex items-center gap-3">
                   <div className="w-10 h-10 border border-white/20 flex items-center justify-center backdrop-blur-md">
-                    <span className="text-[10px] font-mono font-black text-white">{(idx + 1).toString().padStart(2, '0')}</span>
+                    <span className="text-[14px] font-mono font-black text-white">{(idx + 1).toString().padStart(2, '0')}</span>
                   </div>
 
                 </div>
@@ -77,7 +77,7 @@ const ExhibitorProfilePage: React.FC = () => {
 
               {/* Content Layer */}
               <div className="p-8 bg-white group-hover:bg-archive-charcoal transition-all duration-500 flex-1">
-                <p className="text-xs font-medium leading-relaxed text-archive-charcoal/70 group-hover:text-white/80 line-clamp-4">
+                <p className="text-[14px] font-medium leading-relaxed text-archive-charcoal/70 group-hover:text-white/80 line-clamp-4">
                   {cat.description}
                 </p>
               </div>
@@ -91,11 +91,11 @@ const ExhibitorProfilePage: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
           <div className="space-y-12">
             <div className="space-y-6">
-              <h2 className="text-sm font-black text-archive-clay leading-none uppercase">Sourcing Excellence.</h2>
+              <h2 className="text-[14px] font-black text-archive-clay leading-none uppercase">Sourcing Excellence.</h2>
               <div className="w-20 h-px bg-archive-clay"></div>
             </div>
             <div className="space-y-6">
-              <p className="text-[12px] font-bold tracking-[0.15em] leading-relaxed text-archive-charcoal/60">
+              <p className="text-[14px] font-bold tracking-[0.15em] leading-relaxed text-archive-charcoal/60">
                 The Intex exhibitor registry is a hand-picked collection of manufacturers who meet stringent quality and ethical standards. From raw fibers to high-tech software, every specimen in our archive represents the peak of textile engineering.
               </p>
               <div className="flex flex-col gap-4">
@@ -105,7 +105,7 @@ const ExhibitorProfilePage: React.FC = () => {
                   "Pioneers in high-performance functional textiles",
                   "Industry 4.0 apparel technology providers"
                 ].map((item, i) => (
-                  <div key={i} className="flex items-center gap-4 text-[10px] font-black tracking-widest text-archive-charcoal">
+                  <div key={i} className="flex items-center gap-4 text-[14px] font-black tracking-widest text-archive-charcoal">
                     <div className="w-1.5 h-1.5 bg-archive-clay rotate-45"></div>
                     {item}
                   </div>
@@ -119,15 +119,15 @@ const ExhibitorProfilePage: React.FC = () => {
               <Database size={80} />
             </div>
             <div className="space-y-4 relative z-10">
-              <span className="text-archive-clay text-[10px] font-black tracking-[0.5em] uppercase">Booth Enquiry</span>
+              <span className="text-archive-clay text-[14px] font-black tracking-[0.5em] uppercase">Booth Enquiry</span>
               <h3 className="text-4xl font-black leading-none uppercase">Secure your space <br /> in the 2026 Archive.</h3>
             </div>
             <div className="space-y-8 relative z-10">
-              <p className="text-[11px] font-bold tracking-[0.2em] text-white/40 leading-relaxed">
+              <p className="text-[14px] font-bold tracking-[0.2em] text-white/40 leading-relaxed">
                 Join the most influential sourcing show in South Asia. Limited premium booth spaces are now available for our upcoming editions in Dhaka, Colombo, and New Delhi.
               </p>
               <div className="flex flex-col sm:flex-row gap-6">
-                <button className="px-16 py-6 w-full sm:w-auto bg-archive-clay text-white font-black text-sm tracking-[0.3em] hover:bg-white hover:text-archive-charcoal transition-all">
+                <button className="px-16 py-6 w-full sm:w-auto bg-archive-clay text-white font-black text-[14px] tracking-[0.3em] hover:bg-white hover:text-archive-charcoal transition-all">
                   ENQUIRE NOW
                 </button>
               </div>
@@ -135,11 +135,6 @@ const ExhibitorProfilePage: React.FC = () => {
           </div>
         </div>
       </section>
-
-      {/* Decorative Shutter Detail */}
-      <div className="h-4 bg-archive-charcoal relative overflow-hidden opacity-10">
-        <div className="absolute inset-0 measuring-tape"></div>
-      </div>
     </div>
   );
 };
