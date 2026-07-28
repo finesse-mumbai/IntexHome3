@@ -1,6 +1,63 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowUpRight, Globe, Zap, TrendingUp } from 'lucide-react';
+
+// --- SVG Flag Components ---
+
+const SriLankaFlag: React.FC<{ className?: string }> = ({ className = "w-16 h-10" }) => (
+  <svg viewBox="0 0 600 360" className={`shadow-md overflow-hidden ${className}`}>
+    <rect width="600" height="360" fill="#FFBE29" />
+    <rect x="25" y="25" width="70" height="310" fill="#007A3D" />
+    <rect x="105" y="25" width="70" height="310" fill="#EB7400" />
+    <rect x="185" y="25" width="390" height="310" fill="#8D1B3D" />
+    <path d="M 205 45 C 225 45, 235 65, 225 85 C 205 75, 200 55, 205 45 Z" fill="#FFBE29" />
+    <path d="M 555 45 C 535 45, 525 65, 535 85 C 555 75, 560 55, 555 45 Z" fill="#FFBE29" />
+    <path d="M 205 315 C 225 315, 235 295, 225 275 C 205 285, 200 305, 205 315 Z" fill="#FFBE29" />
+    <path d="M 555 315 C 535 315, 525 295, 535 275 C 555 285, 560 305, 555 315 Z" fill="#FFBE29" />
+    <g fill="#FFBE29">
+      <path d="M 370 120 C 360 100, 390 90, 400 110 C 420 100, 430 130, 410 140 C 430 160, 410 190, 390 190 C 370 210, 340 190, 350 170 C 330 170, 330 140, 350 130 Z" />
+      <path d="M 325 150 L 325 90 L 335 90 L 335 150 Z" />
+      <rect x="315" y="130" width="30" height="8" rx="2" />
+      <path d="M 325 90 L 330 75 L 335 90 Z" />
+      <path d="M 430 180 C 470 180, 480 130, 465 110 C 455 125, 450 145, 435 155 Z" />
+      <rect x="360" y="190" width="18" height="40" rx="4" />
+      <rect x="400" y="190" width="18" height="40" rx="4" />
+      <rect x="430" y="185" width="16" height="45" rx="4" />
+    </g>
+  </svg>
+);
+
+const BangladeshFlag: React.FC<{ className?: string }> = ({ className = "w-16 h-10" }) => (
+  <svg viewBox="0 0 1000 600" className={`shadow-md overflow-hidden ${className}`}>
+    <rect width="1000" height="600" fill="#006a4e" />
+    <circle cx="450" cy="300" r="200" fill="#f42a41" />
+  </svg>
+);
+
+const IndiaFlag: React.FC<{ className?: string }> = ({ className = "w-16 h-10" }) => (
+  <svg viewBox="0 0 900 600" className={`shadow-md overflow-hidden ${className}`}>
+    <rect width="900" height="200" fill="#FF9933" />
+    <rect y="200" width="900" height="200" fill="#FFFFFF" />
+    <rect y="400" width="900" height="200" fill="#138808" />
+    <g transform="translate(450, 300)">
+      <circle r="76" fill="none" stroke="#000080" strokeWidth="10" />
+      <circle r="14" fill="#000080" />
+      {Array.from({ length: 24 }).map((_, i) => {
+        const angle = (i * 15 * Math.PI) / 180;
+        return (
+          <line
+            key={i}
+            x1="0"
+            y1="0"
+            x2={76 * Math.cos(angle)}
+            y2={76 * Math.sin(angle)}
+            stroke="#000080"
+            strokeWidth="3.5"
+          />
+        );
+      })}
+    </g>
+  </svg>
+);
 
 const REGIONS = [
   {
@@ -9,10 +66,12 @@ const REGIONS = [
     title: "The Strategic Apparel Hub",
     tagline: "ETHICAL · PREMIUM · SPECIALISED",
     desc: "Sri Lanka has established itself as one of the world's most respected apparel manufacturing destinations, known for ethical production, innovation-led manufacturing, premium quality standards, and specialised strengths in intimate wear, activewear, swimwear, and functional apparel.",
-    node: "The country continues to play a vital role in premium global apparel sourcing and sustainable manufacturing leadership.",
     tags: ["Intimate Wear", "Activewear", "Swimwear", "Functional Apparel"],
     stat: { value: "~$5.7B", label: "Apparel Exports" },
-    icon: Globe,
+    FlagComponent: SriLankaFlag,
+    headerBg: "#EE7539",
+    headerLeftWall: "#D65E22",
+    headerTopRoof: "#FF8C52",
   },
   {
     index: "02",
@@ -20,10 +79,12 @@ const REGIONS = [
     title: "The Manufacturing Giant",
     tagline: "SCALE · SOURCING · SUSTAINABLE",
     desc: "Bangladesh remains the world's second-largest apparel exporter, globally recognised for its scale, sourcing strength, competitive manufacturing ecosystem, and rapidly growing capabilities in MMF, sportswear, sustainable textiles, and value-added apparel production.",
-    node: "With one of the world's largest vertically integrated garment industries and growing investments in green manufacturing, Bangladesh continues to attract global sourcing attention across every textile category.",
     tags: ["MMF", "Sportswear", "Knitwear", "Green Manufacturing"],
     stat: { value: "~$47B", label: "Textile Exports" },
-    icon: TrendingUp,
+    FlagComponent: BangladeshFlag,
+    headerBg: "#EE7539",
+    headerLeftWall: "#D65E22",
+    headerTopRoof: "#FF8C52",
   },
   {
     index: "03",
@@ -31,10 +92,12 @@ const REGIONS = [
     title: "The Design & Material Powerhouse",
     tagline: "DIVERSE · INNOVATIVE · ARTISANAL",
     desc: "India offers one of the world's most diverse textile ecosystems — from fibres, yarns, fabrics, handicrafts, and traditional textiles to technical textiles, MMF, sustainable innovations, performance materials, and advanced manufacturing capabilities.",
-    node: "The country continues to play a vital role in premium global apparel sourcing and sustainable manufacturing leadership.",
     tags: ["Technical Textiles", "Handicrafts", "MMF", "Performance Materials"],
     stat: { value: "~$44B", label: "Textile Exports" },
-    icon: Zap,
+    FlagComponent: IndiaFlag,
+    headerBg: "#EE7539",
+    headerLeftWall: "#D65E22",
+    headerTopRoof: "#FF8C52",
   }
 ];
 
@@ -42,188 +105,179 @@ const WhyIntexSection: React.FC = () => {
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
 
   return (
-    <section className="bg-archive-charcoal py-32 overflow-hidden" id="why-intex-home">
+    <section className="bg-[#f4f6f9] py-32 overflow-hidden" id="why-intex-home">
       <div className="max-w-[1440px] mx-auto px-6 md:px-12">
 
         {/* Header */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-28">
           <div className="lg:col-span-5 space-y-5">
             <div className="flex items-center gap-4">
               <div className="w-12 h-[1px] bg-archive-clay"></div>
               <span className="text-[15px] font-black tracking-[0.5em] text-archive-clay uppercase">Why Intex South Asia</span>
             </div>
-            <h2 className="text-4xl md:text-6xl font-black tracking-tighter leading-[0.85] text-white uppercase">
+            <h2 className="text-4xl md:text-6xl font-black tracking-tighter leading-[0.85] text-archive-charcoal uppercase">
               A Pan-South Asian Textile<br />
               <span className="text-archive-clay">Powerhouse.</span>
             </h2>
           </div>
           <div className="lg:col-span-7 lg:pt-10 space-y-5">
-            <p className="text-[15px] font-medium leading-relaxed text-white/50 tracking-wide">
+            <p className="text-[15px] font-medium leading-relaxed text-archive-charcoal/70 tracking-wide">
               Intex South Asia is more than an exhibition — it is a strategic textile sourcing corridor connecting Bangladesh, Sri Lanka, and India: three of the world's most influential apparel and textile manufacturing markets.
             </p>
-            <p className="text-[15px] font-medium leading-relaxed text-white/50 tracking-wide">
+            <p className="text-[15px] font-medium leading-relaxed text-archive-charcoal/70 tracking-wide">
               17 successful editions. 70,000+ qualified trade buyers. A unified sourcing platform across one of the world's largest textile ecosystems.
             </p>
           </div>
         </div>
 
-        {/* Premium Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-[1px] bg-white/5">
+        {/* 3D Isometric Cards with Top Edge Skewed by Negative Degrees */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-16 lg:gap-20 pt-10 pb-24 px-8">
           {REGIONS.map((region, idx) => {
             const isHovered = hoveredIdx === idx;
-            const Icon = region.icon;
+            const FlagComponent = region.FlagComponent;
             return (
-              <motion.div
+              <div
                 key={region.country}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: idx * 0.15, ease: [0.22, 1, 0.36, 1] }}
-                viewport={{ once: true }}
-                onMouseEnter={() => setHoveredIdx(idx)}
-                onMouseLeave={() => setHoveredIdx(null)}
-                className="relative flex flex-col overflow-hidden cursor-pointer"
-                style={{ minHeight: '580px', background: '#ffffff' }}
+                className="relative py-8"
               >
-                {/* Top accent stripe - always visible */}
-                <div className="absolute top-0 left-0 right-0 bg-archive-clay" style={{ height: '2px' }} />
-
-                {/* Giant background index number */}
-                <div
-                  className="absolute bottom-0 right-0 font-black leading-none select-none pointer-events-none"
+                {/* 3D Isometric Skewed Container */}
+                <motion.div
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.7, delay: idx * 0.15 }}
+                  viewport={{ once: true }}
+                  onMouseEnter={() => setHoveredIdx(idx)}
+                  onMouseLeave={() => setHoveredIdx(null)}
+                  className="relative flex flex-col cursor-pointer"
                   style={{
-                    fontSize: '14rem',
-                    color: 'transparent',
-                    WebkitTextStroke: isHovered ? '1px rgba(238,117,57,0.25)' : '1px rgba(47,44,44,0.05)',
-                    lineHeight: 1,
-                    transform: isHovered ? 'translate(10px, 20px)' : 'translate(20px, 30px)',
-                    transition: 'all 0.7s cubic-bezier(0.22, 1, 0.36, 1)',
+                    minHeight: '530px',
+                    transform: isHovered
+                      ? 'skewY(-10deg) translateY(-20px)'
+                      : 'skewY(-10deg)',
+                    transition: 'all 0.5s cubic-bezier(0.22, 1, 0.36, 1)',
+                    zIndex: 10,
                   }}
                 >
-                  {region.index}
-                </div>
 
-                {/* Left border accent */}
-                <div
-                  className="absolute left-0 top-0 w-[3px] bg-archive-clay origin-top"
-                  style={{
-                    height: '100%',
-                    transform: isHovered ? 'scaleY(1)' : 'scaleY(0)',
-                    transformOrigin: 'top',
-                    transition: 'transform 0.5s cubic-bezier(0.22, 1, 0.36, 1)',
-                  }}
-                />
-
-                {/* Card content */}
-                <div className="relative z-10 flex flex-col h-full p-10">
-
-                  {/* Top row: icon + index label */}
-                  <div className="flex justify-between items-start mb-10">
-                    <div
-                      className="w-12 h-12 flex items-center justify-center border"
-                      style={{
-                        borderColor: isHovered ? 'rgba(238,117,57,0.6)' : 'rgba(47,44,44,0.12)',
-                        background: isHovered ? 'rgba(238,117,57,0.08)' : 'transparent',
-                        transition: 'all 0.5s',
-                      }}
-                    >
-                      <Icon
-                        size={20}
-                        style={{ color: isHovered ? '#EE7539' : 'rgba(47,44,44,0.35)', transition: 'color 0.4s' }}
-                      />
-                    </div>
-                    <span
-                      className="font-black tracking-widest"
-                      style={{
-                        fontSize: '11px',
-                        color: isHovered ? '#EE7539' : 'rgba(47,44,44,0.25)',
-                        transition: 'color 0.5s',
-                      }}
-                    >
-                      {region.index} / 03
-                    </span>
-                  </div>
-
-                  {/* Country & title */}
-                  <div className="mb-6">
-                    <h3
-                      className="font-black uppercase tracking-tighter leading-none mb-2"
-                      style={{
-                        fontSize: '2.8rem',
-                        color: isHovered ? '#EE7539' : '#2F2C2C',
-                        transition: 'color 0.5s',
-                      }}
-                    >
-                      {region.country}
-                    </h3>
-                    <p
-                      className="font-black tracking-[0.3em] uppercase"
-                      style={{
-                        fontSize: '11px',
-                        color: isHovered ? 'rgba(47,44,44,0.8)' : 'rgba(47,44,44,0.4)',
-                        transition: 'color 0.5s',
-                      }}
-                    >
-                      {region.tagline}
-                    </p>
-                  </div>
-
-                  {/* Divider */}
+                  {/* 3D TOP ROOF FACE */}
                   <div
-                    className="mb-7"
+                    className="absolute pointer-events-none"
                     style={{
-                      height: '1px',
-                      background: isHovered ? 'rgba(238,117,57,0.5)' : 'rgba(47,44,44,0.1)',
-                      transition: 'background 0.5s',
+                      top: '-20px',
+                      left: '0px',
+                      width: '100%',
+                      height: '20px',
+                      transform: 'skewX(45deg)',
+                      transformOrigin: 'bottom',
+                      background: region.headerTopRoof,
+                      zIndex: 2,
                     }}
                   />
 
-                  {/* Description */}
-                  <p
-                    className="text-[15px] leading-relaxed font-medium mb-6 flex-1"
+                  {/* 3D LEFT SIDE WALL FACE */}
+                  <div
+                    className="absolute pointer-events-none flex flex-col overflow-hidden"
                     style={{
-                      color: isHovered ? 'rgba(47,44,44,0.9)' : 'rgba(47,44,44,0.55)',
-                      transition: 'color 0.5s',
+                      top: '0px',
+                      left: '-20px',
+                      width: '20px',
+                      height: '100%',
+                      transform: 'skewY(45deg)',
+                      transformOrigin: 'top right',
+                      zIndex: 2,
                     }}
                   >
-                    {region.desc}
-                  </p>
-
-                  {/* Strength tags */}
-                  <div className="flex flex-wrap gap-2 mb-8">
-                    {region.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="font-black uppercase tracking-widest px-3 py-1 border"
-                        style={{
-                          fontSize: '10px',
-                          borderColor: isHovered ? 'rgba(238,117,57,0.5)' : 'rgba(47,44,44,0.15)',
-                          color: isHovered ? '#EE7539' : 'rgba(47,44,44,0.4)',
-                          background: isHovered ? 'rgba(238,117,57,0.06)' : 'transparent',
-                          transition: 'all 0.4s',
-                        }}
-                      >
-                        {tag}
-                      </span>
-                    ))}
+                    {/* Top Header 3D Left Side Wall */}
+                    <div
+                      className="h-[210px] w-full"
+                      style={{ background: region.headerLeftWall }}
+                    />
+                    {/* Bottom Body 3D Left Side Wall (30% Lighter Gray) */}
+                    <div
+                      className="flex-1 w-full bg-[#e2e8f0]"
+                    />
                   </div>
-                </div>
 
-                {/* Hover bottom glow */}
-                <div
-                  className="absolute bottom-0 left-0 right-0 pointer-events-none"
-                  style={{
-                    height: '8rem',
-                    background: 'linear-gradient(to top, rgba(238,117,57,0.05), transparent)',
-                    opacity: isHovered ? 1 : 0,
-                    transition: 'opacity 0.7s',
-                  }}
-                />
-              </motion.div>
+                  {/* REALISTIC SUNLIGHT PARALLELOGRAM GROUND SHADOW */}
+                  <div
+                    className="absolute pointer-events-none transition-all duration-500"
+                    style={{
+                      top: isHovered ? 'calc(100% + 20px)' : '100%',
+                      left: '-20px',
+                      width: 'calc(100% + 20px)',
+                      height: isHovered ? '150px' : '120px',
+                      transformOrigin: 'top left',
+                      transform: 'skewX(-50deg)',
+                      background: 'linear-gradient(to bottom, rgba(15, 23, 42, 0.32) 0%, rgba(15, 23, 42, 0.14) 55%, rgba(15, 23, 42, 0) 100%)',
+                      filter: isHovered ? 'blur(4px)' : 'blur(1.75px)',
+                      opacity: isHovered ? 0.65 : 0.9,
+                      zIndex: 0,
+                    }}
+                  />
+
+                  {/* FRONT MAIN CARD FACE */}
+                  <div className="relative z-10 flex flex-col h-full w-full bg-white overflow-hidden rounded-r-sm">
+
+                    {/* TOP COLORED HEADER BLOCK (Vibrant Orange) */}
+                    <div
+                      className="p-8 flex flex-col items-center justify-center text-center space-y-3 bg-[#EE7539]"
+                      style={{ height: '210px', background: region.headerBg }}
+                    >
+                      {/* Flag in Center Container */}
+                      <div className="relative p-1.5 bg-white/10 backdrop-blur-md rounded-lg shadow-inner transform transition-transform duration-500 hover:scale-105">
+                        <FlagComponent className="w-16 h-10 object-cover rounded shadow" />
+                      </div>
+
+                      {/* Country Title in White */}
+                      <h3 className="text-3xl font-black text-white uppercase tracking-tight leading-none drop-shadow-sm">
+                        {region.country}
+                      </h3>
+
+                      {/* Tagline / Subtitle */}
+                      <p className="text-[11px] font-bold text-white/90 uppercase tracking-widest">
+                        {region.tagline}
+                      </p>
+                    </div>
+
+                    {/* BOTTOM WHITE BODY BLOCK */}
+                    <div className="p-8 flex flex-col flex-1 bg-white justify-between space-y-6">
+
+                      {/* Description Text */}
+                      <p className="text-[14px] leading-relaxed font-medium text-slate-600">
+                        {region.desc}
+                      </p>
+
+                      {/* Tags */}
+                      <div className="flex flex-wrap gap-2 pt-2">
+                        {region.tags.map((tag) => (
+                          <span
+                            key={tag}
+                            className="font-bold uppercase tracking-wider px-2.5 py-1 text-[10px] bg-slate-100 text-slate-600 rounded"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+
+                      {/* Export Stat Footer */}
+                      <div className="pt-4 flex items-center justify-between">
+                        <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">
+                          {region.stat.label}
+                        </span>
+                        <span className="text-lg font-black text-[#EE7539]">
+                          {region.stat.value}
+                        </span>
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </motion.div>
+              </div>
             );
           })}
         </div>
-
-
 
       </div>
     </section>

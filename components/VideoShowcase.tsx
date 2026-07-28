@@ -7,23 +7,24 @@ import { useNavigate } from 'react-router-dom';
 const VIDEOS = [
     {
         id: 'v1',
-        role: 'Intex Sourcing',
+        title: 'Intex Sri Lanka Highlights',
+        role: 'Intex Sri Lanka',
+        url: 'https://www.youtube.com/embed/-68Bm1eKn8Y',
+        youtubeId: '-68Bm1eKn8Y'
+    },
+    {
+        id: 'v2',
+        title: 'Intex Bangladesh Highlights',
+        role: 'Intex Bangladesh',
         url: 'https://www.youtube.com/embed/VCDUdLZfZeY',
         youtubeId: 'VCDUdLZfZeY'
     },
     {
-        id: 'v2',
-        title: 'Global Industry Summit',
-        role: 'Industry Mixer',
-        url: 'https://www.youtube.com/embed/KmkzgC3-KAQ',
-        youtubeId: 'KmkzgC3-KAQ'
-    },
-    {
         id: 'v3',
-        title: 'Archival Highlight Record',
-        role: 'Show Highlights',
-        url: 'https://www.youtube.com/embed/nwWELI2tK0c',
-        youtubeId: 'nwWELI2tK0c'
+        title: 'Intex India Highlights',
+        role: 'Intex India',
+        url: 'https://www.youtube.com/embed/8I1nuSCK6fM',
+        youtubeId: '8I1nuSCK6fM'
     },
 ];
 
@@ -125,7 +126,7 @@ const VideoShowcase: React.FC = () => {
                             <span className="text-[14px] font-black tracking-[0.5em] uppercase text-archive-clay">Motion Registry</span>
                         </div>
                         <h2 className="text-2xl md:text-4xl font-black uppercase text-archive-charcoal leading-[0.9]">
-                            Show <br /> <span className="text-archive-clay">Highlights.</span>
+                            Post Show <br /> <span className="text-archive-clay">Highlights.</span>
                         </h2>
                     </div>
 
@@ -182,11 +183,11 @@ const VideoShowcase: React.FC = () => {
                                 </div>
                             </div>
 
-                            {/* <div className="mt-8 space-y-2">
-                                <h4 className="text-[14px] font-black uppercase tracking-[0.2em] text-archive-charcoal group-hover:text-archive-clay transition-colors">
+                            <div className="mt-4 space-y-1">
+                                <h4 className="text-[14px] font-black uppercase text-archive-charcoal group-hover:text-archive-clay transition-colors">
                                     {video.title}
                                 </h4>
-                            </div> */}
+                            </div>
                         </motion.div>
                     ))}
                 </div>

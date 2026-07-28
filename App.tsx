@@ -53,6 +53,7 @@ import BlogSustainableCottonPage from './components/blogs/BlogSustainableCottonP
 import BlogTopExportersPage from './components/blogs/BlogTopExportersPage';
 import BlogTopForeignBuyersPage from './components/blogs/BlogTopForeignBuyersPage';
 import BlogZaraHmSourcingPage from './components/blogs/BlogZaraHmSourcingPage';
+import EventDetailsPage from './components/EventDetailsPage';
 
 import { motion, useScroll, useSpring, AnimatePresence } from 'framer-motion';
 import { useLocation, Link } from 'react-router-dom';
@@ -75,6 +76,10 @@ const App: React.FC = () => {
   }, [location.pathname, location.hash]);
 
   const renderContent = () => {
+    if (currentPath.startsWith('#event/')) {
+      const eventId = currentPath.replace('#event/', '');
+      return <EventDetailsPage eventId={eventId} />;
+    }
     if (currentPath === '#home2') {
       return <Home2Page />;
     }
@@ -192,18 +197,16 @@ const App: React.FC = () => {
 
     return (
       <>
-        <RevealWrapper text="WELCOME." subtext="SYS_BOOT // 2025" type="slide" direction="up">
-          <Hero />
-        </RevealWrapper>
+        <Hero />
 
         <RevealWrapper text="ARCHIVE." subtext="REG_ID // 01" type="center-split-h" delay={0.2}>
           <section className="bg-archive-cream py-32 border-b border-archive-charcoal/10 overflow-hidden" id="about">
             <div className="max-w-[1440px] mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
               <div className="lg:col-span-5 space-y-10">
-                <div className="space-y-4">
+                <div className="space-y-2">
                   <span className="text-[14px] font-black tracking-[0.5em] text-archive-clay uppercase">About Us</span>
                   <h2 className="text-2xl md:text-4xl font-black tracking-tighter leading-[0.9] text-archive-charcoal uppercase">
-                    Archive of <br /> South Asia.
+                    Intex <br /> South Asia.
                   </h2>
                 </div>
                 <div className="space-y-6">
@@ -262,15 +265,16 @@ const App: React.FC = () => {
         <RevealWrapper text="METRICS." subtext="REG_ID // 06" type="center-split-h" amount={0.2}>
           <Stats />
         </RevealWrapper>
+        <RevealWrapper text="WHY INTEX." subtext="REG_ID // 05" type="slide" direction="left" amount={0.3} textSize="text-4xl md:text-8xl">
+          <WhyIntexSection />
+        </RevealWrapper>
 
         <RevealWrapper text="EVENTS." subtext="REG_ID // 02" type="bands-v" amount={0.3}>
           <ExhibitorProfile />
         </RevealWrapper>
 
 
-        <RevealWrapper text="WHY INTEX." subtext="REG_ID // 05" type="slide" direction="left" amount={0.3} textSize="text-4xl md:text-8xl">
-          <WhyIntexSection />
-        </RevealWrapper>
+
 
         <RevealWrapper text="TIMELINE." subtext="REG_ID // 03" type="center-split-v" delay={0.15}>
           <Schedule />

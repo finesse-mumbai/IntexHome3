@@ -1,7 +1,6 @@
-
-import React, { useState, useMemo } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ExternalLink, Globe, Search, Database, ShieldCheck, Newspaper } from 'lucide-react';
+import { ExternalLink, Newspaper, ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface MediaPartner {
   id: string;
@@ -34,6 +33,115 @@ const PARTNERS_DATA: Record<string, MediaPartner[]> = {
     { id: 'MP_BD_10', img: 'https://bd.intexsouthasia.com/assets/img/mediaPartner/textileinsights.png', companyName: "Textile Insights", link: "https://textileinsights.in/" },
     { id: 'MP_BD_11', img: 'https://bd.intexsouthasia.com/assets/img/mediaPartner/Globy.png', companyName: "Globy", link: "https://globy.com/" }
   ]
+};
+
+const MEDIA_SLIDER_IMAGES = [
+  {
+    url: '/assets/img/GalleryBD/2025/13.png',
+    title: 'Global Press & Media Alliance',
+    caption: 'Covering International Textile Leadership'
+  },
+  {
+    url: '/assets/img/GalleryBD/2025/15.png',
+    title: 'Trade Journal & Digital Syndication',
+    caption: 'Multi-Channel Regional Media Reach'
+  },
+  {
+    url: '/assets/img/GalleryBD/2025/16.png',
+    title: 'Show Highlights & Executive Interviews',
+    caption: 'Official Press Coverage 2025/2026'
+  },
+  {
+    url: '/assets/img/GalleryBD/2025/17.png',
+    title: 'Global Circulation & Industry Reports',
+    caption: '50+ Accredited Trade Publications'
+  }
+];
+
+const MediaImageSlider: React.FC = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % MEDIA_SLIDER_IMAGES.length);
+    }, 4500);
+    return () => clearInterval(timer);
+  }, []);
+
+  const handleNext = () => {
+    setCurrentIndex((prev) => (prev + 1) % MEDIA_SLIDER_IMAGES.length);
+  };
+
+  const handlePrev = () => {
+    setCurrentIndex((prev) => (prev - 1 + MEDIA_SLIDER_IMAGES.length) % MEDIA_SLIDER_IMAGES.length);
+  };
+
+  const current = MEDIA_SLIDER_IMAGES[currentIndex];
+
+  return (
+    <div className="relative w-full h-full min-h-[480px] bg-black overflow-hidden group shadow-2xl border border-archive-charcoal/10">
+      <AnimatePresence mode="wait">
+        <motion.img
+          key={current.url}
+          src={current.url}
+          alt={current.title}
+          initial={{ opacity: 0, scale: 1.05 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.98 }}
+          transition={{ duration: 0.8 }}
+          className="w-full h-full object-cover opacity-85"
+        />
+      </AnimatePresence>
+
+      <div className="absolute inset-0 bg-gradient-to-t from-archive-charcoal via-transparent to-black/30" />
+
+      {/* Slide Badge */}
+      <div className="absolute top-6 left-6 z-10">
+        <span className="px-3 py-1.5 bg-black/70 backdrop-blur-md text-xs font-mono font-black text-white tracking-widest uppercase border border-white/20">
+          0{currentIndex + 1} // 0{MEDIA_SLIDER_IMAGES.length}
+        </span>
+      </div>
+
+      {/* Caption Overlay */}
+      <div className="absolute bottom-6 left-6 right-24 z-10 space-y-1">
+        <h4 className="text-xl md:text-2xl font-black text-white uppercase tracking-tight leading-tight">
+          {current.title}
+        </h4>
+        <p className="text-xs font-mono font-bold text-archive-clay uppercase tracking-widest">
+          {current.caption}
+        </p>
+      </div>
+
+      {/* Navigation Controls */}
+      <div className="absolute bottom-6 right-6 z-20 flex items-center gap-2">
+        <button
+          onClick={handlePrev}
+          className="w-10 h-10 bg-black/70 hover:bg-archive-clay text-white flex items-center justify-center backdrop-blur-md border border-white/20 transition-colors"
+          aria-label="Previous Slide"
+        >
+          <ChevronLeft size={18} />
+        </button>
+        <button
+          onClick={handleNext}
+          className="w-10 h-10 bg-black/70 hover:bg-archive-clay text-white flex items-center justify-center backdrop-blur-md border border-white/20 transition-colors"
+          aria-label="Next Slide"
+        >
+          <ChevronRight size={18} />
+        </button>
+      </div>
+
+      {/* Progress Bar Line */}
+      <div className="absolute top-0 left-0 right-0 h-1 bg-white/10 z-20">
+        <motion.div
+          key={currentIndex}
+          initial={{ width: '0%' }}
+          animate={{ width: '100%' }}
+          transition={{ duration: 4.5, ease: 'linear' }}
+          className="h-full bg-archive-clay"
+        />
+      </div>
+    </div>
+  );
 };
 
 const MediaPartnerPage: React.FC = () => {
@@ -100,12 +208,12 @@ const MediaPartnerPage: React.FC = () => {
                 className="bg-white group relative aspect-square overflow-hidden border border-dotted flex flex-col hover:bg-archive-charcoal transition-all duration-700"
               >
                 {/* Image Frame */}
-                <div className="h-1/2 p-12 flex items-center justify-center relative bg-white group-hover:bg-white transition-colors duration-700">
-                  <div className="w-full h-full  flex items-center justify-center relative overflow-hidden">
+                <div className="h-[58%] p-6 flex items-center justify-center relative bg-white group-hover:bg-white transition-colors duration-700">
+                  <div className="w-full h-full flex items-center justify-center relative overflow-hidden">
                     <img
                       src={partner.img}
                       alt={partner.companyName}
-                      className="max-w-[100%] max-h-[95%] object-contain transition-all duration-700 group-hover:scale-110"
+                      className="max-w-[100%] max-h-[100%] object-contain scale-110 transition-all duration-700 group-hover:scale-125"
                       onError={(e) => {
                         (e.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${partner.companyName}&background=F3EBE8&color=2F2C2C&bold=true`;
                       }}
@@ -114,9 +222,8 @@ const MediaPartnerPage: React.FC = () => {
                 </div>
 
                 {/* Info Frame */}
-                <div className="h-1/2 p-10 flex flex-col justify-between bg-archive-cream/30 group-hover:text-white transition-colors duration-700">
+                <div className="h-[42%] p-6 flex flex-col justify-between bg-archive-cream/30 group-hover:text-white transition-colors duration-700">
                   <div className="space-y-4">
-
                     <h3 className="text-md font-semibold tracking-tighter leading-[1.1] group-hover:text-archive-clay transition-colors duration-500">
                       {partner.companyName}
                     </h3>
@@ -138,61 +245,42 @@ const MediaPartnerPage: React.FC = () => {
             ))}
           </motion.div>
         </AnimatePresence>
-
       </section>
 
-      {/* Narrative Section */}
+      {/* Narrative Section - Replaced Text with Media Image Slider & Equal Height Alignment */}
       <section className="py-40 px-6 md:px-12 max-w-[1440px] mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
-          <div className="space-y-12">
-            <div className="space-y-6">
-              <h2 className="text-xl font-black text-archive-clay leading-none uppercase">GLOBAL CIRCULATION.</h2>
-              <div className="w-20 h-px bg-archive-clay"></div>
-            </div>
-            <div className="space-y-8">
-              <p className="text-[14px] font-bold tracking-[0.15em] leading-relaxed text-archive-charcoal/60">
-                Our media alliance network covers over 50+ international trade publications, digital newsletters, and technical journals. This ecosystem ensures that Intex South Asia updates reach the target demographic across Europe, South Asia, and the ASEAN region.
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                {[
-                  { label: "Partner Diversity", value: "30+ Global Journals" },
-                  { label: "Content Syndication", value: "Technical Multi-Node" },
-                  { label: "Market Reach", value: "EU, US, Asia" },
-                  { label: "Audit Integrity", value: "Verified Publications" }
-                ].map((item, i) => (
-                  <div key={i} className="space-y-2 border-l border-archive-charcoal/10 pl-6">
-                    <span className="text-[14px] font-black tracking-widest opacity-40 block">{item.label}</span>
-                    <span className="text-[14px] font-black text-archive-charcoal">{item.value}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+          {/* Image Slider */}
+          <div className="w-full h-full min-h-[480px]">
+            <MediaImageSlider />
           </div>
 
-          <div className="bg-archive-charcoal p-16 text-white space-y-12 relative overflow-hidden">
-            <div className="absolute -bottom-8 -right-8 opacity-5">
+          {/* Partner Protocol Box */}
+          <div className="bg-archive-charcoal p-12 md:p-16 text-white h-full min-h-[480px] flex flex-col justify-between relative shadow-2xl border border-archive-charcoal/10 overflow-hidden">
+            <div className="absolute -bottom-8 -right-8 opacity-5 pointer-events-none">
               <Newspaper size={200} />
             </div>
+
             <div className="space-y-4 relative z-10">
-              <span className="text-archive-clay text-[14px] font-black tracking-[0.5em]">Partner Protocol</span>
-              <h3 className="text-xl font-black leading-none uppercase">JOIN THE <br /> MEDIA ALLIANCE.</h3>
+              <span className="text-archive-clay text-[14px] font-black tracking-[0.5em] uppercase">Partner Protocol</span>
+              <h3 className="text-3xl md:text-5xl font-black leading-[0.95] uppercase">
+                JOIN THE <br /> MEDIA ALLIANCE.
+              </h3>
             </div>
-            <div className="space-y-8 relative z-10">
-              <p className="text-[14px] font-bold tracking-[0.2em] text-white/40 leading-relaxed">
+
+            <div className="space-y-8 relative z-10 pt-6">
+              <p className="text-[14px] font-bold tracking-[0.15em] text-white/60 leading-relaxed">
                 Trade publications and industry digital portals interested in partnering for the 2026 Archive cycle may request official accreditation and media kit credentials.
               </p>
-              <div className="flex flex-col sm:flex-row gap-6">
-                <button className="px-10 py-5 bg-archive-clay text-white font-black text-[14px] tracking-[0.4em] hover:bg-white hover:text-archive-charcoal transition-all">
+              <div>
+                <button className="px-12 py-5 bg-archive-clay text-white font-black text-[14px] tracking-[0.3em] hover:bg-white hover:text-archive-charcoal transition-all">
                   APPLY FOR PARTNERSHIP
                 </button>
-
               </div>
             </div>
           </div>
         </div>
       </section>
-
-
     </div>
   );
 };

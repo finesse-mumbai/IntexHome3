@@ -75,16 +75,6 @@ const FACTSHEET_DATA: FactsheetItem[] = [
     date: '03-04-05 December 2026',
     time: '10:00 AM - 06:00 PM',
     venue: 'IICC, New Delhi, India'
-  },
-  {
-    id: 'FS_INMAC_04',
-    name: 'InMac Sri Lanka',
-    edition: '4th Edition',
-    logo: 'https://sl.intexsouthasia.com/_next/image?url=%2Fassets%2Fimg%2FinMac.png&w=384&q=75',
-    profile: 'InMac is an international exhibition showcasing cutting-edge advanced machinery and new technology to support the textile & garment industry in Bangladesh, Sri Lanka and the region. Held concurrently with Intex – The Premier International Textile Sourcing Show, InMac will offer domestic and overseas companies direct opportunity to launch their latest innovative products and solutions, connect with key decision makers and buyers, generate sales leads & enquiries & network with industry peers across the supply-chain & production value-chain of South Asia.',
-    date: '05-06-07 August 2026',
-    time: '10:00 AM - 06:00 PM',
-    venue: 'BMICH, Colombo, Sri Lanka'
   }
 ];
 
@@ -224,37 +214,6 @@ const FactsheetPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Info Notice Section */}
-      <section className="py-40 px-6 md:px-12 max-w-[1440px] mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
-          <div className="space-y-10">
-            <div className="flex items-center gap-4 text-archive-clay">
-              <Info size={24} />
-              <span className="text-[15px] font-black tracking-[0.5em] uppercase">Security Protocol</span>
-            </div>
-            <h3 className="text-3xl md:text-4xl font-black leading-none text-archive-charcoal uppercase">VERIFIED EVENT <br /><span className="text-archive-clay">DOCUMENTATION.</span></h3>
-            <p className="text-[15px] font-bold tracking-widest leading-relaxed text-archive-charcoal/50">
-              All data points indexed in these factsheets are verified by the Worldex India audit registry. For customized technical requirements or specialized data queries, contact our information desk.
-            </p>
-          </div>
-
-          <div className="p-12 border border-archive-charcoal/10 bg-white space-y-8 relative overflow-hidden">
-            <div className="absolute -bottom-8 -right-8 opacity-5">
-              <Database size={150} />
-            </div>
-            <div className="space-y-2">
-              <span className="text-archive-clay text-[15px] font-black tracking-[0.4em] uppercase">Master Archive</span>
-              <h4 className="text-2xl font-black text-archive-charcoal uppercase">DOWNLOAD GLOBAL FACTSHEET.</h4>
-            </div>
-            <p className="text-[15px] font-medium tracking-widest text-archive-charcoal/40 leading-relaxed max-w-md">
-              Get the combined technical specifications for all South Asian nodes in a single high-fidelity document.
-            </p>
-            <button className="flex items-center gap-4 text-[15px] font-black tracking-[0.5em] text-archive-charcoal hover:text-archive-clay transition-colors group">
-              GET MASTER RECORD <Download size={14} className="group-hover:translate-y-0.5 transition-transform uppercase" />
-            </button>
-          </div>
-        </div>
-      </section>
     </div>
   );
 };

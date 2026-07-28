@@ -170,58 +170,6 @@ const MediaCoverageReportPage: React.FC = () => {
         )}
       </section>
 
-      {/* Intelligence Protocol Section */}
-      <section className="py-40 px-6 md:px-12 max-w-[1440px] mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
-          <div className="space-y-12">
-            <div className="space-y-6">
-              <h2 className="text-[14px] font-black text-archive-clay leading-none uppercase">JOURNALISTIC VERIFICATION.</h2>
-              <div className="w-20 h-px bg-archive-clay"></div>
-            </div>
-            <div className="space-y-8">
-              <p className="text-[14px] font-bold tracking-[0.15em] leading-relaxed text-archive-charcoal/60">
-                The Media Coverage Reports are compiled by independent audit agencies to document the reach and impact of Intex South Asia across digital, print, and broadcast channels. Every mention is indexed for historical transparency.
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                {[
-                  { label: "Audit Depth", value: "Multi-Platform Index" },
-                  { label: "Reach Analytics", value: "Verified Impressions" },
-                  { label: "Node Coverage", value: "Global Distribution" },
-                  { label: "Archive Status", value: "Publicly Accessible" }
-                ].map((item, i) => (
-                  <div key={i} className="space-y-2 border-l border-archive-charcoal/10 pl-6">
-                    <span className="text-[14px] font-black tracking-widest opacity-40 block">{item.label}</span>
-                    <span className="text-[14px] font-black text-archive-charcoal">{item.value}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-archive-charcoal p-16 text-white space-y-12 relative overflow-hidden">
-            <div className="absolute -bottom-8 -right-8 opacity-5">
-              <Database size={200} />
-            </div>
-            <div className="space-y-4 relative z-10">
-              <span className="text-archive-clay text-[14px] font-black tracking-[0.5em]">Press Desk</span>
-              <h3 className="text-xl font-black leading-none uppercase">Request Custom <br /> Impact Data.</h3>
-            </div>
-            <div className="space-y-8 relative z-10">
-              <p className="text-[14px] font-bold tracking-[0.2em] text-white/40 leading-relaxed">
-                Require specific regional media analysis or exhibitor-exclusive impact reports? Our public relations department facilitates custom technical data requests for verified partners.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-6">
-                <button className="px-10 py-5 bg-archive-clay text-white font-black text-[14px] tracking-[0.4em] hover:bg-white hover:text-archive-charcoal transition-all">
-                  CONTACT MEDIA RELATIONS
-                </button>
-                <button className="px-10 py-5 border border-white/20 text-white font-black text-[14px] tracking-[0.4em] hover:bg-white hover:text-archive-charcoal hover:border-white transition-all flex items-center gap-3">
-                  REGISTRY AUDIT <ShieldCheck size={14} className="uppercase" />
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
     </div>
   );
 };

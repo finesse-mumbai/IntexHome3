@@ -1,12 +1,13 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowUpRight, Globe, Download, Award, Briefcase, Users, Mail } from 'lucide-react';
+import { ArrowUpRight, Globe, Download } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const EXHIBITIONS = [
   {
     id: 'ex-bg',
     title: 'Intex Bangladesh',
+    edition: '17th Edition',
     date: '18-19-20 June, 2026',
     location: 'ICCB, Dhaka',
     imageUrl: '/assets/bangladesh.png'
@@ -14,6 +15,7 @@ const EXHIBITIONS = [
   {
     id: 'ex-sl',
     title: 'Intex Sri Lanka',
+    edition: '17th Edition',
     date: '5-6-7 August 2026',
     location: 'BMICH, Colombo',
     imageUrl: '/assets/sri%20lanka.jpg.jpeg'
@@ -21,6 +23,7 @@ const EXHIBITIONS = [
   {
     id: 'ex-in',
     title: 'Intex India',
+    edition: '17th Edition',
     date: 'Announcing Soon',
     location: 'New Delhi',
     imageUrl: '/assets/india.jpg.jpeg'
@@ -28,6 +31,8 @@ const EXHIBITIONS = [
 ];
 
 const OrganiserPage: React.FC = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="bg-archive-cream min-h-screen pt-32 pb-24 overflow-hidden">
       {/* Header Branding Section */}
@@ -51,7 +56,7 @@ const OrganiserPage: React.FC = () => {
                 <span className="text-[14px] font-black tracking-[0.5em] text-archive-clay uppercase">Organiser Registry</span>
               </div>
               <h1 className="text-4xl md:text-8xl font-black tracking-tighter leading-[0.9] text-archive-charcoal max-w-2xl uppercase">
-                Worldex India Exhibition & <span >Promotion Pvt. Ltd.</span>
+                Worldex India Exhibition & <span>Promotion Pvt. Ltd.</span>
               </h1>
             </div>
           </motion.div>
@@ -63,7 +68,7 @@ const OrganiserPage: React.FC = () => {
         <div className="max-w-[1440px] mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-20 items-start">
           <div className="lg:col-span-4 space-y-8">
             <h2 className="text-4xl md:text-8xl font-black tracking-tighter text-white uppercase">
-              About   <span className="text-archive-clay"> Us.</span>
+              About <span className="text-archive-clay"> Us.</span>
             </h2>
             <div className="grid grid-cols-2 gap-4">
               <div className="p-6 border border-white/10 text-center bg-white/5">
@@ -95,19 +100,31 @@ const OrganiserPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Upcoming Exhibitions Grid */}
-      <section className="py-40 px-6 md:px-12 max-w-[1440px] mx-auto">
-        <div className="mb-20 space-y-4">
+      {/* Upcoming Exhibitions Section - Formatted like Home Page Sourcing Registry */}
+      <section className="py-32 px-6 md:px-12 max-w-[1440px] mx-auto">
+        <div className="mb-16 space-y-4">
           <div className="flex items-center gap-4">
             <div className="w-12 h-[1px] bg-archive-clay"></div>
-            <span className="text-[14px] font-black tracking-[0.5em] text-archive-clay uppercase">Upcoming Events</span>
+            <span className="text-[14px] font-black tracking-[0.5em] text-archive-clay uppercase">
+              Sourcing Registry
+            </span>
           </div>
-          <h2 className="text-2xl md:text-4xl font-black tracking-tighter text-archive-charcoal uppercase">
-            Exhibition <span>Calendar.</span>
-          </h2>
+
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <h2 className="text-3xl md:text-5xl font-black tracking-tight text-archive-charcoal uppercase leading-[0.95]">
+              Upcoming <br />
+              <span className="text-archive-clay">Exhibitions.</span>
+            </h2>
+
+            <div className="flex items-center gap-3">
+              <span className="text-xs font-mono font-black tracking-widest text-archive-clay uppercase bg-archive-clay/10 px-4 py-2 border border-archive-clay/20">
+                Intex South Asia • 3 Shows
+              </span>
+            </div>
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 border border-archive-charcoal/10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {EXHIBITIONS.map((ex, idx) => (
             <motion.div
               key={ex.id}
@@ -115,25 +132,51 @@ const OrganiserPage: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.1 }}
               viewport={{ once: true }}
-              className="group border-r last:border-r-0 border-archive-charcoal/10 relative h-[500px] overflow-hidden bg-white"
+              className="group relative h-[480px] overflow-hidden bg-archive-charcoal shadow-lg hover:shadow-2xl transition-all duration-500 flex flex-col justify-between p-8 text-white"
             >
-              <div className="absolute inset-0 transition-all duration-[2000ms] group-hover:scale-110 group-hover:filter-none">
-                <img src={ex.imageUrl} className="w-full h-full object-cover group-hover:opacity-100" />
-                <div className="absolute inset-0 bg-archive-charcoal/80 group-hover:bg-archive-charcoal/20 transition-all duration-700"></div>
+              {/* Background Image & Overlay */}
+              <div className="absolute inset-0 transition-all duration-[2000ms] group-hover:scale-110">
+                <img
+                  src={ex.imageUrl}
+                  alt={ex.title}
+                  className="w-full h-full object-cover opacity-50 group-hover:opacity-40 transition-opacity"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#161414] via-[#161414]/70 to-transparent"></div>
               </div>
 
-              <div className="relative z-10 h-full p-12 flex flex-col justify-between text-white">
-                <div className="flex justify-between items-start">
+              {/* Card Header Tag */}
+              <div className="relative z-10 flex justify-between items-start">
+                <span className="px-3 py-1.5 bg-white/10 backdrop-blur-md text-xs font-mono font-bold text-archive-clay uppercase tracking-wider border border-white/10">
+                  0{idx + 1} // {ex.edition}
+                </span>
+              </div>
 
+              {/* Card Footer Info & View Details Button */}
+              <div className="relative z-10 space-y-6">
+                <div className="space-y-2">
+                  <h3 className="text-2xl md:text-3xl font-black leading-[0.95] uppercase group-hover:text-archive-clay transition-colors">
+                    {ex.title}
+                  </h3>
+                  <p className="text-archive-clay text-xs font-bold tracking-widest uppercase">
+                    Event Venue: {ex.location}
+                  </p>
+                  <p className="text-white/80 text-xs font-bold tracking-wider uppercase">
+                    Event Date: {ex.date}
+                  </p>
                 </div>
-                <div className="space-y-6">
-                  <div className="space-y-2">
-                    <h3 className="text-3xl font-black leading-[0.9] uppercase">{ex.title}</h3>
-                    <p className="text-archive-clay text-[14px] font-black tracking-widest uppercase">{ex.location}</p>
+
+                <button
+                  onClick={() => {
+                    navigate('/#event/' + ex.id);
+                    window.scrollTo(0, 0);
+                  }}
+                  className="w-full py-4 bg-archive-clay hover:bg-white text-white hover:text-archive-charcoal transition-all duration-300 font-black text-xs uppercase tracking-[0.2em] flex items-center justify-center gap-3 group/btn"
+                >
+                  <span>VIEW DETAILS</span>
+                  <div className="w-6 h-6 bg-white/20 group-hover/btn:bg-archive-clay group-hover/btn:text-white flex items-center justify-center transition-colors">
+                    <ArrowUpRight size={14} />
                   </div>
-                  <div className="h-px w-12 bg-white/20 group-hover:w-full transition-all duration-700"></div>
-                  <p className="text-[14px] font-bold tracking-[0.2em] opacity-60">{ex.date}</p>
-                </div>
+                </button>
               </div>
             </motion.div>
           ))}
