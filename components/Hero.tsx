@@ -1,100 +1,138 @@
-
-import React from 'react';
-import Hero2 from './Hero2';
+import React, { useState, useRef } from 'react';
+import { Play, Pause, Volume2, VolumeX } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const Hero: React.FC = () => {
+  const [isPlaying, setIsPlaying] = useState(true);
+  const [isMuted, setIsMuted] = useState(true);
+  const [isHovered, setIsHovered] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const togglePlay = () => {
+    if (videoRef.current) {
+      if (isPlaying) {
+        videoRef.current.pause();
+      } else {
+        videoRef.current.play();
+      }
+      setIsPlaying(!isPlaying);
+    }
+  };
+
+  const toggleMute = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = !isMuted;
+      setIsMuted(!isMuted);
+    }
+  };
+
   return (
-    <>
-      {/* 
-        ============================================================
-        PREVIOUS HERO SECTION (COMMENTED OUT)
-        ============================================================
-      <section className="relative h-screen flex flex-col items-center justify-center text-center bg-archive-charcoal text-white px-12 overflow-hidden border-b border-archive-charcoal">
-        <div className="absolute inset-0 opacity-40 overflow-hidden">
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="absolute inset-0 w-full h-full object-cover brightness-[0.4]"
-          >
-            <source src="/assets/website video intex  Copy 03.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-          <div className="absolute inset-0 bg-gradient-to-b from-archive-charcoal/80 via-transparent to-archive-charcoal"></div>
-        </div>
+    <section className="relative min-h-screen bg-white flex items-center justify-center pt-32 pb-24 overflow-hidden selection:bg-archive-clay selection:text-white">
+      <div className="relative z-10 w-[90vw] max-w-[1600px] mx-auto pl-8 pr-4">
 
-        <div className="relative z-10 space-y-8 max-w-7xl mt-28">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-            className="space-y-4"
-          >
-            <div className="relative w-full max-w-none flex items-center justify-center -mt-40">
-              <svg viewBox="0 0 8500 450" className="w-[85vw] h-auto overflow-visible select-none pointer-events-none">
-                <motion.text
-                  x="50%"
-                  y="50%"
-                  textAnchor="middle"
-                  dominantBaseline="middle"
-                  initial={{ letterSpacing: "0.15em", opacity: 0 }}
-                  animate={{ letterSpacing: "0.01em", opacity: 1 }}
-                  transition={{ duration: 2.5, ease: [0.16, 1, 0.3, 1] }}
-                  className="font-black text-[400px] fill-white"
-                >
-                  INTEX SERIES OF EXHIBITION
-                </motion.text>
-              </svg>
-            </div>
-            <p className="text-[15px] font-bold tracking-[0.2em] text-white opacity-60 uppercase">
-              THE PREMIER INTERNATIONAL TEXTILE SOURCING SHOWS OF SOUTH ASIA
-            </p>
-            <div className="flex flex-wrap items-center justify-center gap-x-16 gap-y-6 pt-10">
-              {['Bangladesh', 'Sri Lanka', 'India'].map((country) => (
-                <div key={country} className="flex flex-col items-center gap-3 group">
-                  <span className="text-[15px] font-black tracking-[0.4em] text-white uppercase transition-colors group-hover:text-archive-clay">
-                    {country}
-                  </span>
-                  <div className="w-8 h-[1px] bg-archive-clay/40 group-hover:w-full group-hover:bg-archive-clay transition-all duration-500"></div>
-                </div>
-              ))}
-            </div>
-          </motion.div>
+        {/* 3D ISOMETRIC SKEWED SINGLE VIDEO BUILDING BOX */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+          className="relative w-full h-[82vh] min-h-[500px] flex flex-col cursor-pointer"
+          style={{
+            transform: isHovered
+              ? 'skewY(-6deg) translateY(-18px)'
+              : 'skewY(-6deg)',
+            transition: 'all 0.5s cubic-bezier(0.22, 1, 0.36, 1)',
+            zIndex: 10,
+          }}
+        >
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5 }}
-            className="pt-12 flex flex-col sm:flex-row items-center justify-center gap-6"
-          >
-            <a
-              href="https://portal.intexfair.com/buyer_reg_portal.php?form_name=pre-buyer-registration&country=sl&source_name="
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full sm:w-auto px-10 py-5 bg-archive-clay text-white font-black text-[15px] tracking-[0.2em] hover:bg-white hover:text-archive-charcoal border border-archive-clay transition-all uppercase text-center block sm:inline-block"
+          {/* 3D TOP ROOF FACE */}
+          <div
+            className="absolute pointer-events-none"
+            style={{
+              top: '-15px',
+              left: '0px',
+              width: '100%',
+              height: '15px',
+              transform: 'skewX(45deg)',
+              transformOrigin: 'bottom left',
+              background: '#f1f5f9',
+              zIndex: 2,
+            }}
+          />
+
+          {/* 3D LEFT SIDE WALL FACE */}
+          <div
+            className="absolute pointer-events-none flex flex-col overflow-hidden"
+            style={{
+              top: '0px',
+              left: '-15px',
+              width: '15px',
+              height: '100%',
+              transform: 'skewY(45deg)',
+              transformOrigin: 'top right',
+              zIndex: 2,
+              background: '#cbd5e1',
+            }}
+          />
+
+          {/* REALISTIC SUNLIGHT GROUND SHADOW */}
+          <div
+            className="absolute pointer-events-none transition-all duration-500"
+            style={{
+              top: isHovered ? 'calc(100% + 15px)' : '100%',
+              left: '-15px',
+              width: 'calc(100% + 15px)',
+              height: isHovered ? '150px' : '110px',
+              transformOrigin: 'top left',
+              transform: 'skewX(-45deg)',
+              background: 'linear-gradient(to bottom, rgba(15, 23, 42, 0.35) 0%, rgba(15, 23, 42, 0.12) 60%, rgba(15, 23, 42, 0) 100%)',
+              filter: isHovered ? 'blur(5px)' : 'blur(2.5px)',
+              opacity: isHovered ? 0.75 : 0.9,
+              zIndex: 0,
+            }}
+          />
+
+          {/* FRONT MAIN CARD FACE CONTAINING 100% EDGE-TO-EDGE VIDEO */}
+          <div className="relative z-10 flex flex-col h-full w-full bg-black overflow-hidden rounded-r-sm shadow-2xl border-r border-b border-slate-200">
+            <video
+              ref={videoRef}
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="w-full h-full object-cover brightness-[0.9]"
             >
-              BUYER REGISTRATION
-            </a>
-            <a
-              href="https://sl.intexsouthasia.com/enquiry-form"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full sm:w-auto px-10 py-5 bg-transparent text-white font-black text-[15px] tracking-[0.2em] hover:bg-white hover:text-archive-charcoal border border-white/30 hover:border-white transition-all uppercase text-center block sm:inline-block"
-            >
-              EXHIBITOR ENQUIRY
-            </a>
-          </motion.div>
-        </div>
-      </section>
-      */}
+              <source src="/assets/website video intex  Copy 03.mp4" type="video/mp4" />
+              Your browser does not support HTML5 video.
+            </video>
 
-      {/* NEW HERO SECTION (HERO2 / PRINTING ROLL) */}
-      <Hero2 />
-    </>
+            {/* Video Controls Overlay */}
+            <div className="absolute bottom-6 right-6 z-20 flex items-center gap-3 bg-black/60 backdrop-blur-md px-4 py-2 rounded-full border border-white/20 shadow-lg">
+              <button
+                onClick={togglePlay}
+                className="p-2 rounded-full text-white/90 hover:text-white hover:bg-white/20 transition-colors"
+                title={isPlaying ? 'Pause Video' : 'Play Video'}
+              >
+                {isPlaying ? <Pause size={18} /> : <Play size={18} />}
+              </button>
+              <div className="w-[1px] h-4 bg-white/30"></div>
+              <button
+                onClick={toggleMute}
+                className="p-2 rounded-full text-white/90 hover:text-white hover:bg-white/20 transition-colors"
+                title={isMuted ? 'Unmute Audio' : 'Mute Audio'}
+              >
+                {isMuted ? <VolumeX size={18} /> : <Volume2 size={18} />}
+              </button>
+            </div>
+          </div>
+
+        </motion.div>
+
+      </div>
+    </section>
   );
 };
 
 export default Hero;
-export { Hero2 };
-

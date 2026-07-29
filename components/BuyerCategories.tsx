@@ -80,9 +80,7 @@ const BuyerCategories: React.FC = () => {
                 <UserPlus size={16} className="transition-transform group-hover/btn:translate-x-1" />
               </a>
               <a
-                href="https://sl.intexsouthasia.com/enquiry-form"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#enquiry-form"
                 className="flex items-center justify-between px-6 py-5 border border-white/20 text-white group/btn hover:border-archive-clay hover:text-archive-clay transition-all duration-500 min-w-[200px]"
               >
                 <span className="text-[15px] font-black tracking-[0.3em] uppercase">Exhibitor Enquiry</span>

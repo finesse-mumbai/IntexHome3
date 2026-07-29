@@ -108,9 +108,7 @@ const Home2Page: React.FC = () => {
                   Buyer Registration <ArrowUpRight size={16} />
                 </a>
                 <a
-                  href="https://sl.intexsouthasia.com/enquiry-form"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="#enquiry-form"
                   className="inline-flex items-center justify-between gap-5 bg-white/10 px-7 py-5 text-[15px] font-black uppercase tracking-[0.28em] text-white backdrop-blur-md transition-colors hover:bg-white hover:text-[#111111]"
                 >
                   Exhibitor Enquiry <ArrowUpRight size={16} />

@@ -49,9 +49,7 @@ const ShowProfilePage: React.FC = () => {
                   BUYER REGISTRATION <ArrowRight size={14} className="uppercase" />
                 </a>
                 <a
-                  href="https://sl.intexsouthasia.com/enquiry-form"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="#enquiry-form"
                   className="flex-1 px-10 py-6 border border-archive-charcoal text-archive-charcoal font-black text-[15px] tracking-[0.4em] hover:bg-archive-charcoal hover:text-white transition-all flex items-center justify-center"
                 >
                   EXHIBITOR ENQUIRY

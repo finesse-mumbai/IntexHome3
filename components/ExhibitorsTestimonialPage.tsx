@@ -379,9 +379,7 @@ const ExhibitorsTestimonialPage: React.FC = () => {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 w-full">
             <a
-              href="https://sl.intexsouthasia.com/enquiry-form"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#enquiry-form"
               className="px-12 py-6 bg-archive-clay text-white font-black text-[15px] tracking-[0.3em] hover:bg-white hover:text-archive-charcoal transition-all w-full sm:w-auto uppercase shadow-xl text-center"
             >
               Exhibitor Enquiry

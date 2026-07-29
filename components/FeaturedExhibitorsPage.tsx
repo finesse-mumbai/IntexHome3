@@ -246,9 +246,7 @@ const FeaturedExhibitorsPage: React.FC = () => {
             </div>
             <div className="lg:col-span-4 flex justify-end">
               <a
-                href="https://sl.intexsouthasia.com/enquiry-form"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#enquiry-form"
                 className="w-full lg:w-auto px-12 py-6 bg-archive-clay text-white font-black text-[15px] tracking-[0.4em] hover:bg-white hover:text-archive-charcoal transition-all text-center uppercase"
               >
                 APPLY FOR FEATURED STATUS

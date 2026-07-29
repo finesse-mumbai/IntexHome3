@@ -55,7 +55,7 @@ const NAV_ITEMS = [
       { label: "Exhibitor Profile", link: "/exhibitor-profile", icon: UserCheck },
       { label: "Featured Exhibitors", link: "/featured-exhibitors", icon: Star },
       { label: "Exhibitor's Testimonial", link: "/exhibitors-testimonial", icon: MessageSquareQuote },
-      { label: "Booth Booking Enquiry", link: "https://sl.intexsouthasia.com/enquiry-form", external: true, icon: CalendarCheck },
+      { label: "Booth Booking Enquiry", link: "/enquiry-form", icon: CalendarCheck },
       { label: "Hotel & Travel", link: "/hotels-travel", icon: Hotel },
     ],
   },
@@ -85,7 +85,7 @@ const NAV_ITEMS = [
       { label: "Press Release", link: "/press-release", icon: Newspaper },
       { label: "Media Coverage", link: "/media-coverage", icon: Tv },
       { label: "Media Partners", link: "/media-partners", icon: Share2 },
-      { label: "Media Registration", link: "/", icon: BadgeCheck },
+      { label: "Media Registration", link: "/media-registration", icon: BadgeCheck },
     ],
   },
   {
