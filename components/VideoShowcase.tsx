@@ -121,20 +121,12 @@ const VideoShowcase: React.FC = () => {
             <div className="max-w-[1440px] mx-auto px-6 md:px-12 mb-16 relative z-10">
                 <div className="flex flex-col lg:flex-row justify-between items-end gap-12">
                     <div className="space-y-6">
-                        <div className="flex items-center gap-4">
-                            <div className="w-12 h-[1px] bg-archive-clay"></div>
-                            <span className="text-[14px] font-black tracking-[0.5em] uppercase text-archive-clay">Motion Registry</span>
-                        </div>
                         <h2 className="text-2xl md:text-4xl font-black uppercase text-archive-charcoal leading-[0.9]">
-                            Post Show <br /> <span className="text-archive-clay">Highlights.</span>
+                            Latest Show <br /> <span className="text-archive-clay">Highlights.</span>
                         </h2>
                     </div>
 
                     <div className="flex flex-col items-start lg:items-end gap-5 max-w-sm text-left lg:text-right py-2">
-                        <div className="flex items-center gap-3 text-archive-clay">
-                            <MonitorPlay size={14} />
-                            <span className="text-[14px] font-black tracking-widest uppercase">Digital Specimen Directory</span>
-                        </div>
                         <button
                             onClick={() => navigate('/post-show-video')}
                             className="group flex items-center gap-3 px-6 py-3 border border-archive-clay text-archive-clay text-[14px] font-black tracking-widest uppercase hover:bg-archive-clay hover:text-white transition-all duration-300"

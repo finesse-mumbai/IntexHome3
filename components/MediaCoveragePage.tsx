@@ -1,5 +1,6 @@
 
 import React, { useState, useMemo } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Play, Image as ImageIcon, Video, Youtube, Maximize2, Search, Database, Globe, Calendar, ArrowUpRight } from 'lucide-react';
 
@@ -41,6 +42,7 @@ const MEDIA_DATA: MediaItem[] = [
 ];
 
 const MediaCoveragePage: React.FC = () => {
+  const navigate = useNavigate();
   const [filterLocation, setFilterLocation] = useState('ALL');
   const [filterYear, setFilterYear] = useState('ALL');
   const [selectedMedia, setSelectedMedia] = useState<MediaItem | null>(null);
@@ -62,10 +64,6 @@ const MediaCoveragePage: React.FC = () => {
       <section className="px-6 md:px-12 max-w-[1440px] mx-auto mb-20">
         <div className="flex flex-col gap-12">
           <div className="space-y-6">
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-[1px] bg-archive-clay"></div>
-              <span className="text-[14px] font-black tracking-[0.5em] text-archive-clay uppercase">Visual Intelligence // Media Log</span>
-            </div>
             <h1 className="text-4xl md:text-8xl font-black tracking-tighter leading-[0.85] text-archive-charcoal uppercase">
               MEDIA <br />
               <span className="text-white">COVERAGE.</span>
@@ -232,33 +230,39 @@ const MediaCoveragePage: React.FC = () => {
         )}
       </AnimatePresence>
 
-      {/* Info Protocol Section */}
-      <section className="py-40 px-6 md:px-12 max-w-[1440px] mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
-          <div className="bg-archive-charcoal w-[100%]  p-16 text-white space-y-12 relative overflow-hidden">
-            <div className="absolute -bottom-8 -right-8 opacity-5">
-              <Video size={200} />
-            </div>
-            <div className="space-y-4 relative z-10">
-              <span className="text-archive-clay text-[14px] font-black tracking-[0.5em]">Press Desk</span>
-              <h3 className="text-xl font-black leading-none uppercase">Media Registration.</h3>
-            </div>
-            <div className="space-y-8 relative z-10">
-              <p className="text-[14px] font-bold tracking-[0.2em] text-white/40 leading-relaxed">
-                Journalists and industry analysts may request access to our master visual server for high-fidelity assets, unedited footage, and executive interview manifests.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-6">
-                <button className="px-10 py-5 bg-archive-clay text-white font-black text-[14px] tracking-[0.4em] hover:bg-white hover:text-archive-charcoal transition-all">
-                  CLICK HERE FOR MEDIA REGISTRATION
-                </button>
+      {/* Full-width Rectangular Media Registration Box */}
+      <section className="py-20 px-6 md:px-12 max-w-[1440px] mx-auto">
+        <div className="bg-archive-charcoal p-12 md:p-16 text-white relative overflow-hidden shadow-2xl border border-archive-charcoal/10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
+          <div className="absolute -bottom-10 -right-10 opacity-5 pointer-events-none">
+            <Video size={240} />
+          </div>
 
-              </div>
+          <div className="space-y-4 max-w-2xl relative z-10">
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-[1px] bg-archive-clay"></div>
+              <span className="text-archive-clay text-[14px] font-black tracking-[0.5em] uppercase">Press Desk</span>
             </div>
+            <h3 className="text-3xl md:text-5xl font-black uppercase leading-[0.95]">
+              Media <span className="text-archive-clay">Registration.</span>
+            </h3>
+            <p className="text-[14px] md:text-base font-bold tracking-widest text-white/50 leading-relaxed">
+              Journalists and industry analysts may request access to our master visual server for high-fidelity assets, unedited footage, and executive interview manifests.
+            </p>
+          </div>
+
+          <div className="relative z-10 shrink-0">
+            <button
+              onClick={() => {
+                navigate('/media-registration');
+                window.scrollTo(0, 0);
+              }}
+              className="px-10 py-5 bg-archive-clay text-white font-black text-[14px] tracking-[0.3em] hover:bg-white hover:text-archive-charcoal transition-all uppercase shadow-xl"
+            >
+              CLICK HERE FOR MEDIA REGISTRATION
+            </button>
           </div>
         </div>
       </section>
-
-
     </div>
   );
 };

@@ -28,23 +28,9 @@ const Partners: React.FC = () => {
       <div className="max-w-[1440px] mx-auto px-12 mb-12 relative z-10">
         <div className="flex flex-col lg:flex-row justify-between items-end gap-12">
           <div className="space-y-6">
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-[1px] bg-archive-clay"></div>
-              <span className="text-[15px] font-black uppercase text-archive-clay">Industry Partners</span>
-            </div>
             <h2 className="text-2xl md:text-4xl font-black uppercase text-archive-charcoal leading-[0.9]">
               PARTNERSHIP <br /> <span className="text-archive-clay">NETWORK.</span>
             </h2>
-          </div>
-
-          <div className="flex flex-col items-start lg:items-end gap-6 max-w-sm text-left lg:text-right py-2">
-            <div className="flex items-center gap-3 text-archive-clay">
-              <ShieldCheck size={14} />
-              <span className="text-[15px] font-black tracking-widest uppercase">Global Specimen Directory</span>
-            </div>
-            <p className="text-[15px] font-bold tracking-widest uppercase text-archive-charcoal/40 leading-relaxed">
-              Archived records of certified textile councils and international trade federations.
-            </p>
           </div>
         </div>
       </div>

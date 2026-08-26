@@ -61,10 +61,6 @@ const IntexTimesPage: React.FC = () => {
       <section className="px-6 md:px-12 max-w-[1440px] mx-auto mb-24">
         <div className="flex flex-col gap-12">
           <div className="space-y-6">
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-[1px] bg-archive-clay"></div>
-              <span className="text-[14px] font-black tracking-[0.5em] text-archive-clay uppercase">Chronological Archive // Daily Record</span>
-            </div>
             <h1 className="text-4xl md:text-8xl font-black tracking-tighter leading-[0.85] text-archive-charcoal uppercase">
               INTEX <br />
               <span className="text-white">TIMES.</span>

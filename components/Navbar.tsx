@@ -41,7 +41,7 @@ const NAV_ITEMS = [
     label: "Show",
     link: "/",
     children: [
-      { label: "Show Profile", link: "/show-profile", icon: Info },
+      // { label: "Show Profile", link: "/show-profile", icon: Info },
       { label: "Why Intex South Asia", link: "/why-intex", icon: HelpCircle },
       { label: "About Organiser", link: "/organiser", icon: Building2 },
       { label: "IBF Seminar Series", link: "/ibf-seminar-series", icon: Presentation },

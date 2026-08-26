@@ -62,19 +62,16 @@ export const blogs = [
 
 export default function BlogsPage() {
   return (
-    <main className="min-h-screen bg-slate-50 pt-20 pb-20">
-      <div className="max-w-6xl mx-auto px-4">
+    <main className="min-h-screen bg-archive-cream pt-32 pb-24">
+      <div className="max-w-6xl mx-auto px-6 md:px-12">
         <div className="mb-16 text-center">
-          <span className="text-[14px] font-black tracking-[0.5em] text-[#F27B35] uppercase mb-4 block">
-            Market Intelligence
-          </span>
-          <h1 className="text-4xl md:text-5xl font-black text-slate-900 mb-4 tracking-tight uppercase">
-            Latest <span className="text-[#F27B35]">Insights.</span>
+          <h1 className="text-4xl md:text-5xl font-black text-archive-charcoal mb-4 tracking-tight uppercase">
+            Latest <span className="text-archive-clay">Insights.</span>
           </h1>
-          <p className="text-slate-600 text-lg max-w-2xl mx-auto">
+          <p className="text-archive-charcoal/70 text-lg max-w-2xl mx-auto">
             Stay updated with the latest trends, market reports, and strategic shifts in the South Asian textile and garment landscape.
           </p>
-          <div className="w-24 h-1.5 bg-[#F27B35] mx-auto mt-6 rounded-full"></div>
+          <div className="w-24 h-1.5 bg-archive-clay mx-auto mt-6 rounded-full"></div>
         </div>
 
         {/* Blogs List */}

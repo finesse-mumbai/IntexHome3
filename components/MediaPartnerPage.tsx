@@ -152,37 +152,25 @@ const MediaPartnerPage: React.FC = () => {
     <div className="bg-archive-cream min-h-screen pt-32 pb-24 overflow-hidden">
       {/* Page Header */}
       <section className="px-6 md:px-12 max-w-[1440px] mx-auto mb-20">
-        <div className="flex flex-col gap-12">
-          <div className="space-y-6">
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-[1px] bg-archive-clay"></div>
-              <span className="text-[14px] font-black tracking-[0.5em] text-archive-clay uppercase">Media Alliance // Registry</span>
-            </div>
-            <h1 className="text-4xl md:text-8xl font-black tracking-tighter leading-[0.85] text-archive-charcoal uppercase">
-              MEDIA <br />
+        <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-8">
+          <div>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter leading-[0.85] text-archive-charcoal uppercase">
+              MEDIA <br className="hidden lg:inline" />
               <span className="text-white">PARTNERS.</span>
             </h1>
           </div>
 
-          <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-12">
-            <div className="lg:col-span-7">
-              <p className="text-xl md:text-2xl font-black text-archive-charcoal/80 leading-tight">
-                Accessing the <span className="text-archive-clay">verified network</span> of global trade journals and industry news portals.
-              </p>
-            </div>
-
-            {/* Show Tabs Selector */}
-            <div className="flex border border-archive-charcoal/10 bg-white p-2">
-              {shows.map((show) => (
-                <button
-                  key={show}
-                  onClick={() => setActiveShow(show)}
-                  className={`px-8 py-4 text-[14px] font-black tracking-widest transition-all ${activeShow === show ? 'bg-archive-charcoal text-white' : 'text-archive-charcoal/40 hover:text-archive-charcoal'}`}
-                >
-                  {show}
-                </button>
-              ))}
-            </div>
+          {/* Show Tabs Selector */}
+          <div className="flex border border-archive-charcoal/10 bg-white p-2 shrink-0">
+            {shows.map((show) => (
+              <button
+                key={show}
+                onClick={() => setActiveShow(show)}
+                className={`px-8 py-4 text-[14px] font-black tracking-widest transition-all uppercase ${activeShow === show ? 'bg-archive-charcoal text-white' : 'text-archive-charcoal/40 hover:text-archive-charcoal'}`}
+              >
+                {show}
+              </button>
+            ))}
           </div>
         </div>
       </section>
@@ -247,40 +235,7 @@ const MediaPartnerPage: React.FC = () => {
         </AnimatePresence>
       </section>
 
-      {/* Narrative Section - Replaced Text with Media Image Slider & Equal Height Alignment */}
-      <section className="py-40 px-6 md:px-12 max-w-[1440px] mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
-          {/* Image Slider */}
-          <div className="w-full h-full min-h-[480px]">
-            <MediaImageSlider />
-          </div>
 
-          {/* Partner Protocol Box */}
-          <div className="bg-archive-charcoal p-12 md:p-16 text-white h-full min-h-[480px] flex flex-col justify-between relative shadow-2xl border border-archive-charcoal/10 overflow-hidden">
-            <div className="absolute -bottom-8 -right-8 opacity-5 pointer-events-none">
-              <Newspaper size={200} />
-            </div>
-
-            <div className="space-y-4 relative z-10">
-              <span className="text-archive-clay text-[14px] font-black tracking-[0.5em] uppercase">Partner Protocol</span>
-              <h3 className="text-3xl md:text-5xl font-black leading-[0.95] uppercase">
-                JOIN THE <br /> MEDIA ALLIANCE.
-              </h3>
-            </div>
-
-            <div className="space-y-8 relative z-10 pt-6">
-              <p className="text-[14px] font-bold tracking-[0.15em] text-white/60 leading-relaxed">
-                Trade publications and industry digital portals interested in partnering for the 2026 Archive cycle may request official accreditation and media kit credentials.
-              </p>
-              <div>
-                <button className="px-12 py-5 bg-archive-clay text-white font-black text-[14px] tracking-[0.3em] hover:bg-white hover:text-archive-charcoal transition-all">
-                  APPLY FOR PARTNERSHIP
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
     </div>
   );
 };

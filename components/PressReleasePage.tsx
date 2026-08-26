@@ -221,36 +221,25 @@ const PressReleasePage: React.FC = () => {
   return (
     <div className="bg-archive-cream min-h-screen pt-32 pb-24 overflow-hidden">
       <section className="px-6 md:px-12 max-w-[1440px] mx-auto mb-20">
-        <div className="flex flex-col gap-12">
-          <div className="space-y-6">
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-[1px] bg-archive-clay"></div>
-              <span className="text-[14px] font-black tracking-[0.5em] text-archive-clay uppercase">Media Registry // News Manifest</span>
-            </div>
-            <h1 className="text-4xl md:text-8xl font-black tracking-tighter leading-[0.85] text-archive-charcoal uppercase">
-              PRESS <br />
+        <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-8">
+          <div>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter leading-[0.85] text-archive-charcoal uppercase">
+              PRESS <br className="hidden lg:inline" />
               <span className="text-white">RELEASES.</span>
             </h1>
           </div>
 
-          <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-12">
-            <div className="lg:col-span-7">
-              <p className="text-xl md:text-2xl font-black text-archive-charcoal/80 source-sans leading-tight">
-                OFFICIAL <span className="text-archive-clay uppercase">JOURNALISTIC RECORDS</span> DOCUMENTING THE EVOLUTION AND IMPACT OF INTEX SOUTH ASIA.
-              </p>
-            </div>
-
-            <div className="flex border border-archive-charcoal/10 bg-white p-2">
-              {shows.map((show) => (
-                <button
-                  key={show}
-                  onClick={() => { setActiveShow(show); setExpandedIds(new Set()); }}
-                  className={`px-8 py-4 text-[14px] font-black tracking-widest transition-all ${activeShow === show ? 'bg-archive-charcoal text-white' : 'text-archive-charcoal/40 hover:text-archive-charcoal'}`}
-                >
-                  {show === 'Sri Lanka' ? 'SRI LANKA' : 'BANGLADESH'}
-                </button>
-              ))}
-            </div>
+          {/* Show Tabs Selector */}
+          <div className="flex border border-archive-charcoal/10 bg-white p-2 shrink-0">
+            {shows.map((show) => (
+              <button
+                key={show}
+                onClick={() => { setActiveShow(show); setExpandedIds(new Set()); }}
+                className={`px-8 py-4 text-[14px] font-black tracking-widest transition-all uppercase ${activeShow === show ? 'bg-archive-charcoal text-white' : 'text-archive-charcoal/40 hover:text-archive-charcoal'}`}
+              >
+                {show === 'Sri Lanka' ? 'SRI LANKA' : 'BANGLADESH'}
+              </button>
+            ))}
           </div>
         </div>
       </section>
@@ -277,11 +266,6 @@ const PressReleasePage: React.FC = () => {
                       <span className={`px-4 py-1 text-[14px] font-black tracking-widest ${getBadgeClass(pr.type)}`}>
                         {pr.type}
                       </span>
-                      <div className="w-8 h-px bg-archive-charcoal/10"></div>
-                      <div className="flex items-center gap-2 text-[14px] font-mono font-black text-archive-charcoal/40">
-                        <Clock size={12} className="text-archive-clay" />
-                        Archive Log // {pr.id}
-                      </div>
                     </div>
 
                     <div className="space-y-4">
@@ -354,48 +338,7 @@ const PressReleasePage: React.FC = () => {
         </AnimatePresence>
       </section>
 
-      <section className="py-40 px-6 md:px-12 max-w-[1440px] mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
-          <div className="space-y-8">
-            <div className="flex items-center gap-4 text-archive-clay">
-              <Newspaper size={20} />
-              <span className="text-[14px] font-black tracking-[0.4em]">Media Protocol</span>
-            </div>
-            <h3 className="text-xl font-black tracking-tight text-archive-charcoal leading-none uppercase">
-              OFFICIAL INQUIRIES <br /> & <span>INTERVIEW REQUESTS.</span>
-            </h3>
-            <p className="text-[14px] font-bold tracking-widest leading-relaxed text-archive-charcoal/40">
-              Credentialed media representatives may request high-fidelity image assets, video manifests, and exclusive executive interviews for the 2026 Archive cycle.
-            </p>
-            <button className="px-10 py-5 bg-archive-charcoal text-white font-black text-[14px] tracking-[0.4em] hover:bg-archive-clay transition-all">
-              CONTACT MEDIA DESK
-            </button>
-          </div>
 
-          <div className="bg-archive-charcoal p-16 text-white space-y-12 relative overflow-hidden">
-            <div className="absolute top-0 right-0 p-8 opacity-5">
-              <Database size={100} />
-            </div>
-            <div className="space-y-4">
-              <span className="text-archive-clay text-[14px] font-black tracking-[0.5em]">Archive Download</span>
-              <h4 className="text-xl font-black leading-none uppercase">DOWNLOAD <br /> MEDIA KITS.</h4>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {[
-                { label: 'Show Logos', icon: ShieldCheck },
-                { label: 'Press Photos', icon: FileText },
-                { label: 'Post Reports', icon: Database },
-                { label: 'Brand Guidelines', icon: ShieldCheck }
-              ].map((item, i) => (
-                <div key={i} className="p-6 border border-white/10 flex items-center justify-between hover:bg-white/5 cursor-pointer transition-all group">
-                  <span className="text-[14px] font-black tracking-widest uppercase">{item.label}</span>
-                  <ArrowRight size={14} className="text-archive-clay group-hover:translate-x-1 transition-transform" />
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
     </div>
   );
 };

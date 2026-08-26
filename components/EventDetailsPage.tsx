@@ -256,30 +256,7 @@ const EventDetailsPage: React.FC<EventDetailsPageProps> = ({ eventId = 'ex-bg' }
         </div>
       </section>
 
-      {/* Clean Metrics Strip */}
-      <section className="max-w-[1440px] mx-auto px-6 md:px-12 mb-20">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 py-8 border-y border-archive-charcoal/15">
-          <div className="space-y-1">
-            <div className="text-3xl md:text-5xl font-black text-archive-clay leading-none">{event.stats.exhibitors}</div>
-            <div className="text-xs font-bold text-archive-charcoal/60 uppercase tracking-wider pt-1">Global Exhibitors</div>
-          </div>
 
-          <div className="space-y-1">
-            <div className="text-3xl md:text-5xl font-black text-archive-charcoal leading-none">{event.stats.buyers}</div>
-            <div className="text-xs font-bold text-archive-charcoal/60 uppercase tracking-wider pt-1">Trade Visitors</div>
-          </div>
-
-          <div className="space-y-1">
-            <div className="text-3xl md:text-5xl font-black text-archive-charcoal leading-none">{event.stats.countries}</div>
-            <div className="text-xs font-bold text-archive-charcoal/60 uppercase tracking-wider pt-1">Participating Nations</div>
-          </div>
-
-          <div className="space-y-1">
-            <div className="text-3xl md:text-5xl font-black text-archive-clay leading-none">{event.stats.categories}</div>
-            <div className="text-xs font-bold text-archive-charcoal/60 uppercase tracking-wider pt-1">Product Sectors</div>
-          </div>
-        </div>
-      </section>
 
       {/* Overview Section */}
       <section className="max-w-[1440px] mx-auto px-6 md:px-12 mb-20 space-y-6">

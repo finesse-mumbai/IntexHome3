@@ -10,9 +10,6 @@ export default function HomeBlogs() {
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 p-2">
         <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
           <div>
-            <span className="text-[14px] font-black tracking-[0.5em] text-archive-clay uppercase mb-4 block">
-              Market Intelligence
-            </span>
             <h2 className="text-3xl md:text-5xl font-black tracking-tighter leading-[0.9] text-archive-charcoal uppercase">
               Intex <br /> Blogs.
             </h2>

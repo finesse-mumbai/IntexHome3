@@ -48,36 +48,24 @@ const PostShowReportPage: React.FC = () => {
     <div className="bg-archive-cream min-h-screen pt-32 pb-24 overflow-hidden">
       {/* Page Header */}
       <section className="px-6 md:px-12 max-w-[1440px] mx-auto mb-20">
-        <div className="flex flex-col gap-12">
-          <div className="space-y-6">
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-[1px] bg-archive-clay"></div>
-              <span className="text-[14px] font-black tracking-[0.5em] text-archive-clay uppercase">Historical Analysis // Audit Log</span>
-            </div>
-            <h1 className="text-4xl md:text-8xl font-black tracking-tighter leading-[0.85] text-archive-charcoal uppercase">
-              POST SHOW <br />
+        <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-8">
+          <div>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter leading-[0.85] text-archive-charcoal uppercase">
+              POST SHOW <br className="hidden lg:inline" />
               <span className="text-white">REPORTS.</span>
             </h1>
           </div>
 
-          <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-12">
-            <div className="lg:col-span-7">
-              <p className="text-xl md:text-2xl font-black text-archive-charcoal/80 leading-tight">
-                Accessing the <span className="text-archive-clay">verified performance data</span> and analytical records of past exhibition nodes.
-              </p>
-            </div>
-
-            <div className="flex flex-wrap border border-archive-charcoal/10 bg-white p-1">
-              {years.map((yr) => (
-                <button
-                  key={yr}
-                  onClick={() => setFilterYear(yr)}
-                  className={`px-6 py-3 text-[14px] font-black tracking-widest transition-all ${filterYear === yr ? 'bg-archive-charcoal text-white' : 'text-archive-charcoal/40 hover:text-archive-charcoal'}`}
-                >
-                  {yr}
-                </button>
-              ))}
-            </div>
+          <div className="flex flex-wrap border border-archive-charcoal/10 bg-white p-1 shrink-0 max-w-full">
+            {years.map((yr) => (
+              <button
+                key={yr}
+                onClick={() => setFilterYear(yr)}
+                className={`px-4 md:px-6 py-3 text-[13px] md:text-[14px] font-black tracking-widest transition-all uppercase ${filterYear === yr ? 'bg-archive-charcoal text-white' : 'text-archive-charcoal/40 hover:text-archive-charcoal'}`}
+              >
+                {yr}
+              </button>
+            ))}
           </div>
         </div>
       </section>

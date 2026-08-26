@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { MailOpen, Zap, MessageSquare, Share2, Handshake, Newspaper, Headphones, Tv, ArrowRight } from 'lucide-react';
+import { MailOpen, Zap, MessageSquare, Share2, Handshake, Newspaper, Headphones, Tv } from 'lucide-react';
 
 const ACTIVITIES = [
   {
@@ -61,27 +61,11 @@ const PromotionActivitiesPage: React.FC = () => {
       <section className="px-6 md:px-12 max-w-[1440px] mx-auto mb-16">
         <div className="flex flex-col gap-12">
           <div className="space-y-6">
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-[1px] bg-archive-clay"></div>
-              <span className="text-[14px] font-black tracking-[0.5em] text-archive-clay uppercase">Outreach // Protocols</span>
-            </div>
             <h1 className="text-4xl md:text-8xl font-black tracking-tighter leading-[0.85] text-archive-charcoal uppercase">
               Promotion <br />
               <span>Activities.</span>
             </h1>
           </div>
-        </div>
-      </section>
-
-      {/* Narrative Section */}
-      <section className="px-6 md:px-12 max-w-[1440px] mx-auto mb-20">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
-          <div className="lg:col-span-12 space-y-5">
-            <p className="text-xl md:text-3xl font-black text-archive-charcoal leading-tight">
-              A multi-channel <span className="text-archive-clay">marketing matrix</span> designed for maximum trade impact.
-            </p>
-          </div>
-
         </div>
       </section>
 
@@ -117,30 +101,7 @@ const PromotionActivitiesPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Closing Statement */}
-      <section className="py-40 px-6 md:px-12 max-w-[1440px] mx-auto flex flex-col items-center text-center space-y-10">
-        <div className="w-20 h-px bg-archive-clay"></div>
-        <h2 className="text-4xl md:text-8xl font-black tracking-tighter text-archive-charcoal uppercase">
-          Drive <span>Engagement.</span> <br />
-          <span >Secure Volume.</span>
-        </h2>
-        <div className="flex flex-col sm:flex-row gap-6">
-          <a
-            href="https://portal.intexfair.com/buyer_reg_portal.php?form_name=pre-buyer-registration&country=sl&source_name="
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-12 py-6 bg-archive-clay text-white font-black text-[15px] tracking-[0.4em] hover:bg-archive-charcoal transition-all flex items-center justify-center gap-4"
-          >
-            BUYER REGISTRATION <ArrowRight size={14} className="uppercase" />
-          </a>
-          <a
-            href="#enquiry-form"
-            className="px-12 py-6 border border-archive-charcoal text-archive-charcoal font-black text-[15px] tracking-[0.4em] hover:bg-archive-charcoal hover:text-white transition-all flex items-center justify-center"
-          >
-            EXHIBITOR ENQUIRY
-          </a>
-        </div>
-      </section>
+
 
 
     </div>

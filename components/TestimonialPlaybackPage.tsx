@@ -50,10 +50,6 @@ const TestimonialPlaybackPage: React.FC = () => {
       {/* PAGE HEADER */}
       <div className="flex items-center justify-between mb-8">
         <div className="space-y-1">
-          <div className="flex items-center gap-4">
-            <div className="w-10 h-[1px] bg-archive-clay"></div>
-            <span className="text-[14px] font-black tracking-[0.5em] text-archive-clay uppercase">Testimonial Archive // Playback Terminal</span>
-          </div>
           <h1 className="text-3xl md:text-5xl font-black tracking-tighter uppercase leading-none text-archive-charcoal">
             Testimonial <span className="text-archive-clay">Records.</span>
           </h1>

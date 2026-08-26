@@ -235,7 +235,7 @@ const App: React.FC = () => {
                           className="overflow-hidden space-y-4"
                         >
                           <p className="text-archive-charcoal text-[14px] leading-relaxed max-w-lg tracking-widest font-medium opacity-80">
-                            Over the years, Intex has facilitated thousands of successful B2B engagements, strengthening regional supply chains and supporting the consistent growth of the apparel and textile industry. With a focused approach to quality exhibitors, verified buyers, and meaningful networking, it has established itself as a preferred destination for sourcing, collaboration, and market intelligence.
+                            Over the years, Intex has facilitated thousands of successful B2B engagements, strengthening regional supply chains and supporting the consistent growth of the apparel and textile industry. With a focused approach to quality exhibitors, verified buyers, and meaningful networking, it has established itself as a preferred destination for sourcing and collaboration.
                           </p>
                           <p className="text-archive-charcoal text-[14px] leading-relaxed max-w-lg tracking-widest font-medium opacity-80">
                             As South Asia continues to play a pivotal role in global textile manufacturing, Intex stands at the forefront—bridging markets, build trust, and shaping the future of textile and apparel sourcing.
@@ -273,9 +273,6 @@ const App: React.FC = () => {
         <RevealWrapper text="METRICS." subtext="REG_ID // 06" type="center-split-h" amount={0.2}>
           <Stats />
         </RevealWrapper>
-        <RevealWrapper text="WHY INTEX." subtext="REG_ID // 05" type="slide" direction="left" amount={0.3} textSize="text-4xl md:text-8xl">
-          <WhyIntexSection />
-        </RevealWrapper>
 
         <RevealWrapper text="EVENTS." subtext="REG_ID // 02" type="bands-v" amount={0.3}>
           <ExhibitorProfile />
@@ -312,7 +309,7 @@ const App: React.FC = () => {
           <Partners />
         </RevealWrapper>
 
-        <RevealWrapper text="SOCIAL INTELLIGENCE." subtext="REG_ID // 10" type="slide" direction="up" amount={0.3}>
+        <RevealWrapper text="SOCIAL FEED." subtext="REG_ID // 10" type="slide" direction="up" amount={0.3}>
           <SocialFeed />
         </RevealWrapper>
 

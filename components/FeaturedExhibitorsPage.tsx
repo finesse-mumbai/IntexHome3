@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowUpRight, ShieldCheck, Database, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ArrowUpRight, ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface FeaturedExhibitor {
   id: string;
@@ -105,44 +105,32 @@ const FeaturedExhibitorsPage: React.FC = () => {
     <div className="bg-archive-cream min-h-screen pt-32 pb-24 overflow-hidden">
       {/* Header Section */}
       <section className="px-6 md:px-12 max-w-[1440px] mx-auto mb-20">
-        <div className="flex flex-col gap-12">
-          <div className="space-y-6">
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-[1px] bg-archive-clay"></div>
-              <span className="text-[15px] font-black tracking-[0.5em] text-archive-clay uppercase">Elite Registry // Node Selection</span>
-            </div>
-            <h1 className="text-4xl md:text-8xl font-black tracking-tighter leading-[0.85] text-archive-charcoal uppercase">
-              Featured <br />
+        <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-8">
+          <div>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter leading-[0.85] text-archive-charcoal uppercase">
+              Featured <br className="hidden lg:inline" />
               <span className="text-white">Exhibitors.</span>
             </h1>
           </div>
 
-          <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-12">
-            <div className="lg:col-span-7">
-              <p className="text-xl md:text-2xl font-black text-archive-charcoal/80 leading-tight">
-                Showcasing the <span className="text-archive-clay">strategic leaders</span> driving textile innovation across the South Asian matrix.
-              </p>
-            </div>
-
-            {/* Show Tabs Selector */}
-            <div className="flex flex-col sm:flex-row border border-archive-charcoal/10 bg-white p-2">
-              {shows.map((show) => {
-                const dates: Record<string, string> = {
-                  'BANGLADESH': '18-20 JUNE, 2026',
-                  'SRI LANKA': '5-7 AUGUST 2026'
-                };
-                return (
-                  <button
-                    key={show}
-                    onClick={() => setActiveShow(show)}
-                    className={`px-8 py-4 text-[15px] font-black tracking-widest transition-all uppercase ${activeShow === show ? 'bg-archive-charcoal text-white' : 'text-archive-charcoal/40 hover:text-archive-charcoal'}`}
-                  >
-                    INTEX {show}
-                    <span className="opacity-60 font-bold block mt-1">{dates[show]}</span>
-                  </button>
-                );
-              })}
-            </div>
+          {/* Show Tabs Selector */}
+          <div className="flex flex-col sm:flex-row border border-archive-charcoal/10 bg-white p-2 shrink-0">
+            {shows.map((show) => {
+              const dates: Record<string, string> = {
+                'BANGLADESH': '18-20 JUNE, 2026',
+                'SRI LANKA': '5-7 AUGUST 2026'
+              };
+              return (
+                <button
+                  key={show}
+                  onClick={() => setActiveShow(show)}
+                  className={`px-8 py-4 text-[15px] font-black tracking-widest transition-all uppercase ${activeShow === show ? 'bg-archive-charcoal text-white' : 'text-archive-charcoal/40 hover:text-archive-charcoal'}`}
+                >
+                  INTEX {show}
+                  <span className="opacity-60 font-bold block mt-1">{dates[show]}</span>
+                </button>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -188,15 +176,15 @@ const FeaturedExhibitorsPage: React.FC = () => {
               {FEATURED_DATA[activeShow].map((ex) => (
                 <div
                   key={ex.id}
-                  className="flex-shrink-0 w-[280px] snap-start bg-white group/card relative overflow-hidden flex flex-col h-[340px] border border-archive-charcoal/10 hover:bg-archive-charcoal transition-all duration-700 shadow-sm hover:shadow-md"
+                  className="flex-shrink-0 w-[340px] snap-start bg-white group/card relative overflow-hidden flex flex-col h-[400px] border border-archive-charcoal/10 hover:bg-archive-charcoal transition-all duration-700 shadow-sm hover:shadow-md"
                 >
                   {/* Logo Frame */}
-                  <div className="h-[60%] p-8 flex items-center justify-center relative bg-white transition-colors duration-700">
+                  <div className="h-[68%] p-4 flex items-center justify-center relative bg-white transition-colors duration-700">
                     <div className="w-full h-full flex items-center justify-center relative overflow-hidden">
                       <img
                         src={ex.logo}
                         alt={ex.name}
-                        className="w-[140px] h-[100px] object-contain transition-all duration-700 group-hover/card:scale-110"
+                        className="w-[280px] h-[200px] max-w-full max-h-full object-contain transition-all duration-700 group-hover/card:scale-110"
                         onError={(e) => {
                           (e.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${ex.name}&background=F3EBE8&color=2F2C2C&bold=true`;
                         }}
@@ -205,7 +193,7 @@ const FeaturedExhibitorsPage: React.FC = () => {
                   </div>
 
                   {/* Info Frame */}
-                  <div className="h-[40%] flex flex-col justify-between p-6 bg-archive-cream/30 group-hover/card:text-white transition-colors duration-700">
+                  <div className="h-[32%] flex flex-col justify-between p-6 bg-archive-cream/30 group-hover/card:text-white transition-colors duration-700">
                     <div>
                       <h3 className="text-xl font-semibold tracking-tight leading-snug group-hover/card:text-archive-clay transition-colors duration-500 line-clamp-2">
                         {ex.name}
@@ -222,38 +210,6 @@ const FeaturedExhibitorsPage: React.FC = () => {
             </div>
           </motion.div>
         </AnimatePresence>
-      </section>
-
-      {/* Technical CTA Section */}
-      <section className="py-40 px-6 md:px-12 max-w-[1440px] mx-auto">
-        <div className="bg-archive-charcoal p-20 text-white relative overflow-hidden">
-          <div className="absolute top-0 right-0 p-12 opacity-5 pointer-events-none">
-            <ShieldCheck size={200} />
-          </div>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 relative z-10 items-center">
-            <div className="lg:col-span-8 space-y-8">
-              <div className="flex items-center gap-4">
-                <Database size={16} className="text-archive-clay" />
-                <span className="text-[15px] font-black tracking-[0.5em] text-archive-clay uppercase">Exhibition Management</span>
-              </div>
-              <h2 className="text-3xl md:text-4xl font-black tracking-tighter leading-[0.9] uppercase">
-                Get your brand <br /> <span className="text-archive-clay">indexed as featured.</span>
-              </h2>
-              <p className="text-[15px] font-bold tracking-widest leading-relaxed text-white/40 max-w-xl">
-                Featured exhibitors receive priority placement across all digital directories, physical signage, and post-show media coverage.
-                Enquire today to elevate your visibility in the 2026 Archive.
-              </p>
-            </div>
-            <div className="lg:col-span-4 flex justify-end">
-              <a
-                href="#enquiry-form"
-                className="w-full lg:w-auto px-12 py-6 bg-archive-clay text-white font-black text-[15px] tracking-[0.4em] hover:bg-white hover:text-archive-charcoal transition-all text-center uppercase"
-              >
-                APPLY FOR FEATURED STATUS
-              </a>
-            </div>
-          </div>
-        </div>
       </section>
     </div>
   );

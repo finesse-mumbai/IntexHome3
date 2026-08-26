@@ -118,10 +118,6 @@ const ExhibitorProfile: React.FC = () => {
 
         {/* Section Main Header */}
         <div className="space-y-6">
-          <div className="flex items-center gap-4">
-            <div className="w-12 h-[1px] bg-archive-clay"></div>
-            <span className="text-[14px] font-black tracking-[0.5em] text-archive-clay uppercase">Sourcing Registry</span>
-          </div>
           <h2 className="text-3xl md:text-5xl font-black tracking-tighter leading-[0.9] text-archive-charcoal uppercase">
             Upcoming <br /><span className="text-archive-clay">Exhibitions.</span>
           </h2>
@@ -134,9 +130,6 @@ const ExhibitorProfile: React.FC = () => {
             <h3 className="text-xl md:text-2xl font-black tracking-wider text-archive-charcoal uppercase">
               Intex South Asia
             </h3>
-            <span className="text-xs font-bold px-2.5 py-1 bg-archive-clay/10 text-archive-clay rounded-md uppercase tracking-widest">
-              3 Shows
-            </span>
           </div>
 
           {/* Multi-Layered Stacked Plate Background (50% Less Rounded: 32px / 28px / 24px) */}
@@ -183,9 +176,6 @@ const ExhibitorProfile: React.FC = () => {
                     <div className="flex items-start justify-between">
                       <div className="space-y-4">
                         <span className="block text-[40px] font-black text-white/10 leading-none tabular-nums">0{idx + 1}</span>
-                        <div className="inline-block px-3 py-1 bg-archive-clay">
-                          <span className="text-[14px] font-black text-white tracking-[0.2em] uppercase">{ex.edition}</span>
-                        </div>
                       </div>
                     </div>
 
@@ -232,12 +222,12 @@ const ExhibitorProfile: React.FC = () => {
           </div>
         </div>
 
-        {/* REGION 2: INTEX ASIA (EXPANSION FEATURE SPOTLIGHT - CLEAN & PREMIUM) */}
+        {/* REGION 2: INTEX ASIAN (EXPANSION FEATURE SPOTLIGHT - CLEAN & PREMIUM) */}
         <div className="space-y-8 pt-8">
           {/* Subheader */}
           <div className="flex flex-wrap items-center gap-4 border-b border-archive-charcoal/10 pb-4">
             <h3 className="text-xl md:text-2xl font-black tracking-wider text-archive-charcoal uppercase">
-              Intex Asia
+              Intex Asian
             </h3>
             <TypewriterText text="NEW REGION · GLOBAL EXPANSION" delay={70} />
           </div>
@@ -289,10 +279,7 @@ const ExhibitorProfile: React.FC = () => {
 
                       {/* Content Overlay */}
                       <div className="absolute inset-0 p-8 flex flex-col justify-between">
-                        <div className="flex items-center justify-between">
-                          <span className="text-xs font-bold px-3 py-1 bg-archive-clay text-white uppercase tracking-widest rounded">
-                            {ex.edition}
-                          </span>
+                        <div className="flex items-center justify-end">
                           <span className="text-xs font-mono text-white/50 tracking-widest uppercase">
                             01 // NEW SHOW
                           </span>
@@ -338,12 +325,7 @@ const ExhibitorProfile: React.FC = () => {
                 {/* Right Column: Clean Premium Expansion Overview */}
                 <div className="lg:col-span-7 flex flex-col justify-between space-y-8 py-2">
                   <div className="space-y-6">
-                    <div className="flex items-center gap-2.5">
-                      <span className="w-2 h-2 rounded-full bg-archive-clay animate-pulse" />
-                      <span className="text-xs font-mono font-bold text-archive-clay tracking-[0.3em] uppercase">
-                        EXPANSION CORRIDOR
-                      </span>
-                    </div>
+
 
                     <h4 className="text-3xl md:text-5xl font-black text-white uppercase tracking-tight leading-[1.05]">
                       Expanding <br />
@@ -353,27 +335,6 @@ const ExhibitorProfile: React.FC = () => {
                     <p className="text-sm md:text-base font-normal text-white/70 leading-relaxed max-w-xl">
                       Intex is extending its international sourcing footprint into South-East Asia's primary textile manufacturing markets. Connecting global suppliers with high-growth regional buyers.
                     </p>
-                  </div>
-
-                  {/* Clean Destinations Display */}
-                  <div className="space-y-3 pt-4 border-t border-white/10">
-                    <span className="text-[11px] font-mono font-bold text-white/40 uppercase tracking-widest block">
-                      Target Destinations
-                    </span>
-                    <div className="flex flex-wrap items-center gap-3">
-                      <span className="px-3.5 py-1.5 bg-archive-clay/20 text-archive-clay text-xs font-bold uppercase tracking-wider rounded">
-                        Indonesia (Active)
-                      </span>
-                      <span className="px-3.5 py-1.5 bg-white/5 text-white/70 text-xs font-medium uppercase tracking-wider rounded">
-                        Vietnam
-                      </span>
-                      <span className="px-3.5 py-1.5 bg-white/5 text-white/70 text-xs font-medium uppercase tracking-wider rounded">
-                        Thailand
-                      </span>
-                      <span className="px-3.5 py-1.5 bg-white/5 text-white/70 text-xs font-medium uppercase tracking-wider rounded">
-                        Cambodia
-                      </span>
-                    </div>
                   </div>
 
                   {/* Action Link */}
@@ -386,8 +347,8 @@ const ExhibitorProfile: React.FC = () => {
                         Book Your Space in Upcoming Asia Editions
                       </p>
                     </div>
-                    <button className="px-6 py-3.5 bg-archive-clay hover:bg-white text-white hover:text-archive-charcoal transition-all duration-300 font-bold text-xs uppercase tracking-[0.2em] rounded flex items-center gap-2 shrink-0 group/btn">
-                      <span>EXHIBIT IN ASIA</span>
+                    <button className="px-6 py-3.5 bg-archive-clay hover:bg-white text-white hover:text-archive-charcoal transition-all duration-300 font-bold text-[14px] uppercase tracking-[0.2em] rounded flex items-center gap-2 shrink-0 group/btn">
+                      <span>Click Here to Exhibit</span>
                       <ArrowUpRight size={16} className="group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
                     </button>
                   </div>

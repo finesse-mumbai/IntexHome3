@@ -68,22 +68,7 @@ const ExhibitorImageSlider: React.FC = () => {
 
       <div className="absolute inset-0 bg-gradient-to-t from-archive-charcoal via-transparent to-black/30" />
 
-      {/* Slide Badge */}
-      <div className="absolute top-6 left-6 z-10">
-        <span className="px-3 py-1.5 bg-black/70 backdrop-blur-md text-xs font-mono font-black text-white tracking-widest uppercase border border-white/20">
-          0{currentIndex + 1} // 0{SLIDER_IMAGES.length}
-        </span>
-      </div>
 
-      {/* Caption Overlay */}
-      <div className="absolute bottom-6 left-6 right-24 z-10 space-y-1">
-        <h4 className="text-xl md:text-2xl font-black text-white uppercase tracking-tight leading-tight">
-          {current.title}
-        </h4>
-        <p className="text-xs font-mono font-bold text-archive-clay uppercase tracking-widest">
-          {current.caption}
-        </p>
-      </div>
 
       {/* Navigation Controls */}
       <div className="absolute bottom-6 right-6 z-20 flex items-center gap-2">
@@ -122,31 +107,18 @@ const ExhibitorProfilePage: React.FC = () => {
     <div className="bg-archive-cream min-h-screen pt-32 pb-24 overflow-hidden">
       {/* Page Header */}
       <section className="px-6 md:px-12 max-w-[1440px] mx-auto mb-32">
-        <div className="flex flex-col gap-12">
-          <div className="space-y-6">
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-[1px] bg-archive-clay"></div>
-              <span className="text-[14px] font-black tracking-[0.5em] text-archive-clay uppercase">Technical Catalog // 2025</span>
-            </div>
-            <h1 className="text-4xl md:text-8xl font-black tracking-tighter leading-[0.85] text-archive-charcoal uppercase">
-              Exhibitor <br />
+        <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-8">
+          <div>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter leading-[0.85] text-archive-charcoal uppercase">
+              Exhibitor <br className="hidden lg:inline" />
               <span className="text-white">Profiles.</span>
             </h1>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
-            <div className="lg:col-span-7">
-              <p className="text-xl md:text-2xl font-black text-archive-charcoal/80 leading-tight">
-                A specialized directory of <span className="text-archive-clay">global manufacturing powerhouses</span> spanning the entire textile value chain.
-              </p>
-            </div>
-            <div className="lg:col-span-5 flex justify-end">
-              <div className="flex items-center gap-8 border border-archive-charcoal/10 p-6 bg-white/50 backdrop-blur-sm">
-                <div className="text-center px-4">
-                  <div className="text-3xl font-black text-archive-clay">08</div>
-                  <div className="text-[14px] font-black tracking-widest opacity-40 uppercase">Categories</div>
-                </div>
-              </div>
+          <div className="flex items-center gap-8 border border-archive-charcoal/10 p-6 bg-white/50 backdrop-blur-sm shrink-0">
+            <div className="text-center px-4">
+              <div className="text-3xl font-black text-archive-clay">08</div>
+              <div className="text-[14px] font-black tracking-widest opacity-40 uppercase">Categories</div>
             </div>
           </div>
         </div>
@@ -215,13 +187,13 @@ const ExhibitorProfilePage: React.FC = () => {
             <div className="space-y-4 relative z-10">
               <span className="text-archive-clay text-[14px] font-black tracking-[0.5em] uppercase">Booth Enquiry</span>
               <h3 className="text-3xl md:text-5xl font-black leading-[0.95] uppercase">
-                Secure your space <br /> in the 2026 Archive.
+                Secure your space <br /> in the 2026 Intex.
               </h3>
             </div>
 
             <div className="space-y-8 relative z-10 pt-6">
               <p className="text-[14px] font-bold tracking-[0.15em] text-white/60 leading-relaxed">
-                Join the most influential sourcing show in South Asia. Limited premium booth spaces are now available for our upcoming editions in Dhaka, Colombo, and New Delhi.
+                Join the most influential sourcing show in South Asia. Limited  booth spaces are now available for our upcoming editions in Dhaka, Colombo, and New Delhi.
               </p>
               <div>
                 <button className="px-12 py-5 bg-archive-clay text-white font-black text-[14px] tracking-[0.3em] hover:bg-white hover:text-archive-charcoal transition-all">

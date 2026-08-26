@@ -68,22 +68,8 @@ const BuyerImageSlider: React.FC = () => {
 
       <div className="absolute inset-0 bg-gradient-to-t from-archive-charcoal via-transparent to-black/30" />
 
-      {/* Slide Badge */}
-      <div className="absolute top-6 left-6 z-10">
-        <span className="px-3 py-1.5 bg-black/70 backdrop-blur-md text-xs font-mono font-black text-white tracking-widest uppercase border border-white/20">
-          0{currentIndex + 1} // 0{BUYER_SLIDER_IMAGES.length}
-        </span>
-      </div>
 
-      {/* Caption Overlay */}
-      <div className="absolute bottom-6 left-6 right-24 z-10 space-y-1">
-        <h4 className="text-xl md:text-2xl font-black text-white uppercase tracking-tight leading-tight">
-          {current.title}
-        </h4>
-        <p className="text-xs font-mono font-bold text-archive-clay uppercase tracking-widest">
-          {current.caption}
-        </p>
-      </div>
+
 
       {/* Navigation Controls */}
       <div className="absolute bottom-6 right-6 z-20 flex items-center gap-2">
@@ -122,39 +108,26 @@ const BuyerProfilePage: React.FC = () => {
     <div className="bg-archive-cream min-h-screen pt-32 pb-24 overflow-hidden">
       {/* Page Header */}
       <section className="px-6 md:px-12 max-w-[1440px] mx-auto mb-32">
-        <div className="flex flex-col gap-12">
-          <div className="space-y-6">
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-[1px] bg-archive-clay"></div>
-              <span className="text-[14px] font-black tracking-[0.5em] text-archive-clay uppercase">Sourcing Matrix // 2025</span>
-            </div>
-            <h1 className="text-4xl md:text-8xl font-black tracking-tighter leading-[0.85] text-archive-charcoal uppercase">
-              Buyer <br />
+        <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-8">
+          <div>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter leading-[0.85] text-archive-charcoal uppercase">
+              Buyer <br className="hidden lg:inline" />
               <span className="text-white">Profiles.</span>
             </h1>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
-            <div className="lg:col-span-7">
-              <p className="text-xl md:text-2xl font-black text-archive-charcoal/80 leading-tight">
-                A comprehensive directory of <span className="text-archive-clay">global procurement leaders</span> representing the industry's most influential sourcing nodes.
-              </p>
-            </div>
-            <div className="lg:col-span-5 flex justify-end">
-              <div className="flex items-center justify-center gap-8 border border-archive-charcoal/10 p-6 bg-white/50 backdrop-blur-sm">
-                <div className="text-center px-4">
-                  <div className="text-3xl font-black text-archive-clay">22</div>
-                  <div className="text-[14px] font-black tracking-widest opacity-40 uppercase">Profile Types</div>
-                </div>
-              </div>
+          <div className="flex items-center justify-center gap-8 border border-archive-charcoal/10 p-6 bg-white/50 backdrop-blur-sm shrink-0">
+            <div className="text-center px-4">
+              <div className="text-3xl font-black text-archive-clay">22</div>
+              <div className="text-[14px] font-black tracking-widest opacity-40 uppercase">Profile Types</div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Categories Grid */}
-      <section className="px-6 md:px-12 max-w-[1440px] mx-auto">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+      <section className="max-w-[1440px] mx-auto">
+        <div className="flex flex-wrap justify-center gap-4 md:gap-6">
           {BUYER_PROFILES.map((profile, idx) => (
             <motion.div
               key={profile.title}
@@ -162,23 +135,21 @@ const BuyerProfilePage: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.02 }}
               viewport={{ once: true }}
-              className="bg-white group relative aspect-[3/4] overflow-hidden flex flex-col border border-archive-charcoal/10 shadow-sm hover:shadow-md hover:bg-archive-charcoal transition-all duration-700"
+              className="bg-white rounded-none w-48 sm:w-52 p-4 flex flex-col items-center justify-between shadow-sm hover:shadow-lg transition-all duration-300 group"
             >
-              {/* Image Frame */}
-              <div className="h-2/3 relative overflow-hidden bg-archive-cream/30">
+              <div className="py-3 px-1 flex items-center justify-center">
                 <img
                   src={profile.imageUrl}
                   alt={profile.title}
-                  className="w-full h-full object-cover brightness-90 group-hover:scale-110 group-hover:brightness-50 transition-all duration-[2000ms]"
+                  loading="lazy"
+                  className="rounded-full border border-archive-charcoal/15 w-20 h-20 object-contain p-1.5 bg-archive-cream/30 group-hover:scale-110 group-hover:border-archive-clay transition-all duration-500"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${encodeURIComponent(profile.title)}&background=F3EBE8&color=2F2C2C&bold=true`;
+                  }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-archive-charcoal/40 to-transparent"></div>
               </div>
-
-              {/* Content Frame */}
-              <div className="flex-1 px-6 py-5 flex items-center group-hover:text-white transition-colors duration-700">
-                <h3 className="text-base font-black tracking-tighter leading-tight group-hover:text-archive-clay transition-colors duration-500">
-                  {profile.title}
-                </h3>
+              <div className="text-center text-archive-charcoal font-bold text-sm md:text-base py-2 leading-snug group-hover:text-archive-clay transition-colors">
+                {profile.title}
               </div>
             </motion.div>
           ))}
@@ -202,7 +173,7 @@ const BuyerProfilePage: React.FC = () => {
             <div className="space-y-4 relative z-10">
               <span className="text-archive-clay text-[14px] font-black tracking-[0.5em] uppercase">Visitor Registry</span>
               <h3 className="text-3xl md:text-5xl font-black leading-[0.95] uppercase">
-                Register as a <br /> High-Value Buyer.
+                Register as a <br /> VIP Buyer.
               </h3>
             </div>
 

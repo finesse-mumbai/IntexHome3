@@ -23,18 +23,9 @@ const Resources: React.FC = () => {
       <div className="max-w-[1440px] mx-auto px-12 relative z-10">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-24 gap-8">
           <div className="space-y-6">
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-[1px] bg-archive-clay"></div>
-              <span className="text-[14px] font-black tracking-[0.5em] uppercase text-archive-clay">Asset Library</span>
-            </div>
             <h2 className="text-2xl md:text-4xl font-black tracking-tighter uppercase leading-[0.9] text-archive-charcoal">
-              Resource <br /><span className="text-archive-clay">Inventory.</span>
+              Download <br /><span className="text-archive-clay">Resources.</span>
             </h2>
-          </div>
-          <div className="flex flex-col items-end gap-6 max-w-xs text-right py-2">
-            <p className="text-[14px] font-bold tracking-widest text-archive-charcoal/40 uppercase leading-relaxed">
-              Proprietary datasets, technical specifications, and post-exhibition intelligence for the global textile matrix.
-            </p>
           </div>
         </div>
 

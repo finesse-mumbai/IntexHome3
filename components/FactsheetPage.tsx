@@ -85,22 +85,10 @@ const FactsheetPage: React.FC = () => {
       <section className="px-6 md:px-12 max-w-[1440px] mx-auto mb-20">
         <div className="flex flex-col gap-12">
           <div className="space-y-6">
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-[1px] bg-archive-clay"></div>
-              <span className="text-[15px] font-black tracking-[0.5em] text-archive-clay uppercase">Technical Manifest // Statistics</span>
-            </div>
             <h1 className="text-4xl md:text-8xl font-black tracking-tighter leading-[0.85] text-archive-charcoal uppercase">
               FACT <br />
               <span className="text-white">SHEETS.</span>
             </h1>
-          </div>
-
-          <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-12">
-            <div className="lg:col-span-8">
-              <p className="text-xl md:text-2xl font-black text-archive-charcoal/80 leading-tight">
-                Detailed technical specifications and <span className="text-archive-clay">event intelligence</span> for the 2026 exhibition cycle.
-              </p>
-            </div>
           </div>
         </div>
       </section>

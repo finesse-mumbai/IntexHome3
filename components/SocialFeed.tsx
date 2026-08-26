@@ -312,10 +312,6 @@ const SocialFeed: React.FC = () => {
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 relative z-10 space-y-16">
         {/* Section Header */}
         <div className="flex flex-col items-start text-left space-y-6">
-          <div className="flex items-center gap-4">
-            <div className="w-12 h-[1px] bg-archive-clay"></div>
-            <span className="text-[14px] font-black uppercase text-archive-clay tracking-[0.3em]">Social Intelligence</span>
-          </div>
           <h2 className="text-2xl md:text-4xl font-black tracking-tighter uppercase leading-[0.9] text-archive-charcoal">
             Social Network <br /> <span className="text-archive-clay">Feed Insight.</span>
           </h2>

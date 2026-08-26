@@ -9,10 +9,33 @@ const XIcon = ({ size = 20 }: { size?: number }) => (
 );
 
 const Footer: React.FC = () => {
-  const brandName = 'INTEX SOUTH ASIA';
+  const brandName = 'INTEX SERIES OF EXHIBITION';
 
   return (
     <>
+      <section className="relative flex h-[15vh] w-full items-center justify-center overflow-hidden bg-archive-clay md:h-[20vh]">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 h-full w-full object-cover contrast-125"
+        >
+          <source src="/assets/website video intex  Copy 03.mp4" type="video/mp4" />
+        </video>
+        <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black mix-blend-multiply px-4">
+          <motion.h1
+            initial={{ letterSpacing: '0.8em', opacity: 0 }}
+            whileInView={{ letterSpacing: '0.05em', opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
+            className="m-0 whitespace-nowrap p-0 text-center text-[4.5vw] md:text-[5.5vw] font-black leading-none text-white uppercase"
+          >
+            {brandName}
+          </motion.h1>
+        </div>
+      </section>
+
       <footer className="relative flex flex-col overflow-hidden bg-[#111111] selection:bg-archive-clay selection:text-[#111111]" id="footer">
         <div className="relative z-10 bg-[#111111]">
           <div className="relative mx-auto w-[95%]">
@@ -121,29 +144,6 @@ const Footer: React.FC = () => {
           </div>
         </div>
       </footer>
-
-      <section className="relative flex h-[15vh] w-full items-center justify-center overflow-hidden bg-archive-clay md:h-[20vh]">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute inset-0 h-full w-full object-cover contrast-125"
-        >
-          <source src="/assets/website video intex  Copy 03.mp4" type="video/mp4" />
-        </video>
-        <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black mix-blend-multiply">
-          <motion.h1
-            initial={{ letterSpacing: '1em', opacity: 0 }}
-            whileInView={{ letterSpacing: '0.1em', opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
-            className="m-0 whitespace-nowrap p-0 text-center text-[8vw] font-black leading-none text-white"
-          >
-            {brandName}
-          </motion.h1>
-        </div>
-      </section>
     </>
   );
 };

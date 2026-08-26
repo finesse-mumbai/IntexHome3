@@ -260,10 +260,6 @@ const ExhibitorsTestimonialPage: React.FC = () => {
       <section className="px-6 md:px-12 max-w-[1440px] mx-auto mb-20">
         <div className="flex flex-col gap-12">
           <div className="space-y-6">
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-[1px] bg-archive-clay"></div>
-              <span className="text-[14px] font-black tracking-[0.5em] text-archive-clay uppercase">Exhibitor Voices // Database</span>
-            </div>
             <h1 className="text-4xl md:text-8xl font-black tracking-tighter leading-[0.85] text-archive-charcoal uppercase">
               Exhibitor <br />
               <span className="text-white">Testimonials.</span>
@@ -375,7 +371,7 @@ const ExhibitorsTestimonialPage: React.FC = () => {
             Ready to <span className="text-archive-clay">Join Intex?</span>
           </h2>
           <p className="text-white/60 text-[15px] font-bold tracking-widest max-w-2xl mx-auto mb-10 leading-relaxed">
-            Secure your premium booth space or register as a buyer for the upcoming editions.
+            Secure your booth space or register as a buyer for the upcoming editions.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 w-full">
             <a

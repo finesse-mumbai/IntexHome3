@@ -12,10 +12,6 @@ const ShowProfilePage: React.FC = () => {
       <section className="px-6 md:px-12 max-w-[1440px] mx-auto mb-32">
         <div className="flex flex-col gap-12">
           <div className="space-y-6">
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-[1px] bg-archive-clay"></div>
-              <span className="text-[14px] font-black tracking-[0.5em] text-archive-clay uppercase">Identity // Records</span>
-            </div>
             <h1 className="text-4xl md:text-8xl font-black tracking-tighter leading-[0.8] text-archive-charcoal uppercase">
               Show <br /> <span className="text-archive-clay">Profile.</span>
             </h1>

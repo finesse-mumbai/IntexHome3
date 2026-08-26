@@ -60,36 +60,27 @@ export default function IndustryPartnersPage() {
   return (
     <div className="min-h-screen bg-archive-cream pt-32 pb-24 overflow-hidden">
       <section className="mx-auto mb-20 max-w-[1440px] px-6 md:px-12">
-        <div className="flex flex-col gap-12">
-          <div className="space-y-6">
-            <div className="flex items-center gap-4">
-              <div className="h-px w-12 bg-archive-clay"></div>
-              <span className="text-[15px] font-black uppercase tracking-[0.5em] text-archive-clay">Alliance Registry // Trade Network</span>
-            </div>
-            <h1 className="text-4xl md:text-8xl font-black uppercase tracking-tighter leading-[0.85] text-archive-charcoal">
-              INDUSTRY <br />
+        <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-8">
+          <div>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black uppercase tracking-tighter leading-[0.85] text-archive-charcoal">
+              INDUSTRY <br className="hidden lg:inline" />
               <span className="text-white">PARTNERS.</span>
             </h1>
           </div>
 
-          <div className="flex flex-col gap-8 border-y border-archive-charcoal/10 py-10 lg:flex-row lg:items-end lg:justify-between">
-            <p className="max-w-2xl text-[15px] font-bold leading-relaxed tracking-[0.15em] text-archive-charcoal/60">
-              Official partner records from Intex Bangladesh and Intex Sri Lanka, covering industry associations and textile councils.
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {(['ALL', 'Bangladesh', 'Sri Lanka'] as const).map((event) => (
-                <button
-                  key={event}
-                  onClick={() => setActiveEvent(event)}
-                  className={`border px-8 py-3 text-[15px] font-black tracking-widest transition-all ${activeEvent === event
-                      ? 'border-archive-charcoal bg-archive-charcoal text-white'
-                      : 'border-archive-charcoal/10 text-archive-charcoal/40 hover:text-archive-charcoal'
-                    }`}
-                >
-                  {event.toUpperCase()}
-                </button>
-              ))}
-            </div>
+          <div className="flex border border-archive-charcoal/10 bg-white p-2 shrink-0">
+            {(['ALL', 'Bangladesh', 'Sri Lanka'] as const).map((event) => (
+              <button
+                key={event}
+                onClick={() => setActiveEvent(event)}
+                className={`px-8 py-4 text-[14px] font-black tracking-widest transition-all uppercase ${activeEvent === event
+                    ? 'bg-archive-charcoal text-white'
+                    : 'text-archive-charcoal/40 hover:text-archive-charcoal'
+                  }`}
+              >
+                {event.toUpperCase()}
+              </button>
+            ))}
           </div>
         </div>
       </section>
@@ -110,13 +101,6 @@ export default function IndustryPartnersPage() {
 
               return (
                 <div key={group} className="space-y-6">
-                  <div className="flex items-center justify-between gap-6 border-b border-archive-charcoal/10 pb-5">
-                    <div className="flex items-center gap-3">
-                      <Handshake size={16} className="text-archive-clay" />
-                      <h2 className="text-lg font-black uppercase leading-none tracking-tight text-archive-charcoal">{group}</h2>
-                    </div>
-                    <span className="text-[15px] font-black tracking-widest text-archive-charcoal/30">{partners.length.toString().padStart(2, '0')} RECORDS</span>
-                  </div>
 
                   <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                     {partners.map((partner, idx) => (

@@ -96,19 +96,9 @@ const Schedule: React.FC = () => {
               <div className="relative z-10 p-12 md:p-24 flex-1 flex flex-col justify-between">
                 <div className="space-y-12">
                   <div className="space-y-6">
-                    <div className="flex items-center gap-4">
-                      <div className="w-12 h-[1px] bg-archive-clay"></div>
-                      <span className="text-[14px] font-black tracking-[0.5em] text-archive-clay uppercase">Event Registry</span>
-                    </div>
                     <h2 className="text-2xl md:text-4xl font-black tracking-tighter leading-[0.9] text-archive-charcoal uppercase">
                       Events & <br /> <span className="text-archive-clay">Program.</span>
                     </h2>
-                  </div>
-
-                  <div className="max-w-xs space-y-6">
-                    <p className="text-[14px] font-bold tracking-widest text-archive-charcoal/60 leading-relaxed">
-                      Strategic sessions, technical forums, and industry mixers indexed for the current and historical cycles.
-                    </p>
                   </div>
 
                   <div className="flex flex-col border border-archive-charcoal/10 divide-y divide-archive-charcoal/10 max-w-sm rounded-2xl overflow-hidden uppercase bg-white/80 backdrop-blur-md">

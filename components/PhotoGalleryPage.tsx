@@ -95,10 +95,6 @@ const PhotoGalleryPage: React.FC = () => {
       <section className="relative z-10 mx-auto mb-12 max-w-[1440px] px-6 md:px-12">
         <div className="flex flex-col gap-12">
           <div className="space-y-6">
-            <div className="flex items-center gap-4">
-              <div className="h-px w-12 bg-archive-clay"></div>
-              <span className="text-[14px] font-black uppercase tracking-[0.5em] text-archive-clay">Visual Archive // Event Records</span>
-            </div>
             <h1 className="text-4xl md:text-8xl font-black uppercase tracking-tighter leading-[0.85] text-white">
               PHOTO{' '}
               <span className="text-archive-clay">GALLERY.</span>

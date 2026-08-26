@@ -51,10 +51,6 @@ const OrganiserPage: React.FC = () => {
               />
             </div>
             <div className="space-y-6 text-center md:text-left">
-              <div className="flex items-center justify-center md:justify-start gap-4">
-                <div className="w-12 h-[1px] bg-archive-clay"></div>
-                <span className="text-[14px] font-black tracking-[0.5em] text-archive-clay uppercase">Organiser Registry</span>
-              </div>
               <h1 className="text-4xl md:text-8xl font-black tracking-tighter leading-[0.9] text-archive-charcoal max-w-2xl uppercase">
                 Worldex India Exhibition & <span>Promotion Pvt. Ltd.</span>
               </h1>
@@ -103,24 +99,11 @@ const OrganiserPage: React.FC = () => {
       {/* Upcoming Exhibitions Section - Formatted like Home Page Sourcing Registry */}
       <section className="py-32 px-6 md:px-12 max-w-[1440px] mx-auto">
         <div className="mb-16 space-y-4">
-          <div className="flex items-center gap-4">
-            <div className="w-12 h-[1px] bg-archive-clay"></div>
-            <span className="text-[14px] font-black tracking-[0.5em] text-archive-clay uppercase">
-              Sourcing Registry
-            </span>
-          </div>
-
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
             <h2 className="text-3xl md:text-5xl font-black tracking-tight text-archive-charcoal uppercase leading-[0.95]">
               Upcoming <br />
               <span className="text-archive-clay">Exhibitions.</span>
             </h2>
-
-            <div className="flex items-center gap-3">
-              <span className="text-xs font-mono font-black tracking-widest text-archive-clay uppercase bg-archive-clay/10 px-4 py-2 border border-archive-clay/20">
-                Intex South Asia • 3 Shows
-              </span>
-            </div>
           </div>
         </div>
 
@@ -147,7 +130,7 @@ const OrganiserPage: React.FC = () => {
               {/* Card Header Tag */}
               <div className="relative z-10 flex justify-between items-start">
                 <span className="px-3 py-1.5 bg-white/10 backdrop-blur-md text-xs font-mono font-bold text-archive-clay uppercase tracking-wider border border-white/10">
-                  0{idx + 1} // {ex.edition}
+                  0{idx + 1}
                 </span>
               </div>
 

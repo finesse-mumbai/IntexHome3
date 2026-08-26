@@ -279,12 +279,6 @@ const Testimonials: React.FC = () => {
           viewport={{ once: true }}
           className="relative z-10 space-y-4"
         >
-          <div className="flex items-center gap-6">
-            <div className="w-16 h-[1px] bg-archive-clay"></div>
-            <div className="flex flex-col">
-              <span className="text-[14px] font-black tracking-[0.6em] uppercase text-archive-clay">Archive // Intelligence // Feedback</span>
-            </div>
-          </div>
           <h2 className="text-2xl md:text-4xl font-black uppercase leading-[0.9] text-archive-charcoal">
             Industry <span className="text-archive-clay">Voice.</span>
           </h2>

@@ -163,20 +163,7 @@ const HOTELS_DATA: Record<string, Hotel[]> = {
       image: "/assets/img/hotel/2025/Ramada Colombo.png",
       remarks: "Based on minimum of 15 rooms per night",
     },
-    {
-      name: "Hotel Sofia Colombo",
-      address: "295A Galle Road, Colombo, Western 00300",
-      website: "https://www.sofiacolombo.com/",
-      star: 4,
-      roomType: "Standard Room",
-      rates: {
-        single: "US $85 (All Incl.)",
-        double: "US $90 (All Incl.)",
-        twin: "US $90 (All Incl.)"
-      },
-      distance: "3.6 kms - 10 mins",
-      image: "/assets/img/hotel/2025/sofia hotel colombo.jpg",
-    },
+
     {
       name: "Mandarina Colombo",
       address: "433 Galle Road Colombo 3, Colombo, Western 00300",
@@ -334,21 +321,6 @@ const HOTELS_DATA: Record<string, Hotel[]> = {
       distance: "6.7 km - 14 mins",
       image: "/assets/img/hotel/2025/Lake Castle.jpg",
       airportTransfers: "Airport Transfers Complimentary",
-    },
-    {
-      name: "Grace 21 Hotel",
-      address: "House #1&3, Road #21, Dhaka 1229, Bangladesh",
-      website: "https://www.hotelgrace21.com/",
-      star: 3,
-      roomType: "Deluxe Single Room",
-      rates: {
-        single: "US $50 (All Inclusive)",
-        double: "US $65 (All Inclusive)",
-        twin: "US $65 (All Inclusive)"
-      },
-      distance: "3.5 km - 7 mins",
-      image: "/assets/img/hotel/2025/Grace21.jpeg",
-      airportTransfers: "Airport Transfers with protocol service complimentary",
     }
   ]
 };
@@ -375,36 +347,25 @@ const HotelsTravelPage: React.FC = () => {
     <div className="bg-archive-cream min-h-screen pt-32 pb-24 overflow-hidden">
       {/* Header Section */}
       <section className="px-6 md:px-12 max-w-[1440px] mx-auto mb-20">
-        <div className="flex flex-col gap-12">
-          <div className="space-y-6">
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-[1px] bg-archive-clay"></div>
-              <span className="text-[14px] font-black tracking-[0.5em] text-archive-clay uppercase">Logistics // Accomodation</span>
-            </div>
-            <h1 className="text-4xl md:text-8xl font-black tracking-tighter leading-[0.85] text-archive-charcoal uppercase">
-              Hotels & <br />
+        <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-8">
+          <div>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter leading-[0.85] text-archive-charcoal uppercase">
+              Hotels & <br className="hidden lg:inline" />
               <span className="text-white">Travel.</span>
             </h1>
           </div>
 
-          <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-12">
-            <div className="lg:col-span-7">
-              <p className="text-xl md:text-2xl font-black text-archive-charcoal/80 leading-tight">
-                Exclusive <span className="text-archive-clay">discounted rates</span> for Intex delegates at premier hospitality partners.
-              </p>
-            </div>
-
-            <div className="flex border border-archive-charcoal/10 bg-white p-2">
-              {shows.map((show) => (
-                <button
-                  key={show}
-                  onClick={() => setActiveShow(show)}
-                  className={`px-8 py-4 text-[14px] font-black tracking-widest transition-all ${activeShow === show ? 'bg-archive-charcoal text-white' : 'text-archive-charcoal/40 hover:text-archive-charcoal'}`}
-                >
-                  {show.toUpperCase()}
-                </button>
-              ))}
-            </div>
+          {/* Show Tabs Selector */}
+          <div className="flex border border-archive-charcoal/10 bg-white p-2 shrink-0">
+            {shows.map((show) => (
+              <button
+                key={show}
+                onClick={() => setActiveShow(show)}
+                className={`px-8 py-4 text-[14px] font-black tracking-widest transition-all uppercase ${activeShow === show ? 'bg-archive-charcoal text-white' : 'text-archive-charcoal/40 hover:text-archive-charcoal'}`}
+              >
+                {show.toUpperCase()}
+              </button>
+            ))}
           </div>
         </div>
       </section>
@@ -418,12 +379,12 @@ const HotelsTravelPage: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-archive-charcoal/10 border border-archive-charcoal/10"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2"
           >
             {activeHotels.map((hotel, idx) => (
               <motion.div
                 key={hotel.name}
-                className="bg-white group relative overflow-hidden flex flex-col h-full hover:bg-archive-charcoal transition-all duration-700"
+                className="bg-white border border-archive-charcoal/10 group relative overflow-hidden flex flex-col h-full hover:bg-archive-charcoal transition-all duration-700 shadow-sm"
               >
                 {/* Image Frame */}
                 <div className="aspect-video relative overflow-hidden bg-archive-cream/30">
@@ -506,15 +467,15 @@ const HotelsTravelPage: React.FC = () => {
         </AnimatePresence>
       </section>
 
-      {/* Info & Contact Protocol */}
-      <section className="px-6 md:px-12 max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-1px bg-archive-charcoal/10 border border-archive-charcoal/10">
+      {/* Important Information & Contact Section */}
+      <section className="px-6 md:px-12 max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-2">
 
         {/* Important Info Column */}
-        <div className="lg:col-span-7 bg-white p-12 md:p-20 space-y-12">
+        <div className="lg:col-span-7 bg-white p-12 md:p-20 space-y-12 border border-archive-charcoal/10 shadow-sm">
           <div className="space-y-6">
             <div className="flex items-center gap-4">
               <Info size={16} className="text-archive-clay" />
-              <h2 className="text-xl font-black tracking-tight text-archive-charcoal uppercase">Protocol // Information</h2>
+              <h2 className="text-xl font-black tracking-tight text-archive-charcoal uppercase">Important Information</h2>
             </div>
             <div className="w-12 h-px bg-archive-clay"></div>
           </div>
