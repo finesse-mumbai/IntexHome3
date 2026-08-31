@@ -9,9 +9,9 @@ const IMG_PANEL = 'C:/Users/USER/.gemini/antigravity/brain/f0c47ca4-7bcb-4ba8-81
 const UPCOMING_EVENTS = [
   {
     id: 'u1',
-    date: '18',
+    date: '22',
     month: 'Jun',
-    day: '2026',
+    day: '2027',
     time: '10:00 - 18:00',
     title: 'VIP OPENING CEREMONY',
     location: 'ICCB, Dhaka, Bangladesh',
@@ -20,9 +20,9 @@ const UPCOMING_EVENTS = [
   },
   {
     id: 'u2',
-    date: '18',
+    date: '22',
     month: 'Jun',
-    day: '2026',
+    day: '2027',
     time: '10:00 - 18:00',
     title: 'Interactive Business Forum Seminar Series (IBF)',
     location: 'ICCB, Dhaka, Bangladesh',
@@ -31,12 +31,23 @@ const UPCOMING_EVENTS = [
   },
   {
     id: 'u3',
-    date: '07',
-    month: 'Aug',
-    day: '2025',
+    date: '24',
+    month: 'Jun',
+    day: '2027',
     time: '17:30 - 19:30',
     title: 'B2B MEETINGS & NETWORKING SESSION',
     location: 'ICCB, Dhaka, Bangladesh',
+    logo: '/assets/B2B LOGO.png',
+    image: IMG_RECEPTION
+  },
+  {
+    id: 'u4',
+    date: '04',
+    month: 'Aug',
+    day: '2027',
+    time: '17:30 - 19:30',
+    title: 'Intex Sri Lanka Opening Day',
+    location: 'BMICH, Colombo, Sri Lanka',
     logo: '/assets/B2B LOGO.png',
     image: IMG_RECEPTION
   }

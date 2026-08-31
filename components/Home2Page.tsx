@@ -20,14 +20,14 @@ const SHOWS = [
   {
     city: 'Colombo',
     country: 'Sri Lanka',
-    date: '06-08 Aug 2025',
+    date: '04-06 Aug 2027',
     venue: 'BMICH',
     image: '/assets/img/GallerySL/2025/1.jpg',
   },
   {
     city: 'Dhaka',
     country: 'Bangladesh',
-    date: '2026 Edition',
+    date: '22-24 Jun 2027',
     venue: 'International Convention City',
     image: '/assets/img/GalleryBD/2025/7.png',
   },

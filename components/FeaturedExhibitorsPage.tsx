@@ -117,8 +117,8 @@ const FeaturedExhibitorsPage: React.FC = () => {
           <div className="flex flex-col sm:flex-row border border-archive-charcoal/10 bg-white p-2 shrink-0">
             {shows.map((show) => {
               const dates: Record<string, string> = {
-                'BANGLADESH': '18-20 JUNE, 2026',
-                'SRI LANKA': '5-7 AUGUST 2026'
+                'BANGLADESH': '22-24 JUNE, 2027',
+                'SRI LANKA': '4-6 AUGUST 2027'
               };
               return (
                 <button

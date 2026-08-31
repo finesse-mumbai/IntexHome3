@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowUpRight, Globe, Download } from 'lucide-react';
+import { ArrowUpRight, Globe, Download, MapPin } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 const EXHIBITIONS = [
@@ -8,7 +8,7 @@ const EXHIBITIONS = [
     id: 'ex-bg',
     title: 'Intex Bangladesh',
     edition: '17th Edition',
-    date: '18-19-20 June, 2026',
+    date: '22-23-24 June, 2027',
     location: 'ICCB, Dhaka',
     imageUrl: '/assets/bangladesh.png'
   },
@@ -16,7 +16,7 @@ const EXHIBITIONS = [
     id: 'ex-sl',
     title: 'Intex Sri Lanka',
     edition: '17th Edition',
-    date: '5-6-7 August 2026',
+    date: '4-5-6 August 2027',
     location: 'BMICH, Colombo',
     imageUrl: '/assets/sri%20lanka.jpg.jpeg'
   },
@@ -96,73 +96,101 @@ const OrganiserPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Upcoming Exhibitions Section - Formatted like Home Page Sourcing Registry */}
-      <section className="py-32 px-6 md:px-12 max-w-[1440px] mx-auto">
-        <div className="mb-16 space-y-4">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-            <h2 className="text-3xl md:text-5xl font-black tracking-tight text-archive-charcoal uppercase leading-[0.95]">
-              Upcoming <br />
-              <span className="text-archive-clay">Exhibitions.</span>
-            </h2>
-          </div>
+      {/* Upcoming Exhibitions Section - Styled Exactly Like Home Page Upcoming Event Boxes */}
+      <section className="py-32 px-6 md:px-12 max-w-[1440px] mx-auto space-y-16">
+        <div className="space-y-6">
+          <h2 className="text-3xl md:text-5xl font-black tracking-tighter leading-[0.9] text-archive-charcoal uppercase">
+            Upcoming <br /><span className="text-archive-clay">Exhibitions.</span>
+          </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {EXHIBITIONS.map((ex, idx) => (
-            <motion.div
-              key={ex.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: idx * 0.1 }}
-              viewport={{ once: true }}
-              className="group relative h-[480px] overflow-hidden bg-archive-charcoal shadow-lg hover:shadow-2xl transition-all duration-500 flex flex-col justify-between p-8 text-white"
-            >
-              {/* Background Image & Overlay */}
-              <div className="absolute inset-0 transition-all duration-[2000ms] group-hover:scale-110">
+        {/* Multi-Layered Stacked Plate Container */}
+        <div className="relative group/plates">
+          {/* Layer 1: Bottom White Plate */}
+          <div className="absolute inset-0 bg-white rounded-[32px] -rotate-[1.95deg] -skew-y-[1.95deg] shadow-xl transition-transform duration-1000 group-hover/plates:-rotate-[2.6deg]" />
+
+          {/* Layer 2: Middle Dark Plate (#2f2c2c) */}
+          <div className="absolute inset-0 bg-[#2f2c2c] rounded-[28px] -rotate-[1.3deg] -skew-y-[1.3deg] shadow-2xl transition-transform duration-1000 group-hover/plates:-rotate-[1.95deg] overflow-hidden">
+            <div
+              className="absolute inset-0 opacity-20 pointer-events-none mix-blend-overlay"
+              style={{ backgroundImage: `url('https://grainy-gradients.vercel.app/noise.svg')` }}
+            />
+          </div>
+
+          {/* Layer 3: Top Accent Plate */}
+          <div className="absolute inset-x-[-10px] inset-y-[-10px] bg-white/5 backdrop-blur-[2px] rounded-[24px] -rotate-[0.65deg] -skew-y-[0.65deg] border border-white/10 pointer-events-none transition-transform duration-1000 group-hover/plates:-rotate-[1.3deg]" />
+
+          {/* Main Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10 rotate-[1.3deg] skew-y-[1.3deg] p-6 md:p-12">
+            {EXHIBITIONS.map((ex, idx) => (
+              <motion.div
+                key={ex.id}
+                initial={{ opacity: 0, y: 50, rotateX: 15, scale: 0.9 }}
+                whileInView={{ opacity: 1, y: 0, rotateX: 0, scale: 1 }}
+                viewport={{ once: true, margin: "-10%" }}
+                transition={{
+                  duration: 0.8,
+                  delay: idx * 0.15,
+                  ease: [0.215, 0.61, 0.355, 1]
+                }}
+                className="group relative h-[600px] overflow-hidden bg-archive-charcoal rounded-xl"
+              >
+                {/* Image Layer */}
                 <img
                   src={ex.imageUrl}
                   alt={ex.title}
-                  className="w-full h-full object-cover opacity-50 group-hover:opacity-40 transition-opacity"
+                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-all duration-1000 opacity-80 group-hover:opacity-100"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#161414] via-[#161414]/70 to-transparent"></div>
-              </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-archive-charcoal via-archive-charcoal/60 to-transparent opacity-90" />
 
-              {/* Card Header Tag */}
-              <div className="relative z-10 flex justify-between items-start">
-                <span className="px-3 py-1.5 bg-white/10 backdrop-blur-md text-xs font-mono font-bold text-archive-clay uppercase tracking-wider border border-white/10">
-                  0{idx + 1}
-                </span>
-              </div>
+                {/* Technical Overlay */}
+                <div className="absolute inset-0 p-8 md:p-10 flex flex-col justify-between">
+                  <div className="flex items-start justify-between">
+                    <div className="space-y-4">
+                      <span className="block text-[40px] font-black text-white/10 leading-none tabular-nums">0{idx + 1}</span>
+                    </div>
+                  </div>
 
-              {/* Card Footer Info & View Details Button */}
-              <div className="relative z-10 space-y-6">
-                <div className="space-y-2">
-                  <h3 className="text-2xl md:text-3xl font-black leading-[0.95] uppercase group-hover:text-archive-clay transition-colors">
-                    {ex.title}
-                  </h3>
-                  <p className="text-archive-clay text-xs font-bold tracking-widest uppercase">
-                    Event Venue: {ex.location}
-                  </p>
-                  <p className="text-white/80 text-xs font-bold tracking-wider uppercase">
-                    Event Date: {ex.date}
-                  </p>
+                  <div className="space-y-8">
+                    <div className="space-y-4">
+                      <h3 className="text-4xl font-black text-white leading-[0.9] group-hover:tracking-wider transition-all duration-700">
+                        {ex.title.split(' ')[0]} <br /> {ex.title.split(' ')[1]}
+                      </h3>
+
+                      <div className="space-y-3">
+                        <div className="flex flex-col">
+                          <span className="text-[14px] font-bold text-white/40 tracking-widest uppercase">Event Date</span>
+                          <span className="text-[14px] font-black text-white tracking-wider uppercase">{ex.date}</span>
+                        </div>
+                        <div className="flex flex-col">
+                          <span className="text-[14px] font-bold text-white/40 tracking-widest uppercase">Event Venue</span>
+                          <div className="flex items-center gap-2">
+                            <MapPin size={12} className="text-archive-clay" />
+                            <span className="text-[14px] font-black text-white tracking-wider uppercase">{ex.location}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <button
+                      onClick={() => {
+                        navigate(`/#event/${ex.id}`);
+                        window.scrollTo(0, 0);
+                      }}
+                      className="w-full bg-white group/btn relative overflow-hidden py-4 px-6 flex items-center justify-between transition-all hover:bg-archive-clay"
+                    >
+                      <span className="relative z-10 text-[14px] font-black text-archive-charcoal group-hover:text-white tracking-[0.4em] transition-colors uppercase">VIEW DETAILS</span>
+                      <ArrowUpRight size={16} className="relative z-10 text-archive-clay group-hover:text-white transition-colors" />
+                      <div className="absolute inset-0 bg-archive-clay translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
+                    </button>
+                  </div>
                 </div>
 
-                <button
-                  onClick={() => {
-                    navigate('/#event/' + ex.id);
-                    window.scrollTo(0, 0);
-                  }}
-                  className="w-full py-4 bg-archive-clay hover:bg-white text-white hover:text-archive-charcoal transition-all duration-300 font-black text-xs uppercase tracking-[0.2em] flex items-center justify-center gap-3 group/btn"
-                >
-                  <span>VIEW DETAILS</span>
-                  <div className="w-6 h-6 bg-white/20 group-hover/btn:bg-archive-clay group-hover/btn:text-white flex items-center justify-center transition-colors">
-                    <ArrowUpRight size={14} />
-                  </div>
-                </button>
-              </div>
-            </motion.div>
-          ))}
+                {/* Scanline Effect */}
+                <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[length:100%_2px,3px_100%] pointer-events-none opacity-20" />
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
     </div>

@@ -8,8 +8,8 @@ const SHOWS = [
     name: 'Intex Bangladesh',
     location: 'ICCB, Dhaka',
     status: 'Upcoming',
-    year: '2026',
-    date: '28-30 May',
+    year: '2027',
+    date: '22-24 June',
     pdf: 'https://bd.intexsouthasia.com/assets/pdf/Exhibitor-List-Intex-Bangladesh-2025.pdf'
   },
   {
@@ -17,8 +17,8 @@ const SHOWS = [
     name: 'Intex Sri Lanka',
     location: 'BMICH, Colombo',
     status: 'Upcoming',
-    year: '2026',
-    date: '12-14 August',
+    year: '2027',
+    date: '04-06 August',
     pdf: null
   },
   {
@@ -52,7 +52,7 @@ const ExhibitorListPage: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
             <div className="lg:col-span-7">
               <p className="text-xl md:text-2xl font-black text-archive-charcoal/80 leading-tight">
-                Accessing the <span className="text-archive-clay">verified manifest</span> of participating manufacturers for the 2026 global cycle.
+                Accessing the <span className="text-archive-clay">verified manifest</span> of participating manufacturers for the 2027 global cycle.
               </p>
             </div>
             <div className="lg:col-span-5">

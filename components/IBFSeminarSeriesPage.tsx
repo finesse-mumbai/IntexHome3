@@ -32,7 +32,7 @@ const currentSpeakers = [
 const sessions = [
   {
     label: "Day 1",
-    date: "19 June 2026",
+    date: "23 June 2027",
     time: "4.00 pm to 5.30 pm",
     title: "Driving Sustainable Growth through Circular Textiles in Bangladesh",
     partner: "In Association with Textile Focus",
@@ -41,7 +41,7 @@ const sessions = [
   },
   {
     label: "Day 2",
-    date: "20 June 2026",
+    date: "24 June 2027",
     time: "11.30 am to 1.00 pm",
     title: "From Factory Floor to Global Fashion Influence: Bridging the Branding Gap in Bangladesh",
     partner: "In Association with Fashion & Beauty Journal",
@@ -65,14 +65,14 @@ const glimpse2025 = Array.from({ length: 12 }, (_, index) => `/assets/img/glimps
 const glimpse2024 = Array.from({ length: 8 }, (_, index) => `/assets/img/glimpsesofibf/${index + 1}.jpg`);
 
 const detailItems = [
-  { icon: <CalendarDays size={18} />, label: "Date", value: "19 & 20 June 2026" },
+  { icon: <CalendarDays size={18} />, label: "Date", value: "23 & 24 June 2027" },
   { icon: <Clock size={18} />, label: "Time", value: "Day 1: 4.00 pm to 5.30 pm / Day 2: 11.30 am to 1.00 pm" },
   { icon: <MapPin size={18} />, label: "Venue", value: "Mezzanine Level, Hall 4 - ICCB, Dhaka" },
   { icon: <Users size={18} />, label: "Format", value: "Seminar, networking and High Tea Reception" },
 ];
 
 const textileGenesisItems = [
-  { label: "Date", value: "18 June 2026" },
+  { label: "Date", value: "22 June 2027" },
   { label: "Time", value: "3.30 pm to 6.00 pm" },
   { label: "Venue", value: "Mezzanine Level, Hall 4 - ICCB, Dhaka" },
   { label: "Access", value: "By Invitation Only" },
@@ -131,13 +131,13 @@ const IBFSeminarSeriesPage: React.FC = () => {
               <img src="/assets/img/ibf-logo2026.jpg" alt="IBF Logo" className="w-full h-auto" />
             </div>
             <span className="text-[14px] font-black tracking-[0.55em] text-archive-clay uppercase block mb-5">
-              Interactive Business Forum 2026
+              Interactive Business Forum 2027
             </span>
             <h1 className="text-4xl md:text-7xl font-semibold tracking-tighter leading-[0.9] text-white uppercase max-w-4xl">
               IBF Seminar Series
             </h1>
             <p className="mt-6 max-w-3xl text-white/85 text-lg md:text-xl font-semibold">
-              19th & 20th June 2026
+              23rd & 24th June 2027
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
               <a

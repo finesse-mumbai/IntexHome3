@@ -14,14 +14,14 @@ interface InfoKitAsset {
 
 const KIT_DATA: Record<string, InfoKitAsset[]> = {
   'BANGLADESH': [
-    { id: 'BD_KIT_01', type: 'BROCHURE', title: 'Show Brochure', description: 'Comprehensive guide to Intex Bangladesh 2026 including floor plans and exhibitor profiles.', downloadUrl: 'https://bd.intexsouthasia.com/assets/pdf/Brochure.pdf', fileSize: '4.2 MB' },
+    { id: 'BD_KIT_01', type: 'BROCHURE', title: 'Show Brochure', description: 'Comprehensive guide to Intex Bangladesh 2027 including floor plans and exhibitor profiles.', downloadUrl: 'https://bd.intexsouthasia.com/assets/pdf/Brochure.pdf', fileSize: '4.2 MB' },
     { id: 'BD_KIT_02', type: 'LOGO', title: 'Event Logo', description: 'Vector and raster assets for marketing and branding integration.', downloadUrl: 'https://bd.intexsouthasia.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo.ff36e4e2.png&w=384&q=75', fileSize: '1.8 MB' },
     { id: 'BD_KIT_03', type: 'FORM', title: 'Booth Application Form', description: 'Mandatory technical registration document for space reservation.', downloadUrl: 'https://bd.intexsouthasia.com/assets/pdf/application-form.pdf', fileSize: '0.5 MB' },
   ],
   'SRI LANKA': [
     { id: 'SL_KIT_01', type: 'BROCHURE', title: 'Show Brochure', description: 'The definitive 17th Edition guide for the Colombo summit.', downloadUrl: 'https://sl.intexsouthasia.com/assets/pdf/Brochure.pdf', fileSize: '3.9 MB' },
     { id: 'SL_KIT_02', type: 'LOGO', title: 'Event Logo', description: 'Official branding toolkit for media and partners.', downloadUrl: 'https://sl.intexsouthasia.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo.ff36e4e2.png&w=384&q=75', fileSize: '2.1 MB' },
-    { id: 'SL_KIT_03', type: 'FORM', title: 'Booth Application Form', description: 'Verified space booking protocol for Sri Lanka 2026.', downloadUrl: 'https://sl.intexsouthasia.com/assets/pdf/application-form.pdf', fileSize: '0.6 MB' },
+    { id: 'SL_KIT_03', type: 'FORM', title: 'Booth Application Form', description: 'Verified space booking protocol for Sri Lanka 2027.', downloadUrl: 'https://sl.intexsouthasia.com/assets/pdf/application-form.pdf', fileSize: '0.6 MB' },
   ],
 
 };

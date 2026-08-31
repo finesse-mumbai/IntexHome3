@@ -12,11 +12,10 @@ interface MediaReport {
 }
 
 const REPORTS_DATA: MediaReport[] = [
-  { id: 'REP_BD_24', event: 'Intex Bangladesh', year: '2024', title: 'Post Show PR Report 2024', fileSize: '1.2 MB', url: 'https://sl.intexsouthasia.com/assets/pdf/Intex-Bangladesh-2024-Post-Show-PR-Report.pdf' },
-  { id: 'REP_SL_24', event: 'Intex Sri Lanka', year: '2024', title: 'Media Coverage Report 2024', fileSize: '2.5 MB', url: 'https://sl.intexsouthasia.com/assets/pdf/Intex-Sri-Lanka-2024-Media-Coverage-Report.pdf' },
-  { id: 'REP_BD_23', event: 'Intex Bangladesh', year: '2023', title: 'Media Coverage Report 2023', fileSize: '3.1 MB', url: 'https://bd.intexsouthasia.com/assets/pdf/Intex-Bangladesh-2023-Media-Coverage-Report.pdf' },
-  { id: 'REP_SL_23', event: 'Intex Sri Lanka', year: '2023', title: 'Media Coverage Report 2023', fileSize: '1.9 MB', url: 'https://sl.intexsouthasia.com/assets/pdf/Intex-Sri-Lanka-2023-Media-Coverage-Report.pdf' },
-  { id: 'REP_SL_22', event: 'Intex Sri Lanka', year: '2022', title: 'Media Coverage Report 2022', fileSize: '2.2 MB', url: 'https://sl.intexsouthasia.com/assets/pdf/Intex-Sri-Lanka-2022-Media-Coverage-Report.pdf' },
+  { id: 'REP_BD_25', event: 'Intex Bangladesh', year: '2025', title: 'Media Coverage Report - 2025', fileSize: '23.4 MB', url: '/assets/pdf/Intex-Bangladesh-Media-Coverage-2025.pdf' },
+  { id: 'REP_SL_25', event: 'Intex Sri Lanka', year: '2025', title: 'Media Coverage Report - 2025', fileSize: '14.2 MB', url: '/assets/pdf/Intex-Sri-Lanka-Media-Coverage-2025.pdf' },
+  { id: 'REP_BD_24', event: 'Intex Bangladesh', year: '2024', title: 'Media Coverage Report - 2024', fileSize: '8.5 MB', url: '/assets/pdf/Intex-Bangladesh-Media-Coverage-2024.pdf' },
+  { id: 'REP_SL_24', event: 'Intex Sri Lanka', year: '2024', title: 'Media Coverage Report - 2024', fileSize: '3.5 MB', url: '/assets/pdf/Intex-Sri-Lanka-Media-Coverage-2024.pdf' },
 ];
 
 const MediaCoverageReportPage: React.FC = () => {
@@ -136,14 +135,7 @@ const MediaCoverageReportPage: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="relative z-10 pt-6 border-t border-archive-charcoal/5 group-hover:border-white/10 mt-auto flex justify-between items-end">
-                  <div className="space-y-1">
-                    <div className="flex items-center gap-2">
-
-                      <span className="text-[14px] font-black tracking-widest text-archive-charcoal/30 group-hover:text-white/30 uppercase">PDF Manifest</span>
-                    </div>
-                    <span className="text-[14px] font-black text-archive-charcoal group-hover:text-archive-clay transition-colors">{report.fileSize}</span>
-                  </div>
+                <div className="relative z-10 pt-6 mt-auto flex justify-end">
                   <a
                     href={report.url}
                     target="_blank"

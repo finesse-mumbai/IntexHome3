@@ -241,7 +241,7 @@ const EnquiryFormPage: React.FC = () => {
           type: 'success',
           title: 'Enquiry submitted successfully!',
           message:
-            'Thank you for showing interest in participating at the Intex 2026 Shows. We shall contact you soon with more details.',
+            'Thank you for showing interest in participating at the Intex 2027 Shows. We shall contact you soon with more details.',
         });
         setFormData({
           exhibit_type: 'I would like to Exhibit',
@@ -272,7 +272,7 @@ const EnquiryFormPage: React.FC = () => {
           show: true,
           type: 'error',
           title: 'Notice',
-          message: 'You have already registered or submitted an enquiry for Intex 2026.',
+          message: 'You have already registered or submitted an enquiry for Intex 2027.',
         });
       }
     } catch (err) {
@@ -281,7 +281,7 @@ const EnquiryFormPage: React.FC = () => {
         show: true,
         type: 'error',
         title: 'Enquiry submitted',
-        message: 'Thank you for submitting your enquiry for Intex 2026. We will contact you soon.',
+        message: 'Thank you for submitting your enquiry for Intex 2027. We will contact you soon.',
       });
     }
   };
@@ -291,14 +291,14 @@ const EnquiryFormPage: React.FC = () => {
       id: 'bd',
       value: 'Bangladesh',
       label: 'Bangladesh',
-      dates: '18-19-20 June, 2026',
+      dates: '22-23-24 June, 2027',
       venue: 'ICCB, Dhaka'
     },
     {
       id: 'sl',
       value: 'Sri Lanka',
       label: 'Sri Lanka',
-      dates: '5-6-7 August, 2026',
+      dates: '4-5-6 August, 2027',
       venue: 'BMICH, Colombo'
     },
     {
@@ -343,7 +343,7 @@ const EnquiryFormPage: React.FC = () => {
           </div>
 
           <p className="text-base text-archive-charcoal/80 max-w-3xl leading-relaxed">
-            Reserve your booth or explore partnership & sponsorship opportunities at Intex 2026 — South Asia's premier textile sourcing international exhibition.
+            Reserve your booth or explore partnership & sponsorship opportunities at Intex 2027 — South Asia's premier textile sourcing international exhibition.
           </p>
         </div>
       </section>

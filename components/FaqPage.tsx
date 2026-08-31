@@ -29,9 +29,9 @@ const timingsTable = (
           <tbody>
             <tr className="text-center">
               <td className="border border-archive-charcoal/20 p-2"><strong>Exhibition Timings</strong></td>
-              <td className="border border-archive-charcoal/20 p-2"><strong>18th June 2026</strong></td>
-              <td className="border border-archive-charcoal/20 p-2"><strong>19th June 2026</strong></td>
-              <td className="border border-archive-charcoal/20 p-2"><strong>20th June 2026</strong></td>
+              <td className="border border-archive-charcoal/20 p-2"><strong>22nd June 2027</strong></td>
+              <td className="border border-archive-charcoal/20 p-2"><strong>23rd June 2027</strong></td>
+              <td className="border border-archive-charcoal/20 p-2"><strong>24th June 2027</strong></td>
             </tr>
             <tr className="text-center">
               <td className="border border-archive-charcoal/20 p-2">Opening Time</td>
@@ -57,9 +57,9 @@ const timingsTable = (
           <tbody>
             <tr className="text-center">
               <td className="border border-archive-charcoal/20 p-2"><strong>Exhibition Timings</strong></td>
-              <td className="border border-archive-charcoal/20 p-2"><strong>5th August 2026</strong></td>
-              <td className="border border-archive-charcoal/20 p-2"><strong>6th August 2026</strong></td>
-              <td className="border border-archive-charcoal/20 p-2"><strong>7th August 2026</strong></td>
+              <td className="border border-archive-charcoal/20 p-2"><strong>4th August 2027</strong></td>
+              <td className="border border-archive-charcoal/20 p-2"><strong>5th August 2027</strong></td>
+              <td className="border border-archive-charcoal/20 p-2"><strong>6th August 2027</strong></td>
             </tr>
             <tr className="text-center">
               <td className="border border-archive-charcoal/20 p-2">Opening Time</td>
@@ -89,10 +89,10 @@ const FAQ_SECTIONS: FaqSection[] = [
         answer: (
           <>
             <ul className="list-disc space-y-2 pl-5">
-              <li>Bangladesh Raw Space Booths - June 16 from 2 PM onwards.</li>
-              <li>Bangladesh Shell Scheme Booths - June 17 from 10 AM onwards.</li>
-              <li>Sri Lanka Raw Space Booths - Monday, August 03 from 2 PM onwards.</li>
-              <li>Sri Lanka Shell Scheme Booths - Tuesday, August 04 from 10 AM onwards.</li>
+              <li>Bangladesh Raw Space Booths - June 20 from 2 PM onwards.</li>
+              <li>Bangladesh Shell Scheme Booths - June 21 from 10 AM onwards.</li>
+              <li>Sri Lanka Raw Space Booths - Monday, August 02 from 2 PM onwards.</li>
+              <li>Sri Lanka Shell Scheme Booths - Tuesday, August 03 from 10 AM onwards.</li>
             </ul>
             <p>For any further onsite assistance, please contact - Mr. Karan Solanki - +91 9833849850.</p>
           </>

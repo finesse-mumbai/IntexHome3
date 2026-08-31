@@ -94,7 +94,7 @@ const NAV_ITEMS = [
     children: [
       { label: "Show Info Kit", link: "/info-kit", icon: FolderDown },
       { label: "Factsheet", link: "/factsheet", icon: FileSpreadsheet },
-      { label: "Branding Opportunities", link: "/branding-opportunities", icon: Target },
+      // { label: "Branding Opportunities", link: "/branding-opportunities", icon: Target },
       { label: "Media Coverage Report", link: "/media-coverage-report", icon: BarChart3 },
       { label: "FAQ - Exhibitors | Buyers", link: "/faq", icon: HelpCircle },
     ],
