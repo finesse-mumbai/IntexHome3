@@ -1,4 +1,4 @@
-import { CategoryItem, ResourceItem, TestimonialItem, BuyerImageProfile, GalleryItem } from './types';
+import { CategoryItem, ResourceItem, TestimonialItem, BuyerImageProfile, GalleryItem } from '../types';
 
 export const CATEGORIES: CategoryItem[] = [
   {
@@ -290,6 +290,6 @@ export const GALLERY_ITEMS: GalleryItem[] = [
   { id: 'g4', title: 'InMac WorldExpo', imageUrl: 'https://sl.intexsouthasia.com/assets/img/Gallery/2025/32.jpg', category: 'Yarns', rating: 4.7, year: '2023' }
 ];
 
-export * from './constants/Buyertestimonial';
-export * from './constants/Exhibitortestimonial';
-export * from './constants/socialFeedData';
+export * from './Buyertestimonial';
+export * from './Exhibitortestimonial';
+export * from './socialFeedData';
