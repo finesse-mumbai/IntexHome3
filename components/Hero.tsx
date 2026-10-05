@@ -517,176 +517,164 @@ const Hero: React.FC = () => {
         </div>
       </div>
 
-      {/* ── SLIDE 3 OVERLAY: Free-Floating 3D Spherical Globe & ASEAN Orbital Layout (Distinct from Slide 2) ── */}
-      {/* 1. Left-to-Center Free-Floating 3D Globe with Orbital Rings & Editorial Badges */}
+      {/* ── SLIDE 3 OVERLAY: Rectangular Event Card (Left: 50% Globe, Right: Event Info) ── */}
       <div
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
         style={{
           position: 'absolute',
-          top: '50%',
-          left: 'clamp(4%, 7vw, 11%)',
-          transform: currentSlide === 2 ? 'translateY(-50%)' : 'translateY(-50%) translateX(-35px)',
+          top: '20%',
+          left: '20%',
+          transform: currentSlide === 2 ? 'translateX(0)' : 'translateX(-30px)',
           zIndex: 15,
           opacity: currentSlide === 2 ? 1 : 0,
           pointerEvents: currentSlide === 2 ? 'auto' : 'none',
           visibility: currentSlide === 2 ? 'visible' : 'hidden',
           transition: 'opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1), visibility 0.7s',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
         }}
       >
-        {/* Top Floating Pill Badge */}
+        {/* Rectangular Card */}
         <div
           style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '8px',
-            padding: '7px 18px',
-            borderRadius: '999px',
-            backgroundColor: 'rgba(255, 255, 255, 0.95)',
-            backdropFilter: 'blur(10px)',
-            border: '1px solid rgba(0, 0, 0, 0.08)',
-            boxShadow: '0 6px 20px -4px rgba(0, 0, 0, 0.08)',
-            marginBottom: '16px',
-          }}
-        >
-          <span
-            style={{
-              width: '8px',
-              height: '8px',
-              borderRadius: '50%',
-              backgroundColor: '#15803d',
-              boxShadow: '0 0 8px rgba(21, 128, 61, 0.7)',
-              display: 'inline-block',
-            }}
-          />
-          <span
-            style={{
-              fontSize: 'clamp(0.7rem, 0.82vw, 0.85rem)',
-              fontWeight: 700,
-              letterSpacing: '0.08em',
-              color: '#15803d',
-              textTransform: 'uppercase',
-              fontFamily: 'Inter, sans-serif',
-            }}
-          >
-            EXPANDING INTO ASEAN · 1ST EDITION
-          </span>
-        </div>
-
-        {/* ── Full Spherical 3D Globe with Orbital Radar Rings ── */}
-        <div
-          style={{
-            position: 'relative',
-            width: 'clamp(300px, 28vw, 390px)',
-            height: 'clamp(300px, 28vw, 390px)',
+            width: 'clamp(440px, 42vw, 560px)',
+            maxWidth: 'calc(100vw - 32px)',
+            minHeight: 'clamp(230px, 26vh, 270px)',
+            backgroundColor: 'rgba(248, 248, 248, 1)',
+            borderRadius: '26px',
+            border: '1px solid #e5e7eb',
+            boxShadow: '0 20px 40px -12px rgba(0,0,0,0.12)',
+            overflow: 'hidden',
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'center',
           }}
         >
-          {/* Outer Dashed Orbit Ring */}
+          {/* Left Column: 50% Visible Globe Dome */}
           <div
             style={{
-              position: 'absolute',
-              inset: '-22px',
-              borderRadius: '50%',
-              border: '1px dashed rgba(0, 0, 0, 0.16)',
-              pointerEvents: 'none',
-              animation: 'spinOrbit 80s linear infinite',
-            }}
-          />
-
-          {/* Inner Accent Ring */}
-          <div
-            style={{
-              position: 'absolute',
-              inset: '-8px',
-              borderRadius: '50%',
-              border: '1px solid rgba(238, 117, 57, 0.3)',
-              pointerEvents: 'none',
-            }}
-          />
-
-          {/* Coordinate Marks at Cardinal Points */}
-          <div
-            style={{
-              position: 'absolute',
-              top: '-34px',
-              left: '50%',
-              transform: 'translateX(-50%)',
-              fontSize: '10px',
-              fontWeight: 700,
-              color: 'rgba(0, 0, 0, 0.4)',
-              fontFamily: 'Inter, monospace',
-              letterSpacing: '0.1em',
-              pointerEvents: 'none',
-            }}
-          >
-            LAT -6.2° S
-          </div>
-          <div
-            style={{
-              position: 'absolute',
-              bottom: '-34px',
-              left: '50%',
-              transform: 'translateX(-50%)',
-              fontSize: '10px',
-              fontWeight: 700,
-              color: 'rgba(0, 0, 0, 0.4)',
-              fontFamily: 'Inter, monospace',
-              letterSpacing: '0.1em',
-              pointerEvents: 'none',
-            }}
-          >
-            LON 106.8° E
-          </div>
-
-          {/* The 3D Dotted Globe (Full 360° Sphere, not cropped) */}
-          <WhiteDottedGlobe activeCountry="indonesia" size={380} />
-        </div>
-
-        {/* Bottom Floating Info Tag */}
-        <div
-          style={{
-            marginTop: '16px',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            gap: '4px',
-            textAlign: 'center',
-          }}
-        >
-          <div
-            style={{
-              fontSize: 'clamp(1.3rem, 1.7vw, 1.85rem)',
-              fontWeight: 800,
-              fontFamily: 'Inter, sans-serif',
-              color: '#000000',
-              letterSpacing: '-0.02em',
-              lineHeight: 1.1,
-            }}
-          >
-            INTEX INDONESIA
-          </div>
-          <div
-            style={{
-              display: 'inline-flex',
+              width: 'clamp(150px, 14vw, 180px)',
+              height: 'clamp(230px, 26vh, 270px)',
+              position: 'relative',
+              overflow: 'hidden',
+              flexShrink: 0,
+              display: 'flex',
               alignItems: 'center',
-              gap: '8px',
-              fontSize: 'clamp(0.72rem, 0.85vw, 0.88rem)',
-              fontWeight: 600,
-              letterSpacing: '0.06em',
-              color: '#4b5563',
-              textTransform: 'uppercase',
-              fontFamily: 'Inter, sans-serif',
+              justifyContent: 'flex-start',
             }}
           >
-            <span>JAKARTA</span>
-            <span style={{ color: '#d1d5db' }}>•</span>
-            <span style={{ color: '#EE7539', fontWeight: 700 }}>DATES ANNOUNCING SOON</span>
+            <div
+              style={{
+                position: 'absolute',
+                top: '50%',
+                left: 0,
+                transform: 'translate(-50%, -50%)',
+              }}
+            >
+              <WhiteDottedGlobe activeCountry="indonesia" size={360} />
+            </div>
+          </div>
+
+          {/* Right Column: Event Info */}
+          <div
+            style={{
+              flex: 1,
+              padding: '24px 28px 24px 14px',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+            }}
+          >
+            {/* Show Title */}
+            <div
+              style={{
+                fontSize: 'clamp(1.1rem, 1.4vw, 1.5rem)',
+                fontWeight: 900,
+                color: '#111827',
+                textTransform: 'uppercase',
+                fontFamily: 'Inter, sans-serif',
+                letterSpacing: '-0.01em',
+                marginBottom: '14px',
+              }}
+            >
+              Intex Indonesia
+            </div>
+
+            {/* Venue Label & Value */}
+            <div style={{ marginBottom: '10px' }}>
+              <div
+                style={{
+                  fontSize: 'clamp(0.65rem, 0.75vw, 0.8rem)',
+                  fontWeight: 700,
+                  color: '#9CA3AF',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.1em',
+                  fontFamily: 'Inter, sans-serif',
+                  marginBottom: '2px',
+                }}
+              >
+                Venue
+              </div>
+              <div
+                style={{
+                  fontSize: 'clamp(0.95rem, 1.15vw, 1.25rem)',
+                  fontWeight: 700,
+                  color: '#1F2937',
+                  fontFamily: 'Inter, sans-serif',
+                }}
+              >
+                Jakarta
+              </div>
+            </div>
+
+            {/* Date Label & Value */}
+            <div style={{ marginBottom: '14px' }}>
+              <div
+                style={{
+                  fontSize: 'clamp(0.65rem, 0.75vw, 0.8rem)',
+                  fontWeight: 700,
+                  color: '#9CA3AF',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.1em',
+                  fontFamily: 'Inter, sans-serif',
+                  marginBottom: '2px',
+                }}
+              >
+                Date
+              </div>
+              <div
+                style={{
+                  fontSize: 'clamp(0.95rem, 1.15vw, 1.25rem)',
+                  fontWeight: 400,
+                  color: '#111827',
+                  fontFamily: 'Inter, sans-serif',
+                }}
+              >
+                Announcing Soon
+              </div>
+            </div>
+
+            {/* View Details CTA Button */}
+            <div style={{ paddingTop: '10px', borderTop: '1px solid #f3f4f6' }}>
+              <a
+                href="#intex-asean"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  fontSize: 'clamp(0.72rem, 0.8vw, 0.85rem)',
+                  fontWeight: 800,
+                  letterSpacing: '0.15em',
+                  color: '#EE7539',
+                  textTransform: 'uppercase',
+                  fontFamily: 'Inter, sans-serif',
+                  textDecoration: 'none',
+                  cursor: 'pointer',
+                  padding: '6px 0',
+                }}
+              >
+                <span>VIEW DETAILS</span>
+                <span style={{ fontSize: '14px', transition: 'transform 0.2s' }}>→</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>

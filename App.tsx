@@ -56,6 +56,7 @@ import BlogTopExportersPage from './components/blogs/BlogTopExportersPage';
 import BlogTopForeignBuyersPage from './components/blogs/BlogTopForeignBuyersPage';
 import BlogZaraHmSourcingPage from './components/blogs/BlogZaraHmSourcingPage';
 import EventDetailsPage from './components/EventDetailsPage';
+import IntexAseanPage from './components/IntexAseanPage';
 
 import { motion, useScroll, useSpring, AnimatePresence } from 'framer-motion';
 import { useLocation, Link } from 'react-router-dom';
@@ -78,6 +79,9 @@ const App: React.FC = () => {
   }, [location.pathname, location.hash]);
 
   const renderContent = () => {
+    if (currentPath === '#event/ex-id' || currentPath === '#intex-asean' || currentPath === '#asean' || currentPath === '#intex-indonesia') {
+      return <IntexAseanPage />;
+    }
     if (currentPath.startsWith('#event/')) {
       const eventId = currentPath.replace('#event/', '');
       return <EventDetailsPage eventId={eventId} />;

@@ -168,18 +168,14 @@ const IBFSeminarSeriesPage: React.FC = () => {
             </h2>
           </div>
           <div className="lg:col-span-7 space-y-5 text-slate-700 text-base md:text-lg leading-relaxed">
+            <h3 className="text-xl md:text-2xl font-black uppercase text-slate-900 tracking-tight">
+              Knowledge Sessions at Intex South Asia & ASEAN
+            </h3>
             <p>
-              This year's spotlight is on <strong>Driving Sustainable Growth through Circular Textiles in Bangladesh</strong>,
-              highlighting how circular practices are transforming the textile value chain through resource efficiency,
-              waste reduction, recycling, and sustainable innovation.
+              The textile and apparel industry is undergoing rapid transformation driven by shifting trade policies, sustainability mandates, technological disruption, and evolving consumer expectations. The Interactive Business Forum (IBF) has been established as the knowledge arm of Intex, delivering actionable insights, expert perspectives and strategic foresight to industry professionals attending the exhibition.
             </p>
             <p>
-              The forum will also address <strong>From Factory Floor to Global Fashion Influence: Bridging the Branding Gap in Bangladesh</strong>,
-              focusing on how the industry can strengthen brand value, enhance global positioning, and move beyond manufacturing excellence.
-            </p>
-            <p>
-              Additionally, the forum will explore key opportunities and challenges in building a more resilient and sustainable
-              textile ecosystem, with discussions centered on industry collaboration, evolving market demands, and long-term growth strategies.
+              Designed as a series of curated seminars and panel discussions, IBF brings together policymakers, global experts, industry leaders, technology innovators, and sustainability practitioners to address the most critical issues shaping the future of the textile and apparel sector. The sessions provide a platform for meaningful dialogue, knowledge exchange, and collaborative problem-solving.
             </p>
           </div>
         </div>

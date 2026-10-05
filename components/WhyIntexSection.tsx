@@ -125,7 +125,7 @@ const WhyIntexSection: React.FC = () => {
               Intex South Asia is more than an exhibition — it is a strategic textile sourcing corridor connecting Bangladesh, Sri Lanka, and India: three of the world's most influential apparel and textile manufacturing markets.
             </p>
             <p className="text-[15px] font-medium leading-relaxed text-archive-charcoal/70 tracking-wide">
-              17 successful editions. 70,000+ qualified trade buyers. A unified sourcing platform across one of the world's largest textile ecosystems.
+              19 successful editions. 75,000+ qualified trade buyers. A unified sourcing platform across one of the world's largest textile ecosystems.
             </p>
           </div>
         </div>

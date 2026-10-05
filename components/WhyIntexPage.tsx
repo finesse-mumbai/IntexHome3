@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ShieldCheck, Target, Globe, TrendingUp } from 'lucide-react';
 
 // --- SVG Flag Components ---
 
@@ -65,9 +64,11 @@ const REGIONS = [
     index: "01",
     country: "Sri Lanka",
     tagline: "ETHICAL · PREMIUM · SPECIALISED",
-    desc: "Sri Lanka has established itself as one of the world's most respected apparel manufacturing destinations, known for ethical production, innovation-led manufacturing, premium quality standards, and specialised strengths in intimate wear, activewear, swimwear, and functional apparel.",
+    subheading: "The Premium Apparel Specialist",
+    desc1: "Sri Lanka has built a global reputation for quality, ethical manufacturing and innovation-led apparel, with particular strengths in intimate wear, activewear, swimwear and functional apparel.",
+    desc2: "Its sophisticated manufacturing base and sustainability credentials make Sri Lanka a high-value sourcing destination for brands seeking quality beyond scale.",
     tags: ["Intimate Wear", "Activewear", "Swimwear", "Functional Apparel"],
-    stat: { value: "~$5.7B", label: "Apparel Exports" },
+    stat: { value: "~$5.02B", label: "Apparel Exports" },
     FlagComponent: SriLankaFlag,
     headerBg: "#EE7539",
     headerLeftWall: "#D65E22",
@@ -77,9 +78,11 @@ const REGIONS = [
     index: "02",
     country: "Bangladesh",
     tagline: "SCALE · SOURCING · SUSTAINABLE",
-    desc: "Bangladesh remains the world's second-largest apparel exporter, globally recognised for its scale, sourcing strength, competitive manufacturing ecosystem, and rapidly growing capabilities in MMF, sportswear, sustainable textiles, and value-added apparel production.",
+    subheading: "The Global Apparel Powerhouse",
+    desc1: "Bangladesh is one of the world’s largest apparel manufacturing and export hubs, combining unmatched production scale, competitive sourcing and a powerful manufacturing ecosystem.",
+    desc2: "Its rapid expansion into MMF, sportswear, sustainable textiles and value-added apparel is creating new opportunities across the entire textile supply chain.",
     tags: ["MMF", "Sportswear", "Knitwear", "Green Manufacturing"],
-    stat: { value: "~$47B", label: "Textile Exports" },
+    stat: { value: "~$38.8B", label: "Garment Exports" },
     FlagComponent: BangladeshFlag,
     headerBg: "#EE7539",
     headerLeftWall: "#D65E22",
@@ -89,39 +92,16 @@ const REGIONS = [
     index: "03",
     country: "India",
     tagline: "DIVERSE · INNOVATIVE · ARTISANAL",
-    desc: "India offers one of the world's most diverse textile ecosystems — from fibres, yarns, fabrics, handicrafts, and traditional textiles to technical textiles, MMF, sustainable innovations, performance materials, and advanced manufacturing capabilities.",
+    subheading: "The Textile & Material Powerhouse",
+    desc1: "India brings extraordinary depth to the global textile industry—from fibres, yarns and fabrics to MMF, technical textiles, sustainable materials and advanced manufacturing solutions.",
+    desc2: "Its vast domestic supply base, diverse capabilities and strong manufacturing heritage make India a strategic sourcing partner for the next generation of global apparel.",
     tags: ["Technical Textiles", "Handicrafts", "MMF", "Performance Materials"],
-    stat: { value: "~$44B", label: "Textile Exports" },
+    stat: { value: "~$35.8B", label: "Textile Exports" },
     FlagComponent: IndiaFlag,
     headerBg: "#EE7539",
     headerLeftWall: "#D65E22",
     headerTopRoof: "#FF8C52",
   }
-];
-
-const ADVANTAGES = [
-  {
-    icon: Target,
-    title: "Regional Dominance",
-    desc: "South Asia’s leading international textile sourcing platform with a strong footprint across Bangladesh, Sri Lanka, and India since 2015."
-  },
-  {
-    icon: Globe,
-    title: "GLOBAL MARKET ACCESS",
-    desc: "Connecting international suppliers directly with South Asia’s most influential textile manufacturers, exporters, sourcing offices, and buying houses.",
-    bgClass: "bg-white"
-  },
-  {
-    icon: ShieldCheck,
-    title: "INDUSTRY-BACKED PLATFORM",
-    desc: "Strongly supported by government organisations, trade councils, export promotion bodies, chambers of commerce, and industry associations across multiple countries."
-  },
-  {
-    icon: TrendingUp,
-    title: "BUSINESS-FOCUSED NETWORKING",
-    desc: "Facilitating focused B2B meetings, buyer-seller engagement, sourcing interactions, networking events, and business matchmaking opportunities.",
-    bgClass: "bg-white"
-  },
 ];
 
 const WhyIntexPage: React.FC = () => {
@@ -142,30 +122,66 @@ const WhyIntexPage: React.FC = () => {
       </section>
 
       {/* Pan-South Asian Dominance Section */}
-      <section className="px-6 md:px-12 max-w-[1440px] mx-auto mb-10">
-        <div className="grid grid-cols-1 lg:grid-cols-1 gap-16 items-start">
-          <div className="lg:col-span-4 space-y-12">
-            <div className="space-y-6">
-              <h2 className="text-xl md:text-3xl font-black tracking-tighter text-archive-charcoal leading-none">
-                A PAN-SOUTH ASIAN TEXTILE <br /> <span className="text-archive-clay">POWERHOUSE.</span>
-              </h2>
-              <div className="h-[2px] w-12 bg-archive-clay"></div>
-            </div>
-            <p className="text-[14px] font-bold tracking-widest leading-relaxed text-archive-charcoal/60">
-              Intex South Asia is more than an exhibition platform — it is a strategic textile sourcing network connecting the three most influential apparel and textile markets of South Asia: Bangladesh, Sri Lanka, and India.
+      <section className="px-6 md:px-12 max-w-[1440px] mx-auto mb-20">
+        <div className="max-w-5xl space-y-12">
+          {/* Main Headline & Intro */}
+          <div className="space-y-6">
+            <h2 className="text-2xl md:text-4xl lg:text-5xl font-black tracking-tight text-archive-charcoal uppercase leading-[1.05]">
+              THE WORLD’S NEXT TEXTILE POWERHOUSE <br className="hidden md:inline" />
+              <span className="text-archive-clay">ISN’T ONE MARKET. IT’S A REGION.</span>
+            </h2>
+            <p className="text-base md:text-lg font-medium leading-relaxed text-archive-charcoal/85 pt-2">
+              Look at where global apparel is being made, sourced and scaled, and three markets stand out: India, Bangladesh and Sri Lanka. Together, they form the world’s second-largest textile and apparel market after China, representing a textile and apparel ecosystem worth US$80 billion+ in annual exports and a combined domestic market of more than US$245 billion—creating one of the most compelling sourcing opportunities in the global textile industry.
             </p>
-            <p className="text-[14px] font-bold tracking-widest leading-relaxed text-archive-charcoal/60">
-              For over a decade, Intex has successfully enabled cross-border trade, regional sourcing integration, and meaningful business engagement across one of the world’s largest textile manufacturing ecosystems. With 17 successful editions and over 70,000 qualified trade buyers connected through the platform, Intex continues to bridge international suppliers with the heart of South Asia’s textile and apparel industry.
+          </div>
+
+          {/* Three Markets Breakdown */}
+          <div className="space-y-6">
+            <p className="text-[15px] md:text-base leading-relaxed text-archive-charcoal/80 font-medium">
+              <strong className="text-archive-charcoal font-bold text-base md:text-[17px]">Bangladesh brings scale.</strong> With US$38.8 billion in garment exports, RMG accounting for 81.5% of national exports, and a textile manufacturing market of approximately US$48.6 billion, the country is targeting US$100 billion in apparel exports by 2030. Its next growth phase is already moving beyond cotton, with rising demand for MMF, functional textiles, sustainable materials and higher-value products.
             </p>
-            <p className="text-[14px] font-bold tracking-widest leading-relaxed text-archive-charcoal/60">
-              Unlike conventional single-country exhibitions, Intex operates as a unified sourcing corridor across South Asia — creating direct access to manufacturers, exporters, buying houses, retailers, sourcing professionals, and decision-makers across multiple high-growth markets under one trusted platform.
+            <p className="text-[15px] md:text-base leading-relaxed text-archive-charcoal/80 font-medium">
+              <strong className="text-archive-charcoal font-bold text-base md:text-[17px]">Sri Lanka brings precision and premium manufacturing.</strong> Its textile and apparel exports reached approximately US$5.02 billion in 2025, growing 5.42% year-on-year, as the industry continues to build its reputation for quality, sustainability, innovation and high-value apparel. With an ambition to reach US$8 billion in apparel exports by 2030, the need for advanced materials, specialised inputs and manufacturing solutions is accelerating.
+            </p>
+            <p className="text-[15px] md:text-base leading-relaxed text-archive-charcoal/80 font-medium">
+              <strong className="text-archive-charcoal font-bold text-base md:text-[17px]">India brings depth and diversity.</strong> With a domestic textile and apparel market valued at approximately US$194 billion in 2025–26, growing at around 5% annually, and nearly 80% of market activity driven by domestic consumption, India represents both a manufacturing powerhouse and a massive consumption opportunity. Textile and apparel exports, reached approximately US$35.8 billion in 2025–26, while the industry is targeting US$350 billion by 2030.
+            </p>
+          </div>
+
+          {/* Subheading: Three Markets Strengths */}
+          <div className="space-y-6 pt-4">
+            <h3 className="text-xl md:text-3xl font-black tracking-tight text-archive-charcoal uppercase leading-tight">
+              THREE MARKETS. THREE DIFFERENT STRENGTHS. <br className="hidden md:inline" />
+              <span className="text-archive-clay">ONE EXTRAORDINARY SOURCING OPPORTUNITY.</span>
+            </h3>
+            <p className="text-[15px] md:text-base leading-relaxed text-archive-charcoal/80 font-medium">
+              What makes South Asia particularly powerful is not simply the size of these individual markets, but the complementary nature of their textile ecosystems. From Bangladesh’s export-driven apparel manufacturing and Sri Lanka’s premium production capabilities to India’s vast fibre-to-fashion value chain, the region offers global suppliers multiple routes into the same rapidly evolving industry.
+            </p>
+            <p className="text-[15px] md:text-base leading-relaxed text-archive-charcoal/80 font-medium">
+              For international suppliers, this means access to markets where production is expanding, sourcing strategies are diversifying, technology is advancing and demand for better materials and higher-value solutions is accelerating.
+            </p>
+          </div>
+
+          {/* Subheading: Where Intex Comes In */}
+          <div className="space-y-6 pt-4">
+            <h3 className="text-xl md:text-3xl font-black tracking-tight text-archive-charcoal uppercase leading-tight">
+              AND THAT IS WHERE <span className="text-archive-clay">INTEX SOUTH ASIA COMES IN.</span>
+            </h3>
+            <p className="text-[15px] md:text-base leading-relaxed text-archive-charcoal/80 font-medium">
+              Intex connects this demand directly with the global supply community—bringing international manufacturers and suppliers of fibres, yarns, fabrics, denim, MMF, trims, accessories, sustainable materials, functional textiles, performance solutions and next-generation textile technologies face-to-face with manufacturers, exporters, sourcing houses, brands, buying offices and industry decision-makers.
+            </p>
+            <p className="text-[15px] md:text-base leading-relaxed text-archive-charcoal/80 font-medium">
+              With 19 successful editions and 75,000+ qualified trade buyers, Intex has evolved into more than an exhibition. It is a strategic sourcing corridor into three of South Asia’s most important textile and apparel markets.
+            </p>
+            <p className="text-base md:text-lg leading-relaxed text-archive-charcoal font-semibold italic bg-white/50 py-4 px-6 rounded-lg shadow-sm">
+              South Asia is not waiting for the next chapter of global textile manufacturing. It is already writing it. Intex is where the global textile industry comes to be part of that growth.
             </p>
           </div>
         </div>
       </section>
 
       {/* 3D Isometric Region Cards */}
-      <section className="px-6 md:px-12 max-w-[1440px] mx-auto mb-40">
+      <section className="px-6 md:px-12 max-w-[1440px] mx-auto mb-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-16 lg:gap-20 pt-10 pb-24 px-8">
           {REGIONS.map((region, idx) => {
             const isHovered = hoveredIdx === idx;
@@ -185,7 +201,7 @@ const WhyIntexPage: React.FC = () => {
                   onMouseLeave={() => setHoveredIdx(null)}
                   className="relative flex flex-col cursor-pointer"
                   style={{
-                    minHeight: '530px',
+                    minHeight: '510px',
                     transform: isHovered
                       ? 'skewY(-10deg) translateY(-20px)'
                       : 'skewY(-10deg)',
@@ -273,32 +289,16 @@ const WhyIntexPage: React.FC = () => {
                     </div>
 
                     {/* BOTTOM WHITE BODY BLOCK */}
-                    <div className="p-8 flex flex-col flex-1 bg-white justify-between space-y-6">
-                      {/* Description Text */}
-                      <p className="text-[14px] leading-relaxed font-medium text-slate-600">
-                        {region.desc}
-                      </p>
+                    <div className="p-8 flex flex-col flex-1 bg-white space-y-4">
+                      {/* Subheading */}
+                      <h4 className="text-[14px] font-black text-archive-charcoal uppercase tracking-wider text-[#EE7539]">
+                        {region.subheading}
+                      </h4>
 
-                      {/* Tags */}
-                      <div className="flex flex-wrap gap-2 pt-2">
-                        {region.tags.map((tag) => (
-                          <span
-                            key={tag}
-                            className="font-bold uppercase tracking-wider px-2.5 py-1 text-[10px] bg-slate-100 text-slate-600 rounded"
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-
-                      {/* Export Stat Footer */}
-                      <div className="pt-4 flex items-center justify-between">
-                        <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">
-                          {region.stat.label}
-                        </span>
-                        <span className="text-lg font-black text-[#EE7539]">
-                          {region.stat.value}
-                        </span>
+                      {/* Description Paragraphs */}
+                      <div className="space-y-3.5 text-[13.5px] leading-relaxed font-medium text-slate-600">
+                        <p>{region.desc1}</p>
+                        <p>{region.desc2}</p>
                       </div>
                     </div>
                   </div>
@@ -306,63 +306,6 @@ const WhyIntexPage: React.FC = () => {
               </div>
             );
           })}
-        </div>
-      </section>
-
-      {/* Main Philosophy Section */}
-      <section className="bg-archive-charcoal py-40 text-archive-cream border-y border-archive-clay/20">
-        <div className="max-w-[1440px] mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
-          <div className="space-y-12">
-            <h2 className="text-2xl md:text-3xl font-black leading-[0.9] text-white uppercase">
-              The Epicenter of <br /> <span className="text-archive-clay">Textile Innovation.</span>
-            </h2>
-            <div className="space-y-6 text-[14px] font-bold tracking-[0.15em] leading-relaxed text-white/60">
-              <p>
-                South Asia today represents one of the most dynamic regions for textile manufacturing, sourcing, retail growth, and apparel innovation. Intex South Asia provides direct access to this rapidly evolving ecosystem by bringing together international suppliers, textile innovators, apparel manufacturers, sourcing professionals, buying houses, retailers, and industry leaders under one powerful platform.
-              </p>
-              <p>
-                From raw materials and sustainable textiles to technical innovations, dyes & chemicals, trims, MMF, functional fabrics, and next-generation sourcing solutions — Intex enables businesses to discover new opportunities, strengthen supply chains, and build long-term regional partnerships.
-              </p>
-            </div>
-
-          </div>
-
-          <div className="relative aspect-[6/7] border border-white/10 p-3 group">
-            <div className="w-full h-full border border-white/5 overflow-hidden">
-              <img
-                src="/assets/intex collage.jpg.jpeg"
-                className="w-full h-full object-cover brightness-90 group-hover:scale-110 transition-transform duration-[3000ms]"
-                alt="Textile Manufacturing"
-              />
-            </div>
-            <div className="absolute -top-10 -right-10 w-40 h-40 border border-archive-charcoal bg-archive-cream overflow-hidden z-10 hidden xl:flex p-2">
-              <img src="/assets/squareImage.jpg.jpeg" className="w-full h-full object-cover" />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Value Propositions Grid */}
-      <section className="py-40 px-6 md:px-12 max-w-[1440px] mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border border-archive-charcoal/10 divide-y md:divide-y-0 md:divide-x divide-archive-charcoal/10">
-          {ADVANTAGES.map((adv, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: idx * 0.1 }}
-              viewport={{ once: true }}
-              className={`p-16 flex flex-col gap-10 hover:bg-archive-charcoal hover:text-white transition-all duration-700 group ${adv.bgClass || ''}`}
-            >
-              <adv.icon size={32} className="text-archive-clay" />
-              <div className="space-y-4">
-                <h3 className="text-2xl font-black tracking-tight leading-none group-hover:text-archive-clay transition-colors uppercase">{adv.title}</h3>
-                <p className="text-[14px] font-bold tracking-widest opacity-40 group-hover:opacity-100 transition-opacity leading-relaxed">
-                  {adv.desc}
-                </p>
-              </div>
-            </motion.div>
-          ))}
         </div>
       </section>
     </div>

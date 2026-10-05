@@ -43,6 +43,7 @@ const NAV_ITEMS = [
     children: [
       // { label: "Show Profile", link: "/show-profile", icon: Info },
       { label: "Why Intex South Asia", link: "/why-intex", icon: HelpCircle },
+      { label: "Intex ASEAN (Indonesia)", link: "/intex-asean", icon: Globe },
       { label: "About Organiser", link: "/organiser", icon: Building2 },
       { label: "IBF Seminar Series", link: "/ibf-seminar-series", icon: Presentation },
       { label: "Industry Partners", link: "/industry-partners", icon: Users },

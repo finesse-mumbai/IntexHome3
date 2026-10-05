@@ -3,18 +3,17 @@ import { motion } from 'framer-motion';
 import { Archive, Users, Globe, ShoppingBag, MapPin } from 'lucide-react';
 
 const statsData = [
-  { icon: Archive, value: '17', label: 'EDITIONS', desc: 'SUCCESSFULLY COMPLETED' },
-  { icon: Users, value: '3,000+', label: 'EXHIBITORS', desc: 'GLOBAL MANUFACTURERS' },
-  { icon: Globe, value: '20+', label: 'EXHIBITING COUNTRIES', desc: 'INTERNATIONAL PRESENCE' },
-  { icon: ShoppingBag, value: '70,000+', label: 'BUYERS', desc: 'QUALIFIED TRADE VISITORS' },
-  { icon: MapPin, value: '40+', label: 'BUYING COUNTRIES', desc: 'SOURCING WORLDWIDE' },
+  { icon: Archive, value: '19', label: 'EDITIONS', desc: 'SUCCESSFULLY COMPLETED' },
+  { icon: ShoppingBag, value: '75,000+', label: 'BUYERS', desc: 'QUALIFIED TRADE VISITORS' },
+  { icon: Users, value: '3,600+', label: 'EXHIBITORS', desc: 'GLOBAL MANUFACTURERS' },
+  { icon: Globe, value: '45+', label: 'COUNTRIES', desc: 'SOURCING WORLDWIDE' },
 ];
 
 const Stats: React.FC = () => {
   return (
     <section className="bg-archive-cream border-b border-archive-charcoal/10">
       <div className="max-w-[1440px] mx-auto px-6 md:px-12">
-        <div className="grid grid-cols-2 lg:grid-cols-5 divide-x divide-archive-charcoal/10 border-x border-archive-charcoal/10 bg-white">
+        <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-archive-charcoal/10 border-x border-archive-charcoal/10 bg-white">
           {statsData.map((stat, index) => (
             <motion.div
               key={index}

@@ -60,11 +60,11 @@ const SHOW_GUIDES: Record<string, { title: string; location: string; date: strin
 };
 
 const STATS = [
-  { label: 'Editions Executed', value: '17', sub: 'Across South Asia' },
-  { label: 'Exhibiting Companies', value: '3,000+', sub: 'Global Suppliers' },
+  { label: 'Editions Executed', value: '19', sub: 'Across South Asia' },
+  { label: 'Exhibiting Companies', value: '3,600+', sub: 'Global Suppliers' },
   { label: 'Exhibiting Nations', value: '20+', sub: 'International Hubs' },
-  { label: 'Verified Trade Buyers', value: '70,000+', sub: 'Decision Makers' },
-  { label: 'Buyer Origin Countries', value: '40+', sub: 'Global Sourcing' }
+  { label: 'Verified Trade Buyers', value: '75,000+', sub: 'Decision Makers' },
+  { label: 'Buyer Origin Countries', value: '45+', sub: 'Global Sourcing' }
 ];
 
 const PACKAGES: PartnershipPackage[] = [
@@ -266,7 +266,7 @@ const BrandingOpportunitiesPage: React.FC = () => {
             </h1>
 
             <p className="text-base md:text-xl font-medium text-archive-charcoal/70 leading-relaxed">
-              Maximize your brand visibility across South Asia's premier textile sourcing ecosystem. Connect directly with over 70,000+ verified trade buyers, manufacturers, and international sourcing hubs.
+              Maximize your brand visibility across South Asia's premier textile sourcing ecosystem. Connect directly with over 75,000+ verified trade buyers, manufacturers, and international sourcing hubs.
             </p>
           </div>
 
@@ -346,7 +346,7 @@ const BrandingOpportunitiesPage: React.FC = () => {
                   The Region's Most Influential Sourcing Platform
                 </h2>
                 <p className="text-sm font-medium text-white/70 leading-relaxed">
-                  Over 17 successful editions, Intex South Asia has united global suppliers with regional garment manufacturers, retail chains, and international buying offices.
+                  Over 19 successful editions, Intex South Asia has united global suppliers with regional garment manufacturers, retail chains, and international buying offices.
                 </p>
               </div>
 

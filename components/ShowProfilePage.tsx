@@ -24,10 +24,10 @@ const ShowProfilePage: React.FC = () => {
                 <div className="w-12 h-[2px] bg-archive-clay"></div>
                 <div className="space-y-6 text-[14px] font-medium tracking-[0.1em] leading-relaxed text-archive-charcoal/80">
                   <p>
-                    Since its launch in 2015, Intex has evolved into the region’s most influential and largest international textile sourcing show in South Asia, with a strong presence across Sri Lanka, Bangladesh, and India. Over the course of 17 successful editions, the platform has consistently brought together the global textile community at the heart of South Asia’s manufacturing ecosystem.
+                    Since its launch in 2015, Intex has evolved into the region’s most influential and largest international textile sourcing show in South Asia, with a strong presence across Sri Lanka, Bangladesh, and India. Over the course of 19 successful editions, the platform has consistently brought together the global textile community at the heart of South Asia’s manufacturing ecosystem.
                   </p>
                   <p>
-                    Intex has connected over 70,000+ qualified trade buyers from more than 40 countries with 3,000+ international textile exhibitors, enabling meaningful business engagement across fibres, fabrics, trims, dyes and chemicals, technology, and allied services. Shaped by industry needs, the platform empowers stakeholders to discover innovation, build strategic partnerships, and stay aligned with evolving global sourcing trends.
+                    Intex has connected over 75,000+ qualified trade buyers from more than 45+ countries with 3,600+ international textile exhibitors, enabling meaningful business engagement across fibres, fabrics, trims, dyes and chemicals, technology, and allied services. Shaped by industry needs, the platform empowers stakeholders to discover innovation, build strategic partnerships, and stay aligned with evolving global sourcing trends.
                   </p>
                   <p>
                     Today, Intex is firmly established as a must-attend annual event for the textile and apparel industry, trusted by manufacturers, brands, and sourcing leaders worldwide. The show is widely supported and endorsed by government bodies, chambers of commerce, trade councils, and industry associations across South Asia and key global markets reinforcing its position as the region’s gateway to international textile trade.
