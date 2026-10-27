@@ -28,7 +28,7 @@ const INITIAL_VIDEO_TESTIMONIALS: VideoTestimonialItem[] = [
     company: 'Wire Waste India Pvt. Ltd.',
     edition: 'Intex Bangladesh',
     regionKey: 'BD',
-    videoUrl: '/assets/img/VideoTestimonials/BD/avc_JARIN AMIN - Wire Waste India Pvt. Ltd.mp4',
+    videoUrl: 'https://assets.bee2bee.asia/events/wofx/VideoTestimonials/BD/avc_JARIN%20AMIN%20-%20Wire%20Waste%20India%20Pvt.%20Ltd.mp4',
   },
   {
     id: 'vt-bd-2',
@@ -36,7 +36,7 @@ const INITIAL_VIDEO_TESTIMONIALS: VideoTestimonialItem[] = [
     company: 'Mittal Silk Mills Pvt. Ltd.',
     edition: 'Intex Bangladesh',
     regionKey: 'BD',
-    videoUrl: '/assets/img/VideoTestimonials/BD/avc_Tapesh Agarwal - Mittal Silk Mills Pvt. Ltd..mp4',
+    videoUrl: 'https://assets.bee2bee.asia/events/wofx/VideoTestimonials/BD/avc_Tapesh%20Agarwal%20-%20Mittal%20Silk%20Mills%20Pvt.%20Ltd..mp4',
   },
   {
     id: 'vt-bd-3',
@@ -44,7 +44,7 @@ const INITIAL_VIDEO_TESTIMONIALS: VideoTestimonialItem[] = [
     company: 'Nahar Spinning Mills Ltd.',
     edition: 'Intex Bangladesh',
     regionKey: 'BD',
-    videoUrl: '/assets/img/VideoTestimonials/BD/avc_dinesh oswal - nahar spinning mills ltd..mp4',
+    videoUrl: 'https://assets.bee2bee.asia/events/wofx/VideoTestimonials/BD/avc_dinesh%20oswal%20-%20nahar%20spinning%20mills%20ltd..mp4',
   },
   {
     id: 'vt-bd-4',
@@ -52,7 +52,7 @@ const INITIAL_VIDEO_TESTIMONIALS: VideoTestimonialItem[] = [
     company: 'Threadify',
     edition: 'Intex Bangladesh',
     regionKey: 'BD',
-    videoUrl: '/assets/img/VideoTestimonials/BD/avc_rajesh ranjan sarkar - Threadify.mp4',
+    videoUrl: 'https://assets.bee2bee.asia/events/wofx/VideoTestimonials/BD/avc_rajesh%20ranjan%20sarkar%20-%20Threadify.mp4',
   },
 
   // ── Sri Lanka Editions ──
@@ -62,7 +62,7 @@ const INITIAL_VIDEO_TESTIMONIALS: VideoTestimonialItem[] = [
     company: 'Grasim Industries Ltd - Jayashree Textile',
     edition: 'Intex Sri Lanka',
     regionKey: 'SL',
-    videoUrl: '/assets/img/VideoTestimonials/SL/Akash Deep Goyal - GRASIM INDUSTRIES LTD - JAYASHREE TEXTILE.mp4',
+    videoUrl: 'https://assets.bee2bee.asia/events/wofx/VideoTestimonials/SL/Akash%20Deep%20Goyal%20-%20GRASIM%20INDUSTRIES%20LTD%20-%20JAYASHREE%20TEXTILE.mp4',
   },
   {
     id: 'vt-sl-2',
@@ -70,7 +70,7 @@ const INITIAL_VIDEO_TESTIMONIALS: VideoTestimonialItem[] = [
     company: 'Sri Maa Textiles',
     edition: 'Intex Sri Lanka',
     regionKey: 'SL',
-    videoUrl: '/assets/img/VideoTestimonials/SL/BHARAT - SRI MAA TEXTILES.mp4',
+    videoUrl: 'https://assets.bee2bee.asia/events/wofx/VideoTestimonials/SL/BHARAT%20-%20SRI%20MAA%20TEXTILES.mp4',
   },
   {
     id: 'vt-sl-3',
@@ -78,7 +78,7 @@ const INITIAL_VIDEO_TESTIMONIALS: VideoTestimonialItem[] = [
     company: 'S.P Yarns',
     edition: 'Intex Sri Lanka',
     regionKey: 'SL',
-    videoUrl: '/assets/img/VideoTestimonials/SL/CHANDAN GHOSH - S.P YARNS.mp4',
+    videoUrl: 'https://assets.bee2bee.asia/events/wofx/VideoTestimonials/SL/CHANDAN%20GHOSH%20-%20S.P%20YARNS.mp4',
   },
   {
     id: 'vt-sl-4',
@@ -86,7 +86,7 @@ const INITIAL_VIDEO_TESTIMONIALS: VideoTestimonialItem[] = [
     company: 'Premco Global',
     edition: 'Intex Sri Lanka',
     regionKey: 'SL',
-    videoUrl: '/assets/img/VideoTestimonials/SL/CHIRAG JHAVERI - PREMCO GLOBAL.mp4',
+    videoUrl: 'https://assets.bee2bee.asia/events/wofx/VideoTestimonials/SL/CHIRAG%20JHAVERI%20-%20PREMCO%20GLOBAL.mp4',
   },
   {
     id: 'vt-sl-5',
@@ -94,7 +94,7 @@ const INITIAL_VIDEO_TESTIMONIALS: VideoTestimonialItem[] = [
     company: 'Guru Textiles',
     edition: 'Intex Sri Lanka',
     regionKey: 'SL',
-    videoUrl: '/assets/img/VideoTestimonials/SL/GAUTAM GIROTRA -  GURU TEXTILES.mp4',
+    videoUrl: 'https://assets.bee2bee.asia/events/wofx/VideoTestimonials/SL/GAUTAM%20GIROTRA%20-%20%20GURU%20TEXTILES.mp4',
   },
   {
     id: 'vt-sl-6',
@@ -102,7 +102,7 @@ const INITIAL_VIDEO_TESTIMONIALS: VideoTestimonialItem[] = [
     company: 'Eldee Silk Mills',
     edition: 'Intex Sri Lanka',
     regionKey: 'SL',
-    videoUrl: '/assets/img/VideoTestimonials/SL/Gaurav Tibrewala - Eldee Silk mills.mp4',
+    videoUrl: 'https://assets.bee2bee.asia/events/wofx/VideoTestimonials/SL/Gaurav%20Tibrewala%20-%20Eldee%20Silk%20mills.mp4',
   },
   {
     id: 'vt-sl-7',
@@ -110,7 +110,7 @@ const INITIAL_VIDEO_TESTIMONIALS: VideoTestimonialItem[] = [
     company: 'PT Sina Pataruna',
     edition: 'Intex Sri Lanka',
     regionKey: 'SL',
-    videoUrl: '/assets/img/VideoTestimonials/SL/Glen Go - PT SINA PATARUNA.mp4',
+    videoUrl: 'https://assets.bee2bee.asia/events/wofx/VideoTestimonials/SL/Glen%20Go%20-%20PT%20SINA%20PATARUNA.mp4',
   },
   {
     id: 'vt-sl-8',
@@ -118,7 +118,7 @@ const INITIAL_VIDEO_TESTIMONIALS: VideoTestimonialItem[] = [
     company: 'Rajkrupa Textile India Private Limited',
     edition: 'Intex Sri Lanka',
     regionKey: 'SL',
-    videoUrl: '/assets/img/VideoTestimonials/SL/Jayesh Padi - Rajkrupa Textile India Private Limited.mp4',
+    videoUrl: 'https://assets.bee2bee.asia/events/wofx/VideoTestimonials/SL/Jayesh%20Padi%20-%20Rajkrupa%20Textile%20India%20Private%20Limited.mp4',
   },
   {
     id: 'vt-sl-9',
@@ -126,7 +126,7 @@ const INITIAL_VIDEO_TESTIMONIALS: VideoTestimonialItem[] = [
     company: 'Zhejiang Hubang New Material Technology Co Ltd',
     edition: 'Intex Sri Lanka',
     regionKey: 'SL',
-    videoUrl: '/assets/img/VideoTestimonials/SL/LUO CHENYANG - ZEJIANG HUBANG NEW MATERIAL TECHNOLOGY CO LTD.mp4',
+    videoUrl: 'https://assets.bee2bee.asia/events/wofx/VideoTestimonials/SL/LUO%20CHENYANG%20-%20ZEJIANG%20HUBANG%20NEW%20MATERIAL%20TECHNOLOGY%20CO%20LTD.mp4',
   },
   {
     id: 'vt-sl-10',
@@ -134,7 +134,7 @@ const INITIAL_VIDEO_TESTIMONIALS: VideoTestimonialItem[] = [
     company: 'Own Way',
     edition: 'Intex Sri Lanka',
     regionKey: 'SL',
-    videoUrl: '/assets/img/VideoTestimonials/SL/Ling Chien - OWN WAY.mp4',
+    videoUrl: 'https://assets.bee2bee.asia/events/wofx/VideoTestimonials/SL/Ling%20Chien%20-%20OWN%20WAY.mp4',
   },
   {
     id: 'vt-sl-11',
@@ -142,7 +142,7 @@ const INITIAL_VIDEO_TESTIMONIALS: VideoTestimonialItem[] = [
     company: 'Atam Graphics Pvt. Ltd.',
     edition: 'Intex Sri Lanka',
     regionKey: 'SL',
-    videoUrl: '/assets/img/VideoTestimonials/SL/MANAN Jain - ATAM GRAPHICS PVT. LTD..mp4',
+    videoUrl: 'https://assets.bee2bee.asia/events/wofx/VideoTestimonials/SL/MANAN%20Jain%20-%20ATAM%20GRAPHICS%20PVT.%20LTD..mp4',
   },
   {
     id: 'vt-sl-12',
@@ -150,7 +150,7 @@ const INITIAL_VIDEO_TESTIMONIALS: VideoTestimonialItem[] = [
     company: 'Darshana Textiles',
     edition: 'Intex Sri Lanka',
     regionKey: 'SL',
-    videoUrl: '/assets/img/VideoTestimonials/SL/MEHUL GOHEL - DARSHANA TEXTILES.mp4',
+    videoUrl: 'https://assets.bee2bee.asia/events/wofx/VideoTestimonials/SL/MEHUL%20GOHEL%20-%20DARSHANA%20TEXTILES.mp4',
   },
   {
     id: 'vt-sl-13',
@@ -158,7 +158,7 @@ const INITIAL_VIDEO_TESTIMONIALS: VideoTestimonialItem[] = [
     company: 'Hunaram Processing Pvt Ltd',
     edition: 'Intex Sri Lanka',
     regionKey: 'SL',
-    videoUrl: '/assets/img/VideoTestimonials/SL/MR. VIKRAM MEHTA -  HUNARAM PROCESSING PVT LTD.mp4',
+    videoUrl: 'https://assets.bee2bee.asia/events/wofx/VideoTestimonials/SL/MR.%20VIKRAM%20MEHTA%20-%20%20HUNARAM%20PROCESSING%20PVT%20LTD.mp4',
   },
   {
     id: 'vt-sl-14',
@@ -166,7 +166,7 @@ const INITIAL_VIDEO_TESTIMONIALS: VideoTestimonialItem[] = [
     company: 'Premier Mills Pvt. Ltd.',
     edition: 'Intex Sri Lanka',
     regionKey: 'SL',
-    videoUrl: '/assets/img/VideoTestimonials/SL/MR. arun kumar - Premier Mills PVT. LTD..mp4',
+    videoUrl: 'https://assets.bee2bee.asia/events/wofx/VideoTestimonials/SL/MR.%20arun%20kumar%20-%20Premier%20Mills%20PVT.%20LTD..mp4',
   },
   {
     id: 'vt-sl-15',
@@ -174,7 +174,7 @@ const INITIAL_VIDEO_TESTIMONIALS: VideoTestimonialItem[] = [
     company: 'Square Corporation',
     edition: 'Intex Sri Lanka',
     regionKey: 'SL',
-    videoUrl: '/assets/img/VideoTestimonials/SL/Nitika Mahajan - SQUARE CORPORATION.mp4',
+    videoUrl: 'https://assets.bee2bee.asia/events/wofx/VideoTestimonials/SL/Nitika%20Mahajan%20-%20SQUARE%20CORPORATION.mp4',
   },
   {
     id: 'vt-sl-16',
@@ -182,7 +182,7 @@ const INITIAL_VIDEO_TESTIMONIALS: VideoTestimonialItem[] = [
     company: 'Suzhou Colorful Fish Textile Co Ltd',
     edition: 'Intex Sri Lanka',
     regionKey: 'SL',
-    videoUrl: '/assets/img/VideoTestimonials/SL/Qian Yifeng - SUZHOU COLORFUL FISH TEXTILE CO LTD.mp4',
+    videoUrl: 'https://assets.bee2bee.asia/events/wofx/VideoTestimonials/SL/Qian%20Yifeng%20-%20SUZHOU%20COLORFUL%20FISH%20TEXTILE%20CO%20LTD.mp4',
   },
   {
     id: 'vt-sl-17',
@@ -190,7 +190,7 @@ const INITIAL_VIDEO_TESTIMONIALS: VideoTestimonialItem[] = [
     company: 'Alok Industries Limited',
     edition: 'Intex Sri Lanka',
     regionKey: 'SL',
-    videoUrl: '/assets/img/VideoTestimonials/SL/UDDHAV PANSARE - ALOK Industries Limited.mp4',
+    videoUrl: 'https://assets.bee2bee.asia/events/wofx/VideoTestimonials/SL/UDDHAV%20PANSARE%20-%20ALOK%20Industries%20Limited.mp4',
   },
   {
     id: 'vt-sl-18',
@@ -198,7 +198,7 @@ const INITIAL_VIDEO_TESTIMONIALS: VideoTestimonialItem[] = [
     company: 'Birla Cellulose',
     edition: 'Intex Sri Lanka',
     regionKey: 'SL',
-    videoUrl: '/assets/img/VideoTestimonials/SL/Vishal vyas - Birla Cellulose.mp4',
+    videoUrl: 'https://assets.bee2bee.asia/events/wofx/VideoTestimonials/SL/Vishal%20vyas%20-%20Birla%20Cellulose.mp4',
   },
   {
     id: 'vt-sl-19',
@@ -206,7 +206,7 @@ const INITIAL_VIDEO_TESTIMONIALS: VideoTestimonialItem[] = [
     company: 'Hangzhou Yongchang Tianmen New Materials Co Ltd',
     edition: 'Intex Sri Lanka',
     regionKey: 'SL',
-    videoUrl: '/assets/img/VideoTestimonials/SL/WANG JIALONG - HANGZHOU YONGCHANG TAINMEN NEW MATERIALS CO LTD.mp4',
+    videoUrl: 'https://assets.bee2bee.asia/events/wofx/VideoTestimonials/SL/WANG%20JIALONG%20-%20HANGZHOU%20YONGCHANG%20TAINMEN%20NEW%20MATERIALS%20CO%20LTD.mp4',
   },
 ];
 
@@ -335,8 +335,8 @@ const VideoTestimonials: React.FC = () => {
       edition: newEdition,
       regionKey: newEdition === 'Intex Bangladesh' ? 'BD' : 'SL',
       videoUrl: newVideoUrl || (newEdition === 'Intex Bangladesh'
-        ? '/assets/img/VideoTestimonials/BD/avc_JARIN AMIN - Wire Waste India Pvt. Ltd.mp4'
-        : '/assets/img/VideoTestimonials/SL/Akash Deep Goyal - GRASIM INDUSTRIES LTD - JAYASHREE TEXTILE.mp4'),
+        ? 'https://assets.bee2bee.asia/events/wofx/VideoTestimonials/BD/avc_JARIN%20AMIN%20-%20Wire%20Waste%20India%20Pvt.%20Ltd.mp4'
+        : 'https://assets.bee2bee.asia/events/wofx/VideoTestimonials/SL/Akash%20Deep%20Goyal%20-%20GRASIM%20INDUSTRIES%20LTD%20-%20JAYASHREE%20TEXTILE.mp4'),
     };
 
     setTestimonials((prev) => [newItem, ...prev]);
