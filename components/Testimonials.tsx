@@ -1,11 +1,9 @@
 import React, { useState, useMemo, useCallback, memo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { TESTIMONIALS } from '../constants';
 import { exhibitorstestBD, exhibitorstestSL } from '../constants/Exhibitortestimonial';
 import { buyertestBD, buyertestSL } from '../constants/Buyertestimonial';
-import { Hash, Binary, ArrowLeft, ArrowRight, Play } from 'lucide-react';
+import { Hash, Binary, ArrowLeft, ArrowRight } from 'lucide-react';
 import { TestimonialItem } from '../types';
-import { useNavigate } from 'react-router-dom';
 
 interface SpecimenPanelProps {
   testimonial: TestimonialItem;
@@ -13,7 +11,6 @@ interface SpecimenPanelProps {
   onPrev: () => void;
   label: string;
   index: number;
-  onPlayVideo: (testimonial: TestimonialItem) => void;
   isDark?: boolean;
 }
 
@@ -23,7 +20,6 @@ const SpecimenPanel = memo(({
   onPrev,
   label,
   index,
-  onPlayVideo,
   isDark = true
 }: SpecimenPanelProps) => (
   <div className={`w-full lg:w-1/2 flex flex-col justify-between relative p-12 md:p-16 xl:p-24 min-h-[650px] transition-colors duration-700 overflow-hidden ${isDark ? 'bg-archive-charcoal text-archive-cream border-t border-b border-archive-charcoal lg:border-r' : 'bg-archive-cream text-archive-charcoal border-archive-charcoal/5'}`}>
@@ -45,15 +41,6 @@ const SpecimenPanel = memo(({
         <span className={`text-[14px] font-mono uppercase tracking-[0.3em] border px-4 py-2.5 rounded-none font-bold transition-all duration-500 ${isDark ? 'bg-[#EE7539] text-white border-transparent shadow-[0_0_15px_rgba(238,117,57,0.3)]' : 'bg-archive-charcoal text-white border-archive-charcoal'}`}>
           {testimonial.type}
         </span>
-        {testimonial.videoUrl && (
-          <div
-            className="flex items-center gap-2 px-3 py-1.5 bg-archive-clay text-white text-[14px] font-black tracking-widest uppercase cursor-pointer hover:bg-archive-charcoal hover:scale-105 transition-all shadow-lg"
-            onClick={() => onPlayVideo(testimonial)}
-          >
-            <Play size={10} fill="currentColor" strokeWidth={0} />
-            WATCH VIDEO
-          </div>
-        )}
       </div>
     </div>
 
@@ -77,21 +64,9 @@ const SpecimenPanel = memo(({
                   alt={testimonial.author}
                   className="w-full h-full object-cover transition-all duration-700"
                   onError={(e) => {
-                    (e.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${testimonial.author || testimonial.company}&background=F3EBE8&color=2F2C2C&bold=true`;
+                    (e.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${testimonial.author || testimonial.company}&background=DBD3D0&color=2F2C2C&bold=true`;
                   }}
                 />
-
-                {/* PLAY OVERLAY */}
-                {testimonial.videoUrl && (
-                  <div
-                    className="absolute inset-0 flex items-center justify-center bg-black/10 transition-all cursor-pointer z-20"
-                    onClick={() => onPlayVideo(testimonial)}
-                  >
-                    <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-archive-clay shadow-2xl transform scale-75 group-hover/img-block:scale-100 transition-all duration-500">
-                      <Play size={22} fill="currentColor" strokeWidth={0} />
-                    </div>
-                  </div>
-                )}
               </div>
               {/* DECORATIVE OFFSET RECT */}
               <div className="absolute -bottom-2 -right-2 w-full h-full bg-[#EE7539] z-0"></div>
@@ -129,6 +104,7 @@ const SpecimenPanel = memo(({
       <div className="flex items-center gap-6">
         <button
           onClick={onPrev}
+          aria-label="Previous testimonial"
           className={`group/nav-btn w-12 h-12 border flex items-center justify-center transition-all duration-500 bg-archive-clay hover:bg-archive-charcoal text-white border-archive-clay/20 shadow-lg hover:shadow-archive-charcoal/20`}
         >
           <ArrowLeft size={16} className="group-hover/nav-btn:-translate-x-1 transition-transform" />
@@ -137,6 +113,7 @@ const SpecimenPanel = memo(({
 
       <button
         onClick={onNext}
+        aria-label="Next testimonial"
         className={`group/nav-btn w-12 h-12 border flex items-center justify-center transition-all duration-500 bg-archive-clay hover:bg-archive-charcoal text-white border-archive-clay/20 shadow-lg hover:shadow-archive-charcoal/20`}
       >
         <ArrowRight size={16} className="group-hover/nav-btn:translate-x-1 transition-transform" />
@@ -148,105 +125,88 @@ const SpecimenPanel = memo(({
 SpecimenPanel.displayName = 'SpecimenPanel';
 
 const Testimonials: React.FC = () => {
-  const navigate = useNavigate();
-  // Function to convert youtu.be or youtube.com links to embed format
-  const getEmbedUrl = (url: string) => {
-    if (!url) return undefined;
-    if (url.includes('embed')) return url;
-    let videoId = '';
-    if (url.includes('youtu.be/')) {
-      videoId = url.split('youtu.be/')[1].split('?')[0];
-    } else if (url.includes('v=')) {
-      videoId = url.split('v=')[1].split('&')[0];
-    }
-    return videoId ? `https://www.youtube.com/embed/${videoId}` : url;
-  };
-
-  // Normalize BD and SL exhibitors
+  // Normalize BD and SL exhibitors with text testimonials
   const exhibitors = useMemo(() => {
     const bdItems = Object.entries(exhibitorstestBD).flatMap(([year, list]) => {
-      return (list as any[]).map((item, i) => ({
-        id: `exh-bd-${year}-${i}`,
-        author: item.compnay || 'Exhibitor',
-        role: item.designation || 'Representative',
-        company: `Intex Bangladesh ${year}`,
-        quote: item.para,
-        imageUrl: item.Img,
-        type: `Bangladesh ${year}`,
-        videoUrl: getEmbedUrl(item.video)
-      }));
+      return (list as any[])
+        .filter((item) => Boolean(item.para && item.para.trim()))
+        .map((item, i) => ({
+          id: `exh-bd-${year}-${i}`,
+          author: item.compnay || 'Exhibitor',
+          role: item.designation || 'Representative',
+          company: `Intex Bangladesh ${year}`,
+          quote: item.para,
+          imageUrl: item.Img,
+          type: `Bangladesh ${year}`,
+        }));
     });
 
     const slItems = Object.entries(exhibitorstestSL).flatMap(([year, list]) => {
-      return (list as any[]).map((item, i) => {
-        const parts = (item.designation || "").split(',');
-        return {
-          id: `exh-sl-${year}-${i}`,
-          author: parts[0]?.trim() || item.compnay || 'Exhibitor',
-          role: parts[1]?.trim() || "Representative",
-          company: item.compnay || "Intex Sri Lanka",
-          quote: item.para,
-          imageUrl: item.Img,
-          type: `Sri Lanka ${year}`,
-          videoUrl: getEmbedUrl(item.video)
-        };
-      });
+      return (list as any[])
+        .filter((item) => Boolean(item.para && item.para.trim()))
+        .map((item, i) => {
+          const parts = (item.designation || "").split(',');
+          return {
+            id: `exh-sl-${year}-${i}`,
+            author: parts[0]?.trim() || item.compnay || 'Exhibitor',
+            role: parts[1]?.trim() || "Representative",
+            company: item.compnay || "Intex Sri Lanka",
+            quote: item.para,
+            imageUrl: item.Img,
+            type: `Sri Lanka ${year}`,
+          };
+        });
     });
 
     return [...slItems, ...bdItems].sort((a, b) => {
       const yearA = a.id.includes('2025') ? 2025 : 2024;
       const yearB = b.id.includes('2025') ? 2025 : 2024;
-      if (yearA !== yearB) return yearB - yearA;
-      if (a.videoUrl && !b.videoUrl) return -1;
-      if (!a.videoUrl && b.videoUrl) return 1;
-      return 0;
+      return yearB - yearA;
     });
   }, []);
 
-  // Normalize BD and SL buyers
+  // Normalize BD and SL buyers with text testimonials
   const buyers = useMemo(() => {
     const bd = Object.entries(buyertestBD).flatMap(([year, list]) => {
-      return (list as any[]).map((item, i) => {
-        const parts = (item.designation || "").split(',');
-        return {
-          id: `buy-bd-${year}-${i}`,
-          author: parts[0]?.trim() || item.compnay || 'Buyer',
-          role: parts[1]?.trim() || "Industry Leader",
-          company: item.compnay,
-          quote: item.para,
-          imageUrl: item.Img,
-          type: `Bangladesh ${year}`,
-          videoUrl: getEmbedUrl(item.video)
-        };
-      });
+      return (list as any[])
+        .filter((item) => Boolean(item.para && item.para.trim()))
+        .map((item, i) => {
+          const parts = (item.designation || "").split(',');
+          return {
+            id: `buy-bd-${year}-${i}`,
+            author: parts[0]?.trim() || item.compnay || 'Buyer',
+            role: parts[1]?.trim() || "Industry Leader",
+            company: item.compnay,
+            quote: item.para,
+            imageUrl: item.Img,
+            type: `Bangladesh ${year}`,
+          };
+        });
     });
 
     const sl = Object.entries(buyertestSL).flatMap(([year, list]) => {
-      return (list as any[]).map((item, i) => {
-        const parts = (item.designation || "").split(',');
-        return {
-          id: `buy-sl-${year}-${i}`,
-          author: parts[0]?.trim() || item.compnay || 'Buyer',
-          role: parts[1]?.trim() || "Industry Leader",
-          company: item.compnay,
-          quote: item.para,
-          imageUrl: item.Img,
-          type: `Sri Lanka ${year}`,
-          videoUrl: getEmbedUrl(item.video)
-        };
-      });
+      return (list as any[])
+        .filter((item) => Boolean(item.para && item.para.trim()))
+        .map((item, i) => {
+          const parts = (item.designation || "").split(',');
+          return {
+            id: `buy-sl-${year}-${i}`,
+            author: parts[0]?.trim() || item.compnay || 'Buyer',
+            role: parts[1]?.trim() || "Industry Leader",
+            company: item.compnay,
+            quote: item.para,
+            imageUrl: item.Img,
+            type: `Sri Lanka ${year}`,
+          };
+        });
     });
 
     return [...sl, ...bd].sort((a, b) => {
       const yearA = a.id.includes('2025') ? 2025 : 2024;
       const yearB = b.id.includes('2025') ? 2025 : 2024;
-      if (yearA !== yearB) return yearB - yearA;
-      if (a.videoUrl && !b.videoUrl) return -1;
-      if (!a.videoUrl && b.videoUrl) return 1;
-      return 0;
+      return yearB - yearA;
     });
   }, []);
-
 
   const [exhibitorActive, setExhibitorActive] = useState(0);
   const [buyerActive, setBuyerActive] = useState(0);
@@ -256,18 +216,6 @@ const Testimonials: React.FC = () => {
 
   const handleNextBuyer = useCallback(() => setBuyerActive((prev) => (prev + 1) % buyers.length), [buyers.length]);
   const handlePrevBuyer = useCallback(() => setBuyerActive((prev) => (prev - 1 + buyers.length) % buyers.length), [buyers.length]);
-
-  const handlePlayVideo = useCallback((testimonial: TestimonialItem) => {
-    sessionStorage.setItem('testimonial_video', JSON.stringify({
-      videoUrl: testimonial.videoUrl,
-      author: testimonial.author,
-      role: testimonial.role,
-      company: testimonial.company,
-      type: testimonial.type,
-      imageUrl: testimonial.imageUrl,
-    }));
-    navigate('/testimonial-playback');
-  }, [navigate]);
 
   return (
     <section className="flex flex-col border-b border-archive-charcoal/5 bg-archive-cream overflow-hidden" id="testimonials">
@@ -300,7 +248,6 @@ const Testimonials: React.FC = () => {
             onPrev={handlePrevExhibitor}
             label="EXHIBITOR"
             index={exhibitorActive}
-            onPlayVideo={handlePlayVideo}
             isDark={true}
           />
         )}
@@ -314,7 +261,6 @@ const Testimonials: React.FC = () => {
             onPrev={handlePrevBuyer}
             label="BUYER"
             index={buyerActive}
-            onPlayVideo={handlePlayVideo}
             isDark={false}
           />
         )}

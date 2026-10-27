@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 
 export default function BlogSustainableCottonPage() {
   const containerRef = useRef<HTMLElement>(null);
@@ -143,14 +144,12 @@ export default function BlogSustainableCottonPage() {
           <p className="text-slate-300 mb-8 max-w-xl mx-auto">
             Align with the global transition toward responsible and traceable textiles. Meet 50+ leading cotton suppliers at Intex Bangladesh.
           </p>
-          <a
-            href="https://portal.intexfair.com/buyer_reg_portal.php?form_name=pre-buyer-registration&country=sl&source_name="
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            to="/buyer-registration"
             className="inline-block px-10 py-4 bg-[#F27B35] text-white font-bold rounded-full hover:bg-orange-600 transition-all transform hover:scale-105 active:scale-95 text-[15px]"
           >
             Register as a Visitor
-          </a>
+          </Link>
         </div>
       </div>
     </main>

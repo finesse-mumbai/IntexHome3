@@ -2,6 +2,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Database } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import Stats from './Stats';
 
 const ShowProfilePage: React.FC = () => {
@@ -36,20 +37,18 @@ const ShowProfilePage: React.FC = () => {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-6 pt-8">
-                <a
-                  href="https://portal.intexfair.com/buyer_reg_portal.php?form_name=pre-buyer-registration&country=sl&source_name="
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  to="/buyer-registration"
                   className="flex-1 px-10 py-6 bg-archive-clay text-white font-black text-[15px] tracking-[0.4em] hover:bg-archive-charcoal transition-all flex items-center justify-center gap-4"
                 >
                   BUYER REGISTRATION <ArrowRight size={14} className="uppercase" />
-                </a>
-                <a
-                  href="#enquiry-form"
-                  className="flex-1 px-10 py-6 border border-archive-charcoal text-archive-charcoal font-black text-[15px] tracking-[0.4em] hover:bg-archive-charcoal hover:text-white transition-all flex items-center justify-center"
+                </Link>
+                <Link
+                  to="/booth-application"
+                  className="flex-1 px-10 py-6 border border-archive-charcoal text-archive-charcoal font-black text-[15px] tracking-[0.4em] hover:bg-archive-charcoal hover:text-white transition-all flex items-center justify-center text-center"
                 >
-                  EXHIBITOR ENQUIRY
-                </a>
+                  BOOTH APPLICATION
+                </Link>
               </div>
             </div>
 

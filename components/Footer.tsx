@@ -1,4 +1,5 @@
 import React, { type ReactNode } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { CornerRightUp, Facebook, Instagram, Linkedin, MessageCircle } from 'lucide-react';
 
@@ -9,7 +10,30 @@ const XIcon = ({ size = 20 }: { size?: number }) => (
 );
 
 const Footer: React.FC = () => {
+  const navigate = useNavigate();
   const brandName = 'INTEX SERIES OF EXHIBITION';
+
+  const handleLinkClick = (link: string) => {
+    if (link === 'Booth Application Form' || link === 'Application Form') {
+      navigate('/booth-application');
+      window.scrollTo(0, 0);
+    } else if (link === 'Booth Booking Enquiry') {
+      navigate('/enquiry-form');
+      window.scrollTo(0, 0);
+    } else if (link === 'Post Show Report') {
+      navigate('/#post-show-reports');
+      window.scrollTo(0, 0);
+    } else if (link === 'Fact Sheet') {
+      navigate('/#factsheet');
+      window.scrollTo(0, 0);
+    } else if (link === 'Show Brochure') {
+      navigate('/#info-kit');
+      window.scrollTo(0, 0);
+    } else if (link === 'Privacy Policy') {
+      navigate('/privacy-policy');
+      window.scrollTo(0, 0);
+    }
+  };
 
   return (
     <>
@@ -92,15 +116,18 @@ const Footer: React.FC = () => {
                   </h2>
                   <ul className="space-y-4">
                     {[
+                      'Booth Application Form',
                       'Booth Booking Enquiry',
                       'Show Brochure',
-                      'Application Form',
                       'Post Show Report',
                       'Fact Sheet',
                       'Privacy Policy',
                     ].map((link) => (
                       <li key={link}>
-                        <button className="group/link flex items-center gap-3 text-left text-[14px] font-normal text-white transition-all duration-300 hover:text-archive-clay">
+                        <button
+                          onClick={() => handleLinkClick(link)}
+                          className="group/link flex items-center gap-3 text-left text-[14px] font-normal text-white transition-all duration-300 hover:text-archive-clay"
+                        >
                           <span className="h-[2px] w-0 bg-archive-clay transition-all duration-300 group-hover/link:w-3"></span>
                           {link}
                         </button>
@@ -129,9 +156,15 @@ const Footer: React.FC = () => {
                   </p>
                 </div>
 
-                <div className="group bg-black/10 absolute bottom-0 left-0 flex h-[160px] w-full cursor-pointer items-center justify-between  px-14 transition-all">
+                <div
+                  onClick={() => {
+                    navigate('/');
+                    window.scrollTo(0, 0);
+                  }}
+                  className="group bg-black/10 absolute bottom-0 left-0 flex h-[160px] w-full cursor-pointer items-center justify-between px-14 transition-all hover:bg-black/20"
+                >
                   <span className="text-[68px] font-[1000] uppercase leading-none tracking-tighter text-archive-clay">Home</span>
-                  <div className="p-6  text-white transition-transform duration-500 group-hover:scale-110">
+                  <div className="p-6 text-white transition-transform duration-500 group-hover:scale-110">
                     <CornerRightUp className="h-18 w-18 stroke-[2px]" />
                   </div>
                 </div>

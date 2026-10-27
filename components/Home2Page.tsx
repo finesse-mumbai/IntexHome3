@@ -100,9 +100,7 @@ const Home2Page: React.FC = () => {
               </p>
               <div className="flex flex-col gap-3 sm:flex-row md:flex-col">
                 <a
-                  href="https://portal.intexfair.com/buyer_reg_portal.php?form_name=pre-buyer-registration&country=sl&source_name="
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="/buyer-registration"
                   className="inline-flex items-center justify-between gap-5 bg-archive-clay px-7 py-5 text-[15px] font-black uppercase tracking-[0.28em] text-white transition-colors hover:bg-white hover:text-[#111111]"
                 >
                   Buyer Registration <ArrowUpRight size={16} />

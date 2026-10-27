@@ -17,14 +17,14 @@ const Resources: React.FC = () => {
     <section className="py-32 bg-archive-cream text-archive-charcoal border-t border-archive-charcoal/5 relative overflow-hidden" id="resources">
       {/* Large background decorative text */}
       <div className="absolute top-0 right-0 h-full flex items-center pointer-events-none select-none">
-        <span className="text-[12vw] font-black text-archive-charcoal opacity-[0.02] rotate-90 leading-none uppercase tracking-tighter">RESOURCE</span>
+        <span className="text-[12vw] font-black text-archive-charcoal opacity-[0.02] rotate-90 leading-none uppercase tracking-tighter">COLLATERALS</span>
       </div>
 
       <div className="max-w-[1440px] mx-auto px-12 relative z-10">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-24 gap-8">
           <div className="space-y-6">
             <h2 className="text-2xl md:text-4xl font-black tracking-tighter uppercase leading-[0.9] text-archive-charcoal">
-              Download <br /><span className="text-archive-clay">Resources.</span>
+              Download <br /><span className="text-archive-clay">Collaterals.</span>
             </h2>
           </div>
         </div>

@@ -1,6 +1,6 @@
-import React, { useMemo, useState } from 'react';
+import React, { useMemo, useState, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { Camera, Calendar, ChevronDown, MapPin, Maximize2, Search, X } from 'lucide-react';
+import { Camera, Calendar, ChevronDown, MapPin, Maximize2, Search, X, ChevronLeft, ChevronRight } from 'lucide-react';
 
 type GalleryEvent = 'Bangladesh' | 'Sri Lanka';
 
@@ -64,29 +64,73 @@ const PhotoGalleryPage: React.FC = () => {
     return ['ALL', ...uniqueYears.sort((a, b) => b.localeCompare(a))];
   }, []);
 
-  const filteredAssets = useMemo(() => {
-    return GALLERY_DATA.filter((asset) => {
-      const eventMatch = filterEvent === 'ALL' || asset.event === filterEvent;
-      const yearMatch = filterYear === 'ALL' || asset.year === filterYear;
-      return eventMatch && yearMatch;
-    });
+  // Chronological Year-wise Event Ordering: BD [Year], SL [Year], etc.
+  const editions = useMemo(() => {
+    const result: {
+      event: GalleryEvent;
+      year: string;
+      code: string;
+      location: string;
+      assets: GalleryAsset[];
+    }[] = [];
+
+    const uniqueYears = Array.from(new Set(GALLERY_DATA.map((asset) => asset.year))).sort((a, b) => b.localeCompare(a));
+
+    for (const year of uniqueYears) {
+      if (filterYear !== 'ALL' && filterYear !== year) continue;
+
+      for (const event of (['Bangladesh', 'Sri Lanka'] as GalleryEvent[])) {
+        if (filterEvent !== 'ALL' && filterEvent !== event) continue;
+
+        const assets = GALLERY_DATA.filter((asset) => asset.event === event && asset.year === year);
+        if (assets.length > 0) {
+          result.push({
+            event,
+            year,
+            code: event === 'Bangladesh' ? `BD ${year}` : `SL ${year}`,
+            location: event === 'Bangladesh' ? 'ICCB, Dhaka' : 'BMICH, Colombo',
+            assets,
+          });
+        }
+      }
+    }
+
+    return result;
   }, [filterEvent, filterYear]);
 
-  const groupedAssets = useMemo(() => {
-    return EVENTS.filter((event): event is GalleryEvent => event !== 'ALL')
-      .map((event) => ({
-        event,
-        years: years
-          .filter((year) => year !== 'ALL')
-          .map((year) => ({
-            year,
-            assets: filteredAssets.filter((asset) => asset.event === event && asset.year === year),
-          }))
-          .filter((group) => group.assets.length > 0),
-      }))
-      .filter((group) => filterEvent === 'ALL' || group.event === filterEvent)
-      .filter((group) => group.years.length > 0);
-  }, [filterEvent, filteredAssets, years]);
+  const allVisibleAssets = useMemo(() => {
+    return editions.flatMap((ed) => ed.assets);
+  }, [editions]);
+
+  const currentAssetIndex = useMemo(() => {
+    if (!selectedAsset) return -1;
+    return allVisibleAssets.findIndex((a) => a.id === selectedAsset.id);
+  }, [selectedAsset, allVisibleAssets]);
+
+  const handlePrevImage = (e?: React.MouseEvent) => {
+    e?.stopPropagation();
+    if (allVisibleAssets.length === 0) return;
+    const prevIdx = currentAssetIndex > 0 ? currentAssetIndex - 1 : allVisibleAssets.length - 1;
+    setSelectedAsset(allVisibleAssets[prevIdx]);
+  };
+
+  const handleNextImage = (e?: React.MouseEvent) => {
+    e?.stopPropagation();
+    if (allVisibleAssets.length === 0) return;
+    const nextIdx = currentAssetIndex < allVisibleAssets.length - 1 ? currentAssetIndex + 1 : 0;
+    setSelectedAsset(allVisibleAssets[nextIdx]);
+  };
+
+  useEffect(() => {
+    if (!selectedAsset) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setSelectedAsset(null);
+      if (e.key === 'ArrowLeft') handlePrevImage();
+      if (e.key === 'ArrowRight') handleNextImage();
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [selectedAsset, currentAssetIndex, allVisibleAssets]);
 
   return (
     <div className="relative min-h-screen overflow-hidden bg-archive-charcoal pt-32 pb-24">
@@ -103,12 +147,40 @@ const PhotoGalleryPage: React.FC = () => {
 
           <div className="space-y-6 bg-white/10 px-5 py-6 shadow-sm backdrop-blur-md md:px-8">
             <p className="max-w-xl text-[14px] font-bold leading-relaxed tracking-[0.15em] text-white/70">
-              Event-wise photo archive from Intex Bangladesh and Intex Sri Lanka, arranged by year for quick browsing and full-screen viewing.
+              Chronological event archive across Intex Bangladesh and Intex Sri Lanka editions (BD 2025, SL 2025, BD 2024, SL 2024...), arranged for fast exploration and full-screen inspection.
             </p>
             <div className="grid gap-4 md:grid-cols-2">
               <FilterDropdown label="Event" values={EVENTS} active={filterEvent} onChange={(value) => setFilterEvent(value as 'ALL' | GalleryEvent)} />
               <FilterDropdown label="Year" values={years} active={filterYear} onChange={setFilterYear} highlight />
             </div>
+
+            {/* Quick Jump Edition Pills */}
+            {editions.length > 1 && (
+              <div className="pt-4 space-y-2.5">
+                <div className="flex items-center justify-between">
+                  <span className="text-[11px] font-mono font-bold uppercase tracking-widest text-white/50">
+                    Jump to Edition:
+                  </span>
+                  <span className="text-[11px] font-mono text-archive-clay font-bold">
+                    {editions.length} Editions Available
+                  </span>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {editions.map((ed) => (
+                    <button
+                      key={ed.code}
+                      onClick={() => {
+                        const el = document.getElementById(`edition-${ed.event === 'Bangladesh' ? 'bd' : 'sl'}-${ed.year}`);
+                        if (el) el.scrollIntoView({ behavior: 'smooth' });
+                      }}
+                      className="px-3.5 py-1.5 bg-white/15 hover:bg-archive-clay text-white text-xs font-black uppercase tracking-wider transition-all duration-200"
+                    >
+                      {ed.code}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </section>
@@ -123,66 +195,129 @@ const PhotoGalleryPage: React.FC = () => {
             transition={{ duration: 0.35 }}
             className="space-y-24"
           >
-            {groupedAssets.map((eventGroup) => (
-              <div key={eventGroup.event} className="space-y-12">
-                <EventHeader event={eventGroup.event} count={eventGroup.years.reduce((sum, group) => sum + group.assets.length, 0)} />
-                {eventGroup.years.map((yearGroup) => (
-                  <YearGallery
-                    key={`${eventGroup.event}-${yearGroup.year}`}
-                    event={eventGroup.event}
-                    year={yearGroup.year}
-                    assets={yearGroup.assets}
-                    onSelect={setSelectedAsset}
-                  />
-                ))}
-              </div>
+            {editions.map((edition) => (
+              <EditionGallery
+                key={`${edition.event}-${edition.year}`}
+                edition={edition}
+                onSelect={setSelectedAsset}
+              />
             ))}
           </motion.div>
         </AnimatePresence>
 
-        {filteredAssets.length === 0 && (
+        {editions.length === 0 && (
           <div className="flex flex-col items-center justify-center bg-white/10 py-40 text-center backdrop-blur-md">
             <Search size={40} className="mb-6 text-archive-clay/60" />
-            <span className="text-[14px] font-black uppercase tracking-[0.5em] text-white/50">No gallery images for selected filters.</span>
+            <span className="text-[14px] font-black uppercase tracking-[0.5em] text-white/50">No gallery images found for selected filters.</span>
           </div>
         )}
       </section>
 
+      {/* Lightbox / Fullscreen Modal */}
       <AnimatePresence>
         {selectedAsset && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] flex items-center justify-center bg-archive-charcoal/95 p-5 backdrop-blur-xl md:p-16"
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-archive-charcoal/95 p-4 backdrop-blur-xl md:p-12"
             onClick={() => setSelectedAsset(null)}
           >
-            <button className="absolute right-6 top-6 text-white/60 transition-colors hover:text-white md:right-12 md:top-12">
-              <X size={36} strokeWidth={1.4} />
+            <button
+              onClick={() => setSelectedAsset(null)}
+              className="absolute right-6 top-6 text-white/60 transition-colors hover:text-white md:right-10 md:top-10 z-30"
+              aria-label="Close Preview"
+            >
+              <X size={36} strokeWidth={1.5} />
             </button>
+
             <motion.div
               initial={{ opacity: 0, scale: 0.96 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.96 }}
-              transition={{ duration: 0.35 }}
-              className="grid w-full max-w-6xl gap-6 lg:grid-cols-[1fr_280px]"
+              transition={{ duration: 0.3 }}
+              className="grid w-full max-w-6xl gap-6 lg:grid-cols-[1fr_300px] overflow-hidden shadow-2xl"
               onClick={(event) => event.stopPropagation()}
             >
-              <div className="flex max-h-[75vh] items-center justify-center bg-black/40 backdrop-blur-md">
-                <img src={selectedAsset.url} alt={selectedAsset.title} className="max-h-[75vh] w-full object-contain" />
+              {/* Image Preview with Next/Prev Arrows */}
+              <div className="relative flex max-h-[75vh] items-center justify-center bg-black/60 backdrop-blur-md overflow-hidden">
+                <img
+                  src={selectedAsset.url}
+                  alt={selectedAsset.title}
+                  className="max-h-[75vh] w-full object-contain"
+                />
+
+                {allVisibleAssets.length > 1 && (
+                  <>
+                    <button
+                      onClick={handlePrevImage}
+                      className="absolute left-4 top-1/2 -translate-y-1/2 w-11 h-11 bg-black/60 hover:bg-archive-clay text-white flex items-center justify-center backdrop-blur-md transition-all shadow-lg"
+                      aria-label="Previous Image"
+                    >
+                      <ChevronLeft size={22} />
+                    </button>
+                    <button
+                      onClick={handleNextImage}
+                      className="absolute right-4 top-1/2 -translate-y-1/2 w-11 h-11 bg-black/60 hover:bg-archive-clay text-white flex items-center justify-center backdrop-blur-md transition-all shadow-lg"
+                      aria-label="Next Image"
+                    >
+                      <ChevronRight size={22} />
+                    </button>
+                  </>
+                )}
               </div>
-              <div className="flex flex-col justify-between bg-white/10 p-8 text-white backdrop-blur-md">
+
+              {/* Sidebar Info */}
+              <div className="flex flex-col justify-between bg-white/10 p-6 sm:p-8 text-white backdrop-blur-md">
                 <div className="space-y-5">
-                  <span className="text-[14px] font-black uppercase tracking-[0.4em] text-archive-clay">Selected Image</span>
-                  <h2 className="text-2xl font-black uppercase leading-none">{selectedAsset.event}</h2>
-                  <div className="space-y-3 text-[14px] font-bold uppercase tracking-widest text-white/60">
-                    <p className="flex items-center gap-2"><Calendar size={14} className="text-archive-clay" /> {selectedAsset.year}</p>
-                    <p className="flex items-center gap-2"><Camera size={14} className="text-archive-clay" /> {selectedAsset.title}</p>
+                  <div className="flex items-center justify-between">
+                    <span className="text-[12px] font-black uppercase tracking-[0.3em] text-archive-clay">
+                      {selectedAsset.event} {selectedAsset.year}
+                    </span>
+                    {currentAssetIndex >= 0 && (
+                      <span className="text-xs font-mono text-white/50">
+                        {currentAssetIndex + 1} / {allVisibleAssets.length}
+                      </span>
+                    )}
+                  </div>
+                  <h2 className="text-2xl font-black uppercase leading-tight">
+                    Intex {selectedAsset.event}
+                  </h2>
+                  <div className="space-y-3 text-[13px] font-bold uppercase tracking-wider text-white/70">
+                    <p className="flex items-center gap-2">
+                      <Calendar size={14} className="text-archive-clay" /> Year: {selectedAsset.year}
+                    </p>
+                    <p className="flex items-center gap-2">
+                      <MapPin size={14} className="text-archive-clay" /> {selectedAsset.event === 'Bangladesh' ? 'ICCB, Dhaka' : 'BMICH, Colombo'}
+                    </p>
+                    <p className="flex items-center gap-2">
+                      <Camera size={14} className="text-archive-clay" /> {selectedAsset.title}
+                    </p>
                   </div>
                 </div>
-                <button onClick={() => setSelectedAsset(null)} className="mt-8 bg-archive-charcoal px-6 py-4 text-[14px] font-black uppercase tracking-[0.3em] text-white transition-colors hover:bg-archive-clay">
-                  Close Preview
-                </button>
+
+                <div className="pt-6 flex items-center justify-between gap-3">
+                  <div className="flex items-center gap-2">
+                    <button
+                      onClick={handlePrevImage}
+                      className="px-3 py-2 bg-white/10 hover:bg-archive-clay text-white text-xs font-black uppercase tracking-wider transition-colors"
+                    >
+                      Prev
+                    </button>
+                    <button
+                      onClick={handleNextImage}
+                      className="px-3 py-2 bg-white/10 hover:bg-archive-clay text-white text-xs font-black uppercase tracking-wider transition-colors"
+                    >
+                      Next
+                    </button>
+                  </div>
+                  <button
+                    onClick={() => setSelectedAsset(null)}
+                    className="bg-archive-charcoal px-5 py-2.5 text-[13px] font-black uppercase tracking-widest text-white transition-colors hover:bg-archive-clay"
+                  >
+                    Close
+                  </button>
+                </div>
               </div>
             </motion.div>
           </motion.div>
@@ -248,84 +383,107 @@ const FilterDropdown: React.FC<{
   </div>
 );
 
-const EventHeader: React.FC<{ event: GalleryEvent; count: number }> = ({ event, count }) => (
-  <div className="relative overflow-hidden bg-white/10 px-6 py-8 text-white backdrop-blur-md md:px-10">
-    <div className="absolute inset-y-0 right-0 w-1/2 bg-[linear-gradient(90deg,transparent,rgba(238,117,57,0.18))]"></div>
-    <div className="relative flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
-      <div className="space-y-3">
-        <div className="flex items-center gap-3 text-archive-clay">
-          <MapPin size={16} />
-          <span className="text-[14px] font-black uppercase tracking-[0.4em]">Event Gallery</span>
-        </div>
-        <h2 className="text-3xl font-black uppercase tracking-tight md:text-5xl">{event}</h2>
-      </div>
-      <span className="text-[14px] font-black uppercase tracking-[0.4em] text-white/45">{count} Images</span>
-    </div>
-  </div>
-);
-
-const YearGallery: React.FC<{
-  event: GalleryEvent;
-  year: string;
-  assets: GalleryAsset[];
+const EditionGallery: React.FC<{
+  edition: {
+    event: GalleryEvent;
+    year: string;
+    code: string;
+    location: string;
+    assets: GalleryAsset[];
+  };
   onSelect: (asset: GalleryAsset) => void;
-}> = ({ event, year, assets, onSelect }) => {
-  const previewAssets = assets.slice(0, 24);
+}> = ({ edition, onSelect }) => {
+  const [expanded, setExpanded] = useState(false);
+  const INITIAL_COUNT = 24;
+  const visibleAssets = expanded ? edition.assets : edition.assets.slice(0, INITIAL_COUNT);
+  const elementId = `edition-${edition.event === 'Bangladesh' ? 'bd' : 'sl'}-${edition.year}`;
 
   return (
-    <div className="space-y-6">
-      <div className="flex items-center justify-between gap-6 pb-4">
-        <div className="flex items-center gap-4">
-          <span className="flex h-11 w-11 items-center justify-center bg-archive-clay text-[14px] font-black text-white">
-            {year.slice(2)}
-          </span>
-          <div>
-            <h3 className="text-xl font-black uppercase tracking-tight text-white">{year}</h3>
-            <p className="text-[14px] font-black uppercase tracking-widest text-white/45">{event} visual record</p>
+    <div id={elementId} className="scroll-mt-36 space-y-8">
+      {/* Event Edition Header */}
+      <div className="relative overflow-hidden bg-white/10 px-6 py-8 text-white backdrop-blur-md md:px-10 shadow-sm">
+        <div className="absolute inset-y-0 right-0 w-1/2 bg-[linear-gradient(90deg,transparent,rgba(238,117,57,0.18))] pointer-events-none" />
+        <div className="relative flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+          <div className="space-y-3">
+            <div className="flex items-center gap-3 text-archive-clay">
+              <span className="px-3 py-1 bg-archive-clay text-white text-[12px] font-black tracking-widest uppercase">
+                {edition.code}
+              </span>
+              <span className="text-[13px] font-black uppercase tracking-[0.35em] text-white/70">
+                Intex South Asia · {edition.year}
+              </span>
+            </div>
+            <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tight">
+              Intex {edition.event} <span className="text-archive-clay">{edition.year}</span>
+            </h2>
+            <p className="flex items-center gap-2 text-xs md:text-sm font-medium text-white/60">
+              <MapPin size={14} className="text-archive-clay" /> {edition.location}
+            </p>
+          </div>
+          <div className="flex items-center gap-4">
+            <span className="text-[14px] font-black uppercase tracking-[0.3em] text-white/50">
+              {edition.assets.length} Photos
+            </span>
+            {edition.assets.length > INITIAL_COUNT && (
+              <button
+                onClick={() => setExpanded(!expanded)}
+                className="px-4 py-2 bg-white/10 hover:bg-archive-clay text-white text-xs font-black uppercase tracking-widest transition-all"
+              >
+                {expanded ? 'Show Less' : `View All (${edition.assets.length})`}
+              </button>
+            )}
           </div>
         </div>
-        <span className="text-[14px] font-black uppercase tracking-widest text-white/45">{assets.length} Photos</span>
       </div>
-      <div className="grid grid-cols-1 gap-1 sm:grid-cols-2 lg:grid-cols-4">
-        {previewAssets.map((asset, index) => {
-          return (
-            <motion.button
-              key={asset.id}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.45, delay: index * 0.025 }}
-              onClick={() => onSelect(asset)}
-              className="group relative block w-full overflow-hidden bg-white/10 text-left shadow-sm backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:bg-white/15 hover:shadow-2xl"
-            >
-              <img
-                src={asset.url}
-                alt={asset.title}
-                loading="lazy"
-                className="block aspect-[4/3] w-full object-cover transition-all duration-700 group-hover:scale-105 group-hover:brightness-[0.62] group-hover:saturate-110"
-                onError={(event) => {
-                  (event.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${encodeURIComponent(asset.title)}&background=F3EBE8&color=2F2C2C&bold=true`;
-                }}
-              />
-              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(47,44,44,0)_35%,rgba(47,44,44,0.82)_100%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
-              <div className="absolute inset-x-0 bottom-0 translate-y-3 p-5 text-white opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-                <div className="flex items-end justify-between gap-4">
-                  <div className="space-y-2">
-                    <span className="text-[14px] font-black uppercase tracking-widest text-archive-clay">{event} // {year}</span>
-                    <p className="text-[14px] font-black uppercase tracking-tight">Open image</p>
-                  </div>
-                  <span className="flex h-9 w-9 items-center justify-center bg-white/10 backdrop-blur">
-                    <Maximize2 size={14} />
+
+      {/* Grid of photos */}
+      <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-4">
+        {visibleAssets.map((asset, index) => (
+          <motion.button
+            key={asset.id}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.35, delay: (index % 8) * 0.02 }}
+            onClick={() => onSelect(asset)}
+            className="group relative block w-full overflow-hidden bg-white/10 text-left shadow-sm backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:bg-white/15 hover:shadow-2xl"
+          >
+            <img
+              src={asset.url}
+              alt={asset.title}
+              loading="lazy"
+              className="block aspect-[4/3] w-full object-cover transition-all duration-700 group-hover:scale-105 group-hover:brightness-[0.68] group-hover:saturate-110"
+              onError={(event) => {
+                (event.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${encodeURIComponent(asset.title)}&background=DBD3D0&color=2F2C2C&bold=true`;
+              }}
+            />
+            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(47,44,44,0)_35%,rgba(47,44,44,0.85)_100%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+            <div className="absolute inset-x-0 bottom-0 translate-y-3 p-4 text-white opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+              <div className="flex items-end justify-between gap-4">
+                <div className="space-y-1">
+                  <span className="text-[11px] font-black uppercase tracking-widest text-archive-clay">
+                    {edition.code}
                   </span>
+                  <p className="text-xs font-black uppercase tracking-tight text-white/90">Click to expand</p>
                 </div>
+                <span className="flex h-8 w-8 items-center justify-center bg-white/20 backdrop-blur">
+                  <Maximize2 size={13} />
+                </span>
               </div>
-            </motion.button>
-          );
-        })}
+            </div>
+          </motion.button>
+        ))}
       </div>
-      {assets.length > previewAssets.length && (
-        <p className="text-right text-[14px] font-black uppercase tracking-[0.35em] text-white/45">
-          Showing {previewAssets.length} of {assets.length}
-        </p>
+
+      {edition.assets.length > INITIAL_COUNT && !expanded && (
+        <div className="text-center pt-2">
+          <button
+            onClick={() => setExpanded(true)}
+            className="px-6 py-3 bg-white/10 hover:bg-archive-clay text-white text-xs font-black uppercase tracking-widest transition-all shadow-sm"
+          >
+            Load all {edition.assets.length} photos from {edition.event} {edition.year}
+          </button>
+        </div>
       )}
     </div>
   );

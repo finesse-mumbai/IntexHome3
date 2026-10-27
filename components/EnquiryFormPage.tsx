@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
+import { useLocation, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   CheckCircle2,
@@ -47,9 +48,44 @@ interface FormErrors {
 }
 
 const EnquiryFormPage: React.FC = () => {
+  const location = useLocation();
+
+  type TargetEventType = 'srilanka' | 'bangladesh' | 'india' | 'indonesia' | null;
+
+  const targetEvent: TargetEventType = useMemo(() => {
+    const search = location.search.toLowerCase();
+    const hash = location.hash.toLowerCase();
+    const path = location.pathname.toLowerCase();
+    const all = `${search} ${hash} ${path}`;
+
+    if (all.includes('indonesia') || all.includes('asean') || all.includes('jakarta') || search.includes('event=id') || hash.includes('event=id')) {
+      return 'indonesia';
+    }
+    if (all.includes('srilanka') || all.includes('sri-lanka') || all.includes('sri_lanka') || all.includes('colombo') || search.includes('event=sl') || hash.includes('event=sl')) {
+      return 'srilanka';
+    }
+    if (all.includes('bangladesh') || all.includes('dhaka') || search.includes('event=bd') || hash.includes('event=bd')) {
+      return 'bangladesh';
+    }
+    if (all.includes('india') || all.includes('delhi') || search.includes('event=in') || hash.includes('event=in')) {
+      return 'india';
+    }
+    return null;
+  }, [location.search, location.hash, location.pathname]);
+
+  const getEventCountry = (t: TargetEventType): string => {
+    switch (t) {
+      case 'indonesia': return 'Indonesia';
+      case 'srilanka': return 'Sri Lanka';
+      case 'bangladesh': return 'Bangladesh';
+      case 'india': return 'India';
+      default: return 'Sri Lanka';
+    }
+  };
+
   const [formData, setFormData] = useState<FormDataState>({
     exhibit_type: 'I would like to Exhibit',
-    exhibit_country: ['Sri Lanka'],
+    exhibit_country: targetEvent ? [getEventCountry(targetEvent)] : ['Sri Lanka'],
     fname: '',
     designation: '',
     organisation: '',
@@ -74,6 +110,15 @@ const EnquiryFormPage: React.FC = () => {
 
   const [errors, setErrors] = useState<FormErrors>({});
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (targetEvent) {
+      setFormData((prev) => ({
+        ...prev,
+        exhibit_country: [getEventCountry(targetEvent)],
+      }));
+    }
+  }, [targetEvent]);
   const [statusModal, setStatusModal] = useState<{
     show: boolean;
     type: 'success' | 'error';
@@ -286,29 +331,79 @@ const EnquiryFormPage: React.FC = () => {
     }
   };
 
-  const EXHIBIT_LOCATIONS = [
+  const ALL_EXHIBIT_LOCATIONS = [
     {
       id: 'bd',
       value: 'Bangladesh',
-      label: 'Bangladesh',
+      label: 'Intex Bangladesh',
       dates: '22-23-24 June, 2027',
       venue: 'ICCB, Dhaka'
     },
     {
       id: 'sl',
       value: 'Sri Lanka',
-      label: 'Sri Lanka',
+      label: 'Intex Sri Lanka',
       dates: '4-5-6 August, 2027',
       venue: 'BMICH, Colombo'
     },
     {
       id: 'in',
       value: 'India',
-      label: 'India',
-      dates: 'Upcoming edition',
-      venue: 'India edition'
+      label: 'Intex India',
+      dates: '03-04-05 December, 2026',
+      venue: 'IICC, New Delhi'
+    },
+    {
+      id: 'id',
+      value: 'Indonesia',
+      label: 'Intex Indonesia',
+      dates: '1st Edition · Announcing Soon',
+      venue: 'Jakarta, Indonesia'
     }
   ];
+
+  const EXHIBIT_LOCATIONS = useMemo(() => {
+    if (!targetEvent) return ALL_EXHIBIT_LOCATIONS;
+    const country = getEventCountry(targetEvent);
+    return ALL_EXHIBIT_LOCATIONS.filter((loc) => loc.value === country);
+  }, [targetEvent]);
+
+  const getBannerDetails = () => {
+    switch (targetEvent) {
+      case 'srilanka':
+        return {
+          badge: 'Intex South Asia · 17th Edition · Colombo',
+          title: 'Intex Sri Lanka · Booth Booking Enquiry',
+          desc: 'Reserve your booth or explore partnership & sponsorship opportunities at Intex Sri Lanka (BMICH, Colombo) — South Asia’s premier international textile sourcing exhibition.'
+        };
+      case 'bangladesh':
+        return {
+          badge: 'Intex South Asia · 18th Edition · Dhaka',
+          title: 'Intex Bangladesh · Booth Booking Enquiry',
+          desc: 'Reserve your booth or explore partnership & sponsorship opportunities at Intex Bangladesh (ICCB, Dhaka) — South Asia’s fastest growing garment & textile manufacturing hub.'
+        };
+      case 'india':
+        return {
+          badge: 'Intex South Asia · New Delhi Edition',
+          title: 'Intex India · Booth Booking Enquiry',
+          desc: 'Reserve your booth or explore partnership & sponsorship opportunities at Intex India (IICC, New Delhi) — the gateway to India’s massive domestic & export textile markets.'
+        };
+      case 'indonesia':
+        return {
+          badge: 'Intex ASEAN · Jakarta Edition',
+          title: 'Intex Indonesia · Booth Booking Enquiry',
+          desc: 'Reserve your booth or explore partnership & sponsorship opportunities at Intex Indonesia (Jakarta) — connecting global suppliers with Indonesia and ASEAN textile & apparel manufacturers.'
+        };
+      default:
+        return {
+          badge: 'Exhibitor & sponsor registration',
+          title: 'Booth booking enquiry form',
+          desc: "Reserve your booth or explore partnership & sponsorship opportunities at Intex 2027 — premier textile sourcing international exhibitions across South Asia & ASEAN."
+        };
+    }
+  };
+
+  const banner = getBannerDetails();
 
   const PRODUCT_CATEGORIES = [
     'Apparel Fabric',
@@ -333,23 +428,44 @@ const EnquiryFormPage: React.FC = () => {
           <div className="space-y-4">
             <div className="flex items-center gap-3">
               <div className="w-10 h-[2px] bg-archive-clay"></div>
-              <span className="text-sm font-semibold text-archive-clay">
-                Exhibitor & sponsor registration
+              <span className="text-sm font-semibold text-archive-clay uppercase tracking-wider">
+                {banner.badge}
               </span>
             </div>
             <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-archive-charcoal">
-              Booth booking enquiry form
+              {banner.title}
             </h1>
           </div>
 
           <p className="text-base text-archive-charcoal/80 max-w-3xl leading-relaxed">
-            Reserve your booth or explore partnership & sponsorship opportunities at Intex 2027 — South Asia's premier textile sourcing international exhibition.
+            {banner.desc}
           </p>
         </div>
       </section>
 
       {/* Main Form Container */}
-      <section className="px-6 md:px-12 max-w-[1440px] mx-auto">
+      <section className="px-6 md:px-12 max-w-[1440px] mx-auto space-y-6">
+        {/* Banner to Official Online Booth Application */}
+        <div className="bg-archive-charcoal text-white rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row md:items-center justify-between gap-6 shadow-xl border border-white/10">
+          <div className="space-y-1">
+            <span className="text-xs font-black uppercase tracking-widest text-archive-clay">
+              Official Contract & Space Reservation
+            </span>
+            <h3 className="text-xl sm:text-2xl font-black uppercase tracking-tight">
+              Ready to apply for booth space?
+            </h3>
+            <p className="text-xs sm:text-sm text-white/70 max-w-xl">
+              Complete the digital version of the official Exhibitor Space Application & Contract Form with live participation fee calculation, booth size options, and edition selection.
+            </p>
+          </div>
+          <Link
+            to="/booth-application"
+            className="px-8 py-4 bg-archive-clay hover:bg-white hover:text-archive-charcoal text-white text-xs font-black tracking-widest uppercase rounded-xl transition-all shrink-0 text-center shadow-lg"
+          >
+            Open Booth Application Form
+          </Link>
+        </div>
+
         <div className="bg-white/90 backdrop-blur-md rounded-2xl border border-archive-charcoal/10 shadow-xl p-6 md:p-10">
           <form onSubmit={handleSubmit} className="space-y-10">
 
@@ -392,11 +508,10 @@ const EnquiryFormPage: React.FC = () => {
 
               {/* Exhibit Country Checkboxes */}
               <div className="space-y-3 pt-2 border-t border-archive-charcoal/10">
-                {/* Heading size decreased by 30% (text-[17px] font-semibold) */}
                 <h2 className="text-[17px] font-semibold text-archive-charcoal pt-2">
-                  Select exhibit country:*
+                  {targetEvent ? 'Selected event edition:*' : 'Select exhibit country:*'}
                 </h2>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                <div className={`grid gap-3 ${targetEvent ? 'grid-cols-1 max-w-md' : 'grid-cols-1 sm:grid-cols-2 md:grid-cols-4'}`}>
                   {EXHIBIT_LOCATIONS.map((loc) => {
                     const isChecked = formData.exhibit_country.includes(loc.value);
                     return (
@@ -404,7 +519,7 @@ const EnquiryFormPage: React.FC = () => {
                         key={loc.id}
                         className={`relative flex flex-col p-4 rounded-xl transition-all duration-300 cursor-pointer ${
                           isChecked
-                            ? 'bg-archive-clay/10 text-archive-charcoal font-semibold shadow-sm'
+                            ? 'bg-archive-clay/10 text-archive-charcoal font-semibold shadow-sm border border-archive-clay/40'
                             : 'bg-gray-100 hover:bg-gray-200/70 text-archive-charcoal/80'
                         }`}
                       >
@@ -418,12 +533,18 @@ const EnquiryFormPage: React.FC = () => {
                             value={loc.value}
                             checked={isChecked}
                             onChange={handleInputChange}
+                            disabled={!!targetEvent}
                             className="w-4 h-4 accent-archive-clay rounded cursor-pointer mt-1"
                           />
                         </div>
-                        <span className="text-xs text-archive-clay">
+                        <span className="text-xs text-archive-clay font-medium">
                           [{loc.dates}]
                         </span>
+                        {loc.venue && (
+                          <span className="text-[11px] text-archive-charcoal/60 mt-1">
+                            {loc.venue}
+                          </span>
+                        )}
                       </label>
                     );
                   })}

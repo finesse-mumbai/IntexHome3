@@ -1,259 +1,254 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Plus, Calendar, Clock, ArrowUpRight, ChevronRight, ChevronLeft, MapPin } from 'lucide-react';
-
-const IMG_BANGLADESH = 'C:/Users/USER/.gemini/antigravity/brain/f0c47ca4-7bcb-4ba8-811e-6f48582e7c15/bangladesh_textile_seminar_1775733738037.png';
-const IMG_RECEPTION = 'C:/Users/USER/.gemini/antigravity/brain/f0c47ca4-7bcb-4ba8-811e-6f48582e7c15/sri_lanka_networking_reception_1775733756935.png';
-const IMG_PANEL = 'C:/Users/USER/.gemini/antigravity/brain/f0c47ca4-7bcb-4ba8-811e-6f48582e7c15/textile_industry_panel_1775733775537.png';
+import React, { useState, useEffect } from 'react';
+import { ArrowUpRight, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const UPCOMING_EVENTS = [
   {
     id: 'u1',
-    date: '22',
-    month: 'Jun',
-    day: '2027',
-    time: '10:00 - 18:00',
-    title: 'VIP OPENING CEREMONY',
+    date: '22 Jun 2027',
+    title: 'VIP Opening Ceremony',
     location: 'ICCB, Dhaka, Bangladesh',
     logo: '/assets/OC LOGO.png',
-    image: IMG_BANGLADESH
+    images: [
+      'https://bd.intexsouthasia.com/assets/img/Gallery/2026/1.jpg',
+      'https://bd.intexsouthasia.com/assets/img/Gallery/2025/1.png',
+      'https://bd.intexsouthasia.com/assets/img/Gallery/2024/large/3.jpg',
+      'https://bd.intexsouthasia.com/assets/img/Gallery/2023/large/3.jpg',
+      'https://sl.intexsouthasia.com/assets/img/Gallery/2026/31.jpg',
+      'https://sl.intexsouthasia.com/assets/img/Gallery/2026/37.jpeg',
+      'https://sl.intexsouthasia.com/assets/img/Gallery/2024/1.jpg',
+      'https://sl.intexsouthasia.com/assets/img/Gallery/2023/4.png',
+      'https://sl.intexsouthasia.com/assets/img/Gallery/2018/large/1.jpg',
+      'https://in.intexsouthasia.com/assets/img/Photogallery/2023/5.jpg'
+    ]
   },
   {
     id: 'u2',
-    date: '22',
-    month: 'Jun',
-    day: '2027',
-    time: '10:00 - 18:00',
+    date: '22 Jun 2027',
     title: 'Interactive Business Forum Seminar Series (IBF)',
     location: 'ICCB, Dhaka, Bangladesh',
-    logo: 'https://bd.intexsouthasia.com/assets/img/output-onlinepngtools.png',
-    image: IMG_BANGLADESH
+    logo: '/assets/img/output-onlinepngtools.png',
+    images: [
+      '/assets/img/glimpsesofibf/1.jpg',
+      '/assets/img/glimpsesofibf/2.jpg',
+      '/assets/img/glimpsesofibf/3.jpg',
+      '/assets/img/glimpsesofibf/4.jpg',
+      '/assets/img/glimpsesofibf/5.jpg',
+      '/assets/img/glimpsesofibf/6.jpg',
+      '/assets/img/glimpsesofibf/7.jpg',
+      '/assets/img/glimpsesofibf/8.jpg',
+    ]
   },
   {
     id: 'u3',
-    date: '24',
-    month: 'Jun',
-    day: '2027',
-    time: '17:30 - 19:30',
-    title: 'B2B MEETINGS & NETWORKING SESSION',
+    date: '24 Jun 2027',
+    title: 'B2B Meetings & Networking Session',
     location: 'ICCB, Dhaka, Bangladesh',
     logo: '/assets/B2B LOGO.png',
-    image: IMG_RECEPTION
-  },
-  {
-    id: 'u4',
-    date: '04',
-    month: 'Aug',
-    day: '2027',
-    time: '17:30 - 19:30',
-    title: 'Intex Sri Lanka Opening Day',
-    location: 'BMICH, Colombo, Sri Lanka',
-    logo: '/assets/B2B LOGO.png',
-    image: IMG_RECEPTION
+    images: [
+      '/assets/img/GalleryBD/2024/large/4.jpg',
+      '/assets/img/GalleryBD/2024/large/5.jpg',
+      '/assets/img/GalleryBD/2024/large/15.jpg',
+      '/assets/img/GalleryBD/2024/large/13.jpg',
+      '/assets/img/GallerySL/2025/23.jpg',
+      '/assets/img/GallerySL/2025/20.jpg',
+      '/assets/img/GallerySL/2025/22.jpg',
+      '/assets/img/GalleryBD/2024/large/6.jpg',
+      '/assets/img/GalleryBD/2025/25.png',
+      '/assets/img/GallerySL/2025/24.jpg'
+    ]
   }
 ];
 
-const PAST_EVENTS = [
-  { id: 'p25-bg-1', date: '26', month: 'Jun', day: '2025', time: '4.00 pm to 5.00 pm', title: 'IBF: AI & Adaptability of Technology', location: 'Hall 4 ICCB Dhaka', image: IMG_BANGLADESH },
-  { id: 'p25-bg-2', date: '27', month: 'Jun', day: '2025', time: '4.00 pm to 5.00 pm', title: 'IBF: Tariffs & Industry Outlook', location: 'Hall 4 ICCB Dhaka', image: IMG_PANEL },
-  { id: 'p25-sl-1', date: '06', month: 'Aug', day: '2025', time: '2.00 pm to 4.00 pm', title: 'Panel: Apparel 2030', location: 'Mihilaka Medura', image: IMG_PANEL },
-  { id: 'p25-sl-2', date: '07', month: 'Aug', day: '2025', time: '2.00 pm to 4.00 pm', title: 'Panel: Trust Over Trends', location: 'Mihilaka Medura', image: IMG_PANEL },
-  { id: 'p25-sl-3', date: '07', month: 'Aug', day: '2025', time: 'Evening', title: 'Fashion Fiesta Networking Reception', location: 'ITC Ratnadipa, Colombo', image: IMG_RECEPTION },
-  { id: 'p25-sl-4', date: '06', month: 'Aug', day: '2025', time: '11:30 am – 12:30 pm', title: 'Kasturi Cotton Bharat (KCB) Programme', location: 'Tulip & Saffron Hall, BMICH', image: IMG_BANGLADESH },
-  { id: 'p25-sl-5', date: '07', month: 'Aug', day: '2025', time: '09:30 am – 11:30 pm', title: 'B2B Interaction: Indonesia Textile Delegation', location: 'Tulip & Saffron Hall, BMICH', image: IMG_RECEPTION },
-  { id: 'p24-bg-1', date: '30', month: 'May', day: '2024', time: '4.00 pm to 5.00 pm', title: 'IBF: Panel Discussion on RMG Exports $100B', location: 'Hall 4 ICCB Dhaka', image: IMG_PANEL },
-  { id: 'p24-bg-2', date: '31', month: 'May', day: '2024', time: '4.00 pm to 5.00 pm', title: 'IBF: Bangladesh - A Role Model for Green Industry', location: 'Hall 4 ICCB Dhaka', image: IMG_BANGLADESH },
-  { id: 'p24-sl-1', date: '08', month: 'Aug', day: '2024', time: '2.00 pm to 4.00 pm', title: 'IBF: Global RMG Industry & Synthetic Knit', location: 'Mihilaka Medura', image: IMG_PANEL },
-  { id: 'p25-sl-f', date: '08', month: 'Aug', day: '2025', time: '09:30 am – 11:30 pm', title: '1st India Sri Lanka Textile Forum', location: 'Lavender, BMICH', image: IMG_BANGLADESH },
-];
+const EventImageSlider: React.FC<{ images: string[]; title: string }> = ({ images, title }) => {
+  const [startIndex, setStartIndex] = useState(0);
+  const maxIndex = Math.max(0, images.length - 2);
 
-const Schedule: React.FC = () => {
-  const [activeTab, setActiveTab] = useState('Upcoming');
-  const [hoveredEventId, setHoveredEventId] = useState<string | null>(null);
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setStartIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
+    }, 3500);
+    return () => clearInterval(timer);
+  }, [maxIndex]);
 
-  const currentData = activeTab === 'Upcoming' ? UPCOMING_EVENTS : PAST_EVENTS;
-  const hoveredEvent = currentData.find(e => e.id === hoveredEventId) || currentData[0];
+  const handlePrev = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setStartIndex((prev) => (prev > 0 ? prev - 1 : maxIndex));
+  };
+
+  const handleNext = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setStartIndex((prev) => (prev < maxIndex ? prev + 1 : 0));
+  };
 
   return (
-    <section className="relative py-32 bg-white overflow-hidden " id="schedule">
-      <div className="max-w-[1440px] mx-auto px-12">
-        <div className="bg-white rounded-[40px] overflow-hidden border-[3px]  shadow-[0_40px_80px_-20px_rgba(0,0,0,0.05)] relative min-h-[800px] flex items-stretch">
-
-          <div className="w-full grid grid-cols-1 lg:grid-cols-[3.5fr_6.5fr] relative z-10">
-
-            {/* LEFT SIDE: CONTROL (Image & Navigation) */}
-            <div className="relative border-r border-archive-charcoal/10 bg-white overflow-hidden flex flex-col">
-              {/* Background Image Preview */}
-              <div className="absolute inset-0 z-0">
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={hoveredEvent?.id}
-                    initial={{ opacity: 0, scale: 1.1 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 1.05 }}
-                    transition={{ duration: 0.8, ease: "easeOut" }}
-                    className="w-full h-full"
-                  >
-                    <img
-                      src={hoveredEvent?.image}
-                      alt="Event Preview"
-                      className="w-full h-full object-cover opacity-60 transition-all duration-700"
-                    />
-                  </motion.div>
-                </AnimatePresence>
-                <div className="absolute inset-0 bg-gradient-to-b from-white via-white/40 to-white" />
-              </div>
-
-              <div className="relative z-10 p-12 md:p-24 flex-1 flex flex-col justify-between">
-                <div className="space-y-12">
-                  <div className="space-y-6">
-                    <h2 className="text-2xl md:text-4xl font-black tracking-tighter leading-[0.9] text-archive-charcoal uppercase">
-                      Events & <br /> <span className="text-archive-clay">Program.</span>
-                    </h2>
-                  </div>
-
-                  <div className="flex flex-col border border-archive-charcoal/10 divide-y divide-archive-charcoal/10 max-w-sm rounded-2xl overflow-hidden uppercase bg-white/80 backdrop-blur-md">
-                    {['01. Upcoming', '02. Past'].map((tab) => {
-                      const tabName = tab.split(' ')[1];
-                      return (
-                        <button
-                          key={tab}
-                          onClick={() => setActiveTab(tabName)}
-                          className={`p-8 text-left text-[14px] font-black tracking-[0.3em] transition-all flex justify-between items-center group uppercase ${activeTab === tabName ? 'bg-archive-clay text-white' : 'text-archive-charcoal hover:bg-archive-clay/5'}`}
-                        >
-                          <span>{tab.toUpperCase()}</span>
-                          <Plus size={14} className={`transition-transform duration-500 ${activeTab === tabName ? 'rotate-45' : 'group-hover:rotate-90'}`} />
-                        </button>
-                      );
-                    })}
-                  </div>
-                </div>
-
-                <div className="pt-12 flex flex-col items-start gap-4">
-                  <button className="text-[14px] font-black tracking-[0.4em] text-archive-charcoal border-b border-archive-clay/40 pb-2 hover:border-archive-clay transition-all flex items-center gap-3">
-                    View All Event Reports <ArrowUpRight size={12} className="uppercase" />
-                  </button>
-                </div>
-              </div>
+    <div className="relative w-full h-full min-h-[260px] sm:min-h-[290px] lg:min-h-[320px] p-3 overflow-hidden bg-archive-charcoal/5 group/slider flex flex-col justify-center">
+      {/* 2 Images Visible Sliding Viewport */}
+      <div className="overflow-hidden w-full h-full rounded-2xl">
+        <div
+          className="flex gap-3 h-full transition-transform duration-500 ease-out"
+          style={{
+            transform: `translateX(calc(-${startIndex} * (50% + 6px)))`,
+          }}
+        >
+          {images.map((img, idx) => (
+            <div
+              key={idx}
+              className="flex-none w-[calc(50%-6px)] h-[240px] sm:h-[280px] lg:h-[310px] relative rounded-2xl overflow-hidden bg-archive-charcoal shadow-sm group/item"
+            >
+              <img
+                src={img}
+                alt={`${title} photo ${idx + 1}`}
+                className="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover/item:opacity-100 transition-opacity" />
             </div>
-
-            {/* RIGHT SIDE: LIST (Cream Background) */}
-            <div className="p-4 md:p-6 flex flex-col justify-center space-y-8 bg-archive-cream relative overflow-hidden border-l border-archive-charcoal/10 border-r border-archive-charcoal/10">
-              {/* Decorative background texture */}
-              <div className="absolute inset-0 opacity-10 pointer-events-none mix-blend-multiply" style={{ backgroundImage: 'url("https://grainy-gradients.vercel.app/noise.svg")' }} />
-
-              <div className="relative z-10 space-y-2 shrink-0">
-                <div className="flex justify-between items-end border-b border-archive-charcoal/20 pb-4">
-                  <span className="text-[20px] font-black tracking-[0.2em] text-archive-charcoal uppercase">{activeTab} Records</span>
-                </div>
-              </div>
-
-              {/* Scrollable Container */}
-              <div className={`flex-1 overflow-y-auto custom-scroll pr-6 space-y-16 ${activeTab === 'Past' ? 'max-h-[600px]' : ''}`}>
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={activeTab}
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -20 }}
-                    transition={{ duration: 0.5 }}
-                    className="space-y-16"
-                  >
-                    {currentData.map((event, idx) => (
-                      <div
-                        key={event.id}
-                        onMouseEnter={() => setHoveredEventId(event.id)}
-                        onMouseLeave={() => setHoveredEventId(null)}
-                        className="group relative bg-white/80 backdrop-blur-sm rounded-[32px] overflow-hidden border border-archive-charcoal/10 hover:border-archive-clay/40 transition-all duration-700 shadow-sm hover:shadow-2xl"
-                      >
-
-                        <div className="relative z-10 flex flex-col divide-y divide-archive-charcoal/5">
-                          {/* ROW 1: Date & Location */}
-                          <div className="py-3 px-8 flex flex-col md:flex-row md:items-center justify-between gap-6 bg-white/40">
-                            <div className="flex items-center gap-6">
-                              <div className="flex items-center gap-3">
-                                <Calendar size={14} className="text-archive-clay" />
-                                <div className="flex items-baseline gap-2">
-                                  <span className="text-[14px] font-black text-archive-charcoal leading-none group-hover:text-archive-clay transition-colors">{event.date}</span>
-                                  <span className="text-[14px] font-black tracking-widest text-archive-charcoal/40 uppercase">
-                                    {event.month} {event.day}
-                                  </span>
-                                </div>
-                              </div>
-                            </div>
-                            <div className="flex items-center gap-3">
-                              <MapPin size={14} className="text-archive-clay" />
-                              <span className="text-[14px] font-black tracking-widest text-archive-charcoal/40 uppercase">{event.location}</span>
-                            </div>
-                          </div>
-
-                          {/* ROW 2: Logo & Branding */}
-                          <div className="p-2 grid grid-cols-2 items-center gap-10">
-                            <div className="w-full h-26 flex items-center justify-center">
-                              <img
-                                src={event.logo || "https://bd.intexsouthasia.com/assets/img/output-onlinepngtools.png"}
-                                alt="Event Logo"
-                                className="h-[75%] w-auto transition-all duration-700 object-contain"
-                              />
-                            </div>
-                            <h3 className="text-[14px] md:text-lg font-black leading-tight text-archive-charcoal group-hover:text-archive-clay transition-colors uppercase tracking-tight">
-                              {event.title}
-                            </h3>
-                          </div>
-
-                          {/* ROW 3: Action Buttons */}
-                          <div className="p-3 px-8 flex flex-col md:flex-row items-center justify-between gap-4">
-                            {activeTab === 'Upcoming' && (
-                              <>
-                                <a
-                                  href="/ibf-details"
-                                  className="group/btn relative w-fit overflow-hidden py-2 px-5 border border-archive-charcoal/10 rounded-full flex items-center gap-4 transition-all hover:bg-archive-clay hover:border-archive-clay"
-                                >
-                                  <span className="relative z-10 text-[14px] font-black tracking-[0.3em] text-archive-charcoal group-hover/btn:text-white transition-colors uppercase">View Detail</span>
-                                  <ArrowUpRight size={14} className="relative z-10 text-archive-clay group-hover/btn:text-white transition-colors" />
-                                  <div className="absolute inset-0 bg-archive-clay translate-y-full group-hover/btn:translate-y-0 transition-transform duration-500" />
-                                </a>
-                                <button className="group/btn relative w-fit overflow-hidden py-2 px-5 bg-archive-charcoal rounded-full flex items-center justify-center transition-all hover:bg-archive-clay">
-                                  <span className="relative z-10 text-[14px] font-black tracking-[0.3em] text-white transition-colors uppercase">Register Now</span>
-                                  <div className="absolute inset-0 bg-archive-clay translate-y-full group-hover/btn:translate-y-0 transition-transform duration-500" />
-                                </button>
-                              </>
-                            )}
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                  </motion.div>
-                </AnimatePresence>
-              </div>
-
-              {/* Branding Callout */}
-              <div className="pt-4 shrink-0">
-                <div className="p-8 bg-archive-charcoal relative overflow-hidden rounded-[24px] shadow-2xl">
-                  {/* Decorative Glow */}
-                  <div className="absolute -top-24 -right-24 w-48 h-48 bg-archive-clay/20 blur-[100px]" />
-
-                  <div className="relative z-10 flex flex-col md:flex-row justify-between items-center gap-8">
-                    <div className="space-y-2 text-center md:text-left">
-                      <h4 className="text-[14px] font-black tracking-[0.3em] text-white uppercase">Branding Opportunities</h4>
-                      <p className="text-[14px] font-mono text-white/40">Partner with us for the 2026 Seminar Series.</p>
-                    </div>
-                    <button className="px-10 py-4 bg-archive-clay text-white text-[14px] font-black tracking-[0.2em] rounded-xl hover:bg-white hover:text-archive-charcoal transition-all duration-500 uppercase shadow-lg shadow-archive-clay/20">
-                      Enquire Now
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
 
-      <style>{`
-        .custom-scroll::-webkit-scrollbar { width: 4px; }
-        .custom-scroll::-webkit-scrollbar-track { background: rgba(255,255,255,0.02); }
-        .custom-scroll::-webkit-scrollbar-thumb { background: rgba(238, 117, 57, 0.4); }
-      `}</style>
+      {/* Prev / Next Navigation Arrows */}
+      <div className="absolute inset-x-2 top-1/2 -translate-y-1/2 flex items-center justify-between pointer-events-none z-10">
+        <button
+          onClick={handlePrev}
+          aria-label="Previous images"
+          className="p-2.5 rounded-full bg-archive-charcoal/80 hover:bg-archive-clay text-white backdrop-blur-sm transition-all pointer-events-auto shadow-md hover:scale-105"
+        >
+          <ChevronLeft size={18} />
+        </button>
+        <button
+          onClick={handleNext}
+          aria-label="Next images"
+          className="p-2.5 rounded-full bg-archive-charcoal/80 hover:bg-archive-clay text-white backdrop-blur-sm transition-all pointer-events-auto shadow-md hover:scale-105"
+        >
+          <ChevronRight size={18} />
+        </button>
+      </div>
+
+      {/* Slide Indicators / Dots */}
+      <div className="absolute bottom-4 inset-x-0 z-10 flex items-center justify-center gap-1.5 pointer-events-none">
+        {Array.from({ length: maxIndex + 1 }).map((_, dotIdx) => (
+          <button
+            key={dotIdx}
+            onClick={(e) => {
+              e.stopPropagation();
+              setStartIndex(dotIdx);
+            }}
+            aria-label={`Go to slide ${dotIdx + 1}`}
+            className={`h-1.5 rounded-full transition-all duration-300 pointer-events-auto ${
+              startIndex === dotIdx
+                ? 'w-6 bg-archive-clay'
+                : 'w-1.5 bg-archive-charcoal/30 hover:bg-archive-charcoal/60'
+            }`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+const Schedule: React.FC = () => {
+  const navigateTo = (hash: string) => {
+    window.location.hash = hash;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  return (
+    <section className="py-20 md:py-28 bg-[#FBF9F7] border-b border-archive-charcoal/10" id="schedule">
+      <div className="max-w-[1440px] mx-auto px-6 md:px-12 space-y-10">
+
+        {/* FULL WIDTH SECTION HEADER */}
+        <div className="pb-6 border-b border-archive-charcoal/15">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-archive-charcoal tracking-tight leading-[0.95] uppercase">
+            Events & <span className="text-archive-clay">Program.</span>
+          </h2>
+        </div>
+
+        {/* FULL WIDTH EVENT BOXES (CARDS) */}
+        <div className="space-y-8">
+          {UPCOMING_EVENTS.map((event) => (
+            <div
+              key={event.id}
+              className="bg-white rounded-3xl border border-archive-charcoal/10 hover:border-archive-clay/40 transition-all duration-300 overflow-hidden shadow-sm hover:shadow-xl grid grid-cols-1 lg:grid-cols-10 items-stretch group"
+            >
+              {/* LEFT SIDE OF BOX: Event Details & Action Buttons (40%) */}
+              <div className="lg:col-span-4 p-7 sm:p-9 lg:p-10 flex flex-col justify-between space-y-6">
+                {/* Date & Location Line */}
+                <div className="flex flex-wrap items-center gap-3 text-xs">
+                  <span className="px-3.5 py-1.5 rounded-full bg-archive-clay/10 text-archive-clay font-bold tracking-wider uppercase">
+                    {event.date}
+                  </span>
+                  <span className="font-semibold text-archive-charcoal/70">{event.location}</span>
+                </div>
+
+                {/* Logo & Title */}
+                <div className="flex flex-col sm:flex-row sm:items-center gap-5 sm:gap-6 py-2">
+                  {event.logo && (
+                    <div className="w-20 h-16 sm:w-24 sm:h-20 bg-archive-cream/40 rounded-xl p-2.5 flex items-center justify-center shrink-0 border border-archive-charcoal/5">
+                      <img
+                        src={event.logo}
+                        alt="Logo"
+                        className="max-h-full max-w-full object-contain"
+                      />
+                    </div>
+                  )}
+                  <h3
+                    onClick={() => {
+                      if (event.id === 'u1') navigateTo('#vip-opening-ceremony');
+                      else if (event.id === 'u2') navigateTo('#ibf-seminar-series');
+                      else navigateTo('#ibf-details');
+                    }}
+                    className="text-xl sm:text-2xl md:text-3xl font-black text-archive-charcoal group-hover:text-archive-clay transition-colors leading-tight uppercase tracking-tight flex-1 cursor-pointer"
+                  >
+                    {event.title}
+                  </h3>
+                </div>
+
+                {/* Action Button */}
+                <div className="pt-2 flex items-center">
+                  <button
+                    onClick={() => {
+                      if (event.id === 'u1') navigateTo('#vip-opening-ceremony');
+                      else if (event.id === 'u2') navigateTo('#ibf-seminar-series');
+                      else navigateTo('#ibf-details');
+                    }}
+                    className="px-6 py-3 bg-archive-charcoal hover:bg-archive-clay text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-colors flex items-center gap-2 group/btn shadow-sm"
+                  >
+                    <span>View Detail</span>
+                    <ArrowUpRight size={14} className="text-white/70 group-hover/btn:text-white group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
+                  </button>
+                </div>
+              </div>
+
+              {/* RIGHT SIDE OF BOX: 2-IMAGE SLIDER (60%) */}
+              <div className="lg:col-span-6 relative overflow-hidden border-t lg:border-t-0 lg:border-l border-archive-charcoal/10 flex items-stretch">
+                <EventImageSlider images={event.images} title={event.title} />
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* FULL WIDTH BRANDING OPPORTUNITIES BANNER */}
+        <div className="p-8 sm:p-10 bg-archive-charcoal rounded-3xl text-white flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-xl border border-white/5">
+          <div className="space-y-2 max-w-2xl">
+            <span className="text-[11px] font-mono tracking-widest text-archive-clay uppercase block">
+              Sponsorship & Partnerships
+            </span>
+            <h4 className="text-lg sm:text-xl font-bold tracking-wider uppercase">
+              Branding Opportunities
+            </h4>
+            <p className="text-xs sm:text-sm text-white/60 leading-relaxed">
+              Elevate your brand presence across South Asia's textile corridors. Partner with us for the 2026 Seminar Series and Networking Sessions.
+            </p>
+          </div>
+          <button
+            onClick={() => navigateTo('#branding-opportunities')}
+            className="px-8 py-3.5 bg-archive-clay hover:bg-white text-white hover:text-archive-charcoal text-xs font-bold uppercase tracking-wider rounded-xl transition-colors shrink-0 shadow-lg shadow-archive-clay/20"
+          >
+            Enquire Now
+          </button>
+        </div>
+
+      </div>
     </section>
   );
 };

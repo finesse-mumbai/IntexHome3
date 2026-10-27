@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowUpRight, MapPin } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 interface Exhibition {
   id: string;
@@ -11,7 +11,7 @@ interface Exhibition {
   location: string;
   imageUrl: string;
   category: string;
-  region: 'Intex South Asia' | 'Intex Asia';
+  region: 'Intex South Asia' | 'Intex ASEAN';
 }
 
 const SOUTH_ASIA_EXHIBITIONS: Exhibition[] = [
@@ -47,7 +47,7 @@ const SOUTH_ASIA_EXHIBITIONS: Exhibition[] = [
   }
 ];
 
-const ASIA_EXHIBITIONS: Exhibition[] = [
+const ASEAN_EXHIBITIONS: Exhibition[] = [
   {
     id: 'ex-id',
     title: 'Intex Indonesia',
@@ -56,57 +56,9 @@ const ASIA_EXHIBITIONS: Exhibition[] = [
     location: 'Jakarta',
     imageUrl: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&q=80&w=1000',
     category: 'Textiles & Apparel',
-    region: 'Intex Asia'
+    region: 'Intex ASEAN'
   }
 ];
-
-const TypewriterText: React.FC<{ text: string; delay?: number; deleteDelay?: number; pauseTime?: number }> = ({
-  text,
-  delay = 70,
-  deleteDelay = 35,
-  pauseTime = 1800
-}) => {
-  const [displayedText, setDisplayedText] = React.useState('');
-  const [isDeleting, setIsDeleting] = React.useState(false);
-  const [currentIndex, setCurrentIndex] = React.useState(0);
-
-  React.useEffect(() => {
-    let timeout: NodeJS.Timeout;
-
-    if (!isDeleting && currentIndex < text.length) {
-      // Typing phase
-      timeout = setTimeout(() => {
-        setDisplayedText((prev) => prev + text[currentIndex]);
-        setCurrentIndex((prev) => prev + 1);
-      }, delay);
-    } else if (!isDeleting && currentIndex === text.length) {
-      // Finished typing -> Pause then start deleting
-      timeout = setTimeout(() => {
-        setIsDeleting(true);
-      }, pauseTime);
-    } else if (isDeleting && currentIndex > 0) {
-      // Deleting phase
-      timeout = setTimeout(() => {
-        setDisplayedText((prev) => prev.slice(0, -1));
-        setCurrentIndex((prev) => prev - 1);
-      }, deleteDelay);
-    } else if (isDeleting && currentIndex === 0) {
-      // Finished deleting -> Pause then start re-typing
-      timeout = setTimeout(() => {
-        setIsDeleting(false);
-      }, 400);
-    }
-
-    return () => clearTimeout(timeout);
-  }, [currentIndex, isDeleting, delay, deleteDelay, pauseTime, text]);
-
-  return (
-    <span className="font-mono text-base md:text-lg lg:text-xl font-black text-archive-clay uppercase tracking-widest inline-flex items-center gap-1">
-      <span>{displayedText}</span>
-      <span className="inline-block w-2.5 h-5 bg-archive-clay animate-pulse ml-0.5" />
-    </span>
-  );
-};
 
 const ExhibitorProfile: React.FC = () => {
   const navigate = useNavigate();
@@ -125,9 +77,9 @@ const ExhibitorProfile: React.FC = () => {
 
         {/* REGION 1: INTEX SOUTH ASIA */}
         <div className="space-y-8">
-          {/* Subheader (No circle dot) */}
-          <div className="flex items-center gap-3 border-b border-archive-charcoal/10 pb-4">
-            <h3 className="text-xl md:text-2xl font-black tracking-wider text-archive-charcoal uppercase">
+          {/* Subheader - Connected & Full Box Width */}
+          <div className="w-full border-b-2 border-archive-charcoal/15 pb-4">
+            <h3 className="text-3xl sm:text-5xl md:text-7xl lg:text-10xl font-black tracking-tight uppercase leading-none lg:leading-[0.85] text-archive-charcoal">
               Intex South Asia
             </h3>
           </div>
@@ -205,11 +157,10 @@ const ExhibitorProfile: React.FC = () => {
                           navigate(`/#event/${ex.id}`);
                           window.scrollTo(0, 0);
                         }}
-                        className="w-full bg-white group/btn relative overflow-hidden py-4 px-6 flex items-center justify-between transition-all hover:bg-archive-clay"
+                        className="w-full bg-white hover:bg-archive-clay text-archive-charcoal hover:text-white py-3.5 px-4 text-[12px] font-black tracking-[0.2em] transition-all flex items-center justify-center gap-2 rounded uppercase group/btn shadow-md"
                       >
-                        <span className="relative z-10 text-[14px] font-black text-archive-charcoal group-hover:text-white tracking-[0.4em] transition-colors uppercase">VIEW DETAILS</span>
-                        <ArrowUpRight size={16} className="relative z-10 text-archive-clay group-hover:text-white transition-colors" />
-                        <div className="absolute inset-0 bg-archive-clay translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
+                        <span>VIEW DETAILS</span>
+                        <ArrowUpRight size={14} className="text-archive-clay group-hover/btn:text-white group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-all" />
                       </button>
                     </div>
                   </div>
@@ -222,17 +173,16 @@ const ExhibitorProfile: React.FC = () => {
           </div>
         </div>
 
-        {/* REGION 2: INTEX ASIAN (EXPANSION FEATURE SPOTLIGHT - CLEAN & PREMIUM) */}
+        {/* REGION 2: INTEX ASEAN (EXPANSION FEATURE SPOTLIGHT - CLEAN & PREMIUM) */}
         <div className="space-y-8 pt-8">
-          {/* Subheader */}
-          <div className="flex flex-wrap items-center gap-4 border-b border-archive-charcoal/10 pb-4">
-            <h3 className="text-xl md:text-2xl font-black tracking-wider text-archive-charcoal uppercase">
-              Intex Asian
+          {/* Subheader - Connected & Full Box Width */}
+          <div className="w-full border-b-2 border-archive-charcoal/15 pb-4">
+            <h3 className="text-3xl sm:text-5xl md:text-7xl lg:text-10xl font-black tracking-tight uppercase leading-none lg:leading-[0.85] text-archive-charcoal">
+              Intex ASEAN <span className="text-archive-clay">· NEW REGION · GLOBAL EXPANSION</span>
             </h3>
-            <TypewriterText text="NEW REGION · GLOBAL EXPANSION" delay={70} />
           </div>
 
-          {/* Main Outer Box for Intex Asia (Clean & Premium) */}
+          {/* Main Outer Box for Intex ASEAN (Clean & Premium) */}
           <div className="relative group/asiaFrame">
             {/* Subtle Directional Ground Shadow */}
             <div
@@ -260,7 +210,7 @@ const ExhibitorProfile: React.FC = () => {
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 relative z-10">
                 {/* Left Card: Intex Indonesia */}
                 <div className="lg:col-span-5">
-                  {ASIA_EXHIBITIONS.map((ex) => (
+                  {ASEAN_EXHIBITIONS.map((ex) => (
                     <motion.div
                       key={ex.id}
                       initial={{ opacity: 0, y: 20 }}
@@ -325,32 +275,55 @@ const ExhibitorProfile: React.FC = () => {
                 {/* Right Column: Clean Premium Expansion Overview */}
                 <div className="lg:col-span-7 flex flex-col justify-between space-y-8 py-2">
                   <div className="space-y-6">
+                    <span className="text-xs font-mono font-bold text-archive-clay uppercase tracking-[0.35em] block">
+                      THE ASEAN OPPORTUNITY
+                    </span>
 
-
-                    <h4 className="text-3xl md:text-5xl font-black text-white uppercase tracking-tight leading-[1.05]">
-                      Expanding <br />
-                      <span className="text-white/40">Across Asia.</span>
+                    <h4 className="text-2xl sm:text-3xl md:text-4xl lg:text-[40px] font-black text-white uppercase tracking-tight leading-[1.1]">
+                      Where Global Textile Supply Meets{" "}
+                      <span className="text-archive-clay">ASEAN’s Evolving</span>{" "}
+                      <span className="text-white/60">Manufacturing Landscape</span>
                     </h4>
 
-                    <p className="text-sm md:text-base font-normal text-white/70 leading-relaxed max-w-xl">
-                      Intex is extending its international sourcing footprint into South-East Asia's primary textile manufacturing markets. Connecting global suppliers with high-growth regional buyers.
-                    </p>
-                  </div>
-
-                  {/* Action Link */}
-                  <div className="pt-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-t border-white/10">
-                    <div className="space-y-0.5">
-                      <span className="text-[10px] font-mono font-bold text-white/40 uppercase tracking-widest">
-                        Exhibitor Opportunities
-                      </span>
-                      <p className="text-sm font-bold text-white tracking-wide uppercase">
-                        Book Your Space in Upcoming Asia Editions
+                    <div className="space-y-4 text-xs sm:text-sm md:text-base font-normal text-white/75 leading-relaxed max-w-2xl">
+                      <p>
+                        Southeast Asia is emerging as one of the world’s most dynamic textile and apparel manufacturing regions, driven by expanding production capabilities, evolving sourcing strategies and growing consumer demand. At the heart of this landscape is Indonesia—the largest economy in ASEAN and the region’s most populous nation—with a substantial textile manufacturing base and an increasingly important role in global supply chains.
+                      </p>
+                      <p>
+                        Intex Indonesia marks the next chapter in Intex’s regional expansion, extending its established South Asian network into Southeast Asia. Through Intex Indonesia, the platform aims to bring international textile businesses closer to Indonesia’s manufacturing ecosystem and the wider ASEAN market, creating new avenues for trade, regional integration and long-term business growth.
                       </p>
                     </div>
-                    <button className="px-6 py-3.5 bg-archive-clay hover:bg-white text-white hover:text-archive-charcoal transition-all duration-300 font-bold text-[14px] uppercase tracking-[0.2em] rounded flex items-center gap-2 shrink-0 group/btn">
-                      <span>Click Here to Exhibit</span>
-                      <ArrowUpRight size={16} className="group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
-                    </button>
+                  </div>
+
+                  {/* Action Links */}
+                  <div className="pt-4 flex flex-col xl:flex-row items-start xl:items-center justify-between gap-6 border-t border-white/10">
+                    <div className="space-y-0.5">
+                      <span className="text-[10px] font-mono font-bold text-white/40 uppercase tracking-widest">
+                        Opportunities
+                      </span>
+                      <p className="text-sm font-bold text-white tracking-wide uppercase">
+                        Join Upcoming Editions
+                      </p>
+                    </div>
+                    <div className="flex flex-wrap items-center gap-3 shrink-0">
+                      <Link
+                        to="/buyer-registration?country=sl"
+                        className="px-5 py-3.5 bg-archive-clay hover:bg-white text-white hover:text-archive-charcoal transition-all duration-300 font-bold text-[13px] uppercase tracking-[0.2em] rounded flex items-center gap-2 group/btn"
+                      >
+                        <span>Buyer Registration</span>
+                        <ArrowUpRight size={16} className="group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
+                      </Link>
+                      <button
+                        onClick={() => {
+                          navigate('/#enquiry-form?event=indonesia');
+                          window.scrollTo(0, 0);
+                        }}
+                        className="px-5 py-3.5 border border-white/20 hover:border-archive-clay bg-white/5 hover:bg-archive-clay text-white transition-all duration-300 font-bold text-[13px] uppercase tracking-[0.2em] rounded flex items-center gap-2 group/btn"
+                      >
+                        <span>Exhibitor Enquiry</span>
+                        <ArrowUpRight size={16} className="group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>

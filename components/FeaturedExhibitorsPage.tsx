@@ -186,7 +186,7 @@ const FeaturedExhibitorsPage: React.FC = () => {
                         alt={ex.name}
                         className="w-[280px] h-[200px] max-w-full max-h-full object-contain transition-all duration-700 group-hover/card:scale-110"
                         onError={(e) => {
-                          (e.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${ex.name}&background=F3EBE8&color=2F2C2C&bold=true`;
+                          (e.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${ex.name}&background=DBD3D0&color=2F2C2C&bold=true`;
                         }}
                       />
                     </div>

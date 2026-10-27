@@ -22,3 +22,11 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Media & Videos (exceeds GitHub 100MB limits)
+*.mp4
+*.mov
+*.avi
+*.mkv
+public/assets/**/*.mp4
+public/assets/*.mp4

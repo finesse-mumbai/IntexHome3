@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Quote, Calendar, Fingerprint, Globe, Search } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 interface Testimonial {
   id: string;
@@ -318,7 +319,7 @@ const ExhibitorsTestimonialPage: React.FC = () => {
                         alt={item.company}
                         className="max-w-full max-h-full object-contain transition-all duration-700"
                         onError={(e) => {
-                          (e.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${item.company}&background=F3EBE8&color=2F2C2C&bold=true`;
+                          (e.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${item.company}&background=DBD3D0&color=2F2C2C&bold=true`;
                         }}
                       />
                     </div>
@@ -380,14 +381,12 @@ const ExhibitorsTestimonialPage: React.FC = () => {
             >
               Exhibitor Enquiry
             </a>
-            <a
-              href="https://portal.intexfair.com/buyer_reg_portal.php?form_name=pre-buyer-registration&country=sl&source_name="
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              to="/buyer-registration?country=sl"
               className="px-12 py-6 border border-white/20 text-white font-black text-[15px] tracking-[0.3em] hover:bg-white hover:text-archive-charcoal hover:border-white transition-all w-full sm:w-auto uppercase text-center"
             >
               Buyer Registration
-            </a>
+            </Link>
           </div>
         </div>
       </section>

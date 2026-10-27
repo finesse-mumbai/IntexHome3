@@ -1,5 +1,5 @@
-import React from "react";
-import { ArrowRight, CalendarDays, Clock, MapPin, Quote, Users } from "lucide-react";
+import React, { useState, useEffect } from "react";
+import { ArrowRight, CalendarDays, Clock, MapPin, Quote, Users, ChevronLeft, ChevronRight } from "lucide-react";
 
 const currentSpeakers = [
   {
@@ -115,6 +115,332 @@ const speakerTestimonials = [
   },
 ];
 
+interface IbfTopicItem {
+  id: string;
+  country: "Sri Lanka" | "Bangladesh";
+  year: string;
+  venue: string;
+  badgeColor: string;
+  title: string;
+  schedule?: string;
+  note?: string;
+}
+
+const ibfTopics: IbfTopicItem[] = [
+  // Sri Lanka 2026
+  {
+    id: "sl-2026-1",
+    country: "Sri Lanka",
+    year: "2026",
+    venue: "BMICH, Colombo",
+    badgeColor: "bg-amber-100 text-amber-900 border-amber-300",
+    title: "The Twin Transition: Navigating Green Regulations and Circularity for Global Export Competitiveness",
+    schedule: "5th August 2026 | 3.00 PM to 4.00 PM",
+  },
+  {
+    id: "sl-2026-2",
+    country: "Sri Lanka",
+    year: "2026",
+    venue: "BMICH, Colombo",
+    badgeColor: "bg-amber-100 text-amber-900 border-amber-300",
+    title: "Digital Transformation in Apparel: How AI and Automation Are Reshaping Supply Chains, Design, Manufacturing, and Support Functions",
+    schedule: "6th August 2026 | 3.00 PM to 4.00 PM",
+  },
+  {
+    id: "sl-2026-3",
+    country: "Sri Lanka",
+    year: "2026",
+    venue: "BMICH, Colombo",
+    badgeColor: "bg-amber-100 text-amber-900 border-amber-300",
+    title: "The Intelligent Factory: Driving Sri Lanka’s Apparel Competitiveness Through Smart Manufacturing",
+    schedule: "7th August 2026 | 12:00 PM to 1.00 PM",
+  },
+
+  // Sri Lanka 2025
+  {
+    id: "sl-2025-1",
+    country: "Sri Lanka",
+    year: "2025",
+    venue: "BMICH, Colombo",
+    badgeColor: "bg-amber-100 text-amber-900 border-amber-300",
+    title: "Apparel 2030 Re-stitching Fashions Next Chapter at Intex Sri Lanka 6th to 8th August 2025 BMICH Colombo",
+    schedule: "6th August 2025 | 2.00 PM to 4.00 PM",
+    note: "6th to 8th August 2025 · BMICH Colombo",
+  },
+  {
+    id: "sl-2025-2",
+    country: "Sri Lanka",
+    year: "2025",
+    venue: "BMICH, Colombo",
+    badgeColor: "bg-amber-100 text-amber-900 border-amber-300",
+    title: "Trust Over TRENDS : Building brands consumer trust",
+    schedule: "7th August 2025 | 2.00 PM to 4.00 PM",
+  },
+
+  // Sri Lanka 2024
+  {
+    id: "sl-2024-1",
+    country: "Sri Lanka",
+    year: "2024",
+    venue: "BMICH, Colombo",
+    badgeColor: "bg-amber-100 text-amber-900 border-amber-300",
+    title: "Race for Supremacy in the Global RMG Industry – Prospects & Challenges for Sri Lanka",
+    schedule: "Intex Sri Lanka 2024 Edition",
+  },
+
+  // Bangladesh 2026
+  {
+    id: "bd-2026-1",
+    country: "Bangladesh",
+    year: "2026",
+    venue: "ICCB, Dhaka",
+    badgeColor: "bg-emerald-100 text-emerald-900 border-emerald-300",
+    title: "From Factory Floor to Global Fashion Influence: Bridging the Branding Gap in Bangladesh",
+    schedule: "20th June 2026 | 11:30 am to 01:00 pm",
+  },
+
+  // Bangladesh 2025
+  {
+    id: "bd-2025-1",
+    country: "Bangladesh",
+    year: "2025",
+    venue: "ICCB, Dhaka",
+    badgeColor: "bg-emerald-100 text-emerald-900 border-emerald-300",
+    title: "AI and Adaptability of Technology: Reinventing the Fabric of Tomorrow",
+    schedule: "26th June 2025 | 03:30 pm to 04:00 pm",
+  },
+  {
+    id: "bd-2025-2",
+    country: "Bangladesh",
+    year: "2025",
+    venue: "ICCB, Dhaka",
+    badgeColor: "bg-emerald-100 text-emerald-900 border-emerald-300",
+    title: "Tariffs and Industry Outlook: Unlocking the Risk and Opportunities",
+    schedule: "27th June 2025 | 03:30 pm to 04:00 pm",
+  },
+
+  // Bangladesh 2024
+  {
+    id: "bd-2024-1",
+    country: "Bangladesh",
+    year: "2024",
+    venue: "ICCB, Dhaka",
+    badgeColor: "bg-emerald-100 text-emerald-900 border-emerald-300",
+    title: "Bangladesh RMG Export $100B – Reality and Challenges",
+    schedule: "30th May 2024",
+  },
+  {
+    id: "bd-2024-2",
+    country: "Bangladesh",
+    year: "2024",
+    venue: "ICCB, Dhaka",
+    badgeColor: "bg-emerald-100 text-emerald-900 border-emerald-300",
+    title: "Bangladesh: A Role Model for Green Industry",
+    schedule: "31st May 2024",
+  },
+];
+
+const IbfDetailsSlider: React.FC<{ topics: IbfTopicItem[] }> = ({ topics }) => {
+  const [currentIndex, setCurrentIndex] = useState(1);
+  const [isTransitioning, setIsTransitioning] = useState(true);
+  const [isPaused, setIsPaused] = useState(false);
+
+  useEffect(() => {
+    setCurrentIndex(1);
+    setIsTransitioning(true);
+  }, [topics]);
+
+  const n = topics.length;
+  if (n === 0) return null;
+
+  // Cloned array for seamless infinite looping
+  const slides = [topics[n - 1], ...topics, topics[0]];
+
+  const handlePrev = () => {
+    setIsTransitioning(true);
+    setCurrentIndex((prev) => prev - 1);
+  };
+
+  const handleNext = () => {
+    setIsTransitioning(true);
+    setCurrentIndex((prev) => prev + 1);
+  };
+
+  const handleTransitionEnd = () => {
+    if (currentIndex === 0) {
+      setIsTransitioning(false);
+      setCurrentIndex(n);
+    } else if (currentIndex === n + 1) {
+      setIsTransitioning(false);
+      setCurrentIndex(1);
+    }
+  };
+
+  useEffect(() => {
+    if (!isTransitioning) {
+      const raf = requestAnimationFrame(() => {
+        setIsTransitioning(true);
+      });
+      return () => cancelAnimationFrame(raf);
+    }
+  }, [isTransitioning]);
+
+  useEffect(() => {
+    if (isPaused) return;
+    const timer = setInterval(() => {
+      handleNext();
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [currentIndex, isPaused, n]);
+
+  const activeIndex = (currentIndex - 1 + n) % n;
+
+  return (
+    <div
+      className="relative w-full overflow-hidden select-none"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+    >
+      {/* Slider Viewport Track: 15% Left Peek + 70% Middle Center Box + 15% Right Peek */}
+      <div className="w-full overflow-hidden py-4">
+        <div
+          className={`flex items-stretch ${isTransitioning ? "transition-transform duration-500 ease-out" : ""}`}
+          style={{
+            transform: `translateX(calc(15% - ${currentIndex * 70}%))`,
+          }}
+          onTransitionEnd={handleTransitionEnd}
+        >
+          {slides.map((topic, idx) => {
+            const isCenter = idx === currentIndex;
+            const isLeftPeek = idx === currentIndex - 1;
+            const isRightPeek = idx === currentIndex + 1;
+
+            return (
+              <div
+                key={`${topic.id}-${idx}`}
+                className="w-[70%] shrink-0 px-2 sm:px-4 box-border transition-all duration-500"
+                onClick={() => {
+                  if (isLeftPeek) handlePrev();
+                  else if (isRightPeek) handleNext();
+                }}
+              >
+                <div
+                  className={`h-full rounded-2xl border transition-all duration-500 overflow-hidden p-7 sm:p-10 md:p-12 flex flex-col justify-between min-h-[280px] md:min-h-[320px] ${
+                    isCenter
+                      ? "bg-archive-clay text-white border-transparent shadow-2xl scale-[1.01]"
+                      : "bg-white text-slate-900 border-slate-200/90 shadow-md cursor-pointer hover:border-slate-300"
+                  }`}
+                >
+                  {/* Meta Line */}
+                  <div
+                    className={`flex flex-wrap items-center justify-between gap-3 pb-5 border-b ${
+                      isCenter ? "border-white/20" : "border-slate-100"
+                    }`}
+                  >
+                    <div className="flex items-center gap-3">
+                      <span
+                        className={`text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-md border ${
+                          isCenter
+                            ? "bg-white/20 text-white border-white/30"
+                            : topic.badgeColor
+                        }`}
+                      >
+                        {topic.country}
+                      </span>
+                      <span
+                        className={`text-xs sm:text-sm font-semibold flex items-center gap-1.5 ${
+                          isCenter ? "text-white/90" : "text-slate-500"
+                        }`}
+                      >
+                        <MapPin
+                          size={13}
+                          className={`shrink-0 ${isCenter ? "text-white" : "text-archive-clay"}`}
+                        />
+                        {topic.venue}
+                      </span>
+                    </div>
+                    <span
+                      className={`text-base sm:text-lg font-black tracking-tight ${
+                        isCenter ? "text-white/70" : "text-slate-400"
+                      }`}
+                    >
+                      {topic.year}
+                    </span>
+                  </div>
+
+                  {/* Topic Title */}
+                  <div className="py-4 my-auto">
+                    <h3
+                      className={`text-lg sm:text-2xl md:text-3xl font-black leading-snug tracking-tight ${
+                        isCenter ? "text-white" : "text-slate-900"
+                      }`}
+                    >
+                      {topic.title}
+                    </h3>
+                  </div>
+
+                  {/* Date & Details */}
+                  <div
+                    className={`pt-4 border-t flex flex-wrap items-center justify-between gap-3 text-xs sm:text-sm ${
+                      isCenter
+                        ? "border-white/20 text-white/90"
+                        : "border-slate-100 text-slate-600"
+                    }`}
+                  >
+                    {topic.schedule && (
+                      <div className="flex items-center gap-2 font-semibold">
+                        <Clock
+                          size={14}
+                          className={`shrink-0 ${isCenter ? "text-white" : "text-archive-clay"}`}
+                        />
+                        <span>{topic.schedule}</span>
+                      </div>
+                    )}
+                    {topic.note && (
+                      <span
+                        className={`text-xs font-semibold ${
+                          isCenter ? "text-white/80" : "text-slate-400"
+                        }`}
+                      >
+                        {topic.note}
+                      </span>
+                    )}
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Sleek Minimalist Controls */}
+      <div className="flex items-center justify-between max-w-xs mx-auto mt-6 px-4">
+        <button
+          onClick={handlePrev}
+          aria-label="Previous topic"
+          className="w-10 h-10 rounded-full border border-slate-300 hover:border-archive-clay hover:text-archive-clay text-slate-700 transition-colors flex items-center justify-center bg-white shadow-sm hover:scale-105 active:scale-95"
+        >
+          <ChevronLeft size={18} />
+        </button>
+
+        <span className="text-xs font-bold tracking-widest uppercase text-slate-500">
+          <span className="text-slate-900 font-black">{String(activeIndex + 1).padStart(2, "0")}</span>
+          <span className="mx-2 text-slate-300">/</span>
+          <span>{String(n).padStart(2, "0")}</span>
+        </span>
+
+        <button
+          onClick={handleNext}
+          aria-label="Next topic"
+          className="w-10 h-10 rounded-full border border-slate-300 hover:border-archive-clay hover:text-archive-clay text-slate-700 transition-colors flex items-center justify-center bg-white shadow-sm hover:scale-105 active:scale-95"
+        >
+          <ChevronRight size={18} />
+        </button>
+      </div>
+    </div>
+  );
+};
+
 const IBFSeminarSeriesPage: React.FC = () => {
   return (
     <div className="bg-slate-50 text-archive-charcoal min-h-screen">
@@ -145,6 +471,12 @@ const IBFSeminarSeriesPage: React.FC = () => {
                 className="inline-flex items-center gap-3 bg-archive-clay px-8 py-4 text-white text-[14px] font-black tracking-[0.25em] uppercase hover:bg-white hover:text-archive-charcoal transition-colors"
               >
                 Register Now <ArrowRight size={16} />
+              </a>
+              <a
+                href="#ibf-details"
+                className="inline-flex items-center border border-white/30 px-8 py-4 text-white text-[14px] font-black tracking-[0.25em] uppercase hover:bg-white hover:text-archive-charcoal transition-colors"
+              >
+                Topics Covered
               </a>
               <a
                 href="#contact"
@@ -178,6 +510,21 @@ const IBFSeminarSeriesPage: React.FC = () => {
               Designed as a series of curated seminars and panel discussions, IBF brings together policymakers, global experts, industry leaders, technology innovators, and sustainability practitioners to address the most critical issues shaping the future of the textile and apparel sector. The sessions provide a platform for meaningful dialogue, knowledge exchange, and collaborative problem-solving.
             </p>
           </div>
+        </div>
+      </section>
+
+      {/* IBF DETAILS: YEAR-WISE TOPICS COVERED IN PAST EDITIONS */}
+      <section id="ibf-details" className="bg-[#FAF8F5] py-20 md:py-24 px-4 sm:px-6 md:px-10 border-b border-slate-200 overflow-hidden">
+        <div className="max-w-[1400px] mx-auto">
+          {/* Header */}
+          <div className="mb-8 md:mb-10">
+            <h2 className="text-3xl md:text-5xl font-black tracking-tight text-slate-900 uppercase">
+              Topics Covered
+            </h2>
+          </div>
+
+          {/* Premium 70% Middle + 15% Both Sides (1 Topic per Middle Box) Slider */}
+          <IbfDetailsSlider topics={ibfTopics} />
         </div>
       </section>
 

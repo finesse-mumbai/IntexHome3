@@ -33,6 +33,7 @@ import {
   Video,
   Image as ImageIcon,
   FileText,
+  FileCheck,
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -43,7 +44,7 @@ const NAV_ITEMS = [
     children: [
       // { label: "Show Profile", link: "/show-profile", icon: Info },
       { label: "Why Intex South Asia", link: "/why-intex", icon: HelpCircle },
-      { label: "Intex ASEAN (Indonesia)", link: "/intex-asean", icon: Globe },
+      { label: "Intex ASEAN", link: "/intex-asean", icon: Globe },
       { label: "About Organiser", link: "/organiser", icon: Building2 },
       { label: "IBF Seminar Series", link: "/ibf-seminar-series", icon: Presentation },
       { label: "Industry Partners", link: "/industry-partners", icon: Users },
@@ -53,10 +54,11 @@ const NAV_ITEMS = [
     label: "Exhibitor",
     link: "/",
     children: [
+      { label: "Booth Application Form", link: "/booth-application", icon: FileCheck },
+      { label: "Booth Booking Enquiry", link: "/enquiry-form", icon: CalendarCheck },
       { label: "Exhibitor Profile", link: "/exhibitor-profile", icon: UserCheck },
       { label: "Featured Exhibitors", link: "/featured-exhibitors", icon: Star },
       { label: "Exhibitor's Testimonial", link: "/exhibitors-testimonial", icon: MessageSquareQuote },
-      { label: "Booth Booking Enquiry", link: "/enquiry-form", icon: CalendarCheck },
       { label: "Hotel & Travel", link: "/hotels-travel", icon: Hotel },
     ],
   },
@@ -75,7 +77,7 @@ const NAV_ITEMS = [
     children: [
       { label: "Buyers Profile", link: "/buyers-profile", icon: UsersRound },
       { label: "Buyer's Testimonial", link: "/buyers-testimonial", icon: MessageSquareQuote },
-      { label: "Visitor Registration", link: "https://portal.intexfair.com/buyer_reg_portal.php?form_name=pre-buyer-registration&country=sl&source_name=", external: true, icon: UserPlus },
+      { label: "Buyer Registration", link: "/buyer-registration", icon: UserPlus },
       { label: "Hotel & Travel", link: "/hotels-travel", icon: Hotel },
     ],
   },
@@ -218,20 +220,20 @@ const Navbar: React.FC = () => {
           transition={springConfig}
           style={{ overflow: 'visible' }}
           className={[
-            'pointer-events-auto flex items-center justify-between rounded-full shadow-xl backdrop-blur-xl transition-all duration-300',
+            'pointer-events-auto flex items-center justify-between rounded-full shadow-xl transition-all duration-300',
             isScrolled
-              ? 'w-[90%] md:w-[440px] max-w-[460px] px-7 py-4 bg-white/90 text-archive-charcoal h-20'
-              : 'w-full max-w-[1240px] px-6 py-2 bg-white/85 text-archive-charcoal h-16',
+              ? 'w-[90%] md:w-[440px] max-w-[460px] px-7 py-4 bg-white text-archive-charcoal h-20'
+              : 'w-full max-w-[1240px] px-6 py-2 bg-white text-archive-charcoal h-16',
           ].join(' ')}
         >
           {/* Logo */}
           <motion.div layout="position" className="flex items-center gap-2 cursor-pointer group">
             <Link to="/" className="flex items-center">
               <img
-                src="/assets/logo-dark.webp"
+                src="/assets/Logo_cutout.png"
                 alt="Intex South Asia"
                 className={`h-auto transition-all duration-500 group-hover:scale-105 ${
-                  isScrolled ? 'w-[95px]' : 'w-[125px]'
+                  isScrolled ? 'w-[119px]' : 'w-[156px]'
                 }`}
               />
             </Link>
@@ -278,7 +280,7 @@ const Navbar: React.FC = () => {
                           animate={{ opacity: 1, y: 0, scale: 1 }}
                           exit={{ opacity: 0, y: 10, scale: 0.95 }}
                           transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-                          className="absolute top-full left-[-30px] w-[280px] bg-white/95 backdrop-blur-xl text-archive-charcoal p-4 z-[70] rounded-2xl shadow-2xl border border-archive-charcoal/10"
+                          className="absolute top-full left-[-30px] w-[280px] bg-white text-archive-charcoal p-4 z-[70] rounded-2xl shadow-2xl border border-archive-charcoal/10"
                         >
                           <div className="flex flex-col gap-2.5">
                             {item.children.map((child) => {
@@ -398,7 +400,7 @@ const Navbar: React.FC = () => {
               exit={{ clipPath: 'inset(0% 0% 100% 0%)', opacity: 0 }}
               transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1] }}
               style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-              className="relative z-10 w-full max-w-[520px] max-h-[82vh] rounded-3xl bg-white/95 backdrop-blur-2xl shadow-2xl flex flex-col overflow-y-auto px-8 py-8 text-archive-charcoal border border-white/50 [&::-webkit-scrollbar]:hidden"
+              className="relative z-10 w-full max-w-[520px] max-h-[82vh] rounded-3xl bg-white shadow-2xl flex flex-col overflow-y-auto px-8 py-8 text-archive-charcoal border border-white/50 [&::-webkit-scrollbar]:hidden"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="flex flex-col gap-6 w-full">

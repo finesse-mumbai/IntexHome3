@@ -71,7 +71,7 @@ const FACTSHEET_DATA: FactsheetItem[] = [
     venueFull: 'International Convention City Bashundhara (ICCB), Dhaka',
     website: 'bd.intexsouthasia.com',
     pdfUrl: 'https://bd.intexsouthasia.com/assets/pdf/Brochure.pdf',
-    regUrl: 'https://portal.intexfair.com/buyer_reg_portal.php?form_name=pre-buyer-registration&country=bd',
+    regUrl: '/buyer-registration?country=bd',
     timings: [
       { date: '22 June', day: 'Tuesday', hours: '10.00 a.m. - 7.00 p.m.' },
       { date: '23 June', day: 'Wednesday', hours: '10.00 a.m. - 7.00 p.m.' },
@@ -144,7 +144,7 @@ const FACTSHEET_DATA: FactsheetItem[] = [
     venueFull: 'Bandaranaike Memorial International Conference Hall (BMICH), Colombo',
     website: 'sl.intexsouthasia.com',
     pdfUrl: 'https://sl.intexsouthasia.com/assets/pdf/Brochure.pdf',
-    regUrl: 'https://portal.intexfair.com/buyer_reg_portal.php?form_name=pre-buyer-registration&country=sl',
+    regUrl: '/buyer-registration?country=sl',
     timings: [
       { date: '04 August', day: 'Wednesday', hours: '10.00 a.m. - 7.00 p.m.' },
       { date: '05 August', day: 'Thursday', hours: '10.00 a.m. - 7.00 p.m.' },
@@ -218,7 +218,7 @@ const FACTSHEET_DATA: FactsheetItem[] = [
     venueFull: 'Yashobhoomi (IICC), Dwarka, New Delhi',
     website: 'in.intexsouthasia.com',
     pdfUrl: 'https://in.intexsouthasia.com/assets/pdf/Brochure.pdf',
-    regUrl: 'https://portal.intexfair.com/buyer_reg_portal.php?form_name=pre-buyer-registration&country=in',
+    regUrl: '/buyer-registration?country=in',
     timings: [
       { date: '03 December', day: 'Thursday', hours: '10.00 a.m. - 7.00 p.m.' },
       { date: '04 December', day: 'Friday', hours: '10.00 a.m. - 7.00 p.m.' },
@@ -410,6 +410,12 @@ const FactsheetPage: React.FC = () => {
                       className="w-full bg-archive-clay text-white py-4 px-6 text-[12px] font-black tracking-[0.21em] hover:bg-archive-charcoal transition-all flex items-center justify-between group/btn shadow-md uppercase"
                     >
                       REGISTER NOW <ArrowUpRight size={14} className="group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
+                    </a>
+                    <a
+                      href={`#enquiry-form?event=${item.countryCode === 'BD' ? 'bangladesh' : item.countryCode === 'SL' ? 'srilanka' : 'india'}`}
+                      className="w-full bg-archive-charcoal text-white py-4 px-6 text-[12px] font-black tracking-[0.21em] hover:bg-archive-clay transition-all flex items-center justify-between group/btn shadow-md uppercase"
+                    >
+                      EXHIBIT ENQUIRY <ArrowUpRight size={14} className="group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
                     </a>
                     <a
                       href={item.pdfUrl}

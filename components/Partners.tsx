@@ -76,7 +76,7 @@ const PartnerSpecimen: React.FC<{ partner: any }> = ({ partner }) => {
         alt={partner.name}
         className="max-w-full max-h-full object-contain opacity-100 group-hover/specimen:scale-105 transition-all duration-700 relative z-10"
         onError={(e) => {
-          (e.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${partner.name}&background=2F2C2C&color=F3EBE8&bold=true`;
+          (e.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${partner.name}&background=2F2C2C&color=DBD3D0&bold=true`;
         }}
       />
     </a>

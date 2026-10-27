@@ -147,7 +147,7 @@ const FAQ_SECTIONS: FaqSection[] = [
     items: [
       {
         question: 'How I can pre-register to attend the Exhibition?',
-        answer: <p>To pre-register for the Exhibition - <a className="font-bold text-archive-clay hover:underline" href="https://portal.intexfair.com/buyer_reg_portal.php?form_name=pre-buyer-registration&country=sl&source_name=" target="_blank" rel="noopener noreferrer">Click here</a></p>
+        answer: <p>To pre-register for the Exhibition - <a className="font-bold text-archive-clay hover:underline" href="/buyer-registration">Click here</a></p>
       },
       { question: 'What are the timings of the Exhibition?', answer: timingsTable },
       { question: 'Who can attend Intex Exhibition?', answer: <p>This is a B2B exhibition open only for the trade visitors in the textile and apparel industry looking for product innovations and latest developments.</p> },

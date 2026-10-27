@@ -203,7 +203,7 @@ const MediaPartnerPage: React.FC = () => {
                       alt={partner.companyName}
                       className="max-w-[100%] max-h-[100%] object-contain scale-110 transition-all duration-700 group-hover:scale-125"
                       onError={(e) => {
-                        (e.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${partner.companyName}&background=F3EBE8&color=2F2C2C&bold=true`;
+                        (e.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${partner.companyName}&background=DBD3D0&color=2F2C2C&bold=true`;
                       }}
                     />
                   </div>

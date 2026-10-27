@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Database, ChevronLeft, ChevronRight } from 'lucide-react';
 import { CATEGORIES } from '../constants';
@@ -103,6 +104,7 @@ const ExhibitorImageSlider: React.FC = () => {
 };
 
 const ExhibitorProfilePage: React.FC = () => {
+  const navigate = useNavigate();
   return (
     <div className="bg-archive-cream min-h-screen pt-32 pb-24 overflow-hidden">
       {/* Page Header */}
@@ -178,28 +180,38 @@ const ExhibitorProfilePage: React.FC = () => {
             <ExhibitorImageSlider />
           </div>
 
-          {/* Booth Enquiry Box */}
+          {/* Exhibitor Enquiry Box */}
           <div className="bg-archive-charcoal p-12 md:p-16 text-white h-full min-h-[480px] flex flex-col justify-between relative shadow-2xl border border-archive-charcoal/10">
             <div className="absolute top-0 right-0 p-8 opacity-10 pointer-events-none">
               <Database size={80} />
             </div>
 
             <div className="space-y-4 relative z-10">
-              <span className="text-archive-clay text-[14px] font-black tracking-[0.5em] uppercase">Booth Enquiry</span>
+              <span className="text-archive-clay text-[14px] font-black tracking-[0.5em] uppercase">Exhibitor Enquiry</span>
               <h3 className="text-3xl md:text-5xl font-black leading-[0.95] uppercase">
                 Secure your space <br /> in the 2026 Intex.
               </h3>
             </div>
 
-            <div className="space-y-8 relative z-10 pt-6">
-              <p className="text-[14px] font-bold tracking-[0.15em] text-white/60 leading-relaxed">
-                Join the most influential sourcing show in South Asia. Limited  booth spaces are now available for our upcoming editions in Dhaka, Colombo, and New Delhi.
-              </p>
-              <div>
-                <button className="px-12 py-5 bg-archive-clay text-white font-black text-[14px] tracking-[0.3em] hover:bg-white hover:text-archive-charcoal transition-all">
-                  ENQUIRE NOW
-                </button>
-              </div>
+            <div className="relative z-10 pt-6 flex flex-wrap gap-4">
+              <button
+                onClick={() => {
+                  navigate('/booth-application');
+                  window.scrollTo(0, 0);
+                }}
+                className="px-8 py-5 bg-archive-clay text-white font-black text-[13px] tracking-[0.2em] hover:bg-white hover:text-archive-charcoal transition-all uppercase shadow-lg"
+              >
+                BOOTH APPLICATION (ONLINE)
+              </button>
+              <button
+                onClick={() => {
+                  navigate('/#enquiry-form');
+                  window.scrollTo(0, 0);
+                }}
+                className="px-8 py-5 border border-white/30 text-white font-black text-[13px] tracking-[0.2em] hover:bg-white hover:text-archive-charcoal transition-all uppercase"
+              >
+                EXHIBITOR ENQUIRY
+              </button>
             </div>
           </div>
         </div>

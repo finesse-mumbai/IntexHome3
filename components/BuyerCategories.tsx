@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { BUYER_PROFILES } from '../constants';
 import { Plus, ArrowRight, UserPlus, ClipboardList } from 'lucide-react';
 
@@ -70,15 +71,13 @@ const BuyerCategories: React.FC = () => {
             </div>
 
             <div className="relative z-10 grid grid-cols-1 sm:grid-cols-3 gap-4 w-full lg:w-auto">
-              <a
-                href="https://portal.intexfair.com/buyer_reg_portal.php?form_name=pre-buyer-registration&country=sl&source_name="
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                to="/buyer-registration"
                 className="flex items-center justify-between px-6 py-5 bg-archive-clay text-archive-cream group/btn hover:bg-white hover:text-archive-charcoal transition-all duration-500 min-w-[200px]"
               >
                 <span className="text-[15px] font-black tracking-[0.3em] uppercase">Buyer Registration</span>
                 <UserPlus size={16} className="transition-transform group-hover/btn:translate-x-1" />
-              </a>
+              </Link>
               <a
                 href="#enquiry-form"
                 className="flex items-center justify-between px-6 py-5 border border-white/20 text-white group/btn hover:border-archive-clay hover:text-archive-clay transition-all duration-500 min-w-[200px]"

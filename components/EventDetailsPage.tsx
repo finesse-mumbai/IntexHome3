@@ -1,8 +1,18 @@
-import React from 'react';
-import { ArrowLeft, MapPin, Calendar, Building2, CheckCircle2, Users, ArrowUpRight } from 'lucide-react';
+import React, { useState, useRef } from 'react';
+import { 
+  ArrowLeft, 
+  MapPin, 
+  Calendar, 
+  Building2, 
+  CheckCircle2, 
+  Users, 
+  ArrowUpRight, 
+  Volume2, 
+  VolumeX, 
+  Sparkles, 
+  ChevronRight
+} from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { CATEGORIES } from '../constants';
 
 interface EventData {
   id: string;
@@ -14,8 +24,13 @@ interface EventData {
   venue: string;
   country: string;
   imageUrl: string;
+  videoUrl?: string;
   region: string;
   overview: string;
+  whyTitle?: string;
+  headline?: string;
+  paragraphs?: string[];
+  keyTakeaway?: string;
   stats: {
     exhibitors: string;
     buyers: string;
@@ -37,8 +52,16 @@ const EVENTS_DATABASE: Record<string, EventData> = {
     venue: 'International Convention City Bashundhara (ICCB)',
     country: 'Bangladesh',
     imageUrl: '/assets/bangladesh.png',
+    videoUrl: '/assets/website video intex  Copy 03.mp4',
     region: 'Intex South Asia',
-    overview: 'Intex Bangladesh is the leading international textile sourcing exhibition connecting global suppliers with Bangladesh’s USD 45+ Billion garment manufacturing industry. Bringing together international suppliers of yarns, fabrics, denim, and apparel accessories with major ready-made garment (RMG) exporters, global buying houses, and fashion brands.',
+    overview: 'Bangladesh is one of the defining forces in global apparel manufacturing. Built on an immense production ecosystem and a formidable export industry, the country is entering its next chapter—one shaped by diversification, higher-value manufacturing and an evolving role in the global textile supply chain.',
+    whyTitle: 'WHY INTEX BANGLADESH',
+    headline: 'BE WHERE THE WORLD’S APPAREL INDUSTRY IS BEING MADE.',
+    paragraphs: [
+      'Bangladesh is one of the defining forces in global apparel manufacturing. Built on an immense production ecosystem and a formidable export industry, the country is entering its next chapter—one shaped by diversification, higher-value manufacturing and an evolving role in the global textile supply chain.',
+      'For businesses looking to understand where global apparel production is headed, Bangladesh is more than a manufacturing destination. Bangladesh Apparel exports reached US$38.7 billion in FY2025–26, with an industry ambition of US$100 billion in RMG exports by 2035. It is a market where the next generation of textile demand is taking shape. Through its established presence in Bangladesh, Intex brings the market into a wider international sourcing conversation, strengthening the connections that support new opportunities, industry growth and cross-border trade.'
+    ],
+    keyTakeaway: 'Bangladesh: Where manufacturing scale meets the next wave of textile opportunity.',
     stats: {
       exhibitors: '350+',
       buyers: '14,000+',
@@ -68,8 +91,17 @@ const EVENTS_DATABASE: Record<string, EventData> = {
     venue: 'Bandaranaike Memorial International Conference Hall (BMICH)',
     country: 'Sri Lanka',
     imageUrl: '/assets/sri lanka.jpg.jpeg',
+    videoUrl: '/assets/website video intex  Copy 03.mp4',
     region: 'Intex South Asia',
-    overview: 'Intex Sri Lanka serves as the primary international sourcing bridge for Sri Lanka’s high-value ethical apparel manufacturing sector. Renowned for premium lingerie, sportswear, activewear, and sustainable apparel, Intex Sri Lanka brings global fabric and yarn innovators directly to Sri Lankan apparel giants.',
+    overview: 'Sri Lanka has carved out a distinctive place in global apparel manufacturing through quality, responsible production, technical expertise and a strong culture of innovation. Its strength lies in moving beyond volume to create specialised, higher-value products for an increasingly demanding global market.',
+    whyTitle: 'WHY INTEX SRI LANKA',
+    headline: 'A MARKET DEFINED BY WHAT IT CAN CREATE, NOT JUST WHAT IT CAN PRODUCE.',
+    paragraphs: [
+      'Sri Lanka has carved out a distinctive place in global apparel manufacturing through quality, responsible production, technical expertise and a strong culture of innovation. Its strength lies in moving beyond volume to create specialised, higher-value products for an increasingly demanding global market.',
+      'Sri Lankan Apparel exports generated approximately US$5.05 billion in 2024, with the industry targeting US$7 billion by 2030. As the industry pursues its next phase of growth, innovation, sustainability and deeper value-chain integration are becoming even more important. Intex Sri Lanka has grown alongside this evolution, connecting the market to a wider international textile ecosystem and reinforcing its place in South Asia’s sourcing landscape.',
+      'For businesses looking beyond scale towards specialisation, Sri Lanka offers a compelling story of manufacturing excellence and future-ready growth.'
+    ],
+    keyTakeaway: 'Sri Lanka: Where quality, innovation and responsible manufacturing converge.',
     stats: {
       exhibitors: '250+',
       buyers: '9,500+',
@@ -99,8 +131,17 @@ const EVENTS_DATABASE: Record<string, EventData> = {
     venue: 'Pragati Maidan Exhibition Centre',
     country: 'India',
     imageUrl: '/assets/india.jpg.jpeg',
+    videoUrl: '/assets/website video intex  Copy 03.mp4',
     region: 'Intex South Asia',
-    overview: 'Intex India is the flagship trade exhibition uniting international yarn, fabric, and accessory manufacturers with India’s massive domestic market and booming export sectors. Held in New Delhi, the event attracts top retail chains, garment manufacturers, brand owners, and international buying offices.',
+    overview: 'Few markets bring together the breadth, depth and diversity of India’s textile ecosystem. From its rich manufacturing heritage to emerging material technologies, expanding domestic demand and growing global ambitions, India is shaping a new chapter in textile and apparel development.',
+    whyTitle: 'WHY INTEX INDIA',
+    headline: 'THE FUTURE OF TEXTILES WILL BE SUSTAINABLE. FASHIONABLE. FUNCTIONAL.',
+    paragraphs: [
+      'Few markets bring together the breadth, depth and diversity of India’s textile ecosystem. From its rich manufacturing heritage to emerging material technologies, expanding domestic demand and growing global ambitions, India is shaping a new chapter in textile and apparel development. The domestic textile and apparel market is projected to grow from approximately US$147 billion in FY2024–25 to US$250 billion by 2030.',
+      'But the opportunity is no longer defined by scale alone. The industry is evolving towards materials and products that are sustainable in their impact, fashionable in their appeal and functional in their performance. This is where India’s next growth story takes shape—and where Intex India finds its relevance.',
+      'As part of the wider Intex South Asia network, Intex India reflects a market moving forward: embracing innovation, responding to changing demand and strengthening its role in the global textile economy.'
+    ],
+    keyTakeaway: 'India: Where material innovation meets the next generation of textile demand.',
     stats: {
       exhibitors: '400+',
       buyers: '18,000+',
@@ -127,11 +168,19 @@ const EVENTS_DATABASE: Record<string, EventData> = {
     edition: '1st Edition',
     date: 'Announcing Soon',
     location: 'Jakarta, Indonesia',
-    venue: 'Jakarta International Expo (JIExpo)',
+    venue: 'Jakarta International Expo (JIExpo) Kemayoran, Jakarta, Indonesia',
     country: 'Indonesia',
     imageUrl: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&q=80&w=1000',
-    region: 'Intex Asia',
-    overview: 'Intex Indonesia marks the landmark expansion of the Intex global footprint into ASEAN’s largest economy. Designed to connect global textile manufacturers with Indonesia’s rapidly growing garment manufacturing ecosystem, connecting international suppliers with regional apparel brands, mills, and trading houses.',
+    videoUrl: '/assets/website video intex  Copy 03.mp4',
+    region: 'Intex ASEAN',
+    overview: 'Indonesia represents the powerhouse of the ASEAN economy, driven by immense domestic industrial consumption, robust infrastructure development, and a rapidly expanding apparel manufacturing sector.',
+    whyTitle: 'WHY INTEX INDONESIA',
+    headline: 'THE NEW FRONTIER OF ASEAN TEXTILE & APPAREL EXPANSION.',
+    paragraphs: [
+      'Indonesia represents the powerhouse of the ASEAN economy, driven by immense domestic industrial consumption, robust infrastructure development, and a rapidly expanding apparel manufacturing sector.',
+      'As global brands and manufacturers seek diversified sourcing hubs across South-East Asia, Intex Indonesia provides direct access to Indonesia\'s premier mills, factories, and trade associations.'
+    ],
+    keyTakeaway: 'Indonesia: Where regional ASEAN manufacturing power connects with global sourcing.',
     stats: {
       exhibitors: '200+',
       buyers: '8,000+',
@@ -159,245 +208,336 @@ interface EventDetailsPageProps {
 
 const EventDetailsPage: React.FC<EventDetailsPageProps> = ({ eventId = 'ex-bg' }) => {
   const navigate = useNavigate();
+  const [isMuted, setIsMuted] = useState(true);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const event = EVENTS_DATABASE[eventId] || EVENTS_DATABASE['ex-bg'];
 
+  const toggleMute = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = !videoRef.current.muted;
+      setIsMuted(videoRef.current.muted);
+    }
+  };
+
   const handleExhibitorClick = () => {
-    navigate('/#exhibitor-profile');
+    const eventParam =
+      eventId === 'ex-bd' ? 'bangladesh' :
+      eventId === 'ex-sl' ? 'srilanka' :
+      eventId === 'ex-in' ? 'india' :
+      eventId === 'ex-id' ? 'indonesia' : 'srilanka';
+    navigate(`/#enquiry-form?event=${eventParam}`);
     window.scrollTo(0, 0);
   };
 
   const handleBuyerClick = () => {
-    navigate('/#buyers-profile');
+    const countryCode =
+      eventId === 'ex-bd' ? 'bd' :
+      eventId === 'ex-in' ? 'in' :
+      eventId === 'ex-id' ? 'id' : 'sl';
+    navigate(`/#buyer-registration?country=${countryCode}`);
     window.scrollTo(0, 0);
   };
 
   return (
-    <div className="bg-[#FAF8F5] min-h-screen pt-28 pb-32">
-      {/* Top Back Navigation Bar */}
-      <div className="max-w-[1440px] mx-auto px-6 md:px-12 mb-10">
-        <button
-          onClick={() => {
-            navigate('/#exhibitions');
-            window.scrollTo(0, 0);
-          }}
-          className="inline-flex items-center gap-2 text-xs font-mono font-black uppercase tracking-widest text-archive-clay hover:text-archive-charcoal transition-colors group"
-        >
-          <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
-          <span>Back to All Exhibitions</span>
-        </button>
+    <div className="bg-[#FAF8F5] text-archive-charcoal min-h-screen pt-28 pb-32">
+      {/* 1. Sleek Navigation Header */}
+      <div className="max-w-[1440px] mx-auto px-6 md:px-12 mb-8">
+        <div className="flex items-center justify-between gap-4 pb-6 border-b border-archive-charcoal/10">
+          <button
+            onClick={() => {
+              navigate('/#exhibitions');
+              window.scrollTo(0, 0);
+            }}
+            className="inline-flex items-center gap-2.5 text-xs font-bold uppercase tracking-[0.15em] text-archive-charcoal hover:text-archive-clay transition-colors group"
+          >
+            <ArrowLeft size={16} className="group-hover:-translate-x-1.5 transition-transform text-archive-clay stroke-[2.5]" />
+            <span>Back to All Exhibitions</span>
+          </button>
+        </div>
       </div>
 
-      {/* Hero Header Section - Clean & Borderless */}
-      <section className="max-w-[1440px] mx-auto px-6 md:px-12 mb-20">
-        <div className="relative rounded-2xl overflow-hidden min-h-[480px] bg-archive-charcoal flex flex-col justify-end p-8 md:p-16">
-          {/* Hero Image Overlay */}
-          <img
-            src={event.imageUrl}
-            alt={event.title}
-            className="absolute inset-0 w-full h-full object-cover opacity-35"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#161414] via-[#161414]/70 to-transparent" />
-
-          {/* Hero Information */}
-          <div className="relative z-10 space-y-6 max-w-4xl">
-            <div className="flex items-center gap-3 text-xs font-mono font-black text-archive-clay uppercase tracking-widest">
-              <span>{event.edition}</span>
-              <span>•</span>
-              <span>{event.region}</span>
-            </div>
-
-            <h1 className="text-4xl md:text-7xl font-black text-white uppercase tracking-tight leading-[0.95]">
-              {event.title}
-            </h1>
-
-            <p className="text-base md:text-xl font-medium text-white/80 leading-relaxed max-w-3xl">
-              {event.subtitle}
-            </p>
-
-            {/* Event Meta Details Line */}
-            <div className="flex flex-wrap items-center gap-8 pt-4 text-xs font-bold text-white/90 uppercase tracking-wider">
-              <div className="flex items-center gap-2">
-                <Calendar size={14} className="text-archive-clay" />
-                <span>{event.date}</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <MapPin size={14} className="text-archive-clay" />
-                <span>{event.location}</span>
-              </div>
-              <div className="flex items-center gap-2 text-white/60">
-                <Building2 size={14} />
-                <span>{event.venue}</span>
-              </div>
-            </div>
-
-            {/* Direct Navigation Action Buttons */}
-            <div className="flex flex-wrap items-center gap-4 pt-4">
-              <button
-                onClick={handleExhibitorClick}
-                className="px-8 py-4 bg-archive-clay hover:bg-white text-white hover:text-archive-charcoal transition-all duration-300 font-black text-xs uppercase tracking-[0.2em] rounded flex items-center gap-3 group"
-              >
-                <span>EXHIBITOR PROFILE & ENQUIRY</span>
-                <div className="w-6 h-6 bg-white/20 group-hover:bg-archive-clay group-hover:text-white rounded flex items-center justify-center transition-colors">
-                  <ArrowUpRight size={14} />
-                </div>
-              </button>
-
-              <button
-                onClick={handleBuyerClick}
-                className="px-8 py-4 bg-white/10 hover:bg-white text-white hover:text-archive-charcoal transition-all duration-300 font-black text-xs uppercase tracking-[0.2em] rounded backdrop-blur-sm flex items-center gap-3 group"
-              >
-                <span>BUYER PROFILE & REGISTRATION</span>
-                <div className="w-6 h-6 bg-archive-clay text-white rounded flex items-center justify-center transition-colors">
-                  <Users size={14} />
-                </div>
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-
-
-      {/* Overview Section */}
-      <section className="max-w-[1440px] mx-auto px-6 md:px-12 mb-20 space-y-6">
-        <div className="flex items-center gap-3">
-          <div className="w-8 h-[1px] bg-archive-clay" />
-          <span className="text-xs font-mono font-black text-archive-clay tracking-[0.3em] uppercase">Event Brief</span>
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          <h2 className="lg:col-span-5 text-3xl md:text-4xl font-black text-archive-charcoal uppercase leading-tight">
-            Strategic Textile Marketplace
-          </h2>
-          <p className="lg:col-span-7 text-base md:text-lg text-archive-charcoal/80 leading-relaxed font-normal">
-            {event.overview}
-          </p>
-        </div>
-      </section>
-
-      {/* Product Categories - Uses Exact CATEGORIES Data from /#exhibitor-profile */}
-      <section className="max-w-[1440px] mx-auto px-6 md:px-12 mb-24 space-y-12">
-        <div className="border-b border-archive-charcoal/10 pb-6">
-          <div className="space-y-2">
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-[1px] bg-archive-clay" />
-              <span className="text-xs font-mono font-black text-archive-clay tracking-[0.3em] uppercase">Sourcing Categories</span>
-            </div>
-            <h3 className="text-2xl md:text-4xl font-black text-archive-charcoal uppercase tracking-tight">
-              Exhibitor Profile Categories
-            </h3>
-          </div>
-        </div>
-
-        {/* Categories Grid (Matching ExhibitorProfilePage /#exhibitor-profile style & content) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {CATEGORIES.map((cat, idx) => (
-            <motion.div
-              key={cat.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: idx * 0.05 }}
-              viewport={{ once: true }}
-              className="bg-white group relative overflow-hidden flex flex-col h-full rounded-xl shadow-sm hover:shadow-xl transition-all duration-500"
+      {/* 2. Hero Cinematic Video & Event Identity Showcase */}
+      <section className="max-w-[1440px] mx-auto px-6 md:px-12 mb-16">
+        <div className="space-y-10">
+          {/* Autoplay Highlight Video Container */}
+          <div className="relative rounded-2xl md:rounded-3xl overflow-hidden aspect-video max-h-[560px] w-full bg-black shadow-2xl group">
+            <video
+              ref={videoRef}
+              autoPlay
+              muted={isMuted}
+              loop
+              playsInline
+              className="w-full h-full object-cover"
             >
-              {/* Image Layer */}
-              <div className="aspect-[4/3] w-full relative overflow-hidden bg-black shrink-0">
-                <img
-                  src={cat.imageUrl}
-                  alt={cat.title}
-                  className="w-full h-full object-cover brightness-50 group-hover:scale-110 group-hover:brightness-[0.35] transition-all duration-[1200ms]"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-archive-charcoal via-transparent to-transparent opacity-60"></div>
+              <source src="/assets/website video intex  Copy 03.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
 
-                {/* Tech Number Badge */}
-                <div className="absolute top-4 left-4 flex items-center gap-3">
-                  <div className="w-9 h-9 bg-black/40 backdrop-blur-md flex items-center justify-center rounded">
-                    <span className="text-xs font-mono font-black text-white">{(idx + 1).toString().padStart(2, '0')}</span>
-                  </div>
+            {/* Subtle Gradient Vignette */}
+            <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/40 via-transparent to-black/20" />
+
+
+            {/* Audio Toggle Control */}
+            <button
+              onClick={toggleMute}
+              aria-label={isMuted ? "Unmute highlight video" : "Mute highlight video"}
+              className="absolute bottom-5 right-5 h-11 px-4 rounded-full bg-black/75 hover:bg-archive-clay text-white backdrop-blur-md flex items-center gap-2.5 transition-all text-xs font-bold tracking-wider uppercase shadow-xl group-hover:scale-105"
+            >
+              {isMuted ? (
+                <>
+                  <VolumeX size={16} className="text-white stroke-[2.5]" />
+                  <span className="hidden sm:inline">Unmute Audio</span>
+                </>
+              ) : (
+                <>
+                  <Volume2 size={16} className="text-emerald-400 stroke-[2.5]" />
+                  <span className="hidden sm:inline text-emerald-400">Audio Active</span>
+                </>
+              )}
+            </button>
+          </div>
+
+          {/* Master Event Identity & Actions Grid */}
+          <div className="bg-white rounded-2xl md:rounded-3xl p-8 md:p-12 shadow-sm">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+              {/* Left Column: Edition, Title & Subtitle */}
+              <div className="lg:col-span-7 space-y-4">
+                <div className="flex items-center gap-3">
+                  <span className="px-3 py-1 bg-archive-clay/10 text-archive-clay text-xs font-bold tracking-wider uppercase rounded">
+                    {event.edition}
+                  </span>
+                  <span className="text-archive-charcoal/40 text-xs">•</span>
+                  <span className="text-xs font-bold tracking-wider uppercase text-archive-charcoal">
+                    {event.region}
+                  </span>
                 </div>
 
-                {/* Title Overlay */}
-                <div className="absolute bottom-4 left-4 right-4">
-                  <h4 className="text-lg md:text-xl font-bold text-white tracking-tight leading-tight group-hover:text-archive-clay transition-colors">
-                    {cat.title}
-                  </h4>
-                </div>
-              </div>
+                <h1 className="text-4xl md:text-6xl font-black text-archive-charcoal uppercase tracking-tight leading-[0.95]">
+                  {event.title}
+                </h1>
 
-              {/* Content Layer */}
-              <div className="p-6 bg-white group-hover:bg-archive-charcoal transition-all duration-500 flex-1">
-                <p className="text-xs font-medium leading-relaxed text-archive-charcoal/70 group-hover:text-white/80 line-clamp-3">
-                  {cat.description}
+                <p className="text-base md:text-xl font-medium text-archive-charcoal leading-relaxed max-w-2xl">
+                  {event.subtitle}
                 </p>
               </div>
-            </motion.div>
-          ))}
+
+              {/* Right Column: CTA Action Buttons */}
+              <div className="lg:col-span-5 flex flex-col sm:flex-row lg:flex-col gap-3.5 justify-center">
+                <button
+                  onClick={handleExhibitorClick}
+                  className="w-full py-4 px-8 bg-archive-clay hover:bg-archive-charcoal text-white transition-all duration-300 font-bold text-xs uppercase tracking-[0.2em] rounded-xl flex items-center justify-between group shadow-sm hover:shadow-lg"
+                >
+                  <span>EXHIBITOR ENQUIRY</span>
+                  <div className="w-7 h-7 bg-white/20 group-hover:bg-archive-clay rounded-lg flex items-center justify-center transition-colors">
+                    <ArrowUpRight size={16} className="text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform stroke-[2.5]" />
+                  </div>
+                </button>
+
+                <button
+                  onClick={handleBuyerClick}
+                  className="w-full py-4 px-8 bg-archive-charcoal hover:bg-archive-clay text-white transition-all duration-300 font-bold text-xs uppercase tracking-[0.2em] rounded-xl flex items-center justify-between group shadow-sm hover:shadow-lg"
+                >
+                  <span>BUYER REGISTRATION</span>
+                  <div className="w-7 h-7 bg-white/10 group-hover:bg-archive-charcoal rounded-lg flex items-center justify-center transition-colors">
+                    <Users size={16} className="text-white stroke-[2.5]" />
+                  </div>
+                </button>
+              </div>
+            </div>
+
+            {/* Event Meta Specifications Ribbon */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-8 mt-8 border-t border-archive-charcoal/10">
+              <div className="flex items-start gap-4">
+                <div className="w-11 h-11 rounded-xl bg-[#FAF8F5] flex items-center justify-center shrink-0">
+                  <Calendar size={20} className="text-archive-clay stroke-[2.5]" />
+                </div>
+                <div className="space-y-0.5">
+                  <span className="text-xs uppercase font-bold tracking-wider text-archive-charcoal block">Dates</span>
+                  <p className="text-base font-semibold text-archive-charcoal">{event.date}</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <div className="w-11 h-11 rounded-xl bg-[#FAF8F5] flex items-center justify-center shrink-0">
+                  <MapPin size={20} className="text-archive-clay stroke-[2.5]" />
+                </div>
+                <div className="space-y-0.5">
+                  <span className="text-xs uppercase font-bold tracking-wider text-archive-charcoal block">Location</span>
+                  <p className="text-base font-semibold text-archive-charcoal">{event.location}</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <div className="w-11 h-11 rounded-xl bg-[#FAF8F5] flex items-center justify-center shrink-0">
+                  <Building2 size={20} className="text-archive-clay stroke-[2.5]" />
+                </div>
+                <div className="space-y-0.5">
+                  <span className="text-xs uppercase font-bold tracking-wider text-archive-charcoal block">Official Venue</span>
+                  <p className="text-base font-semibold text-archive-charcoal">{event.venue}</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Why Exhibit & Why Visit */}
+      {/* 3. Key Exhibition Metrics Band */}
       <section className="max-w-[1440px] mx-auto px-6 md:px-12 mb-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 pt-8 border-t border-archive-charcoal/15">
-          {/* Exhibitor Section */}
-          <div className="space-y-8">
-            <div className="space-y-3">
-              <span className="text-xs font-mono font-black text-archive-clay uppercase tracking-widest block">
-                FOR EXHIBITORS
-              </span>
-              <h3 className="text-2xl md:text-3xl font-black text-archive-charcoal uppercase">
-                Why Exhibit at {event.title}?
-              </h3>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+          <div className="bg-white rounded-2xl p-6 shadow-xs space-y-2">
+            <span className="text-xs uppercase font-bold tracking-wider text-archive-charcoal block">Exhibitors</span>
+            <div className="text-3xl md:text-4xl font-black text-archive-charcoal tracking-tight">
+              {event.stats.exhibitors}
             </div>
-
-            <div className="space-y-4">
-              {event.exhibitorBenefits.map((benefit, idx) => (
-                <div key={idx} className="flex items-start gap-3 text-sm font-medium text-archive-charcoal/80">
-                  <CheckCircle2 size={16} className="text-archive-clay shrink-0 mt-1" />
-                  <span>{benefit}</span>
-                </div>
-              ))}
-            </div>
-
-            <button
-              onClick={handleExhibitorClick}
-              className="px-8 py-4 bg-archive-clay hover:bg-archive-charcoal text-white transition-colors font-black text-xs uppercase tracking-[0.2em] rounded flex items-center gap-3 group"
-            >
-              <span>EXPLORE EXHIBITOR PROFILE</span>
-              <div className="w-6 h-6 bg-white/20 rounded flex items-center justify-center">
-                <ArrowUpRight size={14} className="text-white" />
-              </div>
-            </button>
+            <p className="text-xs md:text-sm text-archive-charcoal font-medium">Global textile suppliers & mills</p>
           </div>
 
-          {/* Visitor Section */}
-          <div className="space-y-8 lg:border-l lg:border-archive-charcoal/10 lg:pl-16">
-            <div className="space-y-3">
-              <span className="text-xs font-mono font-black text-archive-clay uppercase tracking-widest block">
-                FOR TRADE BUYERS
-              </span>
-              <h3 className="text-2xl md:text-3xl font-black text-archive-charcoal uppercase">
+          <div className="bg-white rounded-2xl p-6 shadow-xs space-y-2">
+            <span className="text-xs uppercase font-bold tracking-wider text-archive-charcoal block">Trade Buyers</span>
+            <div className="text-3xl md:text-4xl font-black text-archive-clay tracking-tight">
+              {event.stats.buyers}
+            </div>
+            <p className="text-xs md:text-sm text-archive-charcoal font-medium">Apparel exporters & buying houses</p>
+          </div>
+
+          <div className="bg-white rounded-2xl p-6 shadow-xs space-y-2">
+            <span className="text-xs uppercase font-bold tracking-wider text-archive-charcoal block">Countries</span>
+            <div className="text-3xl md:text-4xl font-black text-archive-charcoal tracking-tight">
+              {event.stats.countries}
+            </div>
+            <p className="text-xs md:text-sm text-archive-charcoal font-medium">International sourcing delegations</p>
+          </div>
+
+          <div className="bg-white rounded-2xl p-6 shadow-xs space-y-2">
+            <span className="text-xs uppercase font-bold tracking-wider text-archive-charcoal block">Categories</span>
+            <div className="text-3xl md:text-4xl font-black text-archive-charcoal tracking-tight">
+              {event.stats.categories}
+            </div>
+            <p className="text-xs md:text-sm text-archive-charcoal font-medium">Core textile & yarn exhibits</p>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. Editorial Market Brief (Why Intex Regional Node) */}
+      <section className="max-w-[1440px] mx-auto px-6 md:px-12 mb-24">
+        <div className="bg-white rounded-2xl md:rounded-3xl p-8 md:p-14 shadow-sm space-y-10">
+          {/* Section Sub-header */}
+          <div className="flex items-center gap-3">
+            <div className="w-8 h-[3px] bg-archive-clay rounded" />
+            <span className="text-sm md:text-base font-bold text-archive-clay tracking-[0.15em] uppercase">
+              {event.whyTitle || 'Strategic Market Brief'}
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+            {/* Left Headline & Takeaway Callout */}
+            <div className="lg:col-span-5 space-y-6">
+              <h2 className="text-3xl md:text-4xl lg:text-[42px] font-black text-archive-charcoal uppercase leading-[1.02] tracking-tight">
+                {event.headline || 'Strategic Textile Marketplace'}
+              </h2>
+
+              {event.keyTakeaway && (
+                <div className="p-6 rounded-2xl bg-[#FAF8F5] border-l-4 border-archive-clay space-y-2.5 shadow-xs">
+                  <div className="flex items-center gap-2 text-xs uppercase font-bold text-archive-clay tracking-wider">
+                    <Sparkles size={15} className="stroke-[2.5]" />
+                    <span>Key Market Thesis</span>
+                  </div>
+                  <p className="text-base font-semibold text-archive-charcoal leading-snug">
+                    {event.keyTakeaway}
+                  </p>
+                </div>
+              )}
+            </div>
+
+            {/* Right Detailed Paragraphs */}
+            <div className="lg:col-span-7 space-y-6 text-base md:text-lg text-archive-charcoal leading-relaxed font-normal">
+              {event.paragraphs && event.paragraphs.length > 0 ? (
+                event.paragraphs.map((para, pIdx) => (
+                  <p key={pIdx} className="leading-relaxed font-normal text-archive-charcoal">
+                    {para}
+                  </p>
+                ))
+              ) : (
+                <p className="font-normal text-archive-charcoal">{event.overview}</p>
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. Dual Executive Value Pillars: Exhibitors vs Buyers */}
+      <section className="max-w-[1440px] mx-auto px-6 md:px-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-10">
+          {/* Exhibitor Advantage Card */}
+          <div className="bg-white rounded-2xl md:rounded-3xl p-8 md:p-12 shadow-sm flex flex-col justify-between space-y-8 relative overflow-hidden group transition-all">
+            <div className="space-y-6">
+              <div>
+                <span className="inline-block px-4 py-1.5 rounded-full bg-archive-clay/10 text-archive-clay font-bold text-xs uppercase tracking-wider">
+                  For Exhibitors
+                </span>
+              </div>
+
+              <h3 className="text-2xl md:text-3xl font-black text-archive-charcoal uppercase tracking-tight">
+                Why Exhibit at {event.title}?
+              </h3>
+
+              <div className="space-y-3.5 pt-2">
+                {event.exhibitorBenefits.map((benefit, idx) => (
+                  <div key={idx} className="flex items-start gap-3.5 text-sm md:text-base font-medium text-archive-charcoal leading-snug">
+                    <div className="w-5 h-5 rounded-full bg-archive-clay/10 text-archive-clay flex items-center justify-center shrink-0 mt-0.5">
+                      <CheckCircle2 size={14} className="stroke-[2.5]" />
+                    </div>
+                    <span>{benefit}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="pt-6 border-t border-archive-charcoal/10">
+              <button
+                onClick={handleExhibitorClick}
+                className="w-full py-4 px-6 bg-[#FAF8F5] hover:bg-archive-clay hover:text-white text-archive-charcoal rounded-xl text-xs font-bold uppercase tracking-[0.2em] transition-all flex items-center justify-center gap-2 group/btn"
+              >
+                <span>Reserve Booth Space</span>
+                <ChevronRight size={16} className="group-hover/btn:translate-x-1 transition-transform stroke-[2.5]" />
+              </button>
+            </div>
+          </div>
+
+          {/* Sourcing Advantage Card */}
+          <div className="bg-white rounded-2xl md:rounded-3xl p-8 md:p-12 shadow-sm flex flex-col justify-between space-y-8 relative overflow-hidden group transition-all">
+            <div className="space-y-6">
+              <div>
+                <span className="inline-block px-4 py-1.5 rounded-full bg-archive-charcoal/10 text-archive-charcoal font-bold text-xs uppercase tracking-wider">
+                  For Trade Buyers
+                </span>
+              </div>
+
+              <h3 className="text-2xl md:text-3xl font-black text-archive-charcoal uppercase tracking-tight">
                 Why Visit {event.title}?
               </h3>
-            </div>
 
-            <div className="space-y-4">
-              {event.buyerBenefits.map((benefit, idx) => (
-                <div key={idx} className="flex items-start gap-3 text-sm font-medium text-archive-charcoal/80">
-                  <CheckCircle2 size={16} className="text-archive-clay shrink-0 mt-1" />
-                  <span>{benefit}</span>
-                </div>
-              ))}
-            </div>
-
-            <button
-              onClick={handleBuyerClick}
-              className="px-8 py-4 bg-archive-charcoal text-white transition-colors font-black text-xs uppercase tracking-[0.2em] rounded flex items-center gap-3 group"
-            >
-              <span>EXPLORE BUYERS PROFILE</span>
-              <div className="w-6 h-6 bg-archive-clay rounded flex items-center justify-center">
-                <ArrowUpRight size={14} className="text-white" />
+              <div className="space-y-3.5 pt-2">
+                {event.buyerBenefits.map((benefit, idx) => (
+                  <div key={idx} className="flex items-start gap-3.5 text-sm md:text-base font-medium text-archive-charcoal leading-snug">
+                    <div className="w-5 h-5 rounded-full bg-archive-charcoal/10 text-archive-charcoal flex items-center justify-center shrink-0 mt-0.5">
+                      <CheckCircle2 size={14} className="stroke-[2.5]" />
+                    </div>
+                    <span>{benefit}</span>
+                  </div>
+                ))}
               </div>
-            </button>
+            </div>
+
+            <div className="pt-6 border-t border-archive-charcoal/10">
+              <button
+                onClick={handleBuyerClick}
+                className="w-full py-4 px-6 bg-archive-charcoal hover:bg-archive-clay text-white rounded-xl text-xs font-bold uppercase tracking-[0.2em] transition-all flex items-center justify-center gap-2 group/btn"
+              >
+                <span>Pre-Register as Buyer</span>
+                <ChevronRight size={16} className="group-hover/btn:translate-x-1 transition-transform stroke-[2.5]" />
+              </button>
+            </div>
           </div>
         </div>
       </section>
@@ -406,3 +546,4 @@ const EventDetailsPage: React.FC<EventDetailsPageProps> = ({ eventId = 'ex-bg' }
 };
 
 export default EventDetailsPage;
+

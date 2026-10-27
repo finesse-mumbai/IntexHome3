@@ -12,6 +12,7 @@ import SocialFeed from './components/SocialFeed';
 import BuyerCategories from './components/BuyerCategories';
 import WhyIntexSection from './components/WhyIntexSection';
 import VideoShowcase from './components/VideoShowcase';
+import VideoTestimonials from './components/VideoTestimonials';
 import HomeBlogs from './components/HomeBlogs';
 import Home2Page from './components/Home2Page';
 import Footer from './components/Footer';
@@ -57,6 +58,9 @@ import BlogTopForeignBuyersPage from './components/blogs/BlogTopForeignBuyersPag
 import BlogZaraHmSourcingPage from './components/blogs/BlogZaraHmSourcingPage';
 import EventDetailsPage from './components/EventDetailsPage';
 import IntexAseanPage from './components/IntexAseanPage';
+import VipOpeningCeremonyPage from './components/VipOpeningCeremonyPage';
+import BuyerRegistrationPage from './components/BuyerRegistrationPage';
+import BoothApplicationPage from './components/BoothApplicationPage';
 
 import { motion, useScroll, useSpring, AnimatePresence } from 'framer-motion';
 import { useLocation, Link } from 'react-router-dom';
@@ -64,9 +68,14 @@ import { useLocation, Link } from 'react-router-dom';
 const App: React.FC = () => {
   const [isAboutExpanded, setIsAboutExpanded] = useState(false);
   const location = useLocation();
-  const currentPath = location.pathname === '/'
-    ? (location.hash || '#home')
-    : `#${location.pathname.replace(/^\/+/, '')}`;
+  const currentPath = (() => {
+    if (location.hash && location.hash !== '#home' && location.hash !== '#' && location.hash !== '#about') {
+      return location.hash;
+    }
+    return location.pathname === '/'
+      ? (location.hash || '#home')
+      : `#${location.pathname.replace(/^\/+/, '')}`;
+  })();
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -119,6 +128,19 @@ const App: React.FC = () => {
     if (currentPath === '#buyers-testimonial') {
       return <BuyersTestimonialPage />;
     }
+    if (
+      currentPath === '#buyer-registration' ||
+      currentPath.startsWith('#buyer-registration') ||
+      currentPath === '#buyer-reg' ||
+      currentPath.startsWith('#buyer_reg') ||
+      currentPath === '#buyer-registration-indonesia' ||
+      currentPath.startsWith('#buyer-registration-indonesia') ||
+      currentPath === '#indonesia-buyer-registration' ||
+      currentPath.startsWith('#indonesia-buyer-registration') ||
+      currentPath === '#intex-indonesia/buyer-registration'
+    ) {
+      return <BuyerRegistrationPage />;
+    }
     if (currentPath === '#exhibitor-list') {
       return <ExhibitorListPage />;
     }
@@ -137,7 +159,23 @@ const App: React.FC = () => {
     if (currentPath === '#media-registration') {
       return <MediaRegistrationPage />;
     }
-    if (currentPath === '#enquiry-form' || currentPath === '#booth-booking-enquiry' || currentPath === '#enquiry') {
+    if (
+      currentPath === '#booth-application' ||
+      currentPath.startsWith('#booth-application') ||
+      currentPath === '#exhibitor-application' ||
+      currentPath.startsWith('#exhibitor-application') ||
+      currentPath === '#space-application' ||
+      currentPath === '#online-booth-application' ||
+      currentPath === '#application-form' ||
+      currentPath === '#exhibitor-space-application'
+    ) {
+      return <BoothApplicationPage />;
+    }
+    if (
+      currentPath.startsWith('#enquiry-form') ||
+      currentPath.startsWith('#booth-booking-enquiry') ||
+      currentPath.startsWith('#enquiry')
+    ) {
       return <EnquiryFormPage />;
     }
     if (currentPath === '#industry-partners') {
@@ -179,6 +217,9 @@ const App: React.FC = () => {
     if (currentPath === '#ibf-seminar-series') {
       return <IBFSeminarSeriesPage />;
     }
+    if (currentPath === '#vip-opening-ceremony' || currentPath === '#vip_opening_caremoney' || currentPath === '#vip-opening') {
+      return <VipOpeningCeremonyPage />;
+    }
     if (currentPath === '#blogs') {
       return <BlogsPage />;
     }
@@ -211,7 +252,7 @@ const App: React.FC = () => {
       <>
         <Hero />
 
-        <RevealWrapper text="ARCHIVE." subtext="REG_ID // 01" type="center-split-h" delay={0.2}>
+        <RevealWrapper text="ABOUT US." type="center-split-h" delay={0.2}>
           <section className="bg-archive-cream py-32 border-b border-archive-charcoal/10 overflow-hidden" id="about">
             <div className="max-w-[1440px] mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
               <div className="lg:col-span-5 space-y-10">
@@ -254,8 +295,8 @@ const App: React.FC = () => {
                       {isAboutExpanded ? 'Read Less' : 'Read Full'}
                     </button>
                   </div>
-                  <Link to="/why-intex" className="inline-block px-10 py-5 bg-archive-clay text-archive-cream font-black text-[14px] tracking-[0.4em] hover:bg-archive-charcoal hover:text-archive-cream transition-all uppercase">
-                    VIEW HIGHLIGHTS
+                  <Link to="/post-show-reports" className="inline-block px-10 py-5 bg-archive-clay text-archive-cream font-black text-[14px] tracking-[0.4em] hover:bg-archive-charcoal hover:text-archive-cream transition-all uppercase">
+                    VIEW REPORTS
                   </Link>
                 </div>
               </div>
@@ -274,60 +315,62 @@ const App: React.FC = () => {
           </section>
         </RevealWrapper>
 
-        <RevealWrapper text="METRICS." subtext="REG_ID // 06" type="center-split-h" amount={0.2}>
+        <RevealWrapper text="METRICS." type="center-split-h" amount={0.2}>
           <Stats />
         </RevealWrapper>
 
-        <RevealWrapper text="EVENTS." subtext="REG_ID // 02" type="bands-v" amount={0.3}>
+        <RevealWrapper text="EVENTS." type="bands-v" amount={0.3}>
           <ExhibitorProfile />
         </RevealWrapper>
 
-
-
-
-        <RevealWrapper text="TIMELINE." subtext="REG_ID // 03" type="center-split-v" delay={0.15}>
+        <RevealWrapper text="TIMELINE." type="center-split-v" delay={0.15}>
           <Schedule />
         </RevealWrapper>
 
         {/* 
-        <RevealWrapper text="EXHIBITORS." subtext="REG_ID // 04" type="bands-h" amount={0.25}>
+        <RevealWrapper text="EXHIBITORS." type="bands-h" amount={0.25}>
           <BuyerProfile />
         </RevealWrapper>
         */}
 
-        <RevealWrapper text="VOICES." subtext="REG_ID // 07" type="bands-v" amount={0.2}>
+        <RevealWrapper text="VOICES." type="bands-v" amount={0.2}>
           <Testimonials />
         </RevealWrapper>
 
-        <RevealWrapper text="MOTION." subtext="REG_ID // 08" type="slide" direction="right" amount={0.3}>
+        <RevealWrapper text="VIDEO TESTIMONIALS." type="bands-h" amount={0.25}>
+          <VideoTestimonials />
+        </RevealWrapper>
+
+        <RevealWrapper text="MOTION." type="slide" direction="right" amount={0.3}>
           <VideoShowcase />
         </RevealWrapper>
 
         {/* 
-        <RevealWrapper text="BUYERS." subtext="REG_ID // 08" type="center-split-h" amount={0.2}>
+        <RevealWrapper text="BUYERS." type="center-split-h" amount={0.2}>
           <BuyerCategories />
         </RevealWrapper>
         */}
 
-        <RevealWrapper text="PARTNERS." subtext="REG_ID // 09" type="bands-h" amount={0.4}>
+        <RevealWrapper text="PARTNERS." type="bands-h" amount={0.4}>
           <Partners />
         </RevealWrapper>
 
-        <RevealWrapper text="SOCIAL FEED." subtext="REG_ID // 10" type="slide" direction="up" amount={0.3}>
+        <RevealWrapper text="SOCIAL FEED." type="slide" direction="up" amount={0.3}>
           <SocialFeed />
         </RevealWrapper>
 
-        <RevealWrapper text="INSIGHTS." subtext="REG_ID // 11" type="bands-h" amount={0.3}>
+        <RevealWrapper text="INSIGHTS." type="bands-h" amount={0.3}>
           <HomeBlogs />
         </RevealWrapper>
 
-        <RevealWrapper text="RESOURCES." subtext="REG_ID // 12" type="slide" direction="down" amount={0.4}>
+        <RevealWrapper text="COLLATERALS." type="slide" direction="down" amount={0.4}>
           <Resources />
         </RevealWrapper>
       </>
     );
   };
 
+  const cleanPath = currentPath.split('?')[0];
   const isInsidePage = [
     '#show-profile',
     '#organiser',
@@ -339,6 +382,9 @@ const App: React.FC = () => {
     '#hotels-travel',
     '#buyers-profile',
     '#buyers-testimonial',
+    '#buyer-registration',
+    '#buyer-registration-indonesia',
+    '#indonesia-buyer-registration',
     '#exhibitor-list',
     '#newsletters',
     '#press-release',
@@ -357,6 +403,9 @@ const App: React.FC = () => {
     '#testimonial-playback',
     '#ibf-details',
     '#ibf-seminar-series',
+    '#vip-opening-ceremony',
+    '#vip_opening_caremoney',
+    '#vip-opening',
     '#blogs',
     '#blogs/cotton-to-mmf',
     '#blogs/global-buyers-shift',
@@ -366,7 +415,7 @@ const App: React.FC = () => {
     '#blogs/top-exporters',
     '#blogs/top-foreign-buyers',
     '#blogs/zara-hm-sourcing'
-  ].includes(currentPath);
+  ].includes(cleanPath);
 
   return (
     <div className="bg-archive-cream text-archive-charcoal selection:bg-archive-clay selection:text-white min-h-screen relative">

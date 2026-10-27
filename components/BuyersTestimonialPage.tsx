@@ -237,7 +237,7 @@ const BuyersTestimonialPage: React.FC = () => {
                           alt={item.company}
                           className="max-w-full max-h-full object-contain transition-all duration-700"
                           onError={(e) => {
-                            (e.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${item.company}&background=F3EBE8&color=2F2C2C&bold=true`;
+                            (e.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${item.company}&background=DBD3D0&color=2F2C2C&bold=true`;
                           }}
                         />
                       </div>

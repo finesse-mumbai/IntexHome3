@@ -143,7 +143,7 @@ const PartnerCard: React.FC<{ partner: Partner; idx: number }> = ({ partner, idx
           alt={partner.name}
           className="max-h-full max-w-full object-contain"
           onError={(event) => {
-            (event.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${encodeURIComponent(partner.name)}&background=2F2C2C&color=F3EBE8&bold=true`;
+            (event.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${encodeURIComponent(partner.name)}&background=2F2C2C&color=DBD3D0&bold=true`;
           }}
         />
       </div>

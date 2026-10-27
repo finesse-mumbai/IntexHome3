@@ -99,7 +99,7 @@ const PostShowReportPage: React.FC = () => {
                       alt={report.text}
                       className="w-full h-full object-cover transition-all duration-700 group-hover:filter-none group-hover:scale-110"
                       onError={(e) => {
-                        (e.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${report.text}&background=F3EBE8&color=2F2C2C&bold=true`;
+                        (e.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${report.text}&background=DBD3D0&color=2F2C2C&bold=true`;
                       }}
                     />
                     <div className="absolute inset-0 bg-archive-charcoal/10 group-hover:bg-transparent transition-colors"></div>

@@ -18,7 +18,7 @@ interface RevealWrapperProps {
 const RevealWrapper: React.FC<RevealWrapperProps> = ({
   children,
   text = "INTEX.",
-  subtext = "ARCHIVE_RECORD",
+  subtext = "",
   delay = 0.1,
   type = 'slide',
   direction = 'up',
@@ -47,14 +47,16 @@ const RevealWrapper: React.FC<RevealWrapperProps> = ({
           >
             {text}
           </motion.div>
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={isInView ? { opacity: 0, transition: { ...commonTransition, duration: 0.5 } } : { opacity: 0.4 }}
-            transition={{ duration: 0.5, delay: delay + 0.5 }}
-            className="text-archive-clay text-[14px] font-mono font-black tracking-[0.8em] uppercase"
-          >
-            {subtext}
-          </motion.div>
+          {subtext ? (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={isInView ? { opacity: 0, transition: { ...commonTransition, duration: 0.5 } } : { opacity: 0.4 }}
+              transition={{ duration: 0.5, delay: delay + 0.5 }}
+              className="text-archive-clay text-[14px] font-mono font-black tracking-[0.8em] uppercase"
+            >
+              {subtext}
+            </motion.div>
+          ) : null}
         </div>
       </div>
     );
