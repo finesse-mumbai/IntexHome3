@@ -210,6 +210,16 @@ const INITIAL_VIDEO_TESTIMONIALS: VideoTestimonialItem[] = [
   },
 ];
 
+const getSafeVideoUrl = (url: string) => {
+  if (!url) return '';
+  try {
+    // If URL is already percent-encoded (%20), prevent double-encoding (%2520)
+    return encodeURI(decodeURI(url.replace(/%2520/g, '%20')));
+  } catch {
+    return url.replace(/%2520/g, '%20');
+  }
+};
+
 interface VideoCardProps {
   item: VideoTestimonialItem;
   idx: number;
@@ -262,7 +272,7 @@ const VideoCard: React.FC<VideoCardProps> = ({ item, idx, onSelect }) => {
         {/* 9:16 Background Video Preview */}
         <video
           ref={videoRef}
-          src={encodeURI(item.videoUrl)}
+          src={getSafeVideoUrl(item.videoUrl)}
           preload="metadata"
           playsInline
           muted
@@ -548,7 +558,7 @@ const VideoTestimonials: React.FC = () => {
               <div className="relative aspect-[9/16] max-h-[78vh] w-full bg-black flex items-center justify-center overflow-hidden">
                 <video
                   key={activeVideo.id}
-                  src={encodeURI(activeVideo.videoUrl)}
+                  src={getSafeVideoUrl(activeVideo.videoUrl)}
                   controls
                   autoPlay
                   playsInline
