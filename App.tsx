@@ -17,7 +17,6 @@ import HomeBlogs from './components/HomeBlogs';
 import Home2Page from './components/Home2Page';
 import Footer from './components/Footer';
 import FaqPage from './components/FaqPage';
-import RevealWrapper from './components/RevealWrapper';
 import ShowProfilePage from './components/ShowProfilePage';
 import OrganiserPage from './components/OrganiserPage';
 import WhyIntexPage from './components/WhyIntexPage';
@@ -252,120 +251,94 @@ const App: React.FC = () => {
       <>
         <Hero />
 
-        <RevealWrapper text="ABOUT US." type="center-split-h" delay={0.2}>
-          <section className="bg-archive-cream py-32 border-b border-archive-charcoal/10 overflow-hidden" id="about">
-            <div className="max-w-[1440px] mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
-              <div className="lg:col-span-5 space-y-10">
-                <div className="space-y-2">
-                  <span className="text-[14px] font-black tracking-[0.5em] text-archive-clay uppercase">About Us</span>
-                  <h2 className="text-2xl md:text-4xl font-black tracking-tighter leading-[0.9] text-archive-charcoal uppercase">
-                    Intex <br /> South Asia.
-                  </h2>
-                </div>
-                <div className="space-y-6">
-                  <h3 className="text-xl font-black leading-tight text-archive-charcoal">
-                    THE PREMIER INTERNATIONAL TEXTILE SOURCING SHOWS OF SOUTH ASIA.
-                  </h3>
-                  <div className="space-y-4">
-                    <p className="text-archive-charcoal text-[14px] leading-relaxed max-w-lg tracking-widest font-medium opacity-80">
-                      Since its inception in 2015, Intex has grown into South Asia’s most influential international B2B textile and apparel sourcing platform, with a strong footprint across Sri Lanka, Bangladesh, and India. Designed to connect global suppliers with serious buyers, Intex has consistently enabled high-value sourcing, strategic partnerships, and seamless cross-border trade across the region. Recognized as a trusted industry platform, Intex brings together textile manufacturers, garment producers, sourcing heads, retailers, and global brands under one roof. The show presents a comprehensive showcase of the textile value chain—from yarns, fabrics, denim, trims, and accessories to emerging segments such as MMF (man-made fibres), performance textiles, sportswear, knitwear, and sustainable materials, reflecting the evolving demands of the global market.
-                    </p>
-                    <AnimatePresence>
-                      {isAboutExpanded && (
-                        <motion.div
-                          initial={{ height: 0, opacity: 0 }}
-                          animate={{ height: 'auto', opacity: 1 }}
-                          exit={{ height: 0, opacity: 0 }}
-                          transition={{ duration: 0.5, ease: "easeInOut" }}
-                          className="overflow-hidden space-y-4"
-                        >
-                          <p className="text-archive-charcoal text-[14px] leading-relaxed max-w-lg tracking-widest font-medium opacity-80">
-                            Over the years, Intex has facilitated thousands of successful B2B engagements, strengthening regional supply chains and supporting the consistent growth of the apparel and textile industry. With a focused approach to quality exhibitors, verified buyers, and meaningful networking, it has established itself as a preferred destination for sourcing and collaboration.
-                          </p>
-                          <p className="text-archive-charcoal text-[14px] leading-relaxed max-w-lg tracking-widest font-medium opacity-80">
-                            As South Asia continues to play a pivotal role in global textile manufacturing, Intex stands at the forefront—bridging markets, build trust, and shaping the future of textile and apparel sourcing.
-                          </p>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                    <button
-                      onClick={() => setIsAboutExpanded(!isAboutExpanded)}
-                      className="text-[14px] font-black tracking-[0.2em] text-archive-clay uppercase hover:underline block"
-                    >
-                      {isAboutExpanded ? 'Read Less' : 'Read Full'}
-                    </button>
-                  </div>
-                  <Link to="/post-show-reports" className="inline-block px-10 py-5 bg-archive-clay text-archive-cream font-black text-[14px] tracking-[0.4em] hover:bg-archive-charcoal hover:text-archive-cream transition-all uppercase">
-                    VIEW REPORTS
-                  </Link>
-                </div>
+        <section className="bg-archive-cream py-32 border-b border-archive-charcoal/10 overflow-hidden" id="about">
+          <div className="max-w-[1440px] mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+            <div className="lg:col-span-5 space-y-10">
+              <div className="space-y-2">
+                <span className="text-[14px] font-black tracking-[0.5em] text-archive-clay uppercase">About Us</span>
+                <h2 className="text-2xl md:text-4xl font-black tracking-tighter leading-[0.9] text-archive-charcoal uppercase">
+                  Intex <br /> South Asia.
+                </h2>
               </div>
+              <div className="space-y-6">
+                <h3 className="text-xl font-black leading-tight text-archive-charcoal">
+                  THE PREMIER INTERNATIONAL TEXTILE SOURCING SHOWS OF SOUTH ASIA.
+                </h3>
+                <div className="space-y-4">
+                  <p className="text-archive-charcoal text-[14px] leading-relaxed max-w-lg tracking-widest font-medium opacity-80">
+                    Since its inception in 2015, Intex has grown into South Asia’s most influential international B2B textile and apparel sourcing platform, with a strong footprint across Sri Lanka, Bangladesh, and India. Designed to connect global suppliers with serious buyers, Intex has consistently enabled high-value sourcing, strategic partnerships, and seamless cross-border trade across the region. Recognized as a trusted industry platform, Intex brings together textile manufacturers, garment producers, sourcing heads, retailers, and global brands under one roof. The show presents a comprehensive showcase of the textile value chain—from yarns, fabrics, denim, trims, and accessories to emerging segments such as MMF (man-made fibres), performance textiles, sportswear, knitwear, and sustainable materials, reflecting the evolving demands of the global market.
+                  </p>
+                  <AnimatePresence>
+                    {isAboutExpanded && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.5, ease: "easeInOut" }}
+                        className="overflow-hidden space-y-4"
+                      >
+                        <p className="text-archive-charcoal text-[14px] leading-relaxed max-w-lg tracking-widest font-medium opacity-80">
+                          Over the years, Intex has facilitated thousands of successful B2B engagements, strengthening regional supply chains and supporting the consistent growth of the apparel and textile industry. With a focused approach to quality exhibitors, verified buyers, and meaningful networking, it has established itself as a preferred destination for sourcing and collaboration.
+                        </p>
+                        <p className="text-archive-charcoal text-[14px] leading-relaxed max-w-lg tracking-widest font-medium opacity-80">
+                          As South Asia continues to play a pivotal role in global textile manufacturing, Intex stands at the forefront—bridging markets, build trust, and shaping the future of textile and apparel sourcing.
+                        </p>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                  <button
+                    onClick={() => setIsAboutExpanded(!isAboutExpanded)}
+                    className="text-[14px] font-black tracking-[0.2em] text-archive-clay uppercase hover:underline block"
+                  >
+                    {isAboutExpanded ? 'Read Less' : 'Read Full'}
+                  </button>
+                </div>
+                <Link to="/post-show-reports" className="inline-block px-10 py-5 bg-archive-clay text-archive-cream font-black text-[14px] tracking-[0.4em] hover:bg-archive-charcoal hover:text-archive-cream transition-all uppercase">
+                  VIEW REPORTS
+                </Link>
+              </div>
+            </div>
 
-              <div className="lg:col-span-7 relative flex justify-end">
-                <div className="relative w-full max-w-[600px] flex justify-end">
-                  <div className="w-[80%] aspect-[3/4] border border-orange-100 overflow-hidden bg-archive-charcoal/5 p-2">
-                    <img src="/assets/intex collage.jpg.jpeg" className="w-full h-full object-cover mix-blend-multiply" />
-                  </div>
-                  <div className="absolute top-1/4 -left-12 w-[60%] aspect-square border border-orange-300 bg-archive-cream overflow-hidden z-10 p-2">
-                    <img src="/assets/squareImage.jpg.jpeg" className="w-full h-full object-cover mix-blend-multiply" />
-                  </div>
+            <div className="lg:col-span-7 relative flex justify-end">
+              <div className="relative w-full max-w-[600px] flex justify-end">
+                <div className="w-[80%] aspect-[3/4] border border-orange-100 overflow-hidden bg-archive-charcoal/5 p-2">
+                  <img src="/assets/intex collage.jpg.jpeg" className="w-full h-full object-cover mix-blend-multiply" />
+                </div>
+                <div className="absolute top-1/4 -left-12 w-[60%] aspect-square border border-orange-300 bg-archive-cream overflow-hidden z-10 p-2">
+                  <img src="/assets/squareImage.jpg.jpeg" className="w-full h-full object-cover mix-blend-multiply" />
                 </div>
               </div>
             </div>
-          </section>
-        </RevealWrapper>
+          </div>
+        </section>
 
-        <RevealWrapper text="METRICS." type="center-split-h" amount={0.2}>
-          <Stats />
-        </RevealWrapper>
+        <Stats />
 
-        <RevealWrapper text="EVENTS." type="bands-v" amount={0.3}>
-          <ExhibitorProfile />
-        </RevealWrapper>
+        <ExhibitorProfile />
 
-        <RevealWrapper text="TIMELINE." type="center-split-v" delay={0.15}>
-          <Schedule />
-        </RevealWrapper>
+        <Schedule />
 
         {/* 
-        <RevealWrapper text="EXHIBITORS." type="bands-h" amount={0.25}>
-          <BuyerProfile />
-        </RevealWrapper>
+        <BuyerProfile />
         */}
 
-        <RevealWrapper text="VOICES." type="bands-v" amount={0.2}>
-          <Testimonials />
-        </RevealWrapper>
+        <Testimonials />
 
-        <RevealWrapper text="VIDEO TESTIMONIALS." type="bands-h" amount={0.25}>
-          <VideoTestimonials />
-        </RevealWrapper>
+        <VideoTestimonials />
 
-        <RevealWrapper text="MOTION." type="slide" direction="right" amount={0.3}>
-          <VideoShowcase />
-        </RevealWrapper>
+        <VideoShowcase />
 
         {/* 
-        <RevealWrapper text="BUYERS." type="center-split-h" amount={0.2}>
-          <BuyerCategories />
-        </RevealWrapper>
+        <BuyerCategories />
         */}
 
-        <RevealWrapper text="PARTNERS." type="bands-h" amount={0.4}>
-          <Partners />
-        </RevealWrapper>
+        <Partners />
 
-        <RevealWrapper text="SOCIAL FEED." type="slide" direction="up" amount={0.3}>
-          <SocialFeed />
-        </RevealWrapper>
+        <SocialFeed />
 
-        <RevealWrapper text="INSIGHTS." type="bands-h" amount={0.3}>
-          <HomeBlogs />
-        </RevealWrapper>
+        <HomeBlogs />
 
-        <RevealWrapper text="COLLATERALS." type="slide" direction="down" amount={0.4}>
-          <Resources />
-        </RevealWrapper>
+        <Resources />
       </>
     );
   };
