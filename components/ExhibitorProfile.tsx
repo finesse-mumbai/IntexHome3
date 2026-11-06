@@ -54,7 +54,7 @@ const ASEAN_EXHIBITIONS: Exhibition[] = [
     edition: '1st Edition',
     date: 'Announcing Soon',
     location: 'Jakarta',
-    imageUrl: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&q=80&w=1000',
+    imageUrl: 'https://images.unsplash.com/photo-1555899434-94d1368aa7af?auto=format&fit=crop&q=80&w=1000',
     category: 'Textiles & Apparel',
     region: 'Intex ASEAN'
   }

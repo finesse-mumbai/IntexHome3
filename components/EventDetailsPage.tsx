@@ -170,7 +170,7 @@ const EVENTS_DATABASE: Record<string, EventData> = {
     location: 'Jakarta, Indonesia',
     venue: 'Jakarta International Expo (JIExpo) Kemayoran, Jakarta, Indonesia',
     country: 'Indonesia',
-    imageUrl: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&q=80&w=1000',
+    imageUrl: 'https://images.unsplash.com/photo-1555899434-94d1368aa7af?auto=format&fit=crop&q=80&w=1000',
     videoUrl: '/assets/website video intex  Copy 03.mp4',
     region: 'Intex ASEAN',
     overview: 'Indonesia represents the powerhouse of the ASEAN economy, driven by immense domestic industrial consumption, robust infrastructure development, and a rapidly expanding apparel manufacturing sector.',

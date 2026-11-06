@@ -61,7 +61,7 @@ const UPCOMING_EVENTS = [
 
 const EventImageSlider: React.FC<{ images: string[]; title: string }> = ({ images, title }) => {
   const [startIndex, setStartIndex] = useState(0);
-  const maxIndex = Math.max(0, images.length - 2);
+  const maxIndex = Math.max(0, images.length - 1);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -82,18 +82,18 @@ const EventImageSlider: React.FC<{ images: string[]; title: string }> = ({ image
 
   return (
     <div className="relative w-full h-full min-h-[260px] sm:min-h-[290px] lg:min-h-[320px] p-3 overflow-hidden bg-archive-charcoal/5 group/slider flex flex-col justify-center">
-      {/* 2 Images Visible Sliding Viewport */}
+      {/* Single Image Sliding Viewport */}
       <div className="overflow-hidden w-full h-full rounded-2xl">
         <div
           className="flex gap-3 h-full transition-transform duration-500 ease-out"
           style={{
-            transform: `translateX(calc(-${startIndex} * (50% + 6px)))`,
+            transform: `translateX(calc(-${startIndex} * (100% + 12px)))`,
           }}
         >
           {images.map((img, idx) => (
             <div
               key={idx}
-              className="flex-none w-[calc(50%-6px)] h-[240px] sm:h-[280px] lg:h-[310px] relative rounded-2xl overflow-hidden bg-archive-charcoal shadow-sm group/item"
+              className="flex-none w-full h-[240px] sm:h-[280px] lg:h-[310px] relative rounded-2xl overflow-hidden bg-archive-charcoal shadow-sm group/item"
             >
               <img
                 src={img}
@@ -110,14 +110,14 @@ const EventImageSlider: React.FC<{ images: string[]; title: string }> = ({ image
       <div className="absolute inset-x-2 top-1/2 -translate-y-1/2 flex items-center justify-between pointer-events-none z-10">
         <button
           onClick={handlePrev}
-          aria-label="Previous images"
+          aria-label="Previous image"
           className="p-2.5 rounded-full bg-archive-charcoal/80 hover:bg-archive-clay text-white backdrop-blur-sm transition-all pointer-events-auto shadow-md hover:scale-105"
         >
           <ChevronLeft size={18} />
         </button>
         <button
           onClick={handleNext}
-          aria-label="Next images"
+          aria-label="Next image"
           className="p-2.5 rounded-full bg-archive-charcoal/80 hover:bg-archive-clay text-white backdrop-blur-sm transition-all pointer-events-auto shadow-md hover:scale-105"
         >
           <ChevronRight size={18} />
@@ -219,7 +219,7 @@ const Schedule: React.FC = () => {
                 </div>
               </div>
 
-              {/* RIGHT SIDE OF BOX: 2-IMAGE SLIDER (60%) */}
+              {/* RIGHT SIDE OF BOX: IMAGE SLIDER (60%) */}
               <div className="lg:col-span-6 relative overflow-hidden border-t lg:border-t-0 lg:border-l border-archive-charcoal/10 flex items-stretch">
                 <EventImageSlider images={event.images} title={event.title} />
               </div>

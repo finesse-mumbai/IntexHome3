@@ -80,7 +80,7 @@ const IntexAseanPage: React.FC = () => {
               <div className="lg:col-span-5 flex items-center justify-center">
                 <div className="relative w-full h-[180px] sm:h-[200px] rounded-2xl overflow-hidden shadow-md group">
                   <img
-                    src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&q=80&w=1200"
+                    src="https://images.unsplash.com/photo-1555899434-94d1368aa7af?auto=format&fit=crop&q=80&w=1200"
                     alt="Intex Indonesia 2027"
                     onError={(e) => {
                       (e.target as HTMLImageElement).src = '/assets/intex collage.jpg.jpeg';
