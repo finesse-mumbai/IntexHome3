@@ -1,19 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, ChevronLeft, ChevronRight, X } from 'lucide-react';
-
-const B2B_IMAGES = [
-  '/assets/img/GalleryBD/2024/large/4.jpg',
-  '/assets/img/GalleryBD/2024/large/5.jpg',
-  '/assets/img/GalleryBD/2024/large/15.jpg',
-  '/assets/img/GalleryBD/2024/large/13.jpg',
-  '/assets/img/GallerySL/2025/23.jpg',
-  '/assets/img/GallerySL/2025/20.jpg',
-  '/assets/img/GallerySL/2025/22.jpg',
-  '/assets/img/GalleryBD/2024/large/6.jpg',
-  '/assets/img/GalleryBD/2025/25.png',
-  '/assets/img/GallerySL/2025/24.jpg'
-];
+import { B2B_IMAGES } from '../constants/b2bImages';
 
 const B2BNetworkingPage: React.FC = () => {
   const [activePhotoIndex, setActivePhotoIndex] = useState<number | null>(null);

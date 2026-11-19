@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowUpRight, ChevronLeft, ChevronRight } from 'lucide-react';
+import { B2B_IMAGES } from '../constants/b2bImages';
 
 const UPCOMING_EVENTS = [
   {
@@ -44,18 +45,7 @@ const UPCOMING_EVENTS = [
     title: 'B2B Meetings & Networking Session',
     location: 'ICCB, Dhaka, Bangladesh',
     logo: '/assets/B2B LOGO.png',
-    images: [
-      '/assets/img/GalleryBD/2024/large/4.jpg',
-      '/assets/img/GalleryBD/2024/large/5.jpg',
-      '/assets/img/GalleryBD/2024/large/15.jpg',
-      '/assets/img/GalleryBD/2024/large/13.jpg',
-      '/assets/img/GallerySL/2025/23.jpg',
-      '/assets/img/GallerySL/2025/20.jpg',
-      '/assets/img/GallerySL/2025/22.jpg',
-      '/assets/img/GalleryBD/2024/large/6.jpg',
-      '/assets/img/GalleryBD/2025/25.png',
-      '/assets/img/GallerySL/2025/24.jpg'
-    ]
+    images: B2B_IMAGES
   }
 ];
 
@@ -98,6 +88,7 @@ const EventImageSlider: React.FC<{ images: string[]; title: string }> = ({ image
               <img
                 src={img}
                 alt={`${title} photo ${idx + 1}`}
+                loading={idx < 2 ? 'eager' : 'lazy'}
                 className="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover/item:opacity-100 transition-opacity" />
