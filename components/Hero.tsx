@@ -188,10 +188,10 @@ const Hero: React.FC = () => {
             transition={{ duration: 0.65, delay: 0.05, ease: EASE }}
             className="flex flex-col items-center gap-3 sm:gap-4 text-center"
           >
-            <h1 className="w-full whitespace-nowrap text-[clamp(2rem,7.5vw,6.5rem)] font-sora font-extrabold tracking-tight leading-none text-archive-charcoal">
+            <h1 className="w-full whitespace-nowrap text-[clamp(2rem,7.5vw,6.5rem)] font-sora font-extrabold tracking-tight leading-none text-archive-clay">
               INTEX Exhibitions
             </h1>
-            <h2 className="w-full text-[clamp(1.1rem,3.6vw,3rem)] font-sora font-bold tracking-tight leading-tight text-archive-clay">
+            <h2 className="w-full text-[clamp(1.1rem,3.6vw,3rem)] font-sora font-bold tracking-tight leading-tight text-archive-charcoal">
               Across South Asia &amp; ASEAN
             </h2>
           </motion.div>

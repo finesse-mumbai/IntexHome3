@@ -250,7 +250,7 @@ const Navbar: React.FC = () => {
                 exit={{ opacity: 0, width: 0 }}
                 transition={{ duration: 0.25 }}
                 style={{ overflow: 'visible' }}
-                className="hidden lg:flex items-center gap-8 font-black text-[14px] tracking-[0.05em] text-archive-clay overflow-visible"
+                className="hidden lg:flex items-center gap-8 font-black text-[14px] tracking-[0.05em] text-archive-charcoal overflow-visible"
               >
                 {NAV_ITEMS.map((item) => (
                   <div
@@ -261,7 +261,7 @@ const Navbar: React.FC = () => {
                   >
                     <Link
                       to={item.link}
-                      className="nav-link-item flex items-center gap-1.5 py-2 group hover:text-archive-charcoal transition-colors"
+                      className="nav-link-item flex items-center gap-1.5 py-2 group hover:text-archive-clay transition-colors"
                     >
                       <RollingText text={item.label} />
                       {item.children && (
