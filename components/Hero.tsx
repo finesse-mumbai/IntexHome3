@@ -3,8 +3,6 @@ import { motion } from 'framer-motion';
 import { ArrowRight, ArrowUpRight, Calendar, MapPin } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
-const SL_HIGHLIGHT_YOUTUBE_ID = '0MZxhnZizlU';
-
 interface HeroEventCard {
   id: string;
   title: string;
@@ -24,7 +22,7 @@ interface HeroEventCard {
 const SOUTH_ASIA_EVENTS: HeroEventCard[] = [
   {
     id: 'ex-bg',
-    title: 'Intex Bangladesh',
+    title: 'INTEX Bangladesh',
     edition: '17th Edition',
     date: '22-23-24 June, 2027',
     location: 'Dhaka, Bangladesh',
@@ -35,7 +33,7 @@ const SOUTH_ASIA_EVENTS: HeroEventCard[] = [
   },
   {
     id: 'ex-sl',
-    title: 'Intex Sri Lanka',
+    title: 'INTEX Sri Lanka',
     edition: '17th Edition',
     date: '4-5-6 August, 2027',
     location: 'Colombo, Sri Lanka',
@@ -45,7 +43,7 @@ const SOUTH_ASIA_EVENTS: HeroEventCard[] = [
   },
   {
     id: 'ex-in',
-    title: 'Intex India',
+    title: 'INTEX India',
     edition: '17th Edition',
     date: 'Dates & Venue Announcing Soon',
     location: '',
@@ -56,7 +54,7 @@ const SOUTH_ASIA_EVENTS: HeroEventCard[] = [
 
 const ASEAN_EVENT: HeroEventCard = {
   id: 'ex-id',
-  title: 'Intex Indonesia',
+  title: 'INTEX Indonesia',
   edition: '1st Edition',
   date: 'Dates Announcing Soon',
   location: 'Jakarta, Indonesia',
@@ -105,7 +103,7 @@ const EventCard: React.FC<{ ev: HeroEventCard; onOpen: (route: string) => void }
           )}
         </div>
 
-        <h2 className={`text-xl sm:text-2xl font-black uppercase tracking-tight ${dark ? 'text-white' : 'text-archive-charcoal'} group-hover:text-white transition-colors leading-tight`}>
+        <h2 className={`text-xl sm:text-2xl font-black tracking-tight ${dark ? 'text-white' : 'text-archive-charcoal'} group-hover:text-white transition-colors leading-tight`}>
           {ev.title}
         </h2>
       </div>
@@ -183,32 +181,19 @@ const Hero: React.FC = () => {
       {/* ── UNIFIED HERO CONTENT ── */}
       <div className="relative z-20 w-full max-w-[1440px] mx-auto px-6 md:px-12 pt-32 pb-16 space-y-12">
         <div className="space-y-6">
-          {/* MAIN HEADING WITH VIDEO KNOCKOUT MASK */}
+          {/* MAIN HEADING + SUBHEADING */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65, delay: 0.05, ease: EASE }}
-            className="relative w-full overflow-hidden isolate bg-white [clip-path:inset(2px)]"
+            className="flex flex-col items-center gap-3 sm:gap-4 text-center"
           >
-            {/* Video playing only behind the heading */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none">
-              <iframe
-                src={`https://www.youtube.com/embed/${SL_HIGHLIGHT_YOUTUBE_ID}?autoplay=1&mute=1&loop=1&playlist=${SL_HIGHLIGHT_YOUTUBE_ID}&controls=0&rel=0&modestbranding=1&playsinline=1&iv_load_policy=3`}
-                title="Intex Sri Lanka Highlight Video"
-                tabIndex={-1}
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[177.78vh] min-w-full h-[56.25vw] min-h-full contrast-125"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              />
-              {/* Darker wash keeps the letters readable even on bright video frames */}
-              <div className="absolute inset-0 bg-black/65" />
-            </div>
-
-            {/* White knockout mask: white hides the video, black letters reveal it */}
-            <div className="relative z-10 flex items-center justify-center bg-white mix-blend-screen py-4 sm:py-6 select-none">
-              <h1 className="w-full text-center whitespace-nowrap text-[clamp(1.38rem,5.51vw,5.25rem)] font-black uppercase tracking-tighter leading-none text-black">
-                Intex Series of Exhibition.
-              </h1>
-            </div>
+            <h1 className="w-full whitespace-nowrap text-[clamp(2rem,7.5vw,6.5rem)] font-sora font-extrabold tracking-tight leading-none text-archive-charcoal">
+              INTEX Exhibitions
+            </h1>
+            <h2 className="w-full text-[clamp(1.1rem,3.6vw,3rem)] font-sora font-bold tracking-tight leading-tight text-archive-clay">
+              Across South Asia &amp; ASEAN
+            </h2>
           </motion.div>
 
           {/* Tagline + main actions */}
@@ -252,12 +237,6 @@ const Hero: React.FC = () => {
         >
           {/* LEFT 70%: IN SOUTH ASIA (BD, SL, IND) */}
           <div className="w-full lg:w-[70%] flex flex-col gap-4">
-            <div className="flex items-center gap-3">
-              <span className="w-10 h-1 bg-archive-clay rounded-full shrink-0" />
-              <span className="text-[clamp(1.5rem,7.5vw,2.25rem)] sm:text-[42px] leading-none whitespace-nowrap font-black uppercase tracking-[0.1em] text-archive-charcoal">
-                In South Asia
-              </span>
-            </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 flex-1">
               {SOUTH_ASIA_EVENTS.map((ev) => (
@@ -268,12 +247,6 @@ const Hero: React.FC = () => {
 
           {/* RIGHT 30%: IN ASEAN (INTEX INDONESIA) */}
           <div className="w-full lg:w-[30%] flex flex-col gap-4">
-            <div className="flex items-center gap-3">
-              <span className="w-10 h-1 bg-archive-clay rounded-full shrink-0" />
-              <span className="text-[clamp(1.5rem,7.5vw,2.25rem)] sm:text-[42px] leading-none whitespace-nowrap font-black uppercase tracking-[0.1em] text-archive-charcoal">
-                In ASEAN
-              </span>
-            </div>
 
             <div className="flex-1">
               <EventCard ev={ASEAN_EVENT} onOpen={go} />
