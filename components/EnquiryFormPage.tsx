@@ -83,8 +83,13 @@ const EnquiryFormPage: React.FC = () => {
     }
   };
 
+  const isSponsorEnquiry = useMemo(() => {
+    const all = `${location.search} ${location.hash} ${location.pathname}`.toLowerCase();
+    return all.includes('type=sponsor') || all.includes('sponsor');
+  }, [location.search, location.hash, location.pathname]);
+
   const [formData, setFormData] = useState<FormDataState>({
-    exhibit_type: 'I would like to Exhibit',
+    exhibit_type: isSponsorEnquiry ? 'I would like to be one of the Sponsor' : 'I would like to Exhibit',
     exhibit_country: targetEvent ? [getEventCountry(targetEvent)] : ['Sri Lanka'],
     fname: '',
     designation: '',
@@ -119,6 +124,15 @@ const EnquiryFormPage: React.FC = () => {
       }));
     }
   }, [targetEvent]);
+
+  useEffect(() => {
+    if (isSponsorEnquiry) {
+      setFormData((prev) => ({
+        ...prev,
+        exhibit_type: 'I would like to be one of the Sponsor',
+      }));
+    }
+  }, [isSponsorEnquiry]);
   const [statusModal, setStatusModal] = useState<{
     show: boolean;
     type: 'success' | 'error';

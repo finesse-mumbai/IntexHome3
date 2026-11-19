@@ -195,7 +195,7 @@ const Schedule: React.FC = () => {
                     onClick={() => {
                       if (event.id === 'u1') navigateTo('#vip-opening-ceremony');
                       else if (event.id === 'u2') navigateTo('#ibf-seminar-series');
-                      else navigateTo('#ibf-details');
+                      else navigateTo('#b2b-meetings-networking');
                     }}
                     className="text-xl sm:text-2xl md:text-3xl font-black text-archive-charcoal group-hover:text-archive-clay transition-colors leading-tight uppercase tracking-tight flex-1 cursor-pointer"
                   >
@@ -209,7 +209,7 @@ const Schedule: React.FC = () => {
                     onClick={() => {
                       if (event.id === 'u1') navigateTo('#vip-opening-ceremony');
                       else if (event.id === 'u2') navigateTo('#ibf-seminar-series');
-                      else navigateTo('#ibf-details');
+                      else navigateTo('#b2b-meetings-networking');
                     }}
                     className="px-6 py-3 bg-archive-charcoal hover:bg-archive-clay text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-colors flex items-center gap-2 group/btn shadow-sm"
                   >
@@ -241,7 +241,7 @@ const Schedule: React.FC = () => {
             </p>
           </div>
           <button
-            onClick={() => navigateTo('#branding-opportunities')}
+            onClick={() => navigateTo('#enquiry-form?type=sponsor')}
             className="px-8 py-3.5 bg-archive-clay hover:bg-white text-white hover:text-archive-charcoal text-xs font-bold uppercase tracking-wider rounded-xl transition-colors shrink-0 shadow-lg shadow-archive-clay/20"
           >
             Enquire Now

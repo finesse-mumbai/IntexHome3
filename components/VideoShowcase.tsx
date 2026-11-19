@@ -9,22 +9,22 @@ const VIDEOS = [
         id: 'v1',
         title: 'Intex Sri Lanka Highlights',
         role: 'Intex Sri Lanka',
-        url: 'https://www.youtube.com/embed/-68Bm1eKn8Y',
-        youtubeId: '-68Bm1eKn8Y'
+        url: 'https://www.youtube.com/embed/0MZxhnZizlU',
+        youtubeId: '0MZxhnZizlU'
     },
     {
         id: 'v2',
         title: 'Intex Bangladesh Highlights',
         role: 'Intex Bangladesh',
-        url: 'https://www.youtube.com/embed/VCDUdLZfZeY',
-        youtubeId: 'VCDUdLZfZeY'
+        url: 'https://www.youtube.com/embed/TzxjSwl0h2I',
+        youtubeId: 'TzxjSwl0h2I'
     },
     {
         id: 'v3',
         title: 'Intex India Highlights',
         role: 'Intex India',
-        url: 'https://www.youtube.com/embed/8I1nuSCK6fM',
-        youtubeId: '8I1nuSCK6fM'
+        url: 'https://www.youtube.com/embed/EBAE3yjNzt8',
+        youtubeId: 'EBAE3yjNzt8'
     },
 ];
 
@@ -156,6 +156,12 @@ const VideoShowcase: React.FC = () => {
                                 <img
                                     src={`https://img.youtube.com/vi/${video.youtubeId}/maxresdefault.jpg`}
                                     alt={video.title}
+                                    onError={(e) => {
+                                        const img = e.currentTarget;
+                                        if (!img.src.includes('hqdefault.jpg')) {
+                                            img.src = `https://img.youtube.com/vi/${video.youtubeId}/hqdefault.jpg`;
+                                        }
+                                    }}
                                     className="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-all duration-1000 group-hover:scale-105"
                                 />
 

@@ -13,6 +13,7 @@ import {
   ChevronRight
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import EventTestimonialsSlider from './EventTestimonialsSlider';
 
 interface EventData {
   id: string;
@@ -25,6 +26,7 @@ interface EventData {
   country: string;
   imageUrl: string;
   videoUrl?: string;
+  youtubeId?: string;
   region: string;
   overview: string;
   whyTitle?: string;
@@ -53,6 +55,7 @@ const EVENTS_DATABASE: Record<string, EventData> = {
     country: 'Bangladesh',
     imageUrl: '/assets/bangladesh.png',
     videoUrl: '/assets/website video intex  Copy 03.mp4',
+    youtubeId: 'TzxjSwl0h2I',
     region: 'Intex South Asia',
     overview: 'Bangladesh is one of the defining forces in global apparel manufacturing. Built on an immense production ecosystem and a formidable export industry, the country is entering its next chapter—one shaped by diversification, higher-value manufacturing and an evolving role in the global textile supply chain.',
     whyTitle: 'WHY INTEX BANGLADESH',
@@ -92,6 +95,7 @@ const EVENTS_DATABASE: Record<string, EventData> = {
     country: 'Sri Lanka',
     imageUrl: '/assets/sri lanka.jpg.jpeg',
     videoUrl: '/assets/website video intex  Copy 03.mp4',
+    youtubeId: '0MZxhnZizlU',
     region: 'Intex South Asia',
     overview: 'Sri Lanka has carved out a distinctive place in global apparel manufacturing through quality, responsible production, technical expertise and a strong culture of innovation. Its strength lies in moving beyond volume to create specialised, higher-value products for an increasingly demanding global market.',
     whyTitle: 'WHY INTEX SRI LANKA',
@@ -132,6 +136,7 @@ const EVENTS_DATABASE: Record<string, EventData> = {
     country: 'India',
     imageUrl: '/assets/india.jpg.jpeg',
     videoUrl: '/assets/website video intex  Copy 03.mp4',
+    youtubeId: 'EBAE3yjNzt8',
     region: 'Intex South Asia',
     overview: 'Few markets bring together the breadth, depth and diversity of India’s textile ecosystem. From its rich manufacturing heritage to emerging material technologies, expanding domestic demand and growing global ambitions, India is shaping a new chapter in textile and apparel development.',
     whyTitle: 'WHY INTEX INDIA',
@@ -261,40 +266,52 @@ const EventDetailsPage: React.FC<EventDetailsPageProps> = ({ eventId = 'ex-bg' }
         <div className="space-y-10">
           {/* Autoplay Highlight Video Container */}
           <div className="relative rounded-2xl md:rounded-3xl overflow-hidden aspect-video max-h-[560px] w-full bg-black shadow-2xl group">
-            <video
-              ref={videoRef}
-              autoPlay
-              muted={isMuted}
-              loop
-              playsInline
-              className="w-full h-full object-cover"
-            >
-              <source src="/assets/website video intex  Copy 03.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+            {event.youtubeId ? (
+              <iframe
+                key={event.youtubeId}
+                src={`https://www.youtube.com/embed/${event.youtubeId}?autoplay=1&mute=1&loop=1&playlist=${event.youtubeId}&rel=0&modestbranding=1`}
+                title={`${event.title} Highlight Video`}
+                className="w-full h-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            ) : (
+              <>
+                <video
+                  ref={videoRef}
+                  autoPlay
+                  muted={isMuted}
+                  loop
+                  playsInline
+                  className="w-full h-full object-cover"
+                >
+                  <source src="/assets/website video intex  Copy 03.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
 
-            {/* Subtle Gradient Vignette */}
-            <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/40 via-transparent to-black/20" />
+                {/* Subtle Gradient Vignette */}
+                <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/40 via-transparent to-black/20" />
 
-
-            {/* Audio Toggle Control */}
-            <button
-              onClick={toggleMute}
-              aria-label={isMuted ? "Unmute highlight video" : "Mute highlight video"}
-              className="absolute bottom-5 right-5 h-11 px-4 rounded-full bg-black/75 hover:bg-archive-clay text-white backdrop-blur-md flex items-center gap-2.5 transition-all text-xs font-bold tracking-wider uppercase shadow-xl group-hover:scale-105"
-            >
-              {isMuted ? (
-                <>
-                  <VolumeX size={16} className="text-white stroke-[2.5]" />
-                  <span className="hidden sm:inline">Unmute Audio</span>
-                </>
-              ) : (
-                <>
-                  <Volume2 size={16} className="text-emerald-400 stroke-[2.5]" />
-                  <span className="hidden sm:inline text-emerald-400">Audio Active</span>
-                </>
-              )}
-            </button>
+                {/* Audio Toggle Control */}
+                <button
+                  onClick={toggleMute}
+                  aria-label={isMuted ? "Unmute highlight video" : "Mute highlight video"}
+                  className="absolute bottom-5 right-5 h-11 px-4 rounded-full bg-black/75 hover:bg-archive-clay text-white backdrop-blur-md flex items-center gap-2.5 transition-all text-xs font-bold tracking-wider uppercase shadow-xl group-hover:scale-105"
+                >
+                  {isMuted ? (
+                    <>
+                      <VolumeX size={16} className="text-white stroke-[2.5]" />
+                      <span className="hidden sm:inline">Unmute Audio</span>
+                    </>
+                  ) : (
+                    <>
+                      <Volume2 size={16} className="text-emerald-400 stroke-[2.5]" />
+                      <span className="hidden sm:inline text-emerald-400">Audio Active</span>
+                    </>
+                  )}
+                </button>
+              </>
+            )}
           </div>
 
           {/* Master Event Identity & Actions Grid */}
@@ -464,6 +481,17 @@ const EventDetailsPage: React.FC<EventDetailsPageProps> = ({ eventId = 'ex-bg' }
           </div>
         </div>
       </section>
+
+      {/* 4.5 Regional Testimonials Slider (BD for BD, SL for SL, IN for IN; excluded for Indonesia) */}
+      {event.id !== 'ex-id' && (
+        <EventTestimonialsSlider
+          region={
+            event.id === 'ex-bg' ? 'BD' :
+            event.id === 'ex-sl' ? 'SL' : 'IN'
+          }
+          eventTitle={event.title}
+        />
+      )}
 
       {/* 5. Dual Executive Value Pillars: Exhibitors vs Buyers */}
       <section className="max-w-[1440px] mx-auto px-6 md:px-12">

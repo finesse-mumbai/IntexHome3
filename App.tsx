@@ -58,6 +58,7 @@ import BlogZaraHmSourcingPage from './components/blogs/BlogZaraHmSourcingPage';
 import EventDetailsPage from './components/EventDetailsPage';
 import IntexAseanPage from './components/IntexAseanPage';
 import VipOpeningCeremonyPage from './components/VipOpeningCeremonyPage';
+import B2BNetworkingPage from './components/B2BNetworkingPage';
 import BuyerRegistrationPage from './components/BuyerRegistrationPage';
 import BoothApplicationPage from './components/BoothApplicationPage';
 
@@ -219,6 +220,9 @@ const App: React.FC = () => {
     if (currentPath === '#vip-opening-ceremony' || currentPath === '#vip_opening_caremoney' || currentPath === '#vip-opening') {
       return <VipOpeningCeremonyPage />;
     }
+    if (currentPath === '#b2b-meetings-networking' || currentPath === '#b2b-networking' || currentPath === '#b2b-meetings') {
+      return <B2BNetworkingPage />;
+    }
     if (currentPath === '#blogs') {
       return <BlogsPage />;
     }
@@ -379,6 +383,9 @@ const App: React.FC = () => {
     '#vip-opening-ceremony',
     '#vip_opening_caremoney',
     '#vip-opening',
+    '#b2b-meetings-networking',
+    '#b2b-networking',
+    '#b2b-meetings',
     '#blogs',
     '#blogs/cotton-to-mmf',
     '#blogs/global-buyers-shift',

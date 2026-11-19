@@ -23,6 +23,38 @@ const toTitleCase = (str: string) => {
 const INITIAL_VIDEO_TESTIMONIALS: VideoTestimonialItem[] = [
   // ── Bangladesh Editions ──
   {
+    id: 'vt-bd-5',
+    name: 'Intex Bangladesh Testimonial',
+    company: 'Intex Bangladesh',
+    edition: 'Intex Bangladesh',
+    regionKey: 'BD',
+    videoUrl: 'https://assets.bee2bee.asia/events/wofx/VideoTestimonials/BD/WhatsApp%20Video%202026-11-19%20at%2012.56.57.mp4',
+  },
+  {
+    id: 'vt-bd-6',
+    name: 'Intex Bangladesh Testimonial',
+    company: 'Intex Bangladesh',
+    edition: 'Intex Bangladesh',
+    regionKey: 'BD',
+    videoUrl: 'https://assets.bee2bee.asia/events/wofx/VideoTestimonials/BD/WhatsApp%20Video%202026-11-19%20at%2012.58.02.mp4',
+  },
+  {
+    id: 'vt-bd-7',
+    name: 'Intex Bangladesh Testimonial',
+    company: 'Intex Bangladesh',
+    edition: 'Intex Bangladesh',
+    regionKey: 'BD',
+    videoUrl: 'https://assets.bee2bee.asia/events/wofx/VideoTestimonials/BD/WhatsApp%20Video%202026-11-19%20at%2013.04.20.mp4',
+  },
+  {
+    id: 'vt-bd-8',
+    name: 'Intex Bangladesh Testimonial',
+    company: 'Intex Bangladesh',
+    edition: 'Intex Bangladesh',
+    regionKey: 'BD',
+    videoUrl: 'https://assets.bee2bee.asia/events/wofx/VideoTestimonials/BD/WhatsApp%20Video%202026-11-19%20at%2013.06.10.mp4',
+  },
+  {
     id: 'vt-bd-1',
     name: 'Jarin Amin',
     company: 'Wire Waste India Pvt. Ltd.',
@@ -56,6 +88,46 @@ const INITIAL_VIDEO_TESTIMONIALS: VideoTestimonialItem[] = [
   },
 
   // ── Sri Lanka Editions ──
+  {
+    id: 'vt-sl-20',
+    name: 'Intex Sri Lanka Testimonial',
+    company: 'Intex Sri Lanka',
+    edition: 'Intex Sri Lanka',
+    regionKey: 'SL',
+    videoUrl: 'https://assets.bee2bee.asia/events/wofx/VideoTestimonials/SL/WhatsApp%20Video%202026-11-19%20at%2012.56.58.mp4',
+  },
+  {
+    id: 'vt-sl-21',
+    name: 'Intex Sri Lanka Testimonial',
+    company: 'Intex Sri Lanka',
+    edition: 'Intex Sri Lanka',
+    regionKey: 'SL',
+    videoUrl: 'https://assets.bee2bee.asia/events/wofx/VideoTestimonials/SL/WhatsApp%20Video%202026-11-19%20at%2013.06.29.mp4',
+  },
+  {
+    id: 'vt-sl-22',
+    name: 'Intex Sri Lanka Testimonial',
+    company: 'Intex Sri Lanka',
+    edition: 'Intex Sri Lanka',
+    regionKey: 'SL',
+    videoUrl: 'https://assets.bee2bee.asia/events/wofx/VideoTestimonials/SL/WhatsApp%20Video%202026-11-19%20at%2013.06.31.mp4',
+  },
+  {
+    id: 'vt-sl-23',
+    name: 'Intex Sri Lanka Testimonial',
+    company: 'Intex Sri Lanka',
+    edition: 'Intex Sri Lanka',
+    regionKey: 'SL',
+    videoUrl: 'https://assets.bee2bee.asia/events/wofx/VideoTestimonials/SL/WhatsApp%20Video%202026-11-19%20at%2013.07.07.mp4',
+  },
+  {
+    id: 'vt-sl-24',
+    name: 'Intex Sri Lanka Testimonial',
+    company: 'Intex Sri Lanka',
+    edition: 'Intex Sri Lanka',
+    regionKey: 'SL',
+    videoUrl: 'https://assets.bee2bee.asia/events/wofx/VideoTestimonials/SL/WhatsApp%20Video%202026-11-19%20at%2013.07.14.mp4',
+  },
   {
     id: 'vt-sl-1',
     name: 'Akash Deep Goyal',

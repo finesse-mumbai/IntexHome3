@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useCallback, memo } from 'react';
+import React, { useState, useMemo, useCallback, memo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { exhibitorstestBD, exhibitorstestSL } from '../constants/Exhibitortestimonial';
 import { buyertestBD, buyertestSL } from '../constants/Buyertestimonial';
@@ -124,7 +124,11 @@ const SpecimenPanel = memo(({
 
 SpecimenPanel.displayName = 'SpecimenPanel';
 
-const Testimonials: React.FC = () => {
+interface TestimonialsProps {
+  region?: 'ALL' | 'BD' | 'SL' | 'IN';
+}
+
+const Testimonials: React.FC<TestimonialsProps> = ({ region = 'ALL' }) => {
   // Normalize BD and SL exhibitors with text testimonials
   const exhibitors = useMemo(() => {
     const bdItems = Object.entries(exhibitorstestBD).flatMap(([year, list]) => {
@@ -138,6 +142,7 @@ const Testimonials: React.FC = () => {
           quote: item.para,
           imageUrl: item.Img,
           type: `Bangladesh ${year}`,
+          regionKey: 'BD' as const,
         }));
     });
 
@@ -154,16 +159,30 @@ const Testimonials: React.FC = () => {
             quote: item.para,
             imageUrl: item.Img,
             type: `Sri Lanka ${year}`,
+            regionKey: 'SL' as const,
           };
         });
     });
 
-    return [...slItems, ...bdItems].sort((a, b) => {
+    let combined = [...slItems, ...bdItems];
+    if (region === 'BD') {
+      combined = bdItems;
+    } else if (region === 'SL') {
+      combined = slItems;
+    } else if (region === 'IN') {
+      combined = combined.filter(
+        (item) =>
+          item.role.toLowerCase().includes('india') ||
+          item.company.toLowerCase().includes('india')
+      );
+    }
+
+    return combined.sort((a, b) => {
       const yearA = a.id.includes('2025') ? 2025 : 2024;
       const yearB = b.id.includes('2025') ? 2025 : 2024;
       return yearB - yearA;
     });
-  }, []);
+  }, [region]);
 
   // Normalize BD and SL buyers with text testimonials
   const buyers = useMemo(() => {
@@ -180,6 +199,7 @@ const Testimonials: React.FC = () => {
             quote: item.para,
             imageUrl: item.Img,
             type: `Bangladesh ${year}`,
+            regionKey: 'BD' as const,
           };
         });
     });
@@ -197,19 +217,40 @@ const Testimonials: React.FC = () => {
             quote: item.para,
             imageUrl: item.Img,
             type: `Sri Lanka ${year}`,
+            regionKey: 'SL' as const,
           };
         });
     });
 
-    return [...sl, ...bd].sort((a, b) => {
+    let combined = [...sl, ...bd];
+    if (region === 'BD') {
+      combined = bd;
+    } else if (region === 'SL') {
+      combined = sl;
+    } else if (region === 'IN') {
+      combined = combined.filter(
+        (item) =>
+          item.role.toLowerCase().includes('india') ||
+          item.author.toLowerCase().includes('india') ||
+          item.company.toLowerCase().includes('india') ||
+          item.quote.toLowerCase().includes('india')
+      );
+    }
+
+    return combined.sort((a, b) => {
       const yearA = a.id.includes('2025') ? 2025 : 2024;
       const yearB = b.id.includes('2025') ? 2025 : 2024;
       return yearB - yearA;
     });
-  }, []);
+  }, [region]);
 
   const [exhibitorActive, setExhibitorActive] = useState(0);
   const [buyerActive, setBuyerActive] = useState(0);
+
+  useEffect(() => {
+    setExhibitorActive(0);
+    setBuyerActive(0);
+  }, [region]);
 
   const handleNextExhibitor = useCallback(() => setExhibitorActive((prev) => (prev + 1) % exhibitors.length), [exhibitors.length]);
   const handlePrevExhibitor = useCallback(() => setExhibitorActive((prev) => (prev - 1 + exhibitors.length) % exhibitors.length), [exhibitors.length]);
@@ -242,8 +283,8 @@ const Testimonials: React.FC = () => {
         {/* LEFT PANEL: EXHIBITORS */}
         {exhibitors.length > 0 && (
           <SpecimenPanel
-            key={`exh-${exhibitorActive}`}
-            testimonial={exhibitors[exhibitorActive]}
+            key={`exh-${region}-${exhibitorActive}`}
+            testimonial={exhibitors[exhibitorActive] || exhibitors[0]}
             onNext={handleNextExhibitor}
             onPrev={handlePrevExhibitor}
             label="EXHIBITOR"
@@ -255,8 +296,8 @@ const Testimonials: React.FC = () => {
         {/* RIGHT PANEL: BUYERS */}
         {buyers.length > 0 && (
           <SpecimenPanel
-            key={`buy-${buyerActive}`}
-            testimonial={buyers[buyerActive]}
+            key={`buy-${region}-${buyerActive}`}
+            testimonial={buyers[buyerActive] || buyers[0]}
             onNext={handleNextBuyer}
             onPrev={handlePrevBuyer}
             label="BUYER"
