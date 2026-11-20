@@ -511,8 +511,7 @@ const HotelsTravelPage: React.FC = () => {
 
             <div className="space-y-8">
               {[
-                { name: "Mr. Vijay Pathak", tel: "+91 9082331784", mail: "vijay@worldexindia.com" },
-                { name: "Mr. Karan Solanki", tel: "+91 9833849850", mail: "karan@worldexindia.com" }
+                { name: "Mr. Vijay Pathak", tel: "+91 9082331784", mail: "vijay@worldexindia.com" }
               ].map((contact, i) => (
                 <div key={i} className="space-y-4 p-8 border border-white/10 group hover:border-archive-clay transition-all">
                   <div className="flex items-center gap-3">

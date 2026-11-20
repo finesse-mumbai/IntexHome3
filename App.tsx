@@ -60,7 +60,15 @@ import IntexAseanPage from './components/IntexAseanPage';
 import VipOpeningCeremonyPage from './components/VipOpeningCeremonyPage';
 import B2BNetworkingPage from './components/B2BNetworkingPage';
 import BuyerRegistrationPage from './components/BuyerRegistrationPage';
-import BoothApplicationPage from './components/BoothApplicationPage';
+import { APPLICATION_FORM_PDF } from './constants/applicationForm';
+
+/** Old online-form URLs now send visitors to the PDF form. */
+const ApplicationFormRedirect: React.FC = () => {
+  useEffect(() => {
+    window.location.replace(APPLICATION_FORM_PDF);
+  }, []);
+  return null;
+};
 
 import { motion, useScroll, useSpring, AnimatePresence } from 'framer-motion';
 import { useLocation, Link } from 'react-router-dom';
@@ -169,7 +177,7 @@ const App: React.FC = () => {
       currentPath === '#application-form' ||
       currentPath === '#exhibitor-space-application'
     ) {
-      return <BoothApplicationPage />;
+      return <ApplicationFormRedirect />;
     }
     if (
       currentPath.startsWith('#enquiry-form') ||

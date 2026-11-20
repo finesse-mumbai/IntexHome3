@@ -33,9 +33,9 @@ const IntexAseanPage: React.FC = () => {
                       <Calendar size={13} className="text-archive-clay" /> Event Date
                     </span>
                     <p className="text-lg sm:text-xl font-black text-slate-900 pt-0.5 leading-snug">
-                      Dates Announcing Soon
+                      11-12-13 November, 2027
                     </p>
-                    <p className="text-xs text-slate-500 font-medium">Jakarta International Expo (JIExpo)</p>
+                    <p className="text-xs text-slate-500 font-medium">Jakarta International Convention Center (JICC)</p>
                   </div>
 
                   <div className="space-y-1">

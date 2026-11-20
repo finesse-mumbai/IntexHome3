@@ -94,7 +94,7 @@ const FAQ_SECTIONS: FaqSection[] = [
               <li>Sri Lanka Raw Space Booths - Monday, August 02 from 2 PM onwards.</li>
               <li>Sri Lanka Shell Scheme Booths - Tuesday, August 03 from 10 AM onwards.</li>
             </ul>
-            <p>For any further onsite assistance, please contact - Mr. Karan Solanki - +91 9833849850.</p>
+            <p>For any further onsite assistance, please contact intexfair@worldexindia.com.</p>
           </>
         )
       },

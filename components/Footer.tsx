@@ -1,5 +1,6 @@
 import React, { type ReactNode } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { APPLICATION_FORM_PDF } from '../constants/applicationForm';
 import { motion } from 'framer-motion';
 import { CornerRightUp, Facebook, Instagram, Linkedin, MessageCircle } from 'lucide-react';
 
@@ -15,8 +16,7 @@ const Footer: React.FC = () => {
 
   const handleLinkClick = (link: string) => {
     if (link === 'Booth Application Form' || link === 'Application Form') {
-      navigate('/booth-application');
-      window.scrollTo(0, 0);
+      window.open(APPLICATION_FORM_PDF, '_blank', 'noopener,noreferrer');
     } else if (link === 'Booth Booking Enquiry') {
       navigate('/enquiry-form');
       window.scrollTo(0, 0);

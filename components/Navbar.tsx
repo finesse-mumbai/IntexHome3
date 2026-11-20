@@ -36,6 +36,7 @@ import {
   FileCheck,
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { APPLICATION_FORM_PDF } from '../constants/applicationForm';
 
 const NAV_ITEMS = [
   {
@@ -54,7 +55,7 @@ const NAV_ITEMS = [
     label: "Exhibitor",
     link: "/",
     children: [
-      { label: "Booth Application Form", link: "/booth-application", icon: FileCheck },
+      { label: "Booth Application Form", link: APPLICATION_FORM_PDF, icon: FileCheck, external: true },
       { label: "Booth Booking Enquiry", link: "/enquiry-form", icon: CalendarCheck },
       { label: "Exhibitor Profile", link: "/exhibitor-profile", icon: UserCheck },
       { label: "Featured Exhibitors", link: "/featured-exhibitors", icon: Star },

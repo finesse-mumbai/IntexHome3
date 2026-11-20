@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { APPLICATION_FORM_PDF } from '../constants/applicationForm';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Database, ChevronLeft, ChevronRight } from 'lucide-react';
 import { CATEGORIES } from '../constants';
@@ -196,12 +197,11 @@ const ExhibitorProfilePage: React.FC = () => {
             <div className="relative z-10 pt-6 flex flex-wrap gap-4">
               <button
                 onClick={() => {
-                  navigate('/booth-application');
-                  window.scrollTo(0, 0);
+                  window.open(APPLICATION_FORM_PDF, '_blank', 'noopener,noreferrer');
                 }}
                 className="px-8 py-5 bg-archive-clay text-white font-black text-[13px] tracking-[0.2em] hover:bg-white hover:text-archive-charcoal transition-all uppercase shadow-lg"
               >
-                BOOTH APPLICATION (ONLINE)
+                BOOTH APPLICATION FORM (PDF)
               </button>
               <button
                 onClick={() => {

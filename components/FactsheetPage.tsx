@@ -126,8 +126,7 @@ const FACTSHEET_DATA: FactsheetItem[] = [
       { name: 'Prashant Savle', phone: '+91 7977343487' }
     ],
     showContacts: [
-      { name: 'Zahir Merchant', phone: '+91 7506028359' },
-      { name: 'Karan Solanki', phone: '+91 9833849850' }
+      { name: 'Zahir Merchant', phone: '+91 7506028359' }
     ],
     email: 'intexfair@worldexindia.com'
   },
@@ -200,8 +199,7 @@ const FACTSHEET_DATA: FactsheetItem[] = [
       { name: 'Prashant Savle', phone: '+91 7977343487' }
     ],
     showContacts: [
-      { name: 'Zahir Merchant', phone: '+91 7506028359' },
-      { name: 'Karan Solanki', phone: '+91 9833849850' }
+      { name: 'Zahir Merchant', phone: '+91 7506028359' }
     ],
     email: 'intexfair@worldexindia.com'
   },
@@ -212,18 +210,14 @@ const FACTSHEET_DATA: FactsheetItem[] = [
     edition: '17th Edition',
     logo: 'https://sl.intexsouthasia.com/_next/image?url=%2Fassets%2Fimg%2Forgi.png&w=384&q=75',
     theme: 'The Premier International Textile Sourcing Show of South Asia',
-    date: '03-04-05 December, 2026',
-    time: '10:00 AM - 07:00 PM',
-    venue: 'IICC, New Delhi, India',
-    venueFull: 'Yashobhoomi (IICC), Dwarka, New Delhi',
+    date: 'Dates Announcing Soon',
+    time: '',
+    venue: 'Announcing Soon',
+    venueFull: 'Venue Announcing Soon',
     website: 'in.intexsouthasia.com',
     pdfUrl: 'https://in.intexsouthasia.com/assets/pdf/Brochure.pdf',
     regUrl: '/buyer-registration?country=in',
-    timings: [
-      { date: '03 December', day: 'Thursday', hours: '10.00 a.m. - 7.00 p.m.' },
-      { date: '04 December', day: 'Friday', hours: '10.00 a.m. - 7.00 p.m.' },
-      { date: '05 December', day: 'Saturday', hours: '10.00 a.m. - 6.00 p.m.' }
-    ],
+    timings: [],
     highlights: [
       'Grand Opening Ceremony',
       'Country Pavilions',
@@ -273,8 +267,7 @@ const FACTSHEET_DATA: FactsheetItem[] = [
       { name: 'Prashant Savle', phone: '+91 7977343487' }
     ],
     showContacts: [
-      { name: 'Zahir Merchant', phone: '+91 7506028359' },
-      { name: 'Karan Solanki', phone: '+91 9833849850' }
+      { name: 'Zahir Merchant', phone: '+91 7506028359' }
     ],
     email: 'intexfair@worldexindia.com'
   }
@@ -432,6 +425,7 @@ const FactsheetPage: React.FC = () => {
                 <div className="lg:col-span-9 p-8 md:p-12 space-y-12 bg-white">
                   
                   {/* 1. Exhibition Timings Breakdown Table */}
+                  {item.timings.length > 0 && (
                   <div className="space-y-4">
                     <div className="flex items-center gap-3">
                       <div className="w-8 h-px bg-archive-clay"></div>
@@ -460,6 +454,7 @@ const FactsheetPage: React.FC = () => {
                       </table>
                     </div>
                   </div>
+                  )}
 
                   {/* 2. Show Highlights */}
                   <div className="space-y-4">

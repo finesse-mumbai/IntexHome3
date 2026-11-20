@@ -3,6 +3,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Database } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { APPLICATION_FORM_PDF } from '../constants/applicationForm';
 import Stats from './Stats';
 
 const ShowProfilePage: React.FC = () => {
@@ -43,12 +44,14 @@ const ShowProfilePage: React.FC = () => {
                 >
                   BUYER REGISTRATION <ArrowRight size={14} className="uppercase" />
                 </Link>
-                <Link
-                  to="/booth-application"
+                <a
+                  href={APPLICATION_FORM_PDF}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex-1 px-10 py-6 border border-archive-charcoal text-archive-charcoal font-black text-[15px] tracking-[0.4em] hover:bg-archive-charcoal hover:text-white transition-all flex items-center justify-center text-center"
                 >
-                  BOOTH APPLICATION
-                </Link>
+                  BOOTH APPLICATION FORM (PDF)
+                </a>
               </div>
             </div>
 

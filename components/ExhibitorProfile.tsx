@@ -40,7 +40,7 @@ const SOUTH_ASIA_EXHIBITIONS: Exhibition[] = [
     title: 'Intex India',
     edition: '17th Edition',
     date: 'Announcing Soon',
-    location: 'New Delhi',
+    location: 'Announcing Soon',
     imageUrl: '/assets/india.jpg.jpeg',
     category: 'Denim & Apparel',
     region: 'Intex South Asia'
@@ -52,8 +52,8 @@ const ASEAN_EXHIBITIONS: Exhibition[] = [
     id: 'ex-id',
     title: 'Intex Indonesia',
     edition: '1st Edition',
-    date: 'Announcing Soon',
-    location: 'Jakarta',
+    date: '11-12-13 November, 2027',
+    location: 'JICC, Jakarta',
     imageUrl: 'https://images.unsplash.com/photo-1555899434-94d1368aa7af?auto=format&fit=crop&q=80&w=1000',
     category: 'Textiles & Apparel',
     region: 'Intex ASEAN'

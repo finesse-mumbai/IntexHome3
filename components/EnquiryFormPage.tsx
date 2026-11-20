@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { useLocation, Link } from 'react-router-dom';
+import { APPLICATION_FORM_PDF } from '../constants/applicationForm';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   CheckCircle2,
@@ -365,14 +366,14 @@ const EnquiryFormPage: React.FC = () => {
       value: 'India',
       label: 'Intex India',
       dates: '03-04-05 December, 2026',
-      venue: 'IICC, New Delhi'
+      venue: 'Announcing Soon'
     },
     {
       id: 'id',
       value: 'Indonesia',
       label: 'Intex Indonesia',
-      dates: '1st Edition · Announcing Soon',
-      venue: 'Jakarta, Indonesia'
+      dates: '1st Edition · 11-12-13 November, 2027',
+      venue: 'JICC, Jakarta'
     }
   ];
 
@@ -398,15 +399,15 @@ const EnquiryFormPage: React.FC = () => {
         };
       case 'india':
         return {
-          badge: 'Intex South Asia · New Delhi Edition',
+          badge: 'Intex South Asia · India Edition',
           title: 'Intex India · Booth Booking Enquiry',
-          desc: 'Reserve your booth or explore partnership & sponsorship opportunities at Intex India (IICC, New Delhi) — the gateway to India’s massive domestic & export textile markets.'
+          desc: 'Reserve your booth or explore partnership & sponsorship opportunities at Intex India — the gateway to India’s massive domestic & export textile markets.'
         };
       case 'indonesia':
         return {
           badge: 'Intex ASEAN · Jakarta Edition',
           title: 'Intex Indonesia · Booth Booking Enquiry',
-          desc: 'Reserve your booth or explore partnership & sponsorship opportunities at Intex Indonesia (Jakarta) — connecting global suppliers with Indonesia and ASEAN textile & apparel manufacturers.'
+          desc: 'Reserve your booth or explore partnership & sponsorship opportunities at Intex Indonesia (JICC, Jakarta) — connecting global suppliers with Indonesia and ASEAN textile & apparel manufacturers.'
         };
       default:
         return {
@@ -459,7 +460,7 @@ const EnquiryFormPage: React.FC = () => {
 
       {/* Main Form Container */}
       <section className="px-6 md:px-12 max-w-[1440px] mx-auto space-y-6">
-        {/* Banner to Official Online Booth Application */}
+        {/* Banner to the official Booth Application Form (PDF) */}
         <div className="bg-archive-charcoal text-white rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row md:items-center justify-between gap-6 shadow-xl border border-white/10">
           <div className="space-y-1">
             <span className="text-xs font-black uppercase tracking-widest text-archive-clay">
@@ -469,15 +470,17 @@ const EnquiryFormPage: React.FC = () => {
               Ready to apply for booth space?
             </h3>
             <p className="text-xs sm:text-sm text-white/70 max-w-xl">
-              Complete the digital version of the official Exhibitor Space Application & Contract Form with live participation fee calculation, booth size options, and edition selection.
+              Download the official Exhibitor Space Application & Contract Form (PDF), fill it in and email it to intexfair@worldexindia.com.
             </p>
           </div>
-          <Link
-            to="/booth-application"
+          <a
+            href={APPLICATION_FORM_PDF}
+            target="_blank"
+            rel="noopener noreferrer"
             className="px-8 py-4 bg-archive-clay hover:bg-white hover:text-archive-charcoal text-white text-xs font-black tracking-widest uppercase rounded-xl transition-all shrink-0 text-center shadow-lg"
           >
-            Open Booth Application Form
-          </Link>
+            Download Application Form (PDF)
+          </a>
         </div>
 
         <div className="bg-white/90 backdrop-blur-md rounded-2xl border border-archive-charcoal/10 shadow-xl p-6 md:p-10">

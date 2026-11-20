@@ -619,7 +619,7 @@ export const BuyerRegistrationPage: React.FC = () => {
     switch (formData.visiting_country) {
       case '1': return 'Intex Bangladesh · [18-19-20 June 2026]';
       case '3': return 'Intex India · [Dates to be Announced Soon]';
-      case '4': return 'Intex Indonesia · [Dates to be Announced Soon · Jakarta]';
+      case '4': return 'Intex Indonesia · [11-12-13 November 2027 · JICC, Jakarta]';
       default: return 'Intex Sri Lanka · [5-6-7 August 2026 · BMICH, Colombo]';
     }
   };
@@ -645,7 +645,7 @@ export const BuyerRegistrationPage: React.FC = () => {
                     ASEAN Flagship Edition
                   </span>
                   <span className="text-xs font-bold text-archive-charcoal/70">
-                    Jakarta International Expo (JIExpo), Jakarta
+                    Jakarta International Convention Center (JICC), Jakarta
                   </span>
                 </div>
               )}
@@ -890,7 +890,7 @@ export const BuyerRegistrationPage: React.FC = () => {
                         className="accent-archive-clay"
                       />
                     </div>
-                    <span className="text-xs font-bold text-archive-clay mt-2">New Delhi Edition</span>
+                    <span className="text-xs font-bold text-archive-clay mt-2">Venue Announcing Soon</span>
                     <span className="text-[11px] text-archive-charcoal/60 mt-0.5">Dates to be announced</span>
                   </label>
 
@@ -915,8 +915,8 @@ export const BuyerRegistrationPage: React.FC = () => {
                         className="accent-archive-clay"
                       />
                     </div>
-                    <span className="text-xs font-bold text-archive-clay mt-2">Jakarta Edition</span>
-                    <span className="text-[11px] text-archive-charcoal/60 mt-0.5">Dates to be announced</span>
+                    <span className="text-xs font-bold text-archive-clay mt-2">JICC, Jakarta</span>
+                    <span className="text-[11px] text-archive-charcoal/60 mt-0.5">11-12-13 November, 2027</span>
                   </label>
                 </div>
 

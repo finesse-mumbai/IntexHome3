@@ -121,14 +121,6 @@ const InfoKitPage: React.FC = () => {
                 </div>
 
                 <div className="relative z-10 border-t border-archive-charcoal/5 group-hover:border-white/10 flex flex-col sm:flex-row items-stretch gap-2 pt-3">
-                  {asset.type === 'FORM' && (
-                    <Link
-                      to={`/booth-application?show=${activeShow.toLowerCase().replace(/\s+/g, '')}`}
-                      className="px-5 py-3.5 flex-1 bg-archive-clay text-white hover:bg-white hover:text-archive-charcoal transition-all flex items-center justify-center gap-2 text-[12px] font-black tracking-wider uppercase text-center shadow-md cursor-pointer"
-                    >
-                      <span>APPLY ONLINE</span> <ArrowRight size={13} />
-                    </Link>
-                  )}
                   <a
                     href={asset.downloadUrl}
                     target="_blank"

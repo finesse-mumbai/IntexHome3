@@ -56,9 +56,10 @@ const ASEAN_EVENT: HeroEventCard = {
   id: 'ex-id',
   title: 'INTEX Indonesia',
   edition: '1st Edition',
-  date: 'Dates Announcing Soon',
+  date: '11-12-13 November, 2027',
   location: 'Jakarta, Indonesia',
-  venue: 'JIExpo, Jakarta',
+  venue: 'JICC, Jakarta',
+  startsAt: '2027-11-11T10:00:00+07:00',
   route: '/#event/ex-id',
   dark: true,
 };
@@ -121,7 +122,7 @@ const EventCard: React.FC<{ ev: HeroEventCard; onOpen: (route: string) => void }
             </div>
           )}
           {days !== null && (
-            <div className="pt-1 text-[11px] font-black uppercase tracking-wider text-archive-charcoal group-hover:text-archive-clay transition-colors">
+            <div className={`pt-1 text-[11px] font-black uppercase tracking-wider ${dark ? 'text-white/80' : 'text-archive-charcoal'} group-hover:text-archive-clay transition-colors`}>
               Starts in <span className="tabular-nums">{days}</span> days
             </div>
           )}

@@ -24,7 +24,7 @@ const SHOWS = [
   {
     id: 'NODE_IN_26',
     name: 'Intex India',
-    location: 'New Delhi',
+    location: 'Announcing Soon',
     status: 'Upcoming',
     year: '2026',
     date: '03-05 December',
