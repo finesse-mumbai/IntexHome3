@@ -35,6 +35,7 @@ interface FormDataState {
 }
 
 interface FormErrors {
+  exhibit_country?: string;
   fname?: string;
   designation?: string;
   organisation?: string;
@@ -150,6 +151,10 @@ const EnquiryFormPage: React.FC = () => {
     const newErrors: FormErrors = {};
     let isValid = true;
 
+    if (formData.exhibit_country.length === 0) {
+      newErrors.exhibit_country = 'Please select at least one exhibit location';
+      isValid = false;
+    }
     if (!formData.fname.trim()) {
       newErrors.fname = 'Name is required';
       isValid = false;
@@ -222,6 +227,9 @@ const EnquiryFormPage: React.FC = () => {
             : prev.exhibit_country.filter((item) => item !== value);
           return { ...prev, exhibit_country: list };
         });
+        if (checked && errors.exhibit_country) {
+          setErrors((prev) => ({ ...prev, exhibit_country: undefined }));
+        }
       } else if (name === 'product_cat') {
         setFormData((prev) => {
           const list = checked
@@ -283,29 +291,38 @@ const EnquiryFormPage: React.FC = () => {
       });
 
       const response = await fetch(
-        'https://api.intexfair.com/enquiry_form_test_next.php',
+        'https://api.intexfair.com/intexworldexpo_booth_booking_enquiry.php',
         {
           method: 'POST',
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
+            'Accept': 'application/json',
           },
           body: params.toString(),
         }
       );
 
+      let result: { status?: string; message?: string } | null = null;
+      try {
+        result = await response.json();
+      } catch {
+        result = null;
+      }
+
       setLoading(false);
 
-      if (response.ok) {
+      if (response.ok && result?.status === 'Success') {
         setStatusModal({
           show: true,
           type: 'success',
           title: 'Enquiry submitted successfully!',
           message:
+            result.message ||
             'Thank you for showing interest in participating at the Intex 2027 Shows. We shall contact you soon with more details.',
         });
         setFormData({
-          exhibit_type: 'I would like to Exhibit',
-          exhibit_country: ['Sri Lanka'],
+          exhibit_type: isSponsorEnquiry ? 'I would like to be one of the Sponsor' : 'I would like to Exhibit',
+          exhibit_country: targetEvent ? [getEventCountry(targetEvent)] : ['Sri Lanka'],
           fname: '',
           designation: '',
           organisation: '',
@@ -331,8 +348,10 @@ const EnquiryFormPage: React.FC = () => {
         setStatusModal({
           show: true,
           type: 'error',
-          title: 'Notice',
-          message: 'You have already registered or submitted an enquiry for Intex 2027.',
+          title: 'Submission Notice',
+          message:
+            result?.message ||
+            'Unable to submit your enquiry right now. Please try again later.',
         });
       }
     } catch (err) {
@@ -340,8 +359,8 @@ const EnquiryFormPage: React.FC = () => {
       setStatusModal({
         show: true,
         type: 'error',
-        title: 'Enquiry submitted',
-        message: 'Thank you for submitting your enquiry for Intex 2027. We will contact you soon.',
+        title: 'Submission Failed',
+        message: 'Could not connect to the server. Please check your internet connection and try again.',
       });
     }
   };
@@ -566,6 +585,11 @@ const EnquiryFormPage: React.FC = () => {
                     );
                   })}
                 </div>
+                {errors.exhibit_country && (
+                  <p className="text-xs text-red-500 font-medium flex items-center gap-1">
+                    <AlertCircle size={14} /> {errors.exhibit_country}
+                  </p>
+                )}
               </div>
             </div>
 
