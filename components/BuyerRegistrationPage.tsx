@@ -1851,18 +1851,19 @@ export const BuyerRegistrationPage: React.FC = () => {
               >
                 {statusModal.type === 'error' ? <AlertCircle size={32} /> : <CheckCircle2 size={32} />}
               </div>
-              <div className="space-y-2">
-                <h3 className="text-2xl font-black text-archive-charcoal uppercase tracking-tight">
+              <div className="space-y-3">
+                <h3 className="text-2xl font-black text-archive-charcoal uppercase tracking-tight text-center">
                   {statusModal.title}
                 </h3>
-                <p className="text-xs text-archive-charcoal/70 leading-relaxed font-medium space-y-1.5">
-                  {statusModal.message.split(/<br\s*\/?>/i).map((line, idx, arr) => (
-                    <React.Fragment key={idx}>
-                      {line.trim()}
-                      {idx < arr.length - 1 && <br />}
-                    </React.Fragment>
-                  ))}
-                </p>
+                <div className="text-sm text-archive-charcoal/80 leading-relaxed font-medium text-justify space-y-2.5">
+                  {statusModal.message
+                    .split(/<br\s*\/?>/i)
+                    .map(line => line.trim())
+                    .filter(Boolean)
+                    .map((line, idx) => (
+                      <p key={idx}>{line}</p>
+                    ))}
+                </div>
               </div>
               <div className="pt-2">
                 <button
