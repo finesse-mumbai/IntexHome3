@@ -558,59 +558,93 @@ export const BuyerRegistrationPage: React.FC = () => {
       params.append('visiting_country_name', formData.visiting_country === '4' ? 'Indonesia' : formData.visiting_country === '1' ? 'Bangladesh' : formData.visiting_country === '3' ? 'India' : 'Sri Lanka');
       params.append('edition', formData.visiting_country === '4' ? 'Intex Indonesia 2027' : 'Intex South Asia');
 
-      const res = await fetch('https://portal.intexfair.com/php/controller/userController.php?type=buyerReg', {
+      const res = await fetch('https://api.intexfair.com/intexworldexpo_buyer_registration.php', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/x-www-form-urlencoded'
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'Accept': 'application/json'
         },
         body: params.toString()
       });
 
-      setLoading(false);
-
-      const targetEditionName =
-        formData.visiting_country === '4' ? 'Intex Indonesia 2027 (Jakarta)' :
-        formData.visiting_country === '1' ? 'Intex Bangladesh 2026' :
-        formData.visiting_country === '3' ? 'Intex India' : 'Intex South Asia 2026';
-
-      if (res.ok) {
-        try {
-          const data = await res.json();
-          if (data && data.status === 'success') {
-            setStatusModal({
-              show: true,
-              type: 'success',
-              title: 'Registration Successful!',
-              message: data.message || `Thank you for registering as a trade visitor for ${targetEditionName}. An acknowledgment has been sent to your email.`
-            });
-            return;
-          }
-        } catch {
-          // If response was text or redirect
-        }
+      let data: { status?: string; message?: string } | null = null;
+      try {
+        data = await res.json();
+      } catch {
+        data = null;
       }
 
-      // Default success modal display
-      setStatusModal({
-        show: true,
-        type: 'success',
-        title: 'Registration Received!',
-        message: `Thank you for registering as a Trade Visitor for ${targetEditionName}. An acknowledgment with your credentials will be delivered to your registered email.`
-      });
+      setLoading(false);
 
+      const visitingEditionCountry =
+        formData.visiting_country === '4' ? 'Indonesia' :
+        formData.visiting_country === '1' ? 'Bangladesh' :
+        formData.visiting_country === '3' ? 'India' : 'Sri Lanka';
+
+      if (res.ok && data && data.status?.toLowerCase() === 'success') {
+        setStatusModal({
+          show: true,
+          type: 'success',
+          title: 'Registration Successful!',
+          message:
+            data.message ||
+            `Thank You! We have received your registration to visit Intex ${visitingEditionCountry} 2026. <br/>We shall soon send your E-badge on the registered email address. Also, we shall send your login details for access to Intex South Asia Buyer Portal.<br/>Team Intex`
+        });
+        setFormData({
+          visiting_country: resolvedCountryCode,
+          source_name: initialSourceName,
+          name: '',
+          organisation: '',
+          primary_email: '',
+          alternative_email: '',
+          designation: '',
+          department: '',
+          brand_handle: '',
+          address: '',
+          country: defaultCountryMeta.country,
+          state: '',
+          city: '',
+          pincode: '',
+          tel_countrycode: defaultCountryMeta.code,
+          telephone: '',
+          mobile_countrycode: defaultCountryMeta.code,
+          mobile: '',
+          buyer_website: '',
+          preVisit: 'no',
+          preVisitedYear: '',
+          know: [],
+          nob: [],
+          councilAssociation: [],
+          intrested_textile_yarn: [],
+          intrested_textile_febric: [],
+          intrested_denim: [],
+          intrested_cloting_acc: [],
+          intrested_dyes_chemicals: [],
+          others_intrested: '',
+          garment_ind: [],
+          source_channel: [],
+          target_markets: [],
+          purpose: 'Find New Suppliers',
+          other_purpose_visit: '',
+          agree: true
+        });
+      } else {
+        setStatusModal({
+          show: true,
+          type: 'error',
+          title: 'Submission Notice',
+          message:
+            data?.message ||
+            'Unable to submit your registration right now. Please try again later.'
+        });
+      }
     } catch {
       setLoading(false);
-      const fallbackTargetName =
-        formData.visiting_country === '4' ? 'Intex Indonesia 2027 (Jakarta)' :
-        formData.visiting_country === '1' ? 'Intex Bangladesh 2026' :
-        formData.visiting_country === '3' ? 'Intex India' : 'Intex South Asia 2026';
-
-      // Graceful fallback for cross-origin or demo environments
       setStatusModal({
         show: true,
-        type: 'success',
-        title: 'Registration Received!',
-        message: `Thank you for registering as a Trade Visitor for ${fallbackTargetName}. Your registration details have been recorded and our team will get in touch shortly.`
+        type: 'error',
+        title: 'Submission Failed',
+        message: 'Could not connect to the server. Please check your internet connection and try again.'
       });
     }
   };
@@ -1808,15 +1842,26 @@ export const BuyerRegistrationPage: React.FC = () => {
               exit={{ opacity: 0, scale: 0.9 }}
               className="bg-white rounded-3xl p-8 max-w-md w-full shadow-2xl border border-archive-charcoal/10 space-y-5 text-center"
             >
-              <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto">
-                <CheckCircle2 size={32} />
+              <div
+                className={`w-16 h-16 rounded-full flex items-center justify-center mx-auto ${
+                  statusModal.type === 'error'
+                    ? 'bg-red-100 text-red-600'
+                    : 'bg-emerald-100 text-emerald-600'
+                }`}
+              >
+                {statusModal.type === 'error' ? <AlertCircle size={32} /> : <CheckCircle2 size={32} />}
               </div>
               <div className="space-y-2">
                 <h3 className="text-2xl font-black text-archive-charcoal uppercase tracking-tight">
                   {statusModal.title}
                 </h3>
-                <p className="text-xs text-archive-charcoal/70 leading-relaxed font-medium">
-                  {statusModal.message}
+                <p className="text-xs text-archive-charcoal/70 leading-relaxed font-medium space-y-1.5">
+                  {statusModal.message.split(/<br\s*\/?>/i).map((line, idx, arr) => (
+                    <React.Fragment key={idx}>
+                      {line.trim()}
+                      {idx < arr.length - 1 && <br />}
+                    </React.Fragment>
+                  ))}
                 </p>
               </div>
               <div className="pt-2">
